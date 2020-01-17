@@ -410,4 +410,47 @@
     
   </entry>
   
+  <entry>
+    <title>阿里云部署ngrok服务端</title>
+    <link href="https://zhj0125.github.io/2019/02/22/%E9%98%BF%E9%87%8C%E4%BA%91%E9%83%A8%E7%BD%B2ngrok%E6%9C%8D%E5%8A%A1%E7%AB%AF/"/>
+    <id>https://zhj0125.github.io/2019/02/22/%E9%98%BF%E9%87%8C%E4%BA%91%E9%83%A8%E7%BD%B2ngrok%E6%9C%8D%E5%8A%A1%E7%AB%AF/</id>
+    <published>2019-02-22T14:40:43.000Z</published>
+    <updated>2020-01-17T21:18:08.377Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>前段时间在玩3D打印机，需要用ngrok把octoprint映射到公网上，经过不懈努力终于实现了目标，在此我将主要过程写下来与大家分享。</p></blockquote><table><thead><tr><th>服务器类型</th><th>阿里云轻量应用服务器</th></tr></thead><tbody><tr><td>服务器系统</td><td>Ubuntu16.04</td></tr><tr><td>树莓派类型</td><td>树莓派3B+</td></tr></tbody></table><a id="more"></a><h2 id="1-安装go编译器和git"><a href="#1-安装go编译器和git" class="headerlink" title="1.安装go编译器和git"></a>1.安装go编译器和git</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt install golang</span><br><span class="line">apt install git</span><br></pre></td></tr></table></figure><h2 id="2-下载ngrok源码"><a href="#2-下载ngrok源码" class="headerlink" title="2.下载ngrok源码"></a>2.下载ngrok源码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/inconshreveable/ngrok.git</span><br></pre></td></tr></table></figure><h2 id="3-生成签名"><a href="#3-生成签名" class="headerlink" title="3.生成签名"></a>3.生成签名</h2><p>将ngrok文件夹放到<code>/usr/local</code>目录下，进入ngrok目录生成签名</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">NGROK_DOMAIN="forever305.cn"</span><br><span class="line">openssl genrsa -out base.key 2048</span><br><span class="line">openssl req -new -x509 -nodes -key base.key -days 10000 -subj "/CN=$NGROK_DOMAIN" -out base.pem</span><br><span class="line">openssl genrsa -out server.key 2048</span><br><span class="line">openssl req -new -key server.key -subj "/CN=$NGROK_DOMAIN" -out server.csr</span><br><span class="line">openssl x509 -req -in server.csr -CA base.pem -CAkey base.key -CAcreateserial -days 10000 -out server.crt</span><br></pre></td></tr></table></figure><p>注意：这里我把<code>NGROK_DOMAIN</code>定义成了自己阿里云的域名<code>forever305.cn</code></p><h2 id="4-拷贝签名证书"><a href="#4-拷贝签名证书" class="headerlink" title="4.拷贝签名证书"></a>4.拷贝签名证书</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp base.pem assets/client/tls/ngrokroot.crt</span><br><span class="line">cp server.crt assets/server/tls/snakeoil.crt</span><br><span class="line">cp server.key assets/server/tls/snakeoil.key</span><br></pre></td></tr></table></figure><h2 id="5-编译服务端"><a href="#5-编译服务端" class="headerlink" title="5.编译服务端"></a>5.编译服务端</h2><p>服务器安装的系统版本是<code>Ubuntu 16.04.5 LTS (GNU/Linux 4.4.0-141-generic x86_64)</code>，我在网上搜了搜，最后使用下面的命令编译生成了ngrok服务器端。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GOOS=linux GOARCH=386 make release-server</span><br></pre></td></tr></table></figure><h2 id="6-编译客户端"><a href="#6-编译客户端" class="headerlink" title="6.编译客户端"></a>6.编译客户端</h2><p>编译树莓派客户端使用了如下命令</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export GOARCH=arm</span><br><span class="line">make release-client</span><br></pre></td></tr></table></figure><h2 id="7-拷贝文件"><a href="#7-拷贝文件" class="headerlink" title="7.拷贝文件"></a>7.拷贝文件</h2><p>在<code>/usr/local/ngrok/bin</code>目录下，就会在linux_386和linux_arm目录分别生成服务端ngrokd和客户端ngrok，再把ngrok客户端拷贝到树莓派。</p><h2 id="8-服务端测试"><a href="#8-服务端测试" class="headerlink" title="8.服务端测试"></a>8.服务端测试</h2><p>先在阿里云防火墙添加一些需要的端口</p><p><img src="https://img-blog.csdnimg.cn/2019022221375848.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图1 防火墙端口设置"></p><p>图1 防火墙端口设置</p><p>然后在域名的解析界面中，添加<code>*.forever305.cn</code>这条记录</p><p><img src="https://img-blog.csdnimg.cn/20190222214038694.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图2 域名解析设置"></p><p>图2 域名解析设置</p><p>在cmd里面用<code>ping</code>命令测试网络</p><p><img src="https://img-blog.csdnimg.cn/20190222214236251.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图3 测试网络"></p><p>图3 测试网络</p><p>这样域名已经解析成功了，而且输入任意的二级域名都可以指向服务器公网IP。然后运行服务器端的ngrokd进行测试</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/ngrok/bin/linux_386/ngrokd -domain="forever305.cn" -httpAddr=":8080" -httpsAddr=":4433" -tunnelAddr=":4443"</span><br></pre></td></tr></table></figure><p>在地址栏输入<code>http://47.95.13.239:8080/</code>，网页中出现<code>&quot;Tunnel 47.95.13.239:8080 not found&quot;</code>，这样说明服务端应该是没有问题了，出现这一行内容是因为现在服务器的8080端口还没有内容。<img src="https://img-blog.csdnimg.cn/2019022221434769.png#pic_center" alt="图4 服务端测试"></p><p>图4 服务端测试</p><h2 id="9-客户端测试"><a href="#9-客户端测试" class="headerlink" title="9.客户端测试"></a>9.客户端测试</h2><p>刚才已经把编译生成的客户端拷贝到了树莓派的<code>/home/pi/ngrok/aliyun</code>目录下，然后写一个<code>ngrok.cfg</code>文件，其内容如下</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server_addr: "forever305.cn:4443"  /**一定要注意这里的空格**/</span><br><span class="line">trust_host_root_certs: false       /**我就是因为没加空格卡住了***(⊙﹏⊙)*****/</span><br></pre></td></tr></table></figure><p>在树莓派<code>~/ngrok/aliyun</code>目录下，执行如下命令测试客户端：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ngrok -subdomain pi -config=ngrok.cfg 80</span><br></pre></td></tr></table></figure><p>执行上面的命令之后，在树莓派端既可以看到如下界面</p><p><img src="https://img-blog.csdnimg.cn/2019022221455134.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图5 客户端测试"></p><p>图5 客户端测试</p><p>可以看到，现在它映射了<code>127.0.0.1:80</code>到<code>http://pi.forever305.cn:8080</code>，所以已经可以把octoprint放到公网上去了。在浏览器地址栏输入<code>http://pi.forever305.cn:8080</code>即可实现公网访问。</p><p>在实现的过程中，我也参考了很多资料，在此也列出来供大家参考。</p><ol><li><a href="https://ngrok.com/docs" target="_blank" rel="noopener">Ngrok-Documentation</a></li><li><a href="https://blog.csdn.net/u010444106/article/details/80457985" target="_blank" rel="noopener">阿里云搭建自己的ngrok服务-实现内网穿透</a></li><li><a href="http://www.vuln.cn/8634" target="_blank" rel="noopener">树莓派使用ngrok内网转发搭建教程【各种问题终极解决方案】</a></li><li><a href="https://studygolang.com/articles/11326?from=singlemessage" target="_blank" rel="noopener">自己搭建ngrok服务把树莓派放到公网上去</a></li><li><a href="https://www.jianshu.com/p/bac99dd98c4a" target="_blank" rel="noopener">ngrok内网转发</a></li><li><a href="https://blog.csdn.net/gebitan505/article/details/48176763" target="_blank" rel="noopener">搭建自己的ngrok服务</a></li><li><a href="https://www.jianshu.com/p/d0b00d233d09" target="_blank" rel="noopener">Ngrok 编译的坑</a></li><li><a href="https://my.oschina.net/u/3294768/blog/1556062" target="_blank" rel="noopener">Ngrok搭建自己的内网穿透</a></li><li><a href="https://blog.csdn.net/sinat_27938829/article/details/72084757" target="_blank" rel="noopener">搭建Ngrok实现树莓派内网穿透</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;前段时间在玩3D打印机，需要用ngrok把octoprint映射到公网上，经过不懈努力终于实现了目标，在此我将主要过程写下来与大家分享。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;服务器类型&lt;/th&gt;
+&lt;th&gt;阿里云轻量应用服务器&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;服务器系统&lt;/td&gt;
+&lt;td&gt;Ubuntu16.04&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;树莓派类型&lt;/td&gt;
+&lt;td&gt;树莓派3B+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="树莓派" scheme="https://zhj0125.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+      <category term="Ngrok" scheme="https://zhj0125.github.io/tags/Ngrok/"/>
+    
+      <category term="内网穿透" scheme="https://zhj0125.github.io/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
+    
+  </entry>
+  
 </feed>
