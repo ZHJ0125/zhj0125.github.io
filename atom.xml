@@ -383,4 +383,31 @@
     
   </entry>
   
+  <entry>
+    <title>树莓派ngrok客户端开机自启</title>
+    <link href="https://zhj0125.github.io/2019/03/09/%E6%A0%91%E8%8E%93%E6%B4%BEngrok%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF/"/>
+    <id>https://zhj0125.github.io/2019/03/09/%E6%A0%91%E8%8E%93%E6%B4%BEngrok%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF/</id>
+    <published>2019-03-09T08:41:22.000Z</published>
+    <updated>2020-01-17T21:09:49.157Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>上一篇文章已经介绍了如何<a href="https://blog.csdn.net/ZHJ123CSDN/article/details/87886424" target="_blank" rel="noopener">将ngrok服务端部署到阿里云服务器</a>，并且在树莓派部署了ngrok客户端。但是每次启动ngrok服务，都需要运行start.sh脚本，很不方便。于是就需要让树莓派ngrok客户端开机启动。<br>这篇文章要实现的效果是：在阿里云服务端运行的前提下，树莓派开机后，会自动运行ngrok客户端脚本，实现公网访问。</p></blockquote><a id="more"></a><h2 id="一、阿里云服务端"><a href="#一、阿里云服务端" class="headerlink" title="一、阿里云服务端"></a>一、阿里云服务端</h2><p>阿里云服务器主要负责”运行服务端”和”储存客户端脚本”。为了让服务端在阿里云上保持运行状态，执行如下命令:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash /usr/local/ngrok/bin/linux_386/start.sh</span><br></pre></td></tr></table></figure><p>该命令的作用是执行启动服务端的脚本文件”<code>start.sh</code>“，使ngrok服务端启动。</p><h2 id="二、拷贝客户端文件"><a href="#二、拷贝客户端文件" class="headerlink" title="二、拷贝客户端文件"></a>二、拷贝客户端文件</h2><p>将运行树莓派服务端所需要的脚本等文件，保存在阿里云的<code>/usr/local/ngrok/bin/linux_arm/</code>目录下，便于树莓派下载使用。使用以下命令下载有关文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo scp root@47.95.13.239: /usr/local/ngrok/bin/linux_arm/ngrok /usr/local/ngrok</span><br><span class="line">sudo scp root@47.95.13.239: /usr/local/ngrok/bin/linux_arm/ngrok.cfg /usr/local/ngrok</span><br><span class="line">sudo scp root@47.95.13.239: /usr/local/ngrok/bin/linux_arm/start.sh /usr/local/ngrok</span><br></pre></td></tr></table></figure><p>这三条语句是分别从阿里云服务器上，下载<code>ngrok</code>、<code>ngrok.cfg</code>、<code>start.sh</code>到树莓派的<code>/usr/local/ngrok</code>目录下。</p><p>表1 阿里云储存的文件及其作用</p><table><thead><tr><th>文件</th><th>作用</th></tr></thead><tbody><tr><td>ngrok</td><td>Ngrok客户端文件</td></tr><tr><td>ngrok.cfg</td><td>Ngrok的配置文件</td></tr><tr><td>start.sh</td><td>启动ngrok客户端的脚本文件</td></tr></tbody></table><h2 id="三、设置脚本开机运行"><a href="#三、设置脚本开机运行" class="headerlink" title="三、设置脚本开机运行"></a>三、设置脚本开机运行</h2><h3 id="1-首先将start-sh文件拷贝到树莓派的-usr目录下"><a href="#1-首先将start-sh文件拷贝到树莓派的-usr目录下" class="headerlink" title="1.首先将start.sh文件拷贝到树莓派的/usr目录下"></a>1.首先将start.sh文件拷贝到树莓派的/usr目录下</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /usr/local/ngrok/start.sh /usr</span><br></pre></td></tr></table></figure><h3 id="2-编辑-etc-rc-local文件，设置开机启动"><a href="#2-编辑-etc-rc-local文件，设置开机启动" class="headerlink" title="2.编辑/etc/rc.local文件，设置开机启动"></a>2.编辑/etc/rc.local文件，设置开机启动</h3><p>打开该文件，然后在文件最后一行添加要执行程序的全路径，即在”<code>exit 0</code>“前面，添加”<code>/usr/./start.sh</code>“</p><p><img src="https://img-blog.csdnimg.cn/20190309161753602.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>图1 设置开机运行</p><p>使用<code>sudo reboot</code>重启树莓派，就可以直接登录公网ip进行访问了。</p><h2 id="四、附录"><a href="#四、附录" class="headerlink" title="四、附录"></a>四、附录</h2><h3 id="4-1-ngrok-cfg"><a href="#4-1-ngrok-cfg" class="headerlink" title="4.1 ngrok.cfg"></a>4.1 ngrok.cfg</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server_addr: "forever305.cn:4443"</span><br><span class="line">trust_host_root_certs: false</span><br></pre></td></tr></table></figure><h4 id="4-2-start-sh"><a href="#4-2-start-sh" class="headerlink" title="4.2 start.sh"></a>4.2 start.sh</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">/usr/local/ngrok/ngrok -config=/usr/local/ngrok/ngrok.cfg -subdomain pi 80</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;上一篇文章已经介绍了如何&lt;a href=&quot;https://blog.csdn.net/ZHJ123CSDN/article/details/87886424&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;将ngrok服务端部署到阿里云服务器&lt;/a&gt;，并且在树莓派部署了ngrok客户端。但是每次启动ngrok服务，都需要运行start.sh脚本，很不方便。于是就需要让树莓派ngrok客户端开机启动。&lt;br&gt;这篇文章要实现的效果是：在阿里云服务端运行的前提下，树莓派开机后，会自动运行ngrok客户端脚本，实现公网访问。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="树莓派" scheme="https://zhj0125.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+      <category term="Ngrok" scheme="https://zhj0125.github.io/tags/Ngrok/"/>
+    
+      <category term="内网穿透" scheme="https://zhj0125.github.io/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
+    
+  </entry>
+  
 </feed>
