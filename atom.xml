@@ -186,4 +186,31 @@
     
   </entry>
   
+  <entry>
+    <title>Unable to lock the administration directory (/var/lib/dpkg/)解决办法</title>
+    <link href="https://zhj0125.github.io/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg-%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>https://zhj0125.github.io/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg-%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</id>
+    <published>2019-06-26T14:24:37.000Z</published>
+    <updated>2020-01-17T18:34:05.313Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="修复”无法锁定Ubuntu中的管理目录-var-lib-dpkg-”"><a href="#修复”无法锁定Ubuntu中的管理目录-var-lib-dpkg-”" class="headerlink" title="修复”无法锁定Ubuntu中的管理目录(/var/lib/dpkg/)”"></a>修复”无法锁定Ubuntu中的管理目录(/var/lib/dpkg/)”</h2><blockquote><p>问题描述：<br>Ubuntu18.04在更新软件源时，出现“Unable to lock the administration directory (/var/lib/dpkg/)” 报错信息。</p><p><img src="https://img-blog.csdnimg.cn/20190626215634585.png#pic_center" alt="图片描述"></p><p>问题分析：<br>Linux为了避免已经运行的apt-get或apt进程被用户或需要处理apt文件的其他进程中断，运行apt-get或apt命令后，将在以下任何目录<code>/var/lib/apt/lists/</code>，<code>/var/lib/dpkg/</code> 和 <code>/var/cache/apt/archives/</code> 下创建一个 <em>lock</em>(锁定文件)。正常情况下，当进程执行完毕后，将删除锁定文件。如果有程序正在占用该进程，锁定文件未删除，就会导致此问题发生。</p></blockquote><a id="more"></a><h3 id="两种解决办法"><a href="#两种解决办法" class="headerlink" title="两种解决办法"></a>两种解决办法</h3><h4 id="方案一：找到并杀死apt进程"><a href="#方案一：找到并杀死apt进程" class="headerlink" title="方案一：找到并杀死apt进程"></a>方案一：找到并杀死apt进程</h4><blockquote><p>1.使用ps命令找到正在运行的apt进程：</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -A | grep apt</span><br></pre></td></tr></table></figure><p><img src="https://img-blog.csdnimg.cn/20190626215953373.png#pic_center" alt="在这里插入图片描述"></p><blockquote><p>2.使用kill命令杀死该进程</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo kill -9 进程号</span><br></pre></td></tr></table></figure><p><img src="https://img-blog.csdnimg.cn/2019062622015450.png#pic_center" alt="在这里插入图片描述"></p><blockquote><p>3.重新更新软件源即可：</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">or</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure><p><img src="https://img-blog.csdnimg.cn/20190626221321107.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p><p>第一种方案亲测可用。</p><h4 id="方案2：删除锁定文件"><a href="#方案2：删除锁定文件" class="headerlink" title="方案2：删除锁定文件"></a>方案2：删除锁定文件</h4><blockquote><p>1.首先删除锁定文件</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/lib/dpkg/lock</span><br></pre></td></tr></table></figure><blockquote><p>2.之后强制dpkg重新配置</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg --configure -a</span><br></pre></td></tr></table></figure><blockquote><p>3.删除另外两个锁定文件</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/lib/apt/lists/lock</span><br><span class="line">sudo rm /var/cache/apt/archives/lock</span><br></pre></td></tr></table></figure><blockquote><p>4.最后进行软件源更新即可</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">or</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;修复”无法锁定Ubuntu中的管理目录-var-lib-dpkg-”&quot;&gt;&lt;a href=&quot;#修复”无法锁定Ubuntu中的管理目录-var-lib-dpkg-”&quot; class=&quot;headerlink&quot; title=&quot;修复”无法锁定Ubuntu中的管理目录(/var/lib/dpkg/)”&quot;&gt;&lt;/a&gt;修复”无法锁定Ubuntu中的管理目录(/var/lib/dpkg/)”&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;问题描述：&lt;br&gt;Ubuntu18.04在更新软件源时，出现“Unable to lock the administration directory (/var/lib/dpkg/)” 报错信息。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20190626215634585.png#pic_center&quot; alt=&quot;图片描述&quot;&gt;&lt;/p&gt;
+&lt;p&gt;问题分析：&lt;br&gt;Linux为了避免已经运行的apt-get或apt进程被用户或需要处理apt文件的其他进程中断，运行apt-get或apt命令后，将在以下任何目录&lt;code&gt;/var/lib/apt/lists/&lt;/code&gt;，&lt;code&gt;/var/lib/dpkg/&lt;/code&gt; 和 &lt;code&gt;/var/cache/apt/archives/&lt;/code&gt; 下创建一个 &lt;em&gt;lock&lt;/em&gt;(锁定文件)。正常情况下，当进程执行完毕后，将删除锁定文件。如果有程序正在占用该进程，锁定文件未删除，就会导致此问题发生。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="日常Debug" scheme="https://zhj0125.github.io/tags/%E6%97%A5%E5%B8%B8Debug/"/>
+    
+      <category term="Ubuntu" scheme="https://zhj0125.github.io/tags/Ubuntu/"/>
+    
+  </entry>
+  
 </feed>
