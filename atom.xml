@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhj0125.github.io/"/>
-  <updated>2020-01-20T05:31:32.218Z</updated>
+  <updated>2020-01-20T06:26:54.268Z</updated>
   <id>https://zhj0125.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>技术资源链接</title>
+    <link href="https://zhj0125.github.io/2020/01/20/%E6%8A%80%E6%9C%AF%E8%B5%84%E6%BA%90%E9%93%BE%E6%8E%A5/"/>
+    <id>https://zhj0125.github.io/2020/01/20/%E6%8A%80%E6%9C%AF%E8%B5%84%E6%BA%90%E9%93%BE%E6%8E%A5/</id>
+    <published>2020-01-20T05:52:04.000Z</published>
+    <updated>2020-01-20T06:26:54.268Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>下面是主要的技术资源网站，记录下来以便查找</p></blockquote><a id="more"></a><h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h3><ul><li><a href="https://zhj.forever305.cn/" target="_blank" rel="noopener">厚今的博客</a></li><li><a href="https://blog.csdn.net/ZHJ123CSDN" target="_blank" rel="noopener">CSDN</a></li><li><a href="https://www.cnblogs.com/ZHJ0125/" target="_blank" rel="noopener">博客园</a></li></ul><h3 id="空间"><a href="#空间" class="headerlink" title="空间"></a>空间</h3><ul><li><a href="https://www.zhihu.com/people/zhang-hao-ren-27-66" target="_blank" rel="noopener">知乎</a></li><li><a href="https://www.jianshu.com/u/dd6201a6ae0b" target="_blank" rel="noopener">简书</a></li><li><a href="https://www.douban.com/people/176050691/" target="_blank" rel="noopener">豆瓣</a></li><li><a href="https://weibo.com/u/6413483213?is_all=1" target="_blank" rel="noopener">微博</a></li><li><a href="https://space.bilibili.com/34749981" target="_blank" rel="noopener">BiliBili</a></li><li><a href="https://www.facebook.com/profile.php?id=100031075455534" target="_blank" rel="noopener">FaceBook</a></li><li><a href="https://www.linkedin.com/in/%E5%8E%9A%E4%BB%8A-%E5%BC%A0-19a709153/" target="_blank" rel="noopener">Linkedin</a></li><li><a href="https://stackoverflow.com/users/10720634/zhang-h-j" target="_blank" rel="noopener">Stark Overflow</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;下面是主要的技术资源网站，记录下来以便查找&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="资源分享" scheme="https://zhj0125.github.io/tags/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>我的随笔</title>
@@ -147,9 +170,9 @@
     
       <category term="STC11F04E" scheme="https://zhj0125.github.io/tags/STC11F04E/"/>
     
-      <category term="单片机外设" scheme="https://zhj0125.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA%E5%A4%96%E8%AE%BE/"/>
-    
       <category term="电子工艺实训" scheme="https://zhj0125.github.io/tags/%E7%94%B5%E5%AD%90%E5%B7%A5%E8%89%BA%E5%AE%9E%E8%AE%AD/"/>
+    
+      <category term="单片机外设" scheme="https://zhj0125.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA%E5%A4%96%E8%AE%BE/"/>
     
   </entry>
   
