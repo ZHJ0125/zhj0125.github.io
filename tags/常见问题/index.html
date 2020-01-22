@@ -6,53 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://zhj0125.github.io">
-  <title>Android——简易照相机 | 厚今的博客</title>
+  <title>Tag: 常见问题 | 厚今的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="实验名称：Android多媒体应用-拍照实验目的：设计一个简易照相机实验内容：利用Camera类设计一个简易照相机，通过SurfaceView组件实现取景预览，拍照保存等功能，拍照保存时按camera+序号.jpg的方式保存照片，序号自动增加，确保拍照保存不会覆盖前面的照片。实验日期：2019年5月">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Android——简易照相机">
-<meta property="og:url" content="https://zhj0125.github.io/2019/05/06/Android%E2%80%94%E2%80%94%E7%AE%80%E6%98%93%E7%85%A7%E7%9B%B8%E6%9C%BA/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="厚今的博客">
+<meta property="og:url" content="https://zhj0125.github.io/tags/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="实验名称：Android多媒体应用-拍照实验目的：设计一个简易照相机实验内容：利用Camera类设计一个简易照相机，通过SurfaceView组件实现取景预览，拍照保存等功能，拍照保存时按camera+序号.jpg的方式保存照片，序号自动增加，确保拍照保存不会覆盖前面的照片。实验日期：2019年5月">
 <meta property="og:locale" content="zh">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506131541629.png#pic_center?">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506131730844.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506131805804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506131824629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506131846525.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506131903144.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506131919146.png#pic_center?">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506131949633.png#pic_center?">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506132015122.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x600">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506132039889.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x600">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506132111655.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x600">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506132129765.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x600">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2019050613220887.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x600">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506132226907.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506132304601.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506132335474.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x600">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506132349663.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x600">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506132422580.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506132441632.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506132504437.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506132535944.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506132550369.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506132611198.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506132641702.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x600">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2019050613271651.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x600">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506132734762.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506132753487.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x600">
-<meta property="article:published_time" content="2019-05-06T05:47:01.000Z">
-<meta property="article:modified_time" content="2020-01-20T05:32:05.965Z">
 <meta property="article:author" content="张厚今">
-<meta property="article:tag" content="Android">
-<meta property="article:tag" content="实验报告">
-<meta property="article:tag" content="技术笔记">
-<meta property="article:tag" content="Camera">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190506131541629.png#pic_center?">
   
     <link rel="alternative" href="/atom.xml" title="厚今的博客" type="application/atom+xml">
   
@@ -254,425 +218,69 @@ var _hmt = _hmt || [];
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Android——简易照相机" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-      <header class="article-header">
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2020/01/22/VLC-%E5%A4%96%E6%8C%82%E5%AD%97%E5%B9%95%E4%B9%B1%E7%A0%81/" class="archive-article-date">
+        <time datetime="2020-01-22T13:11:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-22</time>
+</a>
+
+        </div>
+    	 
   
-  
-    <h1 class="article-title" itemprop="name">
-      Android——简易照相机
+    <h1 itemprop="name">
+	
+	  <a class="archive-article-title" href="/2020/01/22/VLC-%E5%A4%96%E6%8C%82%E5%AD%97%E5%B9%95%E4%B9%B1%E7%A0%81/">VLC 外挂字幕乱码</a>
+	
     </h1>
   
 
 
-  
-  
-        
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-
-<a href="/2019/05/06/Android%E2%80%94%E2%80%94%E7%AE%80%E6%98%93%E7%85%A7%E7%9B%B8%E6%9C%BA/" class="archive-article-date">
-        <time datetime="2019-05-06T05:47:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-06</time>
-</a>
-
-  
-  
-    
-<div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <!-- fonts.scss -->
-      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
-      <i class="icon-statistics"></i>
-      <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">5.5k字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="icon-book icon"></i>
-      <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">21分</span>
-    </span>
-  </span>
-</div>
-
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>实验名称：Android多媒体应用-拍照<br>实验目的：设计一个简易照相机<br>实验内容：利用Camera类设计一个简易照相机，通过SurfaceView组件实现取景预览，拍照保存等功能，拍照保存时按camera+序号.jpg的方式保存照片，序号自动增加，确保拍照保存不会覆盖前面的照片。<br>实验日期：2019年5月</p>
-</blockquote>
-<a id="more"></a>
-
-<h2 id="一、实验原理"><a href="#一、实验原理" class="headerlink" title="一、实验原理"></a>一、实验原理</h2><p>该相机程序，需要应用surfaceview组件来预览摄像头拍摄到的景物，再使用回调接口surfaceholder.callback监控取景视图。使用照片服务类Camera实现拍照功能，并通过imageview组件显示。最后通过onPicturetaken方法，将拍摄的照片保存至手机。编写getFile和checkFileName方法，用来对文件名进行处理，实现了实验对于文件名的要求。</p>
-<h2 id="二、实验过程记录"><a href="#二、实验过程记录" class="headerlink" title="二、实验过程记录"></a>二、实验过程记录</h2><h3 id="2-1-布局文件"><a href="#2-1-布局文件" class="headerlink" title="2.1 布局文件"></a>2.1 布局文件</h3><p>为实现基本的相机程序效果，使用最简单的线性布局，通过组建的嵌套生成需要的布局。首先指定最外层的线性布局对齐方式为垂直布局，之后再编写textview组件显示程序的标题，然后嵌套一层水平对齐方式的线性布局，在其中加入两个button组件用于防止“拍照”和“退出”按钮。之后在第一层线性布局中加入ImageView组件用于相片的显示，最后加入surfaceView组件用于取景预览。</p>
-<h3 id="2-2-控制文件"><a href="#2-2-控制文件" class="headerlink" title="2.2 控制文件"></a>2.2 控制文件</h3><h4 id="2-2-1-实例化对象"><a href="#2-2-1-实例化对象" class="headerlink" title="2.2.1 实例化对象"></a>2.2.1 实例化对象</h4><p>在MainActivity.java文件中修改文件，以实现对程序的控制。首先在公共类 “MainActivity” 扩展 “Activity” 之后，添加 “implements SurfaceHolder.Callback” ，实现Callback接口，以处理取景预览功能。之后，如下图所示实例化所需的对象，并声明用于保存图片文件的路径。<br><img src="https://img-blog.csdnimg.cn/20190506131541629.png#pic_center?" alt="在这里插入图片描述"><br>图2.1</p>
-<p>在上图2.1中，分别实例化了用于拍照功能的“Camera”对象“mCamera”、用于取景预览的“SurfaceView”对象“surfaceView”、用于回调图片参数的“SurfaceHolder”对象“holder”、用于显示图片的“ImageView”对象“mImageView”、用于拍照退出的按钮对象“cameraBtn”和“exitBtn”，以及用于记录图片保存路径的对象“path”。</p>
-<h4 id="2-2-2-重载构造函数"><a href="#2-2-2-重载构造函数" class="headerlink" title="2.2.2 重载构造函数"></a>2.2.2 重载构造函数</h4><p>对构造函数进行修改，使其实现“关联布局文件和控制文件，注册回调监听器”的功能。如图2.2所示：</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506131730844.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?" alt="在这里插入图片描述"></p>
-<p>图2.2</p>
-<p>首先，通过findViewById方法关联图1中的相关组件，并为“cameraBtn”和“exitBtn”分别设置监听事件，最后设置SurfaceHolder对象的相关内容。创建SurfaceHolder对象“holder”，注册回调监听器并设置SurfaceHolder的类型。</p>
-<h4 id="2-2-3-编写mClick类"><a href="#2-2-3-编写mClick类" class="headerlink" title="2.2.3 编写mClick类"></a>2.2.3 编写mClick类</h4><p>为按钮的监听事件编写mClick类，以实现拍照和退出功能。如图2.3所示：</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506131805804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?" alt="在这里插入图片描述"></p>
-<p>图2.3</p>
-<p>上图中，构造了一个继承于OnClickListener的mClick类。通过判断点击按钮传入的参数v，可以对拍照和退出进行区分，拍照使用takePicture方法，退出则调用exit()函数，对相机资源进行重置。</p>
-<h4 id="2-2-4-编写jpegCallback类"><a href="#2-2-4-编写jpegCallback类" class="headerlink" title="2.2.4 编写jpegCallback类"></a>2.2.4 编写jpegCallback类</h4><p>在图3编写的mClick类中，takePicture方法用到了获取照片事件的回调接口jpegCallback，现在需要对jpegCallback类进行编写。如图2.4所示：</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506131824629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?" alt="在这里插入图片描述"></p>
-<p>图2.4</p>
-<p>在上图中，编写了继承于Camera. PictureCallback的类“jpegCallback” ，通过重载onPictureTaken函数，实现了拍照、显示图片以及保存图片的功能。</p>
-<h4 id="2-2-5重载surfaceCreated方法"><a href="#2-2-5重载surfaceCreated方法" class="headerlink" title="2.2.5重载surfaceCreated方法"></a>2.2.5重载surfaceCreated方法</h4><p>创建相机对象之后，会默认调用三个构造函数，分别为surfaceCreated、surfaceChanged和surfaceDestroyed，首先重载surfaceCreated函数，如图2.5所示。</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506131846525.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?" alt="在这里插入图片描述"></p>
-<p>图2.5</p>
-<p>上图中，首先释放掉相机资源，然后开启摄像头。之后尝试进行相机预览，如果捕获到预览错误信息，则输出报错。其中的ReleaseCamera()函数用来重置相机，释放相机资源。</p>
-<h4 id="2-2-6重载surfaceChanged方法"><a href="#2-2-6重载surfaceChanged方法" class="headerlink" title="2.2.6重载surfaceChanged方法"></a>2.2.6重载surfaceChanged方法</h4><p>相机画面发生变化时，将触发surfaceChanged方法，如下图2.6所示重载surfaceChanged方法。</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506131903144.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?" alt="在这里插入图片描述"></p>
-<p>图2.6</p>
-<p>重载的surfaceChanged方法会调用initCamera函数，重新设置预览的画面。重置包括预览画面的格式、大小、预览框大小等信息。最后调用startPreview方法开始预览。</p>
-<h4 id="2-2-7重载surfaceDestroyed方法"><a href="#2-2-7重载surfaceDestroyed方法" class="headerlink" title="2.2.7重载surfaceDestroyed方法"></a>2.2.7重载surfaceDestroyed方法</h4><p>关闭相机时，会触发surfaceDestroyed方法，如下图2.7所示重载surfaceDestroyed方法。</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506131919146.png#pic_center?" alt="在这里插入图片描述"></p>
-<p>图2.7</p>
-<p>可以看到，重载的surfaceDestroyed方法并没有实现具体的功能。</p>
-<h3 id="2-3添加权限"><a href="#2-3添加权限" class="headerlink" title="2.3添加权限"></a>2.3添加权限</h3><p>由于程序中用到了SD卡读写和相机的调用，所以需要在程序文件中声明需要申请的权限。包括SD卡读取、写入权限，以及相机调用权限。如下图2.8所示，在AndroidManifest.xml文件中添加下列信息，以申请权限。</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506131949633.png#pic_center?" alt="在这里插入图片描述"></p>
-<p>图2.8</p>
-<h3 id="2-4安装APK测试"><a href="#2-4安装APK测试" class="headerlink" title="2.4安装APK测试"></a>2.4安装APK测试</h3><p>由于AndroidStudio模拟器在电脑上经常卡顿，所以我决定使用安卓手机进行测试。首先将编译好的项目打包成APK文件，然后将该APK文件发送至手机端安装。安装截图如图2.9所示，可以看到安装时会提示该APP将获取的手机权限。</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506132015122.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x600" alt="在这里插入图片描述"></p>
-<p>图2.9</p>
-<p>点击安装即可完成APK文件的安装。</p>
-<h2 id="三、实验中存在的问题及解决方案"><a href="#三、实验中存在的问题及解决方案" class="headerlink" title="三、实验中存在的问题及解决方案"></a>三、实验中存在的问题及解决方案</h2><h3 id="3-1-预览倾斜问题及解决过程"><a href="#3-1-预览倾斜问题及解决过程" class="headerlink" title="3.1 预览倾斜问题及解决过程"></a>3.1 预览倾斜问题及解决过程</h3><p>安装完成，运行该APP程序，点击拍照按钮，可以看到如图3.1所示的手机界面。其中上面的小画面是imageView组件显示的拍完的照片，下面的大图片是surfaceView组件显示的相机预览照片。</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506132039889.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x600" alt="在这里插入图片描述"></p>
-<p>图3.1</p>
-<p>拍摄完成之后，推迟该APP，并在手机自带的文件管理界面，找到test文件夹(如图3.2)，这是刚刚图片拍摄之后，程序生成的文件夹，用于保存图片文件。在test文件夹下，可以看到刚刚生成的camera.jpg文件(如图3.3所示) ，浏览该文件，可以查看之前拍摄的图片(如图3.4) 。</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506132111655.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x600" alt="在这里插入图片描述"></p>
-<p>图3.2</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506132129765.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x600" alt="在这里插入图片描述"></p>
-<p>图3.3</p>
-<p><img src="https://img-blog.csdnimg.cn/2019050613220887.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x600" alt="在这里插入图片描述"></p>
-<p>图3.4</p>
-<p>查看该图片，发现拍摄出来的图片，与正常视角相差了90°，而且在图片拍摄和预览过程中，图片和正常视角都是不相符的，都旋转了90°。</p>
-<p>经过查阅资料发现，主要是由于相机传感器像素坐标信息，与手机显示屏像素坐标不相符导致的。图3.5展示了两像素坐标的不同之处。</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506132226907.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?" alt="在这里插入图片描述"></p>
-<p>图3.5(图片引用于：<code>https://blog.csdn.net/xx326664162/article/details/53350551</code>)</p>
-<p>相机传感器获取得到图像，就确定了这幅图像每个坐标的像素值，但是要显示到手机屏幕上，就需要按照屏幕的坐标系来显示，于是就需要将相机传感器的坐标系逆时针旋转90度，才能显示到屏幕的坐标系上。</p>
-<p>在安卓程序中，提供了相关的setRotation()方法和setDisplayOrientation()方法。其中，setRotation()方法的作用是将相机传感器获取到的位图坐标旋转一定的角度，而setDisplayOrientation()方法的作用是将预览时的画面旋转一定的角度。通过调用这两个方法，我们就可以实现图片的正常拍摄和预览了。如图3.6所示，在原有程序的基础上添加该方法， 再生成APK文件进行测试。</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506132304601.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?" alt="在这里插入图片描述"></p>
-<p>图3.6</p>
-<p>重新安装APK文件，测试运行，运行结果如图3.7所示。可以看到，预览的图片已经可以正常显示了。然后再到test文件夹中查看camera.jpg文件(如图3.8) ，同样，拍摄的图片也是可以正常显示了。</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506132335474.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x600" alt="在这里插入图片描述"></p>
-<p>图3.7</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506132349663.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x600" alt="在这里插入图片描述"></p>
-<p>图3.8</p>
-<h3 id="3-2-文件命名问题及解决过程"><a href="#3-2-文件命名问题及解决过程" class="headerlink" title="3.2 文件命名问题及解决过程"></a>3.2 文件命名问题及解决过程</h3><p>目前的程序所能实现的功能，只能拍摄一张照片，如果拍摄多张照片，由于文件名相同，后面的文件就会将前面已存在的文件覆盖掉，很不方便。本次实验要求的是“拍照保存时按camera+序号.jpg的方式保存照片，序号自动增加”。</p>
-<h4 id="3-2-1问题分析"><a href="#3-2-1问题分析" class="headerlink" title="3.2.1问题分析"></a>3.2.1问题分析</h4><p>为了实现这个功能，需要在每次文件保存使，都要考虑我们需要生成的文件名是什么。如果企图保存当前程序生成的图片数量，在关闭APP之后，数据不易保存。所以我想的解决办法是：每次生成的文件名都需要经历两次函数，第一个函数需要返回所需文件夹中的所有文件，第二个函数需要判断指定的文件在该文件夹中是否存在，如果存在则返回一个我们需要的、正确的文件名。</p>
-<h4 id="3-2-2测试程序"><a href="#3-2-2测试程序" class="headerlink" title="3.2.2测试程序"></a>3.2.2测试程序</h4><p>① getFile()函数</p>
-<p>为了不破坏原有的安卓程序，我在Eclipse中进行相关函数的编写和测试。首先编写第一个函数getFile()，该函数需要输入文件夹的路径字符串，输出该文件夹下的所有文件名。程序文件如图3.9所示：</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506132422580.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?" alt="在这里插入图片描述"></p>
-<p>图3.9</p>
-<p>该程序，首先通过path参数获取指定的文件对象，再通过listFiles()方法列出该文件夹下，所有的文件，包括文件夹、普通文件等等，并将其保存在array数组中。之后逐个判断是否为普通文件，将文件名保存在list中，最后返回list。</p>
-<p>现在，将path指定为桌面上的android文件夹，调用getFiles方法，查看程序输出。</p>
-<p>图3.10是android文件夹下的文件信息，图11是程序输出的信息。</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506132441632.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?" alt="在这里插入图片描述"></p>
-<p>图3.10</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506132504437.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?" alt="在这里插入图片描述"></p>
-<p>图3.11</p>
-<p>可以看到，除了临时文件，普通文件均可以正常输出。</p>
-<p>② checkFileName方法</p>
-<p>下面实现checkFileName函数，该方法的作用是：在文件名字符串中，判断所需要的字符串是否存在，如果存在则返回原文件名；不存在则重新调用，利用index参数，实现文件名的递增过程。最后返回一个正确的、合理的文件名。</p>
-<p>checkFileName方法的实现过程是：首先将传入的文件名参数根据“.”进行分割，分成“.”之前的字符串+起始索引数字index+“.”字符+“.”之后的字符串，然后判断整个文件名是否包含于长文件名参数中，如果存在则再次调用该方法，同时起始索引数字加一；如果不存在，就直接返回上面连接好的文件名。</p>
-<p>现在将checkFileName方法和getFile进行合并，通过main函数进行调用测试。首先在桌面的android目录下新建一个mydir目录，在mydir目录下新建一个test.txt文件，然后运行java程序进行测试。</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506132535944.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?" alt="在这里插入图片描述"></p>
-<p>图3.12</p>
-<p>上图3.12展示了当前的mydir目录以及Java程序的运行结果。由于起始索引参数index设置的是0，而文件夹下只有一个test.txt文件，所以程序返回的结果“test.txt”是正确的。为了测试的准确性，我在mydir目录下又新建了一个test0.txt文件，如果程序功能正常，应该是会返回test1.txt。下面运行程序测试：</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506132550369.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?" alt="在这里插入图片描述"></p>
-<p>图3.13</p>
-<p>可以看到，程序运行结果正确。</p>
-<h4 id="3-2-3安卓测试"><a href="#3-2-3安卓测试" class="headerlink" title="3.2.3安卓测试"></a>3.2.3安卓测试</h4><p>现在可以放心地将代码移植到AndroidStudio程序中去了。在原有的onPictureTaken()方法的基础上，增加红色框中的内容，如图3.14所示。其含义为：通过getFile方法查找手机”/sdcard/test”目录下的所有文件，将结果返回至list中。然后通过调用checkFileName方法，检查list中是否有符合filename的文件名(filename已在之前定义)，checkFileName方法会返回合理的文件名，再通过字符串连接，将完整的路径保存到path字符串中，作为完整的文件名路径。</p>
-<p>为了更清晰的显示文件保存的路径和文件名信息，我在布局文件中增加了一个textview组件，在path生成之后，将path输出到textview显示，这样就会对文件的路径信息更加直观。<br>最后，将getFile和checkFileName方法都移植到java文件中，就可以运行测试了。</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506132611198.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?" alt="在这里插入图片描述"></p>
-<p>图3.14</p>
-<p>同样重新生成APK文件测试运行，进行多次拍摄，下面是我拍摄第8次时的界面截图(图3.15)。</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506132641702.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x600" alt="在这里插入图片描述"></p>
-<p>图3.15</p>
-<p>因为文件名起始索引为0，所以第8次生成的文件名应该是camera7.jpg，可以从APP界面中看到文件的保存路径。现在在test文件夹下，会有8张我刚刚拍摄的图片，命名方式为camera+i。图3.16展示了test文件夹下的文件信息，文件的保存也是正常的。</p>
-<p><img src="https://img-blog.csdnimg.cn/2019050613271651.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x600" alt="在这里插入图片描述"></p>
-<p>图3.16</p>
-<h3 id="3-3-预览画面卡顿问题及解决过程"><a href="#3-3-预览画面卡顿问题及解决过程" class="headerlink" title="3.3 预览画面卡顿问题及解决过程"></a>3.3 预览画面卡顿问题及解决过程</h3><p>之前的多次测试中，我发现该程序的一个bug：在每次点击“拍照“按钮之后，预览画面就会卡住(静止且没有响应)，而且如果此时再次点击”拍照“或”退出“按钮，程序就会意外退出。<br>经过查阅资料，我了解到，该问题是由以下原因造成的：</p>
-<p>在执行拍照命令时，会调用camera.takePicture()方法，该方法在执行过程中会调用camera.stopPreview来获取拍摄帧数据，从而进行数据回调。而调用camera.stopPreview方法，就会暂停相机的预览，并表现为预览画面卡住。如果此时用户点击了按钮的话，也就会再次调用camera.takepicture方法，由于相机还没有开始预览，没有进行相关进程的初始化，就会出现之前遇到的意外退出问题。</p>
-<p>解决的方法也很简单，既然camera.takePicture () 方法调用了camera.stopPreview来停止预览，那么只要在camera.takePicture()方法结束之后，手动调用一次camera.startPreview方法，来开启相机预览就可以了。</p>
-<p>于是进行添加图3.17红框中的部分：</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506132734762.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center?" alt="在这里插入图片描述"></p>
-<p>图3.17</p>
-<p>再次生成APK文件进行测试，图3.18为测试结果。</p>
-<p><img src="https://img-blog.csdnimg.cn/20190506132753487.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x600" alt="在这里插入图片描述"></p>
-<p>图3.18</p>
-<p>这是我拍摄第9张图片之后的界面。上方的imageview组件显示的是第9张的图片，而下面的surfaceView显示的是此时的预览画面。此时如果我连续拍摄，继续点击“拍照“按钮，程序也不会因为bug而意外退出了。实现了连续拍照的功能。</p>
-<h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><p>现在，程序已经实现了实验所要求的功能，我将目前程序所能实现的效果录制成GIF图片并进行上传，程序的效果如下所示：<a href="http://47.95.13.239/Study/Android/test.gif" target="_blank" rel="noopener">http://47.95.13.239/Study/Android/test.gif</a></p>
-<h2 id="五、源代码"><a href="#五、源代码" class="headerlink" title="五、源代码"></a>五、源代码</h2><p>我已经将整理过的该项目的源代码上传到了GitHub：<a href="https://github.com/ZHJ0125/AndroidSimpleCameraApp" target="_blank" rel="noopener">https://github.com/ZHJ0125/AndroidSimpleCameraApp</a></p>
-<h3 id="5-1布局文件"><a href="#5-1布局文件" class="headerlink" title="5.1布局文件"></a>5.1布局文件</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@+id/LinearLayout1"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"50dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_gravity</span>=<span class="string">"center_horizontal"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:gravity</span>=<span class="string">"center_horizontal"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"拍照测试"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">"20dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">tools:context</span>=<span class="string">".MainActivity"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/test"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">"15dp"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_gravity</span>=<span class="string">"center_horizontal"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:gravity</span>=<span class="string">"center_horizontal"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/btn1"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"110dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"拍照"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/btn2"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"110dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"退出"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ImageView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/imageView1"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_gravity</span>=<span class="string">"center"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">SurfaceView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/surfaceView1"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"320dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"240dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_gravity</span>=<span class="string">"center_horizontal"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="5-2程序控制文件"><a href="#5-2程序控制文件" class="headerlink" title="5.2程序控制文件"></a>5.2程序控制文件</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> zhj.com.simplecamera;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.graphics.Bitmap;</span><br><span class="line"><span class="keyword">import</span> android.graphics.BitmapFactory;</span><br><span class="line"><span class="keyword">import</span> android.graphics.PixelFormat;</span><br><span class="line"><span class="keyword">import</span> android.hardware.Camera;</span><br><span class="line"><span class="keyword">import</span> android.hardware.Camera.PictureCallback;</span><br><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.view.View.OnClickListener;</span><br><span class="line"><span class="keyword">import</span> android.view.SurfaceHolder;</span><br><span class="line"><span class="keyword">import</span> android.view.SurfaceView;</span><br><span class="line"><span class="keyword">import</span> android.widget.Button;</span><br><span class="line"><span class="keyword">import</span> android.widget.ImageView;</span><br><span class="line"><span class="keyword">import</span> android.app.Activity;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"><span class="keyword">import</span> java.io.BufferedOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> <span class="keyword">implements</span> <span class="title">SurfaceHolder</span>.<span class="title">Callback</span></span>&#123;</span><br><span class="line">    Camera mCamera = <span class="keyword">null</span>;</span><br><span class="line">    SurfaceView surfaceView;</span><br><span class="line">    SurfaceHolder holder;</span><br><span class="line">    ImageView mImageView;</span><br><span class="line">    Button cameraBtn, exitBtn;</span><br><span class="line">    TextView textView;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    String filename = <span class="string">"camera.jpg"</span>;    <span class="comment">//图片文件名</span></span><br><span class="line">    String path = <span class="string">""</span>;   <span class="comment">//图片保存路径</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  Override the onCreate</span></span><br><span class="line"><span class="comment">     *  function：重载构造函数，关联布局文件和控制文件，注册回调监听器</span></span><br><span class="line"><span class="comment">     **/</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        <span class="comment">//关联ID</span></span><br><span class="line">        mImageView = (ImageView)findViewById(R.id.imageView1);</span><br><span class="line">        cameraBtn = (Button)findViewById(R.id.btn1);</span><br><span class="line">        exitBtn = (Button)findViewById(R.id.btn2);</span><br><span class="line">        cameraBtn.setOnClickListener(<span class="keyword">new</span> mClick()); <span class="comment">//设置监听事件</span></span><br><span class="line">        exitBtn.setOnClickListener(<span class="keyword">new</span> mClick());</span><br><span class="line">        surfaceView = (SurfaceView)findViewById(R.id.surfaceView1);</span><br><span class="line">        textView = (TextView)findViewById(R.id.test);</span><br><span class="line">        <span class="comment">//System.out.println("begin to holder...");</span></span><br><span class="line">        holder = surfaceView.getHolder();</span><br><span class="line">        holder.addCallback(<span class="keyword">this</span>);</span><br><span class="line">        holder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  class：mClick</span></span><br><span class="line"><span class="comment">     *  function：设置按键监听事件，对应拍照和退出按钮</span></span><br><span class="line"><span class="comment">     * */</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">mClick</span> <span class="keyword">implements</span> <span class="title">OnClickListener</span></span>&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (v == cameraBtn)&#123;</span><br><span class="line">                mCamera.takePicture(<span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">new</span> jpegCallback());    <span class="comment">//拍照</span></span><br><span class="line">                <span class="comment">//surfaceCreated(holder);         //调用构造函数</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (v == exitBtn)&#123;</span><br><span class="line">                exit(); <span class="comment">//退出程序</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">exit</span><span class="params">()</span></span>&#123;</span><br><span class="line">        mCamera.release();</span><br><span class="line">        mCamera = <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * class：jpegCallback</span></span><br><span class="line"><span class="comment">     * function：实现拍照和保存图片功能</span></span><br><span class="line"><span class="comment">     * */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">jpegCallback</span> <span class="keyword">implements</span> <span class="title">PictureCallback</span></span>&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPictureTaken</span> <span class="params">(<span class="keyword">byte</span>[] data, Camera camera)</span></span>&#123;</span><br><span class="line">            Bitmap bitmap = BitmapFactory.decodeByteArray(data, <span class="number">0</span>, data.length);</span><br><span class="line">            ArrayList&lt;String&gt; list = getFile(<span class="string">"/sdcard/test"</span>);</span><br><span class="line">            path = <span class="string">"/sdcard/test/"</span> + checkFileName(list, filename, <span class="number">0</span>);</span><br><span class="line">            textView.setText(<span class="string">"文件保存路径："</span> + path);</span><br><span class="line">            <span class="keyword">try</span>&#123;</span><br><span class="line">                BufferedOutputStream outStream = <span class="keyword">new</span> BufferedOutputStream(<span class="keyword">new</span> FileOutputStream(path));</span><br><span class="line">                bitmap.compress(Bitmap.CompressFormat.JPEG, <span class="number">80</span>, outStream);</span><br><span class="line">                outStream.flush();</span><br><span class="line">                outStream.close();</span><br><span class="line">                mImageView.setImageBitmap(bitmap);  <span class="comment">//在ImageView显示拍照的图片</span></span><br><span class="line">                mCamera.startPreview();</span><br><span class="line">            &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">                Log.e(<span class="string">"error"</span>, e.getMessage());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> ArrayList&lt;String&gt; <span class="title">getFile</span><span class="params">(String path)</span></span>&#123;   <span class="comment">//检测路径下所有的文件,并返回文件名列表</span></span><br><span class="line">        File file = <span class="keyword">new</span> File(path);       <span class="comment">// 获得指定文件对象</span></span><br><span class="line">        File[] array = file.listFiles();       <span class="comment">// 获得该文件夹内的所有文件</span></span><br><span class="line">        ArrayList&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;array.length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(array[i].isFile())&#123;       <span class="comment">//如果是文件,将文件名保存在列表中</span></span><br><span class="line">                list.add(array[i].getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;   <span class="comment">//返回储存文件名的列表</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">checkFileName</span><span class="params">(ArrayList&lt;String&gt; names,String name,<span class="keyword">int</span> index)</span> </span>&#123;   <span class="comment">//检测文件是否存在,并返回合理的文件名</span></span><br><span class="line">        <span class="keyword">if</span>(names.contains(name.substring(<span class="number">0</span>,name.indexOf(<span class="string">"."</span>))+index+name.substring(name.indexOf(<span class="string">"."</span>),name.length()))) &#123;</span><br><span class="line">            <span class="comment">//System.out.println(name.substring(0,name.indexOf("."))+index+name.substring(name.indexOf("."),name.length())+ "Hello");</span></span><br><span class="line">            <span class="comment">//name.substring(0,name.indexOf("."))  --&gt;  返回"."之前的字符串</span></span><br><span class="line">            <span class="comment">//文件存在,再次调用checkFileName方法</span></span><br><span class="line">            name = checkFileName(names,name,index+<span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//文件不存在,返回合理的文件名</span></span><br><span class="line">            <span class="keyword">return</span> name.substring(<span class="number">0</span>,name.indexOf(<span class="string">"."</span>))+index+name.substring(name.indexOf(<span class="string">"."</span>),name.length());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  Override the surfaceCreated</span></span><br><span class="line"><span class="comment">     *  function：创建相机时触发，开启相机预览功能</span></span><br><span class="line"><span class="comment">     * */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">surfaceCreated</span><span class="params">(SurfaceHolder holder)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mCamera != <span class="keyword">null</span>)&#123;</span><br><span class="line">            ReleaseCamera();    <span class="comment">//首先释放相机资源</span></span><br><span class="line">        &#125;</span><br><span class="line">        mCamera = Camera.open();    <span class="comment">//开启摄像头</span></span><br><span class="line">        <span class="comment">//System.out.println("\n\n\nCamera.open() is OK !!!\n\n\n");</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//mCamera = android.hardware.Camera.open();</span></span><br><span class="line">        <span class="comment">//mCamera = Camera.open(Camera.CameraInfo.CAMERA_FACING_BACK);</span></span><br><span class="line">        <span class="comment">//System.out.println("Camera is OK!");</span></span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            mCamera.setPreviewDisplay(holder);  <span class="comment">//设置相机预览</span></span><br><span class="line">        &#125;<span class="keyword">catch</span> (IOException e)&#123;</span><br><span class="line">            System.out.println(<span class="string">"预览错误"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ReleaseCamera</span><span class="params">()</span>    <span class="comment">//重置相机</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(mCamera != <span class="keyword">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            mCamera.release();</span><br><span class="line">            mCamera = <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  Override the surfaceChanged</span></span><br><span class="line"><span class="comment">     *  function：当画面发生改变时触发，重置相机参数</span></span><br><span class="line"><span class="comment">     * */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">surfaceChanged</span> <span class="params">(SurfaceHolder holder, <span class="keyword">int</span> format, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span></span>&#123;</span><br><span class="line">        <span class="comment">//System.out.println("Camera is going to ready...");</span></span><br><span class="line">        initCamera();   <span class="comment">//重置相机参数</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//设置相机参数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initCamera</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//System.out.println("here1....");</span></span><br><span class="line">        Camera.Parameters parameters = mCamera.getParameters();</span><br><span class="line">        parameters.setPictureFormat(PixelFormat.JPEG);  <span class="comment">//照片格式</span></span><br><span class="line">        parameters.setPreviewSize(<span class="number">320</span>, <span class="number">240</span>);    <span class="comment">//预览规格大小</span></span><br><span class="line">        parameters.setPictureSize(<span class="number">320</span>, <span class="number">240</span>);    <span class="comment">//图片大小</span></span><br><span class="line">        parameters.setRotation(<span class="number">90</span>);           <span class="comment">//设置照片数据旋转90°</span></span><br><span class="line">        mCamera.setParameters(parameters);</span><br><span class="line">        mCamera.setDisplayOrientation(<span class="number">90</span>);    <span class="comment">//设置浏览画面水平转90°</span></span><br><span class="line"></span><br><span class="line">        mCamera.startPreview(); <span class="comment">//开始预览</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  Override the surfaceDestroyed</span></span><br><span class="line"><span class="comment">     *  function：关闭相机时触发，空</span></span><br><span class="line"><span class="comment">     * */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">surfaceDestroyed</span><span class="params">(SurfaceHolder holder)</span></span>&#123;    &#125;    <span class="comment">//消灭相机时触发</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="六、待解决问题和设想"><a href="#六、待解决问题和设想" class="headerlink" title="六、待解决问题和设想"></a>六、待解决问题和设想</h2><h3 id="6-1-待解决问题"><a href="#6-1-待解决问题" class="headerlink" title="6.1 待解决问题"></a>6.1 待解决问题</h3><p>①功能单一</p>
-<p>该APP还有很多不完善的地方，功能非常单一，只能实现简单的拍照功能。</p>
-<p>②版本兼容问题</p>
-<p>本次实验中所有的APP测试均在安卓7.1.2版本的手机上进行，在新建工程时，我将最底支持版本选择为API 14和Android 4.0，但是在Android版本为4.4.2的手机上测试时，依然会出现很多问题，导致程序异常结束。程序还未在更高Android版本的手机上测试过，尚不清楚将会有什么bug。版本的兼容问题是亟待解决的关键问题之一。</p>
-<p>③关于连拍功能</p>
-<p>报告中已经说明了连续拍照的实现过程，到目前为止，程序已经实现该过程：点击“拍照“按钮  拍摄照片  imageView显示照片 surfaceView启动预览 循环拍摄。但在调试过程中我发现，如果点击”拍摄“按钮过快，可能导致相机预览camera.startPreview还未开始，就点击了”拍摄“按钮，于是就会导致跟之前相同的问题，让程序意外结束。这也是待解决的问题之一。</p>
-<h3 id="6-2-设想"><a href="#6-2-设想" class="headerlink" title="6.2 设想"></a>6.2 设想</h3><p>①版本问题</p>
-<p>现在版本问题是最严重的一个问题，因为大家使用的Android手机，其Android版本必然不同，如果不能解决该问题，可能导致很多手机无法正常运行该程序，或者会出现很多bug。现在需要查阅一下Android版本的资料，并进行兼容性的改进。</p>
-<p>②加功能</p>
-<p>现在功能很单一，以后希望能加上摄像等功能，做到比安卓自带的相机功能更加完善(笑)。</p>
-<h2 id="七、实验总结"><a href="#七、实验总结" class="headerlink" title="七、实验总结"></a>七、实验总结</h2><p>整个实验项目进行的还算顺利，一开始还有很多问题，最后基本上都通过查阅资料以及和同学的交流，解决了问题。</p>
-<p>问题还算挺多的，主要是一些细节问题导致的，需要对整个工程的结构，以及各个函数的功能都理清楚，才能更好地解决问题。</p>
-<p>调试也有很多技巧，最简便的是使用输出语句判断程序的执行，还有就是通过注释部分功能，判断出问题的位置等等。</p>
-<h2 id="八、部分参考资料"><a href="#八、部分参考资料" class="headerlink" title="八、部分参考资料"></a>八、部分参考资料</h2><ol>
-<li><a href="http://blog.sina.com.cn/s/blog_68f23d9f0102y2cc.html" target="_blank" rel="noopener">关于androidcamera相机的方向的理解</a></li>
-<li><a href="https://blog.csdn.net/u014804332/article/details/80385217" target="_blank" rel="noopener">Java检测文件名是否重复</a></li>
-<li><a href="https://www.imooc.com/article/13423" target="_blank" rel="noopener">JAVA中方法的调用</a></li>
-<li><a href="https://www.jianshu.com/p/586af3a2dc8d?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation" target="_blank" rel="noopener">预览卡住解决办法思路引导</a></li>
-<li><a href="https://blog.csdn.net/xx326664162/article/details/53350551" target="_blank" rel="noopener">Android相机开发和遇到的坑</a></li>
-</ol>
-
-    
-
-    
-    <div class="page-reward">
-      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
-        <div class="tooltip tooltip-east">
-          <span class="tooltip-item">
-            赏
-          </span>
-          <span class="tooltip-content">
-            <span class="tooltip-text">
-              <span class="tooltip-inner">
-                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝快乐水<i
-                    class="icon icon-quo-right"></i></p>
-                <div class="reward-box">
-                  
-                  <div class="reward-box-item">
-                    <img class="reward-img" src="/img/alipay.png">
-                    <span class="reward-type">支付宝</span>
-                  </div>
-                  
-                  
-                  <div class="reward-box-item">
-                    <img class="reward-img" src="/img/weixin.png">
-                    <span class="reward-type">微信</span>
-                  </div>
-                  
-                </div>
-              </span>
-            </span>
-          </span>
-        </div>
-      </a>
-    </div>
-    
-
-    
-    <div class="declare"> 
-      <ul class="post-copyright">
-        <li>
-          <strong>本文作者：</strong>
-          张厚今
-        </li>
-        <li>
-          <strong>本文链接：</strong>
-          <a href="https:/zhj0125.github.io/2019/05/06/Android——简易照相机/" title="Android——简易照相机" target="_blank">https:/zhj0125.github.io/2019/05/06/Android——简易照相机/</a>
-        </li>
-        
-        <li>
-          <strong>版权声明： </strong>
+        <div class="article-info info-on-right">
           
-          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
-        </li>
-        
-      </ul>
-    </div>
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">实验报告</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Camera</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">常见问题</a>
         		</li>
       		
 		</ul>
 	</div>
 
-    
+          
 
-    
-
-    
-    
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a> -->
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://zhj0125.github.io/2019/05/06/Android%E2%80%94%E2%80%94%E7%AE%80%E6%98%93%E7%85%A7%E7%9B%B8%E6%9C%BA/" alt="微信分享二维码"> -->
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-
-    
-    <div class="clearfix"></div>
-  </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-<nav id="article-nav">
-  
-    <a href="/2019/05/19/Android%E2%80%94%E2%80%94%E5%90%8E%E5%8F%B0%E6%9C%8D%E5%8A%A1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Android——后台服务
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/04/18/Tensorflow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94%E4%BA%A4%E9%80%9A%E6%A0%87%E5%BF%97%E8%AF%86%E5%88%AB/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Tensorflow学习笔记——交通标志识别</div>
-      <i class="icon-circle-right"></i>
-    </a>
+    </div></section>
   
-</nav>
 
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、实验原理"><span class="toc-number">1.</span> <span class="toc-text">一、实验原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、实验过程记录"><span class="toc-number">2.</span> <span class="toc-text">二、实验过程记录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-布局文件"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 布局文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-控制文件"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 控制文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-实例化对象"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.2.1 实例化对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-重载构造函数"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2.2 重载构造函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3-编写mClick类"><span class="toc-number">2.2.3.</span> <span class="toc-text">2.2.3 编写mClick类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-4-编写jpegCallback类"><span class="toc-number">2.2.4.</span> <span class="toc-text">2.2.4 编写jpegCallback类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-5重载surfaceCreated方法"><span class="toc-number">2.2.5.</span> <span class="toc-text">2.2.5重载surfaceCreated方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-6重载surfaceChanged方法"><span class="toc-number">2.2.6.</span> <span class="toc-text">2.2.6重载surfaceChanged方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-7重载surfaceDestroyed方法"><span class="toc-number">2.2.7.</span> <span class="toc-text">2.2.7重载surfaceDestroyed方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3添加权限"><span class="toc-number">2.3.</span> <span class="toc-text">2.3添加权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4安装APK测试"><span class="toc-number">2.4.</span> <span class="toc-text">2.4安装APK测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、实验中存在的问题及解决方案"><span class="toc-number">3.</span> <span class="toc-text">三、实验中存在的问题及解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-预览倾斜问题及解决过程"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 预览倾斜问题及解决过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-文件命名问题及解决过程"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 文件命名问题及解决过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1问题分析"><span class="toc-number">3.2.1.</span> <span class="toc-text">3.2.1问题分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2测试程序"><span class="toc-number">3.2.2.</span> <span class="toc-text">3.2.2测试程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-3安卓测试"><span class="toc-number">3.2.3.</span> <span class="toc-text">3.2.3安卓测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-预览画面卡顿问题及解决过程"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 预览画面卡顿问题及解决过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、实验结果"><span class="toc-number">4.</span> <span class="toc-text">四、实验结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、源代码"><span class="toc-number">5.</span> <span class="toc-text">五、源代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1布局文件"><span class="toc-number">5.1.</span> <span class="toc-text">5.1布局文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2程序控制文件"><span class="toc-number">5.2.</span> <span class="toc-text">5.2程序控制文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、待解决问题和设想"><span class="toc-number">6.</span> <span class="toc-text">六、待解决问题和设想</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-待解决问题"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 待解决问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-设想"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 设想</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、实验总结"><span class="toc-number">7.</span> <span class="toc-text">七、实验总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、部分参考资料"><span class="toc-number">8.</span> <span class="toc-text">八、部分参考资料</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-
-
-
-  <div id="giteement-ctn"></div>
-  
-    <link rel="stylesheet" href="/lib/default.css">
-    <script src="/lib/giteement.browser.js"></script>
-  
-  <script>
-  <!-- id: "Android——简易照相机" -->
-  var giteement = new Giteement({
-    id: '20190506134701',
-    owner: 'zhj0125',
-    repo: 'zhj0125.github.io',
-    backcall_uri: 'https://zhj0125.github.io/',
-    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
-    oauth: {
-      client_id: 'b6800dcaf3dc3ed41c84fab82f7f50f63cbb750e45cea0735d8d353ad116c082',
-      client_secret: '023172acfa96677f0d487be0726e357e395f3709831330cb00b487dbed34fcd6'
-    },
-  })
-  giteement.render('giteement-ctn')
-  </script>
-
-
-
-
-
-
+    
 
 
           </div>
@@ -713,9 +321,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
