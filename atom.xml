@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhj0125.github.io/"/>
-  <updated>2020-01-25T10:06:02.359Z</updated>
+  <updated>2020-02-08T14:40:54.538Z</updated>
   <id>https://zhj0125.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用Vultr搭建SS服务器翻墙</title>
+    <link href="https://zhj0125.github.io/2020/02/08/%E4%BD%BF%E7%94%A8Vultr%E6%90%AD%E5%BB%BASS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BF%BB%E5%A2%99/"/>
+    <id>https://zhj0125.github.io/2020/02/08/%E4%BD%BF%E7%94%A8Vultr%E6%90%AD%E5%BB%BASS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BF%BB%E5%A2%99/</id>
+    <published>2020-02-08T11:49:21.000Z</published>
+    <updated>2020-02-08T14:40:54.538Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>本篇文章，我将使用Vultr服务商提供的VPS服务器，搭建 Shadowrocks 并开启 BBR 加速上网功能</p></blockquote><a id="more"></a><blockquote><p>特别说明：本次博客中提到的软件均已进行备份，如原链接失效，可查看 <a href="http://47.95.13.239/data/Blog/Vultr_VPN/" target="_blank" rel="noopener">备份页面</a></p></blockquote><p>之前一直使用 <a href="http://47.95.13.239:8888/externalLinksController/downloadFileByKey/%E8%B0%B7%E6%AD%8C%E8%AE%BF%E9%97%AE%E5%8A%A9%E6%89%8B_v2.3.zip?dkey=3e46a3a3-61f5-4947-9308-9ab450dee4d6" target="_blank" rel="noopener">谷歌访问助手</a> 翻墙，虽然比较稳定，但是它限制访问 YouTube 等网站；<br>我还尝试过使用像 <a href="http://sfcloud.pw/user" target="_blank" rel="noopener">顺风云</a>、<a href="https://www.jdb02.xyz/user" target="_blank" rel="noopener">加多宝</a> 这样的节点订阅，但这样的节点不太稳定，访问速度也不太快；<br>尝试使用过 <a href="https://lncn.org/" target="_blank" rel="noopener">lncn.org</a> 这样的节点网站，虽然利用无法订阅的特点减少了阻塞情况，但几乎每次使用都需要去网站更新节点，很不方便；<br>因此，本次我将尝试使用<strong>自建的VPS服务器</strong>，搭建 <a href="https://shadowsockshelp.github.io/Shadowsocks/" target="_blank" rel="noopener">Shadowrocks</a> 服务，通过BBR实现网络加速功能</p><h2 id="一、优惠购买vultr"><a href="#一、优惠购买vultr" class="headerlink" title="一、优惠购买vultr"></a>一、优惠购买vultr</h2><p>在查阅一些资料后，觉得 <a href="https://www.vultr.com/" target="_blank" rel="noopener">Vultr</a> 比较合适SS服务器的搭建，所以首先去购买一台VPS服务器资源</p><p>注册账户之后，选择需要的服务器类型，可以参考图1我的配置自行选择</p><p><img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/vultr_purchase.png" alt="vultr_purchase"></p><p>图1 服务器选择</p><blockquote><p>注意：日本的IP很可能被封，所以不建议使用日本的服务器，建议使用新加坡的服务器</p></blockquote><p>点击右下角 <code>Deploy Now</code> 进行购买，进入充值界面</p><p><img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Alipay.png" alt="Vultr_Alipay"></p><p>图2 充值页面</p><p>目前 <a href="https://www.vultr.com/" target="_blank" rel="noopener">Vultr 官网</a> 的活动是：充值10美元，赠送100美元<br>最低充值额度是10美元，可以使用支付宝支付<br>另外，通过此链接注册支付，还会额外赠送25美元（给自己打个广告😜）</p><p><img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Affiliate.png" alt="Vultr_Affiliate"></p><p>图3 活动详情</p><blockquote><p>注册链接: <a href="https://www.vultr.com/?ref=8426042-6G" target="_blank" rel="noopener">https://www.vultr.com/?ref=8426042-6G</a></p></blockquote><p>当你购买完成，等待一段时间让服务器完成镜像安装，就可以进行 Shadowrocks 配置了</p><h2 id="二、配置Shadowrocks"><a href="#二、配置Shadowrocks" class="headerlink" title="二、配置Shadowrocks"></a>二、配置Shadowrocks</h2><p>如图4进入服务器详情，查看你的 VPS 服务器 IP 地址，使用 SSH 工具连接服务器</p><p><img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Server_info.png" alt="Vultr_Server_info"></p><p>图4 服务器信息</p><p>SSH工具我推荐使用国产软件 <a href="http://www.hostbuf.com/t/988.html" target="_blank" rel="noopener">Finalshell</a>，当然，<a href="https://www.putty.org/" target="_blank" rel="noopener">Putty</a> 或 <a href="https://www.netsarang.com/en/xshell-download/" target="_blank" rel="noopener">Xshell</a> 也是可以的。</p><blockquote><p>注意：使用 SSH 连不上 VPS 服务器是比较常见的问题，有可能是服务器的 IP 地址被封锁了。此时，最简便的解决方式是销毁当前的服务器（如图5），重新创建一台 VPS</p><p><img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Destory.png" alt="Vultr_Destory"></p><p>图5 销毁服务器</p></blockquote><p>如果成功连接了服务器，下面就开始搭建 Shadowrocks 服务吧</p><ol><li>安装 wget</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install wget</span><br></pre></td></tr></table></figure><ol start="2"><li>安装 Shadowrocks 软件</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget –no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh</span><br></pre></td></tr></table></figure><ol start="3"><li>获取脚本执行权限</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x shadowsocks.sh</span><br></pre></td></tr></table></figure><ol start="4"><li>配置 Shadowrocks</li></ol><p>首先执行 bash 脚本</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log</span><br></pre></td></tr></table></figure><p>设置密码</p><p><img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_set_password.png" alt="Vultr_set_password"></p><p>图6 设置密码</p><p>设置开放端口</p><p><img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Set_Port.png" alt="Vultr_Set_Port"></p><p>图7 设置端口</p><p>设置加密方式，这里建议使用<code>方式7</code> <code>aes-256-cfb</code> 方式</p><p><img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Set_Cipher.png" alt="Vultr_Set_Cipher"></p><p>图8 设置加密方式</p><p>点击任意键确认配置，等待安装完成即可</p><p><img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Set_Finish.png" alt="Vultr_Set_Finish"></p><p>图9 任意键继续</p><p>配置完成后，可以看到以下配置信息</p><p><img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Server_info2.png" alt="Vultr_Server_info2"></p><p>图10 服务配置信息</p><p>使用这些信息即可连接 SSR 客户端</p><p>OK，现在服务端已经基本完事了</p><h2 id="三、BBR网络加速"><a href="#三、BBR网络加速" class="headerlink" title="三、BBR网络加速"></a>三、BBR网络加速</h2><p>为了加快访问速度，可以安装 BBR 网络加速服务</p><p>首先安装 BBR 脚本</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</span><br></pre></td></tr></table></figure><p>获取执行权限并执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod +x bbr.sh</span><br><span class="line"></span><br><span class="line">./bbr.sh</span><br></pre></td></tr></table></figure><p>程序会自动执行，安装完成后，可以使用以下命令检查 BBR 服务是否开启</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure><p>如果能看到 <code>tcp_bbr</code> 服务，就说明服务已经开启了</p><p>OK，现在服务端已经准备完毕了，接下来配置 SSR 客户端</p><h2 id="四、配置SSR客户端"><a href="#四、配置SSR客户端" class="headerlink" title="四、配置SSR客户端"></a>四、配置SSR客户端</h2><ul><li>iOS 用户</li></ul><p>iOS 的 Shadowsocks 客户端在国区被封了，美区也需要购买才能使用，购买方式可以查看这篇 <a href="https://shadowsockshelp.github.io/Shadowsocks/ios.html" target="_blank" rel="noopener">GitHub博文</a></p><ul><li>Android 用户</li></ul><p>Android 就比较幸运了，有很多可用的软件</p><p>可以使用 <a href="http://47.95.13.239:8888/externalLinksController/downloadFileByKey/ssr-android.apk?dkey=30001b0d-b3fe-4b92-b51f-2b7aecbe2af4" target="_blank" rel="noopener">SSR</a> 或者 <a href="http://47.95.13.239:8888/externalLinksController/downloadFileByKey/ssrr-android.apk?dkey=f9aabdb5-f353-4449-b822-5174bcea6e87" target="_blank" rel="noopener">SSRR</a></p><ul><li>MacOS 用户</li></ul><p>Mac 我也没用过，这里推荐一下 <a href="http://47.95.13.239:8888/externalLinksController/downloadFileByKey/ssr-mac.dmg?dkey=e369b8e9-6d56-43e1-9d3b-f1f0e1acbc08" target="_blank" rel="noopener">ShadowsocksX-NG-R8</a></p><ul><li>Linux 用户</li></ul><p>Linux 大法好！ 推荐 <a href="000">Electron SSR</a></p><ul><li>Windows 用户</li></ul><p>推荐 <a href="http://47.95.13.239:8888/externalLinksController/downloadFileByKey/ssr-win.7z?dkey=abc161ae-aa98-4d5f-a8c3-bdced8958aa0" target="_blank" rel="noopener">SSR</a> 和 <a href="http://47.95.13.239:8888/externalLinksController/downloadFileByKey/SSTap.7z?dkey=4a3e99b7-3d89-446f-9574-fbd2ecb9a13a" target="_blank" rel="noopener">SSTap</a>（新手推荐） 软件</p><p>以我的iPhone为例，打开Shadowsocks软件，新建一个新节点</p><p>分别填写图11 红框中服务器IP、端口、密码、加密方式等信息，即可创建新节点</p><p><img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_iPhone.png" alt="Vultr_iPhone"></p><p>图11 iPhone 配置</p><p>配置完成后，如图12，使用配置模式，点击连接该节点即可</p><p><img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_iPhone2.png" alt="Vultr_iPhone2"></p><p>图12 iPhone 节点连接</p><p>连接之后就可以访问 <a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a>、<a href="https://www.google.com/" target="_blank" rel="noopener">Google</a> 等网站了</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本篇文章，我将使用Vultr服务商提供的VPS服务器，搭建 Shadowrocks 并开启 BBR 加速上网功能&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="技术笔记" scheme="https://zhj0125.github.io/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="资源分享" scheme="https://zhj0125.github.io/tags/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/"/>
+    
+      <category term="翻墙" scheme="https://zhj0125.github.io/tags/%E7%BF%BB%E5%A2%99/"/>
+    
+      <category term="VPN" scheme="https://zhj0125.github.io/tags/VPN/"/>
+    
+  </entry>
   
   <entry>
     <title>My_Bookmarks</title>
@@ -495,9 +524,9 @@
     
       <category term="实验报告" scheme="https://zhj0125.github.io/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
     
-      <category term="技术笔记" scheme="https://zhj0125.github.io/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
-    
       <category term="Camera" scheme="https://zhj0125.github.io/tags/Camera/"/>
+    
+      <category term="技术笔记" scheme="https://zhj0125.github.io/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -556,35 +585,6 @@
       <category term="车牌标志分类" scheme="https://zhj0125.github.io/tags/%E8%BD%A6%E7%89%8C%E6%A0%87%E5%BF%97%E5%88%86%E7%B1%BB/"/>
     
       <category term="转载" scheme="https://zhj0125.github.io/tags/%E8%BD%AC%E8%BD%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>树莓派ngrok客户端开机自启</title>
-    <link href="https://zhj0125.github.io/2019/03/09/%E6%A0%91%E8%8E%93%E6%B4%BEngrok%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF/"/>
-    <id>https://zhj0125.github.io/2019/03/09/%E6%A0%91%E8%8E%93%E6%B4%BEngrok%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF/</id>
-    <published>2019-03-09T08:41:22.000Z</published>
-    <updated>2020-01-20T05:31:34.897Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>上一篇文章已经介绍了如何<a href="https://blog.csdn.net/ZHJ123CSDN/article/details/87886424" target="_blank" rel="noopener">将ngrok服务端部署到阿里云服务器</a>，并且在树莓派部署了ngrok客户端。但是每次启动ngrok服务，都需要运行start.sh脚本，很不方便。于是就需要让树莓派ngrok客户端开机启动。<br>这篇文章要实现的效果是：在阿里云服务端运行的前提下，树莓派开机后，会自动运行ngrok客户端脚本，实现公网访问。</p></blockquote><a id="more"></a><h2 id="一、阿里云服务端"><a href="#一、阿里云服务端" class="headerlink" title="一、阿里云服务端"></a>一、阿里云服务端</h2><p>阿里云服务器主要负责”运行服务端”和”储存客户端脚本”。为了让服务端在阿里云上保持运行状态，执行如下命令:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash /usr/local/ngrok/bin/linux_386/start.sh</span><br></pre></td></tr></table></figure><p>该命令的作用是执行启动服务端的脚本文件”<code>start.sh</code>“，使ngrok服务端启动。</p><h2 id="二、拷贝客户端文件"><a href="#二、拷贝客户端文件" class="headerlink" title="二、拷贝客户端文件"></a>二、拷贝客户端文件</h2><p>将运行树莓派服务端所需要的脚本等文件，保存在阿里云的<code>/usr/local/ngrok/bin/linux_arm/</code>目录下，便于树莓派下载使用。使用以下命令下载有关文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo scp root@47.95.13.239: /usr/local/ngrok/bin/linux_arm/ngrok /usr/local/ngrok</span><br><span class="line">sudo scp root@47.95.13.239: /usr/local/ngrok/bin/linux_arm/ngrok.cfg /usr/local/ngrok</span><br><span class="line">sudo scp root@47.95.13.239: /usr/local/ngrok/bin/linux_arm/start.sh /usr/local/ngrok</span><br></pre></td></tr></table></figure><p>这三条语句是分别从阿里云服务器上，下载<code>ngrok</code>、<code>ngrok.cfg</code>、<code>start.sh</code>到树莓派的<code>/usr/local/ngrok</code>目录下。</p><p>表1 阿里云储存的文件及其作用</p><table><thead><tr><th>文件</th><th>作用</th></tr></thead><tbody><tr><td>ngrok</td><td>Ngrok客户端文件</td></tr><tr><td>ngrok.cfg</td><td>Ngrok的配置文件</td></tr><tr><td>start.sh</td><td>启动ngrok客户端的脚本文件</td></tr></tbody></table><h2 id="三、设置脚本开机运行"><a href="#三、设置脚本开机运行" class="headerlink" title="三、设置脚本开机运行"></a>三、设置脚本开机运行</h2><h3 id="1-首先将start-sh文件拷贝到树莓派的-usr目录下"><a href="#1-首先将start-sh文件拷贝到树莓派的-usr目录下" class="headerlink" title="1.首先将start.sh文件拷贝到树莓派的/usr目录下"></a>1.首先将start.sh文件拷贝到树莓派的/usr目录下</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /usr/local/ngrok/start.sh /usr</span><br></pre></td></tr></table></figure><h3 id="2-编辑-etc-rc-local文件，设置开机启动"><a href="#2-编辑-etc-rc-local文件，设置开机启动" class="headerlink" title="2.编辑/etc/rc.local文件，设置开机启动"></a>2.编辑/etc/rc.local文件，设置开机启动</h3><p>打开该文件，然后在文件最后一行添加要执行程序的全路径，即在”<code>exit 0</code>“前面，添加”<code>/usr/./start.sh</code>“</p><p><img src="https://img-blog.csdnimg.cn/20190309161753602.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>图1 设置开机运行</p><p>使用<code>sudo reboot</code>重启树莓派，就可以直接登录公网ip进行访问了。</p><h2 id="四、附录"><a href="#四、附录" class="headerlink" title="四、附录"></a>四、附录</h2><h3 id="4-1-ngrok-cfg"><a href="#4-1-ngrok-cfg" class="headerlink" title="4.1 ngrok.cfg"></a>4.1 ngrok.cfg</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server_addr: "forever305.cn:4443"</span><br><span class="line">trust_host_root_certs: false</span><br></pre></td></tr></table></figure><h4 id="4-2-start-sh"><a href="#4-2-start-sh" class="headerlink" title="4.2 start.sh"></a>4.2 start.sh</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">/usr/local/ngrok/ngrok -config=/usr/local/ngrok/ngrok.cfg -subdomain pi 80</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;上一篇文章已经介绍了如何&lt;a href=&quot;https://blog.csdn.net/ZHJ123CSDN/article/details/87886424&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;将ngrok服务端部署到阿里云服务器&lt;/a&gt;，并且在树莓派部署了ngrok客户端。但是每次启动ngrok服务，都需要运行start.sh脚本，很不方便。于是就需要让树莓派ngrok客户端开机启动。&lt;br&gt;这篇文章要实现的效果是：在阿里云服务端运行的前提下，树莓派开机后，会自动运行ngrok客户端脚本，实现公网访问。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="技术笔记" scheme="https://zhj0125.github.io/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="树莓派" scheme="https://zhj0125.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
-    
-      <category term="Ngrok" scheme="https://zhj0125.github.io/tags/Ngrok/"/>
-    
-      <category term="内网穿透" scheme="https://zhj0125.github.io/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
     
   </entry>
   
