@@ -19,15 +19,15 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="山东科技大学信息工程系  内容说明：本篇文章是《嵌入式操作系统》实训报告的第二部分，实现了HTTP服务器的搭建《嵌入式操作系统》实训报告内容介绍：第一部分：编译升级系统Linux内核第二部分：搭建HTTP服务器第三部分：搭建动态网站完整实验报告PDF文件">
+  <meta name="description" content="山东科技大学 信息工程系  内容说明：本篇文章是《嵌入式操作系统》实训报告的第二部分，实现了HTTP服务器的搭建 《嵌入式操作系统》实训报告内容介绍： 第一部分：编译升级系统Linux内核 第二部分：搭建HTTP服务器 第三部分：搭建动态网站 完整实验报告PDF文件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux实训——搭建HTTP服务器">
 <meta property="og:url" content="https://zhj.forever305.cn/2019/06/20/Linux_HTTP_Server/index.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="山东科技大学信息工程系  内容说明：本篇文章是《嵌入式操作系统》实训报告的第二部分，实现了HTTP服务器的搭建《嵌入式操作系统》实训报告内容介绍：第一部分：编译升级系统Linux内核第二部分：搭建HTTP服务器第三部分：搭建动态网站完整实验报告PDF文件">
+<meta property="og:description" content="山东科技大学 信息工程系  内容说明：本篇文章是《嵌入式操作系统》实训报告的第二部分，实现了HTTP服务器的搭建 《嵌入式操作系统》实训报告内容介绍： 第一部分：编译升级系统Linux内核 第二部分：搭建HTTP服务器 第三部分：搭建动态网站 完整实验报告PDF文件">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190620182509566.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190620182531743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center">
@@ -152,13 +152,42 @@
     <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
     
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjU=" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
 
 
     <main class="main">
@@ -207,13 +236,34 @@
                 <time title="修改时间：2020-02-09 18:12:16" itemprop="dateModified" datetime="2020-02-09T18:12:16+08:00">2020-02-09</time>
               </span>
 
-          <br>
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/06/20/Linux_HTTP_Server/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/06/20/Linux_HTTP_Server/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -232,32 +282,47 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>山东科技大学<br>信息工程系</p>
+        <p>山东科技大学 信息工程系</p>
 <blockquote>
-<p>内容说明：本篇文章是《嵌入式操作系统》实训报告的<strong>第二部分</strong>，实现了HTTP服务器的搭建<br>《嵌入式操作系统》实训报告内容介绍：<br>第一部分：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzkzMDc0NDEz" title="https://blog.csdn.net/ZHJ123CSDN/article/details/93074413">编译升级系统Linux内核<i class="fa fa-external-link"></i></span><br>第二部分：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzkzMDg4MTg3" title="https://blog.csdn.net/ZHJ123CSDN/article/details/93088187">搭建HTTP服务器<i class="fa fa-external-link"></i></span><br>第三部分：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzkzMDkwNDg4" title="https://blog.csdn.net/ZHJ123CSDN/article/details/93090488">搭建动态网站<i class="fa fa-external-link"></i></span><br><span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9TdHVkeS9MaW51eC9saW51eCVFNSVBRSU5RSVFOCVBRSVBRCUyMF8lRTUlQkMlQTAlRTUlOEUlOUElRTQlQkIlOEEucGRm" title="http://47.95.13.239/Study/Linux/linux%E5%AE%9E%E8%AE%AD%20_%E5%BC%A0%E5%8E%9A%E4%BB%8A.pdf">完整实验报告PDF文件<i class="fa fa-external-link"></i></span></p>
+<p>内容说明：本篇文章是《嵌入式操作系统》实训报告的<strong>第二部分</strong>，实现了HTTP服务器的搭建 《嵌入式操作系统》实训报告内容介绍： 第一部分：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzkzMDc0NDEz" title="https://blog.csdn.net/ZHJ123CSDN/article/details/93074413">编译升级系统Linux内核<i class="fa fa-external-link"></i></span> 第二部分：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzkzMDg4MTg3" title="https://blog.csdn.net/ZHJ123CSDN/article/details/93088187">搭建HTTP服务器<i class="fa fa-external-link"></i></span> 第三部分：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzkzMDkwNDg4" title="https://blog.csdn.net/ZHJ123CSDN/article/details/93090488">搭建动态网站<i class="fa fa-external-link"></i></span> <span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9TdHVkeS9MaW51eC9saW51eCVFNSVBRSU5RSVFOCVBRSVBRCUyMF8lRTUlQkMlQTAlRTUlOEUlOUElRTQlQkIlOEEucGRm" title="http://47.95.13.239/Study/Linux/linux%E5%AE%9E%E8%AE%AD%20_%E5%BC%A0%E5%8E%9A%E4%BB%8A.pdf">完整实验报告PDF文件<i class="fa fa-external-link"></i></span></p>
 </blockquote>
 <a id="more"></a>
-
-<h2 id="二、构建HTTP服务器"><a href="#二、构建HTTP服务器" class="headerlink" title="二、构建HTTP服务器"></a>二、构建HTTP服务器</h2><h3 id="2-1-实验原理"><a href="#2-1-实验原理" class="headerlink" title="2.1 实验原理"></a>2.1 实验原理</h3><p>HTTP服务器，又称为WWW服务器、Web服务器，其主要功能是提供给客户端以信息浏览的服务。在Linux平台下，主流的HTTP服务器有<code>Apache、Nginx、Tomcat</code>等，其中应用最广泛的是Apache。</p>
+<h2 id="二构建http服务器">二、构建HTTP服务器</h2>
+<h3 id="实验原理">2.1 实验原理</h3>
+<p>HTTP服务器，又称为WWW服务器、Web服务器，其主要功能是提供给客户端以信息浏览的服务。在Linux平台下，主流的HTTP服务器有<code>Apache、Nginx、Tomcat</code>等，其中应用最广泛的是Apache。</p>
 <p>Apache HTTP服务器，是免费开源的跨平台的 Web服务器软件，绝大多数Apache HTTP Server实例都在Linux发行版上运行。Apache的模块支持非常丰富，虽在速度、性能上不及其他轻量级Web服务器，但属于重量级产品，功能丰富。</p>
-<h3 id="2-2-实验分析"><a href="#2-2-实验分析" class="headerlink" title="2.2 实验分析"></a>2.2 实验分析</h3><p>本次实验要求构建一个HTTP服务器，而如果只是搭建HTTP服务器，仅仅需要安装Apache即可。因此，接下来我将安装Apache、编写简单的HTML网页并进行访问测试。</p>
-<h3 id="2-3-实验过程记录"><a href="#2-3-实验过程记录" class="headerlink" title="2.3 实验过程记录"></a>2.3 实验过程记录</h3><h4 id="2-3-1-安装Apache"><a href="#2-3-1-安装Apache" class="headerlink" title="2.3.1 安装Apache"></a>2.3.1 安装Apache</h4><p>首先使用<code>sudo apt-get update</code>命令，对软件包进行更新。之后，使用<code>sudo apt-get install apache2</code>安装apache软件。为了测试Apache是否安装成功，可以直接访问 <code>http://your_server_IP_address</code> 查看。使用<code>ifconfig</code>命令可以查看到主机的IP地址。</p>
-<p><img src="https://img-blog.csdnimg.cn/20190620182509566.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="实验分析">2.2 实验分析</h3>
+<p>本次实验要求构建一个HTTP服务器，而如果只是搭建HTTP服务器，仅仅需要安装Apache即可。因此，接下来我将安装Apache、编写简单的HTML网页并进行访问测试。</p>
+<h3 id="实验过程记录">2.3 实验过程记录</h3>
+<h4 id="安装apache">2.3.1 安装Apache</h4>
+<p>首先使用<code>sudo apt-get update</code>命令，对软件包进行更新。之后，使用<code>sudo apt-get install apache2</code>安装apache软件。为了测试Apache是否安装成功，可以直接访问 <code>http://your_server_IP_address</code> 查看。使用<code>ifconfig</code>命令可以查看到主机的IP地址。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20190620182509566.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图 查看本地IP</p>
 <p>后来想到这一步不是必要的，可以直接使用localhost进行测试。</p>
 <p>可以看到，这里显示了<code>127.0.0.1</code>这个用于本地环回的IP。现在打开虚拟机中的Firefox，在地址栏输入<code>http://127.0.0.1</code>并访问，可以看到，apache服务已经搭建成功。</p>
-<p><img src="https://img-blog.csdnimg.cn/20190620182531743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20190620182531743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图 apache访问测试</p>
 <p>到目前为止，HTTP服务器已经可以算是搭建成功了，甚至现在已经可以上传静态网页到该服务器以提供访问服务了。</p>
-<h4 id="2-3-2-编写网页测试"><a href="#2-3-2-编写网页测试" class="headerlink" title="2.3.2 编写网页测试"></a>2.3.2 编写网页测试</h4><p>现在编写一个简单的HTTP静态网页，上传到虚拟机服务器，检测是否能进行访问。在用户目录下，编写一个test.html文件，然后进入到<code>/var/www/html</code>目录，将<code>test.html</code>文件复制到该目录下。</p>
-<p><img src="https://img-blog.csdnimg.cn/20190620182551451.png#pic_center" alt="在这里插入图片描述"></p>
+<h4 id="编写网页测试">2.3.2 编写网页测试</h4>
+<p>现在编写一个简单的HTTP静态网页，上传到虚拟机服务器，检测是否能进行访问。在用户目录下，编写一个test.html文件，然后进入到<code>/var/www/html</code>目录，将<code>test.html</code>文件复制到该目录下。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20190620182551451.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图 文件转移</p>
 <p>现在该目录下应该有两个html文件，一个是原来的默认索引文件<code>index.html</code>，另一个就是用于测试的<code>test.html</code>。现在再次打开<code>Firefox</code>，访问<code>http://127.0.0.1/test.html</code>。</p>
-<p><img src="https://img-blog.csdnimg.cn/20190620182616184.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20190620182616184.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图 静态网页测试</p>
 <p>所以说，现在“制作静态网页并访问”是完全没有问题的。</p>
 <p>其中，<code>test.html</code>文件内容如下：</p>
-<p><img src="https://img-blog.csdnimg.cn/20190620182625390.png#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20190620182625390.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图 测试内容</p>
 
     </div>
@@ -376,6 +441,7 @@
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -422,7 +488,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二、构建HTTP服务器"><span class="nav-text">二、构建HTTP服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-实验原理"><span class="nav-text">2.1 实验原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-实验分析"><span class="nav-text">2.2 实验分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-实验过程记录"><span class="nav-text">2.3 实验过程记录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-安装Apache"><span class="nav-text">2.3.1 安装Apache</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-编写网页测试"><span class="nav-text">2.3.2 编写网页测试</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二构建http服务器"><span class="nav-text">二、构建HTTP服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实验原理"><span class="nav-text">2.1 实验原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验分析"><span class="nav-text">2.2 实验分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验过程记录"><span class="nav-text">2.3 实验过程记录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装apache"><span class="nav-text">2.3.1 安装Apache</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编写网页测试"><span class="nav-text">2.3.2 编写网页测试</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -500,12 +566,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">149k</span>
+    <span title="站点总字数">151k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:08</span>
+    <span title="站点阅读时长">4:12</span>
 </div>
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.2.0
   </div>
@@ -514,6 +580,26 @@
   </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -541,6 +627,8 @@
 
 <script src="/js/next-boot.js"></script>
 
+<script src="/js/bookmark.js"></script>
+
 
 
 
@@ -558,6 +646,10 @@
 
 
 
+  
+<script src="/js/local-search.js"></script>
+
+
 
 
 
@@ -572,6 +664,85 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'z1HKdL8Pg1E7A7AHIaEh4svT-gzGzoHsz',
+      appKey     : 'M7D0zph9dDHw3vNFWKRnGbhv',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>

@@ -19,15 +19,15 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="我的微信小程序 期末大作业——基于百度大脑API的图片识别小程序 具体实现了动物识别、植物识别、车辆识别 三个功能实验源码已经放到了我的GitHub，欢迎测试修改 (项目地址：https:&#x2F;&#x2F;github.com&#x2F;ZHJ0125&#x2F;ImageMaster)下面给大家分享该项目的实验报告😜">
+  <meta name="description" content="我的微信小程序 期末大作业——基于百度大脑API的图片识别小程序 具体实现了动物识别、植物识别、车辆识别 三个功能 实验源码已经放到了我的GitHub，欢迎测试修改 (项目地址：https:&#x2F;&#x2F;github.com&#x2F;ZHJ0125&#x2F;ImageMaster) 下面给大家分享该项目的实验报告😜">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信小程序——图片识别">
 <meta property="og:url" content="https://zhj.forever305.cn/2020/01/03/WeChat_Image_Recognition/index.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="我的微信小程序 期末大作业——基于百度大脑API的图片识别小程序 具体实现了动物识别、植物识别、车辆识别 三个功能实验源码已经放到了我的GitHub，欢迎测试修改 (项目地址：https:&#x2F;&#x2F;github.com&#x2F;ZHJ0125&#x2F;ImageMaster)下面给大家分享该项目的实验报告😜">
+<meta property="og:description" content="我的微信小程序 期末大作业——基于百度大脑API的图片识别小程序 具体实现了动物识别、植物识别、车辆识别 三个功能 实验源码已经放到了我的GitHub，欢迎测试修改 (项目地址：https:&#x2F;&#x2F;github.com&#x2F;ZHJ0125&#x2F;ImageMaster) 下面给大家分享该项目的实验报告😜">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200103124808936.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x400">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200103125159157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x450">
@@ -207,13 +207,42 @@
     <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
     
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjU=" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
 
 
     <main class="main">
@@ -262,20 +291,41 @@
                 <time title="修改时间：2020-02-09 18:21:37" itemprop="dateModified" datetime="2020-02-09T18:21:37+08:00">2020-02-09</time>
               </span>
 
-          <br>
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/01/03/WeChat_Image_Recognition/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/03/WeChat_Image_Recognition/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>9.8k</span>
+              <span>10k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>16 分钟</span>
+              <span>17 分钟</span>
             </span>
 
         </div>
@@ -289,10 +339,9 @@
       
         <blockquote>
 <p>我的微信小程序 期末大作业——<strong>基于百度大脑API的图片识别小程序</strong></p>
-<p>具体实现了<strong>动物识别</strong>、<strong>植物识别</strong>、<strong>车辆识别</strong> 三个功能<br>实验源码已经放到了<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvSW1hZ2VNYXN0ZXI=" title="https://github.com/ZHJ0125/ImageMaster">我的GitHub<i class="fa fa-external-link"></i></span>，欢迎测试修改 (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvSW1hZ2VNYXN0ZXI=" title="https://github.com/ZHJ0125/ImageMaster">项目地址：https://github.com/ZHJ0125/ImageMaster<i class="fa fa-external-link"></i></span>)<br>下面给大家分享该项目的实验报告😜</p>
+<p>具体实现了<strong>动物识别</strong>、<strong>植物识别</strong>、<strong>车辆识别</strong> 三个功能 实验源码已经放到了<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvSW1hZ2VNYXN0ZXI=" title="https://github.com/ZHJ0125/ImageMaster">我的GitHub<i class="fa fa-external-link"></i></span>，欢迎测试修改 (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvSW1hZ2VNYXN0ZXI=" title="https://github.com/ZHJ0125/ImageMaster">项目地址：https://github.com/ZHJ0125/ImageMaster<i class="fa fa-external-link"></i></span>) 下面给大家分享该项目的实验报告😜</p>
 </blockquote>
 <a id="more"></a>
-
 <div id="badge-container-ZHJ0125-ImageMaster-b7c7fe0" class="hexo-github" style="width: ="></div>
 <script src="/hexo-github/badge.js"></script>
 <script type="text/javascript">
@@ -301,11 +350,15 @@
   new Badge("#badge-container-ZHJ0125-ImageMaster-b7c7fe0", "ZHJ0125", "ImageMaster", "b7c7fe0", false);
 </script>
 
-
-<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h2><h3 id="1-1-课程大作业目的与要求"><a href="#1-1-课程大作业目的与要求" class="headerlink" title="1.1 课程大作业目的与要求"></a>1.1 课程大作业目的与要求</h3><p>课程大作业的目的是：运用在本次课程中学到的知识来指导实践，了解程序设计其实现方法，学会解决实际问题。掌握微信小程序设计的具体步骤与基本方法，针对选定的程序做调研分析。通过课程大作业，提高实践动手技能，培养独立分析分析问题和解决问题的能力。<br>课程大作业的要求：本次课程大作业的选题比较灵活，可以是自主选题，也可以参考课本中的案例自行修改完善，题目要符合课程大作业的要求，并且具备一定的水平和深度。</p>
-<h3 id="1-2-课程大作业简介"><a href="#1-2-课程大作业简介" class="headerlink" title="1.2 课程大作业简介"></a>1.2 课程大作业简介</h3><p>图像识别是指利用计算机对图像进行处理、分析和理解，以识别各种不同模式的目标和对像的技术。在众多的图像识别分支中，拍照识别是一个重要的应用。利用图像识别技术，识别拍摄到的图片内容，已经广泛应用于各类图像识别App中。<br>微信小程序是一种不需要下载安装即可使用的应用，它实现了应用的“触手可及”和“即用即走”，用户扫一扫或搜一下即可打开应用。利用微信小程序使用便捷的特点，结合图片识别应用，本次大作业选定了制作微信小程序的<strong>图片识别应用——ImageMaster</strong>。本应用实现了基于微信小程序的动植物识别和车辆识别，使用便捷，充分发挥了微信小程序“即用即走”的特点。<br>同时，本次大作业项目制作过程只用了<strong>Git进行进度跟踪</strong>，便于进行版本回退和功能更新。</p>
-<h2 id="2-设计思路"><a href="#2-设计思路" class="headerlink" title="2 设计思路"></a>2 设计思路</h2><p>根据初步选定的设计题目，查找相关资料，针对系统所涉及内容，查阅相关背景知识，将设计思路在此做一个概括。<br>本课题需要<strong>实现一个基本的图片识别应用，实现动物识别、植物识别和车辆识别三种主要功能</strong>。查阅的资料主要包括两方面：图片识别API的选择以及微信小程序UI框架的选择。</p>
-<h3 id="2-1-图片识别API"><a href="#2-1-图片识别API" class="headerlink" title="2.1 图片识别API"></a>2.1 图片识别API</h3><p>首先需要查阅图片识别API的相关资料，以便确定课题最终使用哪个API。下面我将在接口能力、是否有参考例程、个人评价三方面简要分析一下常见的几种图片识别API。</p>
+<h2 id="概述">1 概述</h2>
+<h3 id="课程大作业目的与要求">1.1 课程大作业目的与要求</h3>
+<p>课程大作业的目的是：运用在本次课程中学到的知识来指导实践，了解程序设计其实现方法，学会解决实际问题。掌握微信小程序设计的具体步骤与基本方法，针对选定的程序做调研分析。通过课程大作业，提高实践动手技能，培养独立分析分析问题和解决问题的能力。 课程大作业的要求：本次课程大作业的选题比较灵活，可以是自主选题，也可以参考课本中的案例自行修改完善，题目要符合课程大作业的要求，并且具备一定的水平和深度。</p>
+<h3 id="课程大作业简介">1.2 课程大作业简介</h3>
+<p>图像识别是指利用计算机对图像进行处理、分析和理解，以识别各种不同模式的目标和对像的技术。在众多的图像识别分支中，拍照识别是一个重要的应用。利用图像识别技术，识别拍摄到的图片内容，已经广泛应用于各类图像识别App中。 微信小程序是一种不需要下载安装即可使用的应用，它实现了应用的“触手可及”和“即用即走”，用户扫一扫或搜一下即可打开应用。利用微信小程序使用便捷的特点，结合图片识别应用，本次大作业选定了制作微信小程序的<strong>图片识别应用——ImageMaster</strong>。本应用实现了基于微信小程序的动植物识别和车辆识别，使用便捷，充分发挥了微信小程序“即用即走”的特点。 同时，本次大作业项目制作过程只用了<strong>Git进行进度跟踪</strong>，便于进行版本回退和功能更新。</p>
+<h2 id="设计思路">2 设计思路</h2>
+<p>根据初步选定的设计题目，查找相关资料，针对系统所涉及内容，查阅相关背景知识，将设计思路在此做一个概括。 本课题需要<strong>实现一个基本的图片识别应用，实现动物识别、植物识别和车辆识别三种主要功能</strong>。查阅的资料主要包括两方面：图片识别API的选择以及微信小程序UI框架的选择。</p>
+<h3 id="图片识别api">2.1 图片识别API</h3>
+<p>首先需要查阅图片识别API的相关资料，以便确定课题最终使用哪个API。下面我将在接口能力、是否有参考例程、个人评价三方面简要分析一下常见的几种图片识别API。</p>
 <blockquote>
 <p>百度大脑</p>
 </blockquote>
@@ -315,58 +368,60 @@
 <p>表2-1 百度图片识别API接口能力</p>
 <table>
 <thead>
-<tr>
-<th align="center">接口名称</th>
-<th align="center">接口能力简要描述</th>
+<tr class="header">
+<th style="text-align: center;">接口名称</th>
+<th style="text-align: center;">接口能力简要描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">图像主体检测</td>
-<td align="center">识别图像中的主体具体坐标位置。</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">图像主体检测</td>
+<td style="text-align: center;">识别图像中的主体具体坐标位置。</td>
 </tr>
-<tr>
-<td align="center">通用物体和场景识别高级版</td>
-<td align="center">识别图片中的场景及物体标签，支持10w+标签类型。</td>
+<tr class="even">
+<td style="text-align: center;">通用物体和场景识别高级版</td>
+<td style="text-align: center;">识别图片中的场景及物体标签，支持10w+标签类型。</td>
 </tr>
-<tr>
-<td align="center">菜品识别</td>
-<td align="center">检测用户上传的菜品图片，返回具体的菜名、卡路里、置信度信息。</td>
+<tr class="odd">
+<td style="text-align: center;">菜品识别</td>
+<td style="text-align: center;">检测用户上传的菜品图片，返回具体的菜名、卡路里、置信度信息。</td>
 </tr>
-<tr>
-<td align="center">自定义菜品识别</td>
-<td align="center">入库自定义的单菜品图，实现上传多菜品图的精准识别，返回具体的菜名、位置、置信度</td>
+<tr class="even">
+<td style="text-align: center;">自定义菜品识别</td>
+<td style="text-align: center;">入库自定义的单菜品图，实现上传多菜品图的精准识别，返回具体的菜名、位置、置信度</td>
 </tr>
-<tr>
-<td align="center">logo商标识别</td>
-<td align="center">识别图片中包含的商品LOGO信息，返回LOGO品牌名称、在图片中的位置、置信度。</td>
+<tr class="odd">
+<td style="text-align: center;">logo商标识别</td>
+<td style="text-align: center;">识别图片中包含的商品LOGO信息，返回LOGO品牌名称、在图片中的位置、置信度。</td>
 </tr>
-<tr>
-<td align="center">动物识别</td>
-<td align="center">检测用户上传的动物图片，返回动物名称、置信度信息。</td>
+<tr class="even">
+<td style="text-align: center;">动物识别</td>
+<td style="text-align: center;">检测用户上传的动物图片，返回动物名称、置信度信息。</td>
 </tr>
-<tr>
-<td align="center">植物识别</td>
-<td align="center">检测用户上传的植物图片，返回植物名称、置信度信息。</td>
+<tr class="odd">
+<td style="text-align: center;">植物识别</td>
+<td style="text-align: center;">检测用户上传的植物图片，返回植物名称、置信度信息。</td>
 </tr>
-<tr>
-<td align="center">果蔬食材识别</td>
-<td align="center">检测用户上传的果蔬类图片，返回果蔬名称、置信度信息。</td>
+<tr class="even">
+<td style="text-align: center;">果蔬食材识别</td>
+<td style="text-align: center;">检测用户上传的果蔬类图片，返回果蔬名称、置信度信息。</td>
 </tr>
-<tr>
-<td align="center">地标识别</td>
-<td align="center">检测用户上传的地标图片，返回地标名称。</td>
+<tr class="odd">
+<td style="text-align: center;">地标识别</td>
+<td style="text-align: center;">检测用户上传的地标图片，返回地标名称。</td>
 </tr>
-<tr>
-<td align="center">红酒识别</td>
-<td align="center">识别图像中的红酒标签，返回红酒名称、国家、产区、酒庄、类型、糖分、葡萄品种等信息。</td>
+<tr class="even">
+<td style="text-align: center;">红酒识别</td>
+<td style="text-align: center;">识别图像中的红酒标签，返回红酒名称、国家、产区、酒庄、类型、糖分、葡萄品种等信息。</td>
 </tr>
-<tr>
-<td align="center">货币识别</td>
-<td align="center">识别图像中的货币类型，返回货币名称、代码、面值、年份信息，可识别百余种国内外常见货币。</td>
+<tr class="odd">
+<td style="text-align: center;">货币识别</td>
+<td style="text-align: center;">识别图像中的货币类型，返回货币名称、代码、面值、年份信息，可识别百余种国内外常见货币。</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <ul>
-<li>调用方式<br>API 和 SDK 两种方式，SDK文档包含 Java、PHP、Python、C#、C++、Node语言，有丰富的 Demo。</li>
+<li>调用方式 API 和 SDK 两种方式，SDK文档包含 Java、PHP、Python、C#、C++、Node语言，有丰富的 Demo。</li>
 </ul>
 <blockquote>
 <p>腾讯AI开放平台</p>
@@ -379,266 +434,387 @@
 <blockquote>
 <p>旷世 Face++</p>
 </blockquote>
-<p>接口包含人脸识别、人体识别、证件识别、图像识别，拥有详细的开发指南。<br>综合比较之后，决定采用百度大脑 API平台。</p>
-<h3 id="2-2-微信小程序UI框架"><a href="#2-2-微信小程序UI框架" class="headerlink" title="2.2 微信小程序UI框架"></a>2.2 微信小程序UI框架</h3><p>查阅各种微信小程序UI框架资料，决定使用哪种 UI 框架作为本项目的UI框架。</p>
+<p>接口包含人脸识别、人体识别、证件识别、图像识别，拥有详细的开发指南。 综合比较之后，决定采用百度大脑 API平台。</p>
+<h3 id="微信小程序ui框架">2.2 微信小程序UI框架</h3>
+<p>查阅各种微信小程序UI框架资料，决定使用哪种 UI 框架作为本项目的UI框架。</p>
 <ul>
 <li><p>WeUI</p>
 <ul>
 <li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1RlbmNlbnQvd2V1aS13eHNz" title="https://github.com/Tencent/weui-wxss">项目地址<i class="fa fa-external-link"></i></span></li>
-<li>简介<br>WeUI 是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信内网页和微信小程序量身设计，令用户的使用感知更加统一。包含button、cell、dialog、 progress、 toast、article、actionsheet、icon等各式元素。</li>
-<li>使用体验<br>毕竟是微信官方提供的UI框架，界面肯定是与微信小程序的适配度最好。但是感觉没有特别的亮点。</li>
-</ul>
-</li>
+<li>简介 WeUI 是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信内网页和微信小程序量身设计，令用户的使用感知更加统一。包含button、cell、dialog、 progress、 toast、article、actionsheet、icon等各式元素。</li>
+<li>使用体验 毕竟是微信官方提供的UI框架，界面肯定是与微信小程序的适配度最好。但是感觉没有特别的亮点。</li>
+</ul></li>
 <li><p>Vant Weapp</p>
 <ul>
 <li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXphbi92YW50LXdlYXBw" title="https://github.com/youzan/vant-weapp">项目地址<i class="fa fa-external-link"></i></span></li>
-<li>简介<br>Vant Weapp 是有赞移动端组件库 Vant 的小程序版本，两者基于相同的视觉规范，提供一致的 API 接口，助力开发者快速搭建小程序应用。</li>
-<li>使用体验<br>组件分类做得不错，样式也很简洁美观。</li>
-</ul>
-</li>
+<li>简介 Vant Weapp 是有赞移动端组件库 Vant 的小程序版本，两者基于相同的视觉规范，提供一致的 API 接口，助力开发者快速搭建小程序应用。</li>
+<li>使用体验 组件分类做得不错，样式也很简洁美观。</li>
+</ul></li>
 <li><p>iView Weapp</p>
 <ul>
 <li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1RhbGtpbmdEYXRhL2l2aWV3LXdlYXBw" title="https://github.com/TalkingData/iview-weapp">项目地址<i class="fa fa-external-link"></i></span></li>
-<li>简介<br>一套高质量的微信小程序 UI 组件库</li>
-<li>使用体验<br>界面简单，没亮点。</li>
-</ul>
-</li>
+<li>简介 一套高质量的微信小程序 UI 组件库</li>
+<li>使用体验 界面简单，没亮点。</li>
+</ul></li>
 <li><p>MinUI</p>
 <ul>
 <li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21laWxpL21pbnVp" title="https://github.com/meili/minui">项目地址<i class="fa fa-external-link"></i></span></li>
-<li>简介<br>MinUI 是基于微信小程序自定义组件特性开发而成的一套简洁、易用、高效的组件库，适用场景广。覆盖小程序原生框架，各种小程序组件主流框架等，并且提供了专门的命令行工具</li>
-<li>使用体验<br>组件还算齐全，没有亮点。官方Demo还有广告链接。</li>
-</ul>
-</li>
+<li>简介 MinUI 是基于微信小程序自定义组件特性开发而成的一套简洁、易用、高效的组件库，适用场景广。覆盖小程序原生框架，各种小程序组件主流框架等，并且提供了专门的命令行工具</li>
+<li>使用体验 组件还算齐全，没有亮点。官方Demo还有广告链接。</li>
+</ul></li>
 <li><p>Wux Weapp</p>
 <ul>
 <li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3d1eC13ZWFwcC93dXgtd2VhcHA=" title="https://github.com/wux-weapp/wux-weapp">项目地址<i class="fa fa-external-link"></i></span></li>
-<li>简介<br>Wux Weapp 是一套组件化、可复用、易扩展的微信小程序 UI 组件库。UI 样式可配置，拓展灵活，轻松适应不同的设计风格。60多个丰富的组件，能够满足移动端开发的基本需求。</li>
-<li>使用体验<br>没有特别炫酷的效果，但组件齐全。</li>
-</ul>
-</li>
+<li>简介 Wux Weapp 是一套组件化、可复用、易扩展的微信小程序 UI 组件库。UI 样式可配置，拓展灵活，轻松适应不同的设计风格。60多个丰富的组件，能够满足移动端开发的基本需求。</li>
+<li>使用体验 没有特别炫酷的效果，但组件齐全。</li>
+</ul></li>
 <li><p>ColorUI</p>
 <ul>
 <li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dlaWxhbndsL0NvbG9yVUk=" title="https://github.com/weilanwl/ColorUI">项目地址<i class="fa fa-external-link"></i></span></li>
-<li>简介<br>鲜亮的高饱和色彩，专注视觉的小程序组件库。</li>
-<li>使用体验<br>功能齐全，各种组件分类明确。</li>
-</ul>
-</li>
+<li>简介 鲜亮的高饱和色彩，专注视觉的小程序组件库。</li>
+<li>使用体验 功能齐全，各种组件分类明确。</li>
+</ul></li>
 <li><p>Taro UI</p>
 <ul>
 <li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL05lcnZKUy90YXJvLXVp" title="https://github.com/NervJS/taro-ui">项目地址<i class="fa fa-external-link"></i></span></li>
-<li>简介<br>一款基于 Taro 框架开发的多端 UI 组件库。基于 Taro 开发 UI 组件一套组件，可以在微信小程序，支付宝小程序，百度小程序，H5 多端适配运行（ReactNative 端暂不支持）。提供友好的 API，可灵活的使用组件。</li>
-<li>使用体验<br>界面简介，功能丰富。</li>
-</ul>
-</li>
+<li>简介 一款基于 Taro 框架开发的多端 UI 组件库。基于 Taro 开发 UI 组件一套组件，可以在微信小程序，支付宝小程序，百度小程序，H5 多端适配运行（ReactNative 端暂不支持）。提供友好的 API，可灵活的使用组件。</li>
+<li>使用体验 界面简介，功能丰富。</li>
+</ul></li>
 </ul>
 <blockquote>
 <p>经过亲自体验各种UI框架的官方Demo，最后感觉 Taro UI 使我印象很深刻。界面简洁，组件分类明确。我起初决定使用 Taro UI 框架，但是在项目进行到UI设计阶段，发现Taro使用有些许难度，为简化开发过程，最终使用了微信小程序的官方UI框架——WeUI框架。</p>
 </blockquote>
-<h2 id="3-设计方案"><a href="#3-设计方案" class="headerlink" title="3 设计方案"></a>3 设计方案</h2><p>在需求分析的基础上，查阅资料，对在小程序设计中可能用到的相关技术做一定的调研分析，做一个概要性的描述。<br>因为微信小程序本身就是联网的应用平台，因此在微信小程序平台进行图片识别，就不必担心网络连接问题。从源头上追溯，实现图片识别需要用户首先上传图片或拍摄图片，需要解决<strong>图片上传问题</strong>；之后发送API请求时，图片需要作为请求的参数，需要解决<strong>图片转码的问题</strong>；最后API请求调用成功后，需要将识别的数据输出，就涉及<strong>数据处理</strong>以及<strong>UI界面设计的问题</strong>。通过解决关键的“图片上传”、“图片转码”、“API调用”、“界面设计”这几个问题，就可以实现基本的图片识别小程序了。</p>
-<h2 id="4-设计过程"><a href="#4-设计过程" class="headerlink" title="4 设计过程"></a>4 设计过程</h2><p>根据初步选定的课程大作业程序设计题目，查找相关资料，结合课本中的案例以及前期的学习，整理设计过程。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103124808936.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x400" alt="在这里插入图片描述"></p>
+<h2 id="设计方案">3 设计方案</h2>
+<p>在需求分析的基础上，查阅资料，对在小程序设计中可能用到的相关技术做一定的调研分析，做一个概要性的描述。 因为微信小程序本身就是联网的应用平台，因此在微信小程序平台进行图片识别，就不必担心网络连接问题。从源头上追溯，实现图片识别需要用户首先上传图片或拍摄图片，需要解决<strong>图片上传问题</strong>；之后发送API请求时，图片需要作为请求的参数，需要解决<strong>图片转码的问题</strong>；最后API请求调用成功后，需要将识别的数据输出，就涉及<strong>数据处理</strong>以及<strong>UI界面设计的问题</strong>。通过解决关键的“图片上传”、“图片转码”、“API调用”、“界面设计”这几个问题，就可以实现基本的图片识别小程序了。</p>
+<h2 id="设计过程">4 设计过程</h2>
+<p>根据初步选定的课程大作业程序设计题目，查找相关资料，结合课本中的案例以及前期的学习，整理设计过程。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103124808936.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x400" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图1 设计过程</p>
-<h3 id="4-1-百度开放平台注册"><a href="#4-1-百度开放平台注册" class="headerlink" title="4.1 百度开放平台注册"></a>4.1 百度开放平台注册</h3><p><img src="https://img-blog.csdnimg.cn/20200103125159157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x450" alt="在这里插入图片描述"></p>
+<h3 id="百度开放平台注册">4.1 百度开放平台注册</h3>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103125159157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x450" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.1 服务条款</p>
 <p>首先登陆百度智能云平台，同意它的服务条款。</p>
 <p>之后填写相关的信息，在控制台概览中创建应用。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103125254171.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103125254171.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.2 创建新应用</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103125317479.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103125317479.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.3 获取密钥</p>
 <p>现在已经申请好了百度的API接口，下面尝试在微信小程序中进行调用。</p>
-<h3 id="4-2-获取asscee-token"><a href="#4-2-获取asscee-token" class="headerlink" title="4.2 获取asscee_token"></a>4.2 获取asscee_token</h3><p>在百度AI的官方文档中可以看到，这个API接口有两种调用方式，两种不同的调用方式有相同的接口URL地址，区别在于请求方式和鉴权方式不同。下面我将尝试使用微信小程序中常用的POST请求方式，调用该接口。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103125333573.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="获取asscee_token">4.2 获取asscee_token</h3>
+<p>在百度AI的官方文档中可以看到，这个API接口有两种调用方式，两种不同的调用方式有相同的接口URL地址，区别在于请求方式和鉴权方式不同。下面我将尝试使用微信小程序中常用的POST请求方式，调用该接口。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103125333573.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.4 调用方式</p>
 <p>在官方文档中可以看到，使用post请求需要用到access_token，所以现在去查看如何获取access_token。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103125352874.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103125352874.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.5获取Access_Token</p>
 <p>获取access_token需要下个授权的服务器地址发送post请求，使用固定的参数，即可得到服务器返回的json数据。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103125404948.png#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103125404948.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.6 服务器返回参数</p>
-<p>下面就开始进行小程序的编写，实现access_token的获取。<br>首先，在空的小程序中添加一个按钮，在按钮按下后，调用wx.request方法向服务器发送POST请求。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103125421877.png#pic_center" alt="在这里插入图片描述"></p>
+<p>下面就开始进行小程序的编写，实现access_token的获取。 首先，在空的小程序中添加一个按钮，在按钮按下后，调用wx.request方法向服务器发送POST请求。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103125421877.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.7 布局文件</p>
 <p>按钮绑定事件处理函数，这个事件处理函数就是用来发送POST请求的。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103125438131.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103125438131.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.8 绑定事件</p>
-<p>上面图片就是编写的事件处理函数，利用wx.request方法，请求百度API的URL地址，请求方式按要求是POST方式。然后分别编写了请求完成、请求成功、请求失败的回调函数，目的就是让我能在控制台中看到请求的状态。<br>下面就需要在微信小程序的后台添加合法域名，以便wx.request方法能够正确使用。</p>
-<p><img src="https://img-blog.csdnimg.cn/2020010312545513.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>上面图片就是编写的事件处理函数，利用wx.request方法，请求百度API的URL地址，请求方式按要求是POST方式。然后分别编写了请求完成、请求成功、请求失败的回调函数，目的就是让我能在控制台中看到请求的状态。 下面就需要在微信小程序的后台添加合法域名，以便wx.request方法能够正确使用。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/2020010312545513.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.9 添加域名</p>
 <p>箭头所指的就是百度大脑的请求网址，上面那个URL是以前做地图API添加的，这里没有用到。运行模拟器之后成功获取到了access_token的值。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103125511352.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103125511352.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.10 获取token</p>
-<p>可以看到，控制台执行了success回调函数，成功返回了access_token。现在Access_token的问题已经解决了。接下来就要尝试去请求百度图片识别的API接口了。<br>通过阅读百度大脑API接口文档，我大概理解了百度API的接口使用方式。看一下下面的API文档的截图就可以了解其流程。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103125535165.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>可以看到，控制台执行了success回调函数，成功返回了access_token。现在Access_token的问题已经解决了。接下来就要尝试去请求百度图片识别的API接口了。 通过阅读百度大脑API接口文档，我大概理解了百度API的接口使用方式。看一下下面的API文档的截图就可以了解其流程。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103125535165.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.11 请求说明</p>
-<p>我们首先需要使用微信封装的request方法请求这个API的URL地址，注意要使用该POST方式。然后这个URL的具体内容就是文档中给出的地址，不同的API接口有不同的请求地址。URL地址需要添加一些参数，如access_token、Content-Type等等。同时，还需要一个image参数作为图片的标识，这个image是将图片转换成了base64编码的格式，也就是将图片传换成了一串字符。<br>再查阅微信小程序wx.request方法就可以知道，image这个参数可以通过小程序的data属性表示。这样，API接口的请求过程就可以在小程序中表示出来了。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103125601775.png" alt="在这里插入图片描述"></p>
+<p>我们首先需要使用微信封装的request方法请求这个API的URL地址，注意要使用该POST方式。然后这个URL的具体内容就是文档中给出的地址，不同的API接口有不同的请求地址。URL地址需要添加一些参数，如access_token、Content-Type等等。同时，还需要一个image参数作为图片的标识，这个image是将图片转换成了base64编码的格式，也就是将图片传换成了一串字符。 再查阅微信小程序wx.request方法就可以知道，image这个参数可以通过小程序的data属性表示。这样，API接口的请求过程就可以在小程序中表示出来了。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103125601775.png" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.12 参数说明</p>
-<p>下面尝试在小程序中进行程序编写。<br>首先添加一个变量“token”用来存储我获取到的access_token值，然后将success回调函数修改成下图中的代码。</p>
-<p><img src="https://img-blog.csdnimg.cn/2020010312563252.png#pic_center" alt="在这里插入图片描述"></p>
+<p>下面尝试在小程序中进行程序编写。 首先添加一个变量“token”用来存储我获取到的access_token值，然后将success回调函数修改成下图中的代码。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/2020010312563252.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.13 调用方式</p>
 <p>也就是将token从服务器返回的json数据中提取出来。现在，token已经存储到了变量中。</p>
-<h3 id="4-3-图片上传"><a href="#4-3-图片上传" class="headerlink" title="4.3 图片上传"></a>4.3 图片上传</h3><p>现在有一个问题，<strong>微信小程序怎样获取图片数据呢</strong>？微信常用的方式是将用户的图片文件上传到微信开发者的服务器上，服务器接收到图片数据后再进行相关的处理。不管怎样，都首先需要使用微信提供的接口上传图片文件。那么首先研究一下怎样使用微信的图片上传接口。<br>微信提供了“从本地选择图片或使用相机拍照”的接口“wx.chooseImage”。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103125653556.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="图片上传">4.3 图片上传</h3>
+<p>现在有一个问题，<strong>微信小程序怎样获取图片数据呢</strong>？微信常用的方式是将用户的图片文件上传到微信开发者的服务器上，服务器接收到图片数据后再进行相关的处理。不管怎样，都首先需要使用微信提供的接口上传图片文件。那么首先研究一下怎样使用微信的图片上传接口。 微信提供了“从本地选择图片或使用相机拍照”的接口“wx.chooseImage”。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103125653556.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.14 参数说明</p>
 <p>现在尝试使用该接口上传一下图片文件。在逻辑文件中编写图片上传按钮的事件处理函数。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103125710804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103125710804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.15 获取图片</p>
 <p>下面运行小程序，点击上传图片按钮，会弹出系统资源管理器，在里面选择图片文件点击确定，即可成功上传图片文件。在success回调函数中，把上传图片的文件路径放到变量中，再通过控制台显示出来即可。在控制台中显示了图片路径。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103125733172.png#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103125733172.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.16 控制台信息</p>
-<p>为了确定图片真的已经上传到了微信小程序中，我现在把上传的图片显示在小程序界面中。小程序文档中指出，tempFilePaths可以作为<code>&lt;image&gt;</code>组件的src地址，所以显示图片就很方便了。<br>经过一番调试，该功能终于实现了。首先，在页面布局中添加<code>&lt;image&gt;</code>组件，该组件的src设置为动态变量imageUrl，以便在图片上传后动态改变。之后编写相应的事件处理函数，首先添加一个默认的图片索引地址，将该图片放到向程序工程目录下，使用data属性保存其路径信息。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103125806408.png#pic_center" alt="在这里插入图片描述"></p>
+<p>为了确定图片真的已经上传到了微信小程序中，我现在把上传的图片显示在小程序界面中。小程序文档中指出，tempFilePaths可以作为<code>&lt;image&gt;</code>组件的src地址，所以显示图片就很方便了。 经过一番调试，该功能终于实现了。首先，在页面布局中添加<code>&lt;image&gt;</code>组件，该组件的src设置为动态变量imageUrl，以便在图片上传后动态改变。之后编写相应的事件处理函数，首先添加一个默认的图片索引地址，将该图片放到向程序工程目录下，使用data属性保存其路径信息。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103125806408.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.17 图片地址</p>
 <p>然后在原有的图片上传事件处理函数的基础上，编写增加代码如下：</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103125830843.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103125830843.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.18 获取图片地址</p>
 <p>画横线的代码是图片动态显示的关键代码。这样，就是实现了图片的上传和动态更新。PS：这部分内容参考课本P132“上传头像”部分。</p>
-<h3 id="4-4-图片格式转化"><a href="#4-4-图片格式转化" class="headerlink" title="4.4 图片格式转化"></a>4.4 图片格式转化</h3><p>好的，现在就可以看一下怎样把图片转换成base64格式的数据了。<br>经过查找资料，发现将图片转换成base64格式的方式也有不少。我是用一种微信提供的文件管理接口实现的。在上传图片的成功回调函数中（此时已经得到了本地图片地址），使用文件系统管理方法，读取本地文件的内容。这里指定读取文件的编码格式为base64，然后通过控制台显示出来就可以了。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103125851993.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="图片格式转化">4.4 图片格式转化</h3>
+<p>好的，现在就可以看一下怎样把图片转换成base64格式的数据了。 经过查找资料，发现将图片转换成base64格式的方式也有不少。我是用一种微信提供的文件管理接口实现的。在上传图片的成功回调函数中（此时已经得到了本地图片地址），使用文件系统管理方法，读取本地文件的内容。这里指定读取文件的编码格式为base64，然后通过控制台显示出来就可以了。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103125851993.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.19 图片转码</p>
-<p>上面截了一下关键位置的代码，这部分代码是放在success回调函数中，因为回调函数中已经获取到了上传图片的本地地址。<br>看一下控制台的信息：</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103125913402.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>上面截了一下关键位置的代码，这部分代码是放在success回调函数中，因为回调函数中已经获取到了上传图片的本地地址。 看一下控制台的信息：</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103125913402.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.20 控制台信息</p>
-<p>可以看到，控制台输出了图片的base64编码值。稍微了解一下base64编码，该编码可以用于HTML环境下的较长信息的标识，只要用于canvas画布的图片显示。它的好处在于，可以在没有上传图片文件的情况下，使用该编码在HTML中插入该图片。这种编码有固定的表示形式：“data:image/jpeg;base64, …..”，也有固定的格式转换格式。具体的内容就不再详细研究了。在我的测试中，上传的原图片大小是20.5KB，转换成base64编码之后的数据大小为54.7KB。</p>
-<h3 id="4-5-API请求"><a href="#4-5-API请求" class="headerlink" title="4.5 API请求"></a>4.5 API请求</h3><p>图片已经准备好了，现在已经可以去调用百度图片识别的API了。下面需要对包括“access_token”、“base64编码”等数据进行整合，并以动物识别为例尝试该API的调用。<br>首先添加识别按钮，然后编写相应的事件处理函数。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103125930715.png#pic_center" alt="在这里插入图片描述"></p>
+<p>可以看到，控制台输出了图片的base64编码值。稍微了解一下base64编码，该编码可以用于HTML环境下的较长信息的标识，只要用于canvas画布的图片显示。它的好处在于，可以在没有上传图片文件的情况下，使用该编码在HTML中插入该图片。这种编码有固定的表示形式：“data:image/jpeg;base64, .....”，也有固定的格式转换格式。具体的内容就不再详细研究了。在我的测试中，上传的原图片大小是20.5KB，转换成base64编码之后的数据大小为54.7KB。</p>
+<h3 id="api请求">4.5 API请求</h3>
+<p>图片已经准备好了，现在已经可以去调用百度图片识别的API了。下面需要对包括“access_token”、“base64编码”等数据进行整合，并以动物识别为例尝试该API的调用。 首先添加识别按钮，然后编写相应的事件处理函数。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103125930715.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.21 识别按钮</p>
 <p>事件处理函数就是要进行API接口调用了。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103125947987.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103125947987.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.22 识别图片</p>
-<p>上面就是按照百度动物识别API文档的要求，结合小程序wx.request方法的属性写出来的事件处理函数。<br>我在网上搜了一个狗的图片，添加到了小程序文件夹中作为测试图片。运行模拟器进行测试。依次点击“获取access_token”、“上传图片”以及“识别该图片”按钮，在控制台看到API返回的数据。</p>
-<p><img src="https://img-blog.csdnimg.cn/2020010313001545.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>上面就是按照百度动物识别API文档的要求，结合小程序wx.request方法的属性写出来的事件处理函数。 我在网上搜了一个狗的图片，添加到了小程序文件夹中作为测试图片。运行模拟器进行测试。依次点击“获取access_token”、“上传图片”以及“识别该图片”按钮，在控制台看到API返回的数据。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/2020010313001545.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.23 接口返回值</p>
-<p>可以看到，在API返回的JSON数据中，标注了识别结果，其中置信度最高的结果是“威尔士柯基”。我特意搜了一下这个“威尔士柯基”，识别结果还是挺准的。<br>还要测试一下非动物图片的识别情况。现在我继续上传一个头像图片进行测试，看看测试结果。可以看到，非动物也是可以被识别出来的，识别结果只有一个高置信度的“非动物”结果。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103130026994.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>可以看到，在API返回的JSON数据中，标注了识别结果，其中置信度最高的结果是“威尔士柯基”。我特意搜了一下这个“威尔士柯基”，识别结果还是挺准的。 还要测试一下非动物图片的识别情况。现在我继续上传一个头像图片进行测试，看看测试结果。可以看到，非动物也是可以被识别出来的，识别结果只有一个高置信度的“非动物”结果。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103130026994.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.24 非动物识别</p>
 <p>程序做到这里，可以说最大的障碍已经被克服了。目前已经实现了“动物识别”，下面就是逐步实现“植物识别”、“车型识别”等功能就可以了，他们的基本流程是一样的。</p>
-<h3 id="4-6-实现植物识别"><a href="#4-6-实现植物识别" class="headerlink" title="4.6 实现植物识别"></a>4.6 实现植物识别</h3><p>现在来整理一下代码，尝试实现“植物识别”功能。<br>通过阅读API文档可以看出，其实这几种不同的图像识别的接口，只是URL地址不同，其他参数都是一样的。所以我设置了一个变量apiUrl用来存放不同接口的URL地址，为“植物识别”编写一个新的事件处理函数。这个事件处理函数与“动物识别”唯一的不同就是apiUrl不一样罢了。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103130040233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="实现植物识别">4.6 实现植物识别</h3>
+<p>现在来整理一下代码，尝试实现“植物识别”功能。 通过阅读API文档可以看出，其实这几种不同的图像识别的接口，只是URL地址不同，其他参数都是一样的。所以我设置了一个变量apiUrl用来存放不同接口的URL地址，为“植物识别”编写一个新的事件处理函数。这个事件处理函数与“动物识别”唯一的不同就是apiUrl不一样罢了。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103130040233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.25 植物识别</p>
-<p>可以看到，我把请求接口的URL放到了apiUrl变量中。同时精简了控制台显示的数据，只保留关键的数据。<br>至于图像识别的事件处理函数，只需要把之前的POST请求地址改成用apiUrl表示就可以了。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103130059359.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>可以看到，我把请求接口的URL放到了apiUrl变量中。同时精简了控制台显示的数据，只保留关键的数据。 至于图像识别的事件处理函数，只需要把之前的POST请求地址改成用apiUrl表示就可以了。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103130059359.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.26 识别图片</p>
-<p>可以看到画横线的那句话，就是把POST地址改了一下，使程序的使用范围更广了。同时还要注意到，我精简了控制台的输出信息，只保留置信度最高的结果。<br>现在就可以识别植物了。</p>
-<p><img src="https://img-blog.csdnimg.cn/2020010313011067.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>可以看到画横线的那句话，就是把POST地址改了一下，使程序的使用范围更广了。同时还要注意到，我精简了控制台的输出信息，只保留置信度最高的结果。 现在就可以识别植物了。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/2020010313011067.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.27 识别植物</p>
 <p>现在控制台简洁多了，而且也能正确显示置信度最高的识别结果了。</p>
-<h3 id="4-7-实现车辆识别"><a href="#4-7-实现车辆识别" class="headerlink" title="4.7 实现车辆识别"></a>4.7 实现车辆识别</h3><p>现在继续做车型识别。现在添加功能就比较简单了，只需修改apiUrl。<br>这时遇到了一个问题，上传图片的大小错误。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103130123464.png#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="实现车辆识别">4.7 实现车辆识别</h3>
+<p>现在继续做车型识别。现在添加功能就比较简单了，只需修改apiUrl。 这时遇到了一个问题，上传图片的大小错误。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103130123464.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.28 控制台信息</p>
 <p>为了方便调试，我将控制台信息输出添加了条件判断语句，如果发生错误就输出错误信息，没有错误就输出识别结果。首先测试了图片大小错误的情况，然后测试了正常的图片，控制台输出的信息如下：</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103130149498.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103130149498.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.29 控制台信息</p>
 <p>这样调试就方便多了。现在来解决图片size的问题。以“车型识别”为例，其图片要求如下：</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103130158445.png#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103130158445.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.30 图片要求</p>
-<p>我刚才上传的“image size error”的图片，其像素为1920px*1080px，符合文档中图片长宽的要求。原图大小为460KB，其编码为base64之后的大小为1.2MB，同样符合要求。这就奇怪了，因为这些参数都是符合文档要求的。<br>之后我又进行了其他测试，换了一张1920px × 1080px的图片，不会报错。所以看起来图片不合适的原因应该是图片大小的问题。然而，当我继续测试使用2048px × 1335px，原图大小为1.5MB的图片时，竟然可以正常识别。所以这张图片报错的原因暂时没有搞清楚。<br>先不管这里了，因为我测试了其他图片，都没有出现问题，只有这一张出现图片大小的问题。就先放一下吧。下面整理一下小程序，优化一下界面。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103130218887.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>我刚才上传的“image size error”的图片，其像素为1920px*1080px，符合文档中图片长宽的要求。原图大小为460KB，其编码为base64之后的大小为1.2MB，同样符合要求。这就奇怪了，因为这些参数都是符合文档要求的。 之后我又进行了其他测试，换了一张1920px × 1080px的图片，不会报错。所以看起来图片不合适的原因应该是图片大小的问题。然而，当我继续测试使用2048px × 1335px，原图大小为1.5MB的图片时，竟然可以正常识别。所以这张图片报错的原因暂时没有搞清楚。 先不管这里了，因为我测试了其他图片，都没有出现问题，只有这一张出现图片大小的问题。就先放一下吧。下面整理一下小程序，优化一下界面。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103130218887.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.31 界面展示</p>
 <p>上图是初始化界面，调整了“识别图片”按钮和图片之间的相对位置，同时添加了文本框显示提示信息。下面以“动物识别”为例，展示识别效果。可以看到，通过添加文本框，可以直观地显示识别结果，非常方便。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103130224533.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103130224533.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.32 识别结果</p>
 <p>下面就来编写一下样式文件吧。</p>
-<h3 id="4-8-Taro样式测试"><a href="#4-8-Taro样式测试" class="headerlink" title="4.8 Taro样式测试"></a>4.8 Taro样式测试</h3><ul>
+<h3 id="taro样式测试">4.8 Taro样式测试</h3>
+<ul>
 <li>（1）Taro样式介绍</li>
 </ul>
-<p>样式文件我想尝试使用UI框架编写，经过对比多种UI框架，最终决定使用Taro UI作为我的UI框架使用。以下是Taro官网介绍：<br>Taro 是由京东凹凸实验室打造的多端开发解决方案。现如今市面上端的形态多种多样，Web、ReactNative、微信小程序等各种端大行其道，当业务要求同时在不同的端都要求有所表现的时候，针对不同的端去编写多套代码的成本显然非常高，这时候只编写一套代码就能够适配到多端的能力就显得极为需要。使用 Taro，我们可以只书写一套代码，再通过 Taro 的编译工具，将源代码分别编译出可以在不同端（微信小程序、H5、RN等）运行的代码。<br>下面就按照官网的教程，尝试在本地小程序中使用该框架进行练习。为了防止原有的小程序结构被破坏，首先新建一个小程序作为练习使用。<br>Taro需要使用Node.js，要求版本在v8.x 或以上。但我之前安装的版本是v4.4.3，所以现在先重新安装新版本的Node.js。</p>
-<p><img src="https://img-blog.csdnimg.cn/2020010313025249.png#pic_center" alt="在这里插入图片描述"></p>
+<p>样式文件我想尝试使用UI框架编写，经过对比多种UI框架，最终决定使用Taro UI作为我的UI框架使用。以下是Taro官网介绍： Taro 是由京东凹凸实验室打造的多端开发解决方案。现如今市面上端的形态多种多样，Web、ReactNative、微信小程序等各种端大行其道，当业务要求同时在不同的端都要求有所表现的时候，针对不同的端去编写多套代码的成本显然非常高，这时候只编写一套代码就能够适配到多端的能力就显得极为需要。使用 Taro，我们可以只书写一套代码，再通过 Taro 的编译工具，将源代码分别编译出可以在不同端（微信小程序、H5、RN等）运行的代码。 下面就按照官网的教程，尝试在本地小程序中使用该框架进行练习。为了防止原有的小程序结构被破坏，首先新建一个小程序作为练习使用。 Taro需要使用Node.js，要求版本在v8.x 或以上。但我之前安装的版本是v4.4.3，所以现在先重新安装新版本的Node.js。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/2020010313025249.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.33 版本查看</p>
-<p><img src="https://img-blog.csdnimg.cn/2020010313030748.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/2020010313030748.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.34 安装新版本NodeJs</p>
 <p>经过重新安装，现在已经升级到了最新的长期支持版本V12.13.1。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103130316921.png#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103130316921.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.35 检查新版本</p>
 <p>下面开始项目初始化安装。</p>
 <ul>
 <li>（2）使用前的准备</li>
 </ul>
 <p>首先安装Taro脚手架工具，这里需要使用npm包管理工具进行安装。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103130329823.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103130329823.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.36 安装脚手架</p>
 <p>之后需要使用Yarn依赖管理工具安装相应的依赖，先来安装Yarn。对于Windows系统，可以下载官方提供的安装器进行安装。安装Taro完成后，可以使用命令安装相应的依赖。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103130346270.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103130346270.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.37 安装依赖</p>
 <ul>
-<li>（3） 安装项目模板<br>现在到小程序工程目录下，进行Taro模板的创建。这里注意,需要提前安装python2版本。</li>
+<li>（3） 安装项目模板 现在到小程序工程目录下，进行Taro模板的创建。这里注意,需要提前安装python2版本。</li>
 </ul>
-<p><img src="https://img-blog.csdnimg.cn/20200103131026864.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103131026864.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.38 安装模板</p>
 <p>现在模板安装完成了，可以进行模块引入了。</p>
 <ul>
 <li>（4） 引入Taro模块</li>
 </ul>
 <p>下面进行taro模块的导入，需要使用npm本地编译taro模块。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103131036376.png#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103131036376.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.39 编译模块</p>
 <p>编译完成后，我发现taro工程的目录结构与微信小程序的工程结构不一样。而且taro的样式文件编写的格式也不是wxss格式，这就导致我还要学习一些其他的样式格式规则才能上手编写taro。为了尽快完成小程序，我转向了使用WeUI框架。</p>
-<h3 id="4-9-WeUI样式测试"><a href="#4-9-WeUI样式测试" class="headerlink" title="4.9 WeUI样式测试"></a>4.9 WeUI样式测试</h3><ul>
+<h3 id="weui样式测试">4.9 WeUI样式测试</h3>
+<ul>
 <li>（1） WeUI介绍</li>
 </ul>
 <p>WeUI 是一套与微信原生 UI 一致的 UI 库，核心文件是 weui.css，只需要获取到该文件，然后在页面中引入，即可使用 WeUI 的组件。首先到其GitHub网站下载源代码，新建一个工程文件用来进行测试和修改。在微信开发者工具中打开该工程。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103131103801.png#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103131103801.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.40 工程目录</p>
 <p>此时模拟器中就可以查看到WeUI框架的各种组件样式。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103131115472.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103131115472.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.41 样式展示</p>
 <ul>
 <li>（2） 样例编写</li>
 </ul>
-<p>下面来研究一下WeUI是怎样组织样式编写的。<br>以Grid样式为例，先看一下他的效果。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103131129586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>下面来研究一下WeUI是怎样组织样式编写的。 以Grid样式为例，先看一下他的效果。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103131129586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.42 gird样式效果</p>
 <p>再看一下它的布局文件。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103131139929.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103131139929.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.43 布局文件</p>
 <p>可以看到，他是直接使用了WeUI提供的class，利用wx:for循环实现Grid组件的控制。而逻辑文件中给出了grids变量数组的数据，从0到8表示循环9次，显示9个Grid宫格。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103131150146.png#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103131150146.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.44 Grid逻辑文件</p>
-<p>现在尝试将该样式移植到我的小程序中。移植样式最关键的就是它的weui.wxss，按照教程，可以使用外联样式引入的方式将改样式文件引入到项目中。<br>首先将style文件夹整体复制到我的工程目录中，然后在全局样式中导入weui的样式文件。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103131159582.png#pic_center" alt="在这里插入图片描述"></p>
+<p>现在尝试将该样式移植到我的小程序中。移植样式最关键的就是它的weui.wxss，按照教程，可以使用外联样式引入的方式将改样式文件引入到项目中。 首先将style文件夹整体复制到我的工程目录中，然后在全局样式中导入weui的样式文件。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103131159582.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.45 导入样式</p>
 <p>之后创建一个新的页面用来测试样式内容，并将其页面作为默认显示的页面。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103131213306.png#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103131213306.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.46 创建新页面</p>
-<p>之后就可以分别在新创建的页面中编写grid布局和逻辑文件，内容与示例代码一样。这样效果就与示例代码相似了。<br>官方例程中Grid的九个组件，是由<code>&lt;navigator&gt;</code>组件组成的。<code>&lt;navigator&gt;</code>组件用于实现页面之间的跳转，而我想要通过button组件实现用户选择不同类型图片的功能，所以需要使用button组件。下面再测试一下button组件的使用。<br>首先是从官方历程中抽取出我们需要的组件。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103131223421.png#pic_center" alt="在这里插入图片描述"></p>
+<p>之后就可以分别在新创建的页面中编写grid布局和逻辑文件，内容与示例代码一样。这样效果就与示例代码相似了。 官方例程中Grid的九个组件，是由<code>&lt;navigator&gt;</code>组件组成的。<code>&lt;navigator&gt;</code>组件用于实现页面之间的跳转，而我想要通过button组件实现用户选择不同类型图片的功能，所以需要使用button组件。下面再测试一下button组件的使用。 首先是从官方历程中抽取出我们需要的组件。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103131223421.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.47 组件布局</p>
 <p>现在就需要移植一下样式文件了。在例程样式文件中找到”weui-btn”、”class”、”page__bd”、”page__bd__spacing”的文件内容，复制到本页面的样式文件中即可。最后实现的效果如下图所示。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103131239460.png#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103131239460.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.48 button效果</p>
-<p>下面尝试将原先的逻辑功能与样式结合起来。首先将样式文件复制到index.wxss文件中，然后将原先的button组件的样式改成测试时的样式。<br>于是模拟器中的样式就改为如下图所示：</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103131249668.png#pic_center" alt="在这里插入图片描述"></p>
+<p>下面尝试将原先的逻辑功能与样式结合起来。首先将样式文件复制到index.wxss文件中，然后将原先的button组件的样式改成测试时的样式。 于是模拟器中的样式就改为如下图所示：</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103131249668.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.49 按钮样式</p>
 <p>下面修改标题文本样式，将WeUI的标题文本样式移植到我的程序中。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103131301971.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103131301971.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.50 标题样式</p>
 <p>下面我想将这三个上传图片的按钮进行水平均匀排布，找到按钮样式相关的样式文件，修改后的样式如下图所示。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103131308343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103131308343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.51 按钮样式修改</p>
 <p>之后，我又修改了上传按钮和文字输出按钮的样式，添加了提示图片和提示信息。最终的样式如下图所示。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103131327912.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103131327912.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图4.52 最终样式</p>
-<h2 id="5-关键问题"><a href="#5-关键问题" class="headerlink" title="5 关键问题"></a>5 关键问题</h2><p>针对完成大作业过程中遇到的问题，分析描述在此过程中的关键问题，如重点难点等。<br>本次大作业“微信小程序的图片识别”程序实现过程中，重点问题是“图片上传”、“图片转码”、“API调用”以及“界面设计”。其中图片上传主要使用了微信小程序中的wx.chooseImage方法；图片转码使用wx.getFileSystemMangaer方法解决；API调用使用wx.request方法实现；界面设计使用了微信小程序的官方UI框架实现。</p>
-<h2 id="6-使用说明"><a href="#6-使用说明" class="headerlink" title="6 使用说明"></a>6 使用说明</h2><p>提供微信小程序体验版的访问方式(小程序码)。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103135137907.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=600x180" alt="在这里插入图片描述"></p>
+<h2 id="关键问题">5 关键问题</h2>
+<p>针对完成大作业过程中遇到的问题，分析描述在此过程中的关键问题，如重点难点等。 本次大作业“微信小程序的图片识别”程序实现过程中，重点问题是“图片上传”、“图片转码”、“API调用”以及“界面设计”。其中图片上传主要使用了微信小程序中的wx.chooseImage方法；图片转码使用wx.getFileSystemMangaer方法解决；API调用使用wx.request方法实现；界面设计使用了微信小程序的官方UI框架实现。</p>
+<h2 id="使用说明">6 使用说明</h2>
+<p>提供微信小程序体验版的访问方式(小程序码)。</p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103135137907.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=600x180" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图6.1 小程序码</p>
 <p>下面给出完成的微信小程序的使用说明。使用体验版微信小程序，在自己的手机上进行测试。下面将测试过程及截图展示如下。</p>
 <blockquote>
 <p>（1）上传图片</p>
 </blockquote>
 <p>用户进入小程序后，首先需要通过相册或拍照，上传需要识别的图片。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103131552626.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x650" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103131552626.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x650" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图6.2 上传图片</p>
 <p>以“动物识别”为例，点击“上传动物图片”按钮，进行图片上传。</p>
 <blockquote>
 <p>（2）选择图片</p>
 </blockquote>
 <p>以从相册上传图片为例，点击从相册上传图片按钮，在相册中选择想要识别的图片。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103131642305.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x650" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103131642305.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x650" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图6.3 选择图片</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103131710134.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x650" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103131710134.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x650" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图6.4 相册选择</p>
 <blockquote>
 <p>（3）识别图片</p>
@@ -648,9 +824,13 @@
 <p>（4）识别结果</p>
 </blockquote>
 <p>界面下方可以展示图片识别的结果。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103131737554.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x650" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103131737554.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x650" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图6.5 上传成功</p>
-<p><img src="https://img-blog.csdnimg.cn/20200103131818418.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x650" alt="在这里插入图片描述"></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20200103131818418.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=330x650" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+</figure>
 <p>图6.6 识别结果</p>
 
     </div>
@@ -770,6 +950,7 @@
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -816,7 +997,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-概述"><span class="nav-text">1 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-课程大作业目的与要求"><span class="nav-text">1.1 课程大作业目的与要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-课程大作业简介"><span class="nav-text">1.2 课程大作业简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-设计思路"><span class="nav-text">2 设计思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-图片识别API"><span class="nav-text">2.1 图片识别API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-微信小程序UI框架"><span class="nav-text">2.2 微信小程序UI框架</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-设计方案"><span class="nav-text">3 设计方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-设计过程"><span class="nav-text">4 设计过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-百度开放平台注册"><span class="nav-text">4.1 百度开放平台注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-获取asscee-token"><span class="nav-text">4.2 获取asscee_token</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-图片上传"><span class="nav-text">4.3 图片上传</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-图片格式转化"><span class="nav-text">4.4 图片格式转化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-API请求"><span class="nav-text">4.5 API请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-实现植物识别"><span class="nav-text">4.6 实现植物识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-实现车辆识别"><span class="nav-text">4.7 实现车辆识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-8-Taro样式测试"><span class="nav-text">4.8 Taro样式测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-9-WeUI样式测试"><span class="nav-text">4.9 WeUI样式测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-关键问题"><span class="nav-text">5 关键问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-使用说明"><span class="nav-text">6 使用说明</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text">1 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#课程大作业目的与要求"><span class="nav-text">1.1 课程大作业目的与要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#课程大作业简介"><span class="nav-text">1.2 课程大作业简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计思路"><span class="nav-text">2 设计思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图片识别api"><span class="nav-text">2.1 图片识别API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微信小程序ui框架"><span class="nav-text">2.2 微信小程序UI框架</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计方案"><span class="nav-text">3 设计方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计过程"><span class="nav-text">4 设计过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#百度开放平台注册"><span class="nav-text">4.1 百度开放平台注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取asscee_token"><span class="nav-text">4.2 获取asscee_token</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片上传"><span class="nav-text">4.3 图片上传</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片格式转化"><span class="nav-text">4.4 图片格式转化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#api请求"><span class="nav-text">4.5 API请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现植物识别"><span class="nav-text">4.6 实现植物识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现车辆识别"><span class="nav-text">4.7 实现车辆识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#taro样式测试"><span class="nav-text">4.8 Taro样式测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#weui样式测试"><span class="nav-text">4.9 WeUI样式测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关键问题"><span class="nav-text">5 关键问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用说明"><span class="nav-text">6 使用说明</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -894,12 +1075,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">149k</span>
+    <span title="站点总字数">151k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:08</span>
+    <span title="站点阅读时长">4:12</span>
 </div>
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.2.0
   </div>
@@ -908,6 +1089,26 @@
   </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -935,6 +1136,8 @@
 
 <script src="/js/next-boot.js"></script>
 
+<script src="/js/bookmark.js"></script>
+
 
 
 
@@ -952,6 +1155,10 @@
 
 
 
+  
+<script src="/js/local-search.js"></script>
+
+
 
 
 
@@ -966,6 +1173,85 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'z1HKdL8Pg1E7A7AHIaEh4svT-gzGzoHsz',
+      appKey     : 'M7D0zph9dDHw3vNFWKRnGbhv',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>
