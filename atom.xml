@@ -2,15 +2,15 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>厚今的博客</title>
   
-  
+  <subtitle>Zhang HJ&#39;s Blog</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://zhj0125.github.io/"/>
+  <link href="https://zhj.forever305.cn/"/>
   <updated>2020-02-09T10:18:21.402Z</updated>
-  <id>https://zhj0125.github.io/</id>
+  <id>https://zhj.forever305.cn/</id>
   
   <author>
-    <name>张厚今</name>
+    <name>Zhang H.J.</name>
     
   </author>
   
@@ -18,8 +18,8 @@
   
   <entry>
     <title>使用Vultr搭建SS服务器翻墙</title>
-    <link href="https://zhj0125.github.io/2020/02/08/Vultr_VPS/"/>
-    <id>https://zhj0125.github.io/2020/02/08/Vultr_VPS/</id>
+    <link href="https://zhj.forever305.cn/2020/02/08/Vultr_VPS/"/>
+    <id>https://zhj.forever305.cn/2020/02/08/Vultr_VPS/</id>
     <published>2020-02-08T11:49:21.000Z</published>
     <updated>2020-02-09T10:18:21.402Z</updated>
     
@@ -35,20 +35,20 @@
     
     
     
-      <category term="技术笔记" scheme="https://zhj0125.github.io/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="技术笔记" scheme="https://zhj.forever305.cn/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="资源分享" scheme="https://zhj0125.github.io/tags/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/"/>
+      <category term="资源分享" scheme="https://zhj.forever305.cn/tags/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/"/>
     
-      <category term="翻墙" scheme="https://zhj0125.github.io/tags/%E7%BF%BB%E5%A2%99/"/>
+      <category term="翻墙" scheme="https://zhj.forever305.cn/tags/%E7%BF%BB%E5%A2%99/"/>
     
-      <category term="VPN" scheme="https://zhj0125.github.io/tags/VPN/"/>
+      <category term="VPN" scheme="https://zhj.forever305.cn/tags/VPN/"/>
     
   </entry>
   
   <entry>
     <title>My_Bookmarks</title>
-    <link href="https://zhj0125.github.io/2020/01/25/My_Bookmarks/"/>
-    <id>https://zhj0125.github.io/2020/01/25/My_Bookmarks/</id>
+    <link href="https://zhj.forever305.cn/2020/01/25/My_Bookmarks/"/>
+    <id>https://zhj.forever305.cn/2020/01/25/My_Bookmarks/</id>
     <published>2020-01-25T09:54:56.000Z</published>
     <updated>2020-02-09T10:13:14.899Z</updated>
     
@@ -65,14 +65,14 @@
     
     
     
-      <category term="资源分享" scheme="https://zhj0125.github.io/tags/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/"/>
+      <category term="资源分享" scheme="https://zhj.forever305.cn/tags/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/"/>
     
   </entry>
   
   <entry>
     <title>VLC 外挂字幕乱码</title>
-    <link href="https://zhj0125.github.io/2020/01/22/VLC_Garbled/"/>
-    <id>https://zhj0125.github.io/2020/01/22/VLC_Garbled/</id>
+    <link href="https://zhj.forever305.cn/2020/01/22/VLC_Garbled/"/>
+    <id>https://zhj.forever305.cn/2020/01/22/VLC_Garbled/</id>
     <published>2020-01-22T13:11:13.000Z</published>
     <updated>2020-02-09T10:17:49.015Z</updated>
     
@@ -88,20 +88,20 @@
     
     
     
-      <category term="技术笔记" scheme="https://zhj0125.github.io/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="技术笔记" scheme="https://zhj.forever305.cn/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="常见问题" scheme="https://zhj0125.github.io/tags/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
+      <category term="常见问题" scheme="https://zhj.forever305.cn/tags/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
     
   </entry>
   
   <entry>
     <title>技术资源链接</title>
-    <link href="https://zhj0125.github.io/2020/01/20/MyLink/"/>
-    <id>https://zhj0125.github.io/2020/01/20/MyLink/</id>
+    <link href="https://zhj.forever305.cn/2020/01/20/MyLink/"/>
+    <id>https://zhj.forever305.cn/2020/01/20/MyLink/</id>
     <published>2020-01-20T05:52:04.000Z</published>
     <updated>2020-02-09T10:21:58.005Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>下面是主要的技术资源网站，记录下来以便查找</p></blockquote><a id="more"></a><h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h3><ul><li><a href="https://zhj.forever305.cn/" target="_blank" rel="noopener">厚今的博客</a></li><li><a href="https://blog.csdn.net/ZHJ123CSDN" target="_blank" rel="noopener">CSDN</a></li><li><a href="https://www.cnblogs.com/ZHJ0125/" target="_blank" rel="noopener">博客园</a></li></ul><h3 id="空间"><a href="#空间" class="headerlink" title="空间"></a>空间</h3><ul><li><a href="https://www.zhihu.com/people/zhang-hao-ren-27-66" target="_blank" rel="noopener">知乎</a></li><li><a href="https://www.jianshu.com/u/dd6201a6ae0b" target="_blank" rel="noopener">简书</a></li><li><a href="https://www.douban.com/people/176050691/" target="_blank" rel="noopener">豆瓣</a></li><li><a href="https://weibo.com/u/6413483213?is_all=1" target="_blank" rel="noopener">微博</a></li><li><a href="https://space.bilibili.com/34749981" target="_blank" rel="noopener">BiliBili</a></li><li><a href="https://www.facebook.com/profile.php?id=100031075455534" target="_blank" rel="noopener">FaceBook</a></li><li><a href="https://www.linkedin.com/in/%E5%8E%9A%E4%BB%8A-%E5%BC%A0-19a709153/" target="_blank" rel="noopener">Linkedin</a></li><li><a href="https://stackoverflow.com/users/10720634/zhang-h-j" target="_blank" rel="noopener">Stark Overflow</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>下面是主要的技术资源网站，记录下来以便查找</p></blockquote><a id="more"></a><h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h3><ul><li><a href="https://zhj.forever305.cn/">厚今的博客</a></li><li><a href="https://blog.csdn.net/ZHJ123CSDN" target="_blank" rel="noopener">CSDN</a></li><li><a href="https://www.cnblogs.com/ZHJ0125/" target="_blank" rel="noopener">博客园</a></li></ul><h3 id="空间"><a href="#空间" class="headerlink" title="空间"></a>空间</h3><ul><li><a href="https://www.zhihu.com/people/zhang-hao-ren-27-66" target="_blank" rel="noopener">知乎</a></li><li><a href="https://www.jianshu.com/u/dd6201a6ae0b" target="_blank" rel="noopener">简书</a></li><li><a href="https://www.douban.com/people/176050691/" target="_blank" rel="noopener">豆瓣</a></li><li><a href="https://weibo.com/u/6413483213?is_all=1" target="_blank" rel="noopener">微博</a></li><li><a href="https://space.bilibili.com/34749981" target="_blank" rel="noopener">BiliBili</a></li><li><a href="https://www.facebook.com/profile.php?id=100031075455534" target="_blank" rel="noopener">FaceBook</a></li><li><a href="https://www.linkedin.com/in/%E5%8E%9A%E4%BB%8A-%E5%BC%A0-19a709153/" target="_blank" rel="noopener">Linkedin</a></li><li><a href="https://stackoverflow.com/users/10720634/zhang-h-j" target="_blank" rel="noopener">Stark Overflow</a></li></ul>]]></content>
     
     <summary type="html">
     
@@ -113,14 +113,14 @@
     
     
     
-      <category term="资源分享" scheme="https://zhj0125.github.io/tags/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/"/>
+      <category term="资源分享" scheme="https://zhj.forever305.cn/tags/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/"/>
     
   </entry>
   
   <entry>
     <title>我的随笔</title>
-    <link href="https://zhj0125.github.io/2020/01/18/My_First_Share/"/>
-    <id>https://zhj0125.github.io/2020/01/18/My_First_Share/</id>
+    <link href="https://zhj.forever305.cn/2020/01/18/My_First_Share/"/>
+    <id>https://zhj.forever305.cn/2020/01/18/My_First_Share/</id>
     <published>2020-01-17T19:26:05.000Z</published>
     <updated>2020-02-09T10:22:30.228Z</updated>
     
@@ -135,14 +135,14 @@
     
     
     
-      <category term="随笔" scheme="https://zhj0125.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://zhj.forever305.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://zhj0125.github.io/2020/01/16/Hello_World/"/>
-    <id>https://zhj0125.github.io/2020/01/16/Hello_World/</id>
+    <link href="https://zhj.forever305.cn/2020/01/16/Hello_World/"/>
+    <id>https://zhj.forever305.cn/2020/01/16/Hello_World/</id>
     <published>2020-01-15T16:34:55.005Z</published>
     <updated>2020-02-09T10:13:26.369Z</updated>
     
@@ -160,8 +160,8 @@
   
   <entry>
     <title>微信小程序——图片识别</title>
-    <link href="https://zhj0125.github.io/2020/01/03/WeChat_Image_Recognition/"/>
-    <id>https://zhj0125.github.io/2020/01/03/WeChat_Image_Recognition/</id>
+    <link href="https://zhj.forever305.cn/2020/01/03/WeChat_Image_Recognition/"/>
+    <id>https://zhj.forever305.cn/2020/01/03/WeChat_Image_Recognition/</id>
     <published>2020-01-03T05:55:11.000Z</published>
     <updated>2020-02-09T10:21:37.680Z</updated>
     
@@ -178,22 +178,22 @@
     
     
     
-      <category term="技术笔记" scheme="https://zhj0125.github.io/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="实验报告" scheme="https://zhj.forever305.cn/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
     
-      <category term="实验报告" scheme="https://zhj0125.github.io/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
+      <category term="技术笔记" scheme="https://zhj.forever305.cn/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="微信小程序" scheme="https://zhj0125.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="微信小程序" scheme="https://zhj.forever305.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
-      <category term="图片识别" scheme="https://zhj0125.github.io/tags/%E5%9B%BE%E7%89%87%E8%AF%86%E5%88%AB/"/>
+      <category term="图片识别" scheme="https://zhj.forever305.cn/tags/%E5%9B%BE%E7%89%87%E8%AF%86%E5%88%AB/"/>
     
-      <category term="API" scheme="https://zhj0125.github.io/tags/API/"/>
+      <category term="API" scheme="https://zhj.forever305.cn/tags/API/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu18.04 编译安装 OpenCV 遇到的问题</title>
-    <link href="https://zhj0125.github.io/2019/10/19/Ubuntu1804_OpenCV/"/>
-    <id>https://zhj0125.github.io/2019/10/19/Ubuntu1804_OpenCV/</id>
+    <link href="https://zhj.forever305.cn/2019/10/19/Ubuntu1804_OpenCV/"/>
+    <id>https://zhj.forever305.cn/2019/10/19/Ubuntu1804_OpenCV/</id>
     <published>2019-10-19T10:43:19.000Z</published>
     <updated>2020-02-09T10:16:23.707Z</updated>
     
@@ -210,20 +210,20 @@
     
     
     
-      <category term="技术笔记" scheme="https://zhj0125.github.io/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="技术笔记" scheme="https://zhj.forever305.cn/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="日常Debug" scheme="https://zhj0125.github.io/tags/%E6%97%A5%E5%B8%B8Debug/"/>
+      <category term="OpenCV" scheme="https://zhj.forever305.cn/tags/OpenCV/"/>
     
-      <category term="OpenCV" scheme="https://zhj0125.github.io/tags/OpenCV/"/>
+      <category term="Ubuntu18.04" scheme="https://zhj.forever305.cn/tags/Ubuntu18-04/"/>
     
-      <category term="Ubuntu18.04" scheme="https://zhj0125.github.io/tags/Ubuntu18-04/"/>
+      <category term="日常Debug" scheme="https://zhj.forever305.cn/tags/%E6%97%A5%E5%B8%B8Debug/"/>
     
   </entry>
   
   <entry>
     <title>STC11F04E——HC-SR04</title>
-    <link href="https://zhj0125.github.io/2019/10/16/STC11F04E_HC-SR04/"/>
-    <id>https://zhj0125.github.io/2019/10/16/STC11F04E_HC-SR04/</id>
+    <link href="https://zhj.forever305.cn/2019/10/16/STC11F04E_HC-SR04/"/>
+    <id>https://zhj.forever305.cn/2019/10/16/STC11F04E_HC-SR04/</id>
     <published>2019-10-16T12:56:36.000Z</published>
     <updated>2020-02-09T10:13:01.965Z</updated>
     
@@ -244,20 +244,20 @@
     
     
     
-      <category term="技术笔记" scheme="https://zhj0125.github.io/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="技术笔记" scheme="https://zhj.forever305.cn/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="STC11F04E" scheme="https://zhj0125.github.io/tags/STC11F04E/"/>
+      <category term="STC11F04E" scheme="https://zhj.forever305.cn/tags/STC11F04E/"/>
     
-      <category term="单片机外设" scheme="https://zhj0125.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA%E5%A4%96%E8%AE%BE/"/>
+      <category term="电子工艺实训" scheme="https://zhj.forever305.cn/tags/%E7%94%B5%E5%AD%90%E5%B7%A5%E8%89%BA%E5%AE%9E%E8%AE%AD/"/>
     
-      <category term="电子工艺实训" scheme="https://zhj0125.github.io/tags/%E7%94%B5%E5%AD%90%E5%B7%A5%E8%89%BA%E5%AE%9E%E8%AE%AD/"/>
+      <category term="单片机外设" scheme="https://zhj.forever305.cn/tags/%E5%8D%95%E7%89%87%E6%9C%BA%E5%A4%96%E8%AE%BE/"/>
     
   </entry>
   
   <entry>
     <title>STC11F04E——电子工艺实习</title>
-    <link href="https://zhj0125.github.io/2019/10/07/STC11F04E_Electronic/"/>
-    <id>https://zhj0125.github.io/2019/10/07/STC11F04E_Electronic/</id>
+    <link href="https://zhj.forever305.cn/2019/10/07/STC11F04E_Electronic/"/>
+    <id>https://zhj.forever305.cn/2019/10/07/STC11F04E_Electronic/</id>
     <published>2019-10-07T05:49:13.000Z</published>
     <updated>2020-02-09T10:14:21.860Z</updated>
     
@@ -275,18 +275,18 @@
     
     
     
-      <category term="技术笔记" scheme="https://zhj0125.github.io/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="技术笔记" scheme="https://zhj.forever305.cn/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="STC11F04E" scheme="https://zhj0125.github.io/tags/STC11F04E/"/>
+      <category term="STC11F04E" scheme="https://zhj.forever305.cn/tags/STC11F04E/"/>
     
-      <category term="电子工艺实训" scheme="https://zhj0125.github.io/tags/%E7%94%B5%E5%AD%90%E5%B7%A5%E8%89%BA%E5%AE%9E%E8%AE%AD/"/>
+      <category term="电子工艺实训" scheme="https://zhj.forever305.cn/tags/%E7%94%B5%E5%AD%90%E5%B7%A5%E8%89%BA%E5%AE%9E%E8%AE%AD/"/>
     
   </entry>
   
   <entry>
     <title>微信小程序——开发基础</title>
-    <link href="https://zhj0125.github.io/2019/09/26/WeChat_Basic/"/>
-    <id>https://zhj0125.github.io/2019/09/26/WeChat_Basic/</id>
+    <link href="https://zhj.forever305.cn/2019/09/26/WeChat_Basic/"/>
+    <id>https://zhj.forever305.cn/2019/09/26/WeChat_Basic/</id>
     <published>2019-09-26T14:32:47.000Z</published>
     <updated>2020-02-09T10:21:48.273Z</updated>
     
@@ -311,18 +311,18 @@
     
     
     
-      <category term="技术笔记" scheme="https://zhj0125.github.io/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="实验报告" scheme="https://zhj.forever305.cn/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
     
-      <category term="实验报告" scheme="https://zhj0125.github.io/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
+      <category term="技术笔记" scheme="https://zhj.forever305.cn/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="微信小程序" scheme="https://zhj0125.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="微信小程序" scheme="https://zhj.forever305.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
   <entry>
     <title>Unable to lock the administration directory (/var/lib/dpkg/)解决办法</title>
-    <link href="https://zhj0125.github.io/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/"/>
-    <id>https://zhj0125.github.io/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/</id>
+    <link href="https://zhj.forever305.cn/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/"/>
+    <id>https://zhj.forever305.cn/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/</id>
     <published>2019-06-26T14:24:37.000Z</published>
     <updated>2020-02-09T10:16:32.684Z</updated>
     
@@ -340,18 +340,18 @@
     
     
     
-      <category term="技术笔记" scheme="https://zhj0125.github.io/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="技术笔记" scheme="https://zhj.forever305.cn/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="Ubuntu" scheme="https://zhj0125.github.io/tags/Ubuntu/"/>
+      <category term="日常Debug" scheme="https://zhj.forever305.cn/tags/%E6%97%A5%E5%B8%B8Debug/"/>
     
-      <category term="日常Debug" scheme="https://zhj0125.github.io/tags/%E6%97%A5%E5%B8%B8Debug/"/>
+      <category term="Ubuntu" scheme="https://zhj.forever305.cn/tags/Ubuntu/"/>
     
   </entry>
   
   <entry>
     <title>Linux实训——搭建动态网站</title>
-    <link href="https://zhj0125.github.io/2019/06/20/Linux_MyWeb/"/>
-    <id>https://zhj0125.github.io/2019/06/20/Linux_MyWeb/</id>
+    <link href="https://zhj.forever305.cn/2019/06/20/Linux_MyWeb/"/>
+    <id>https://zhj.forever305.cn/2019/06/20/Linux_MyWeb/</id>
     <published>2019-06-20T12:43:40.000Z</published>
     <updated>2020-02-09T10:12:34.408Z</updated>
     
@@ -368,20 +368,20 @@
     
     
     
-      <category term="技术笔记" scheme="https://zhj0125.github.io/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="实验报告" scheme="https://zhj.forever305.cn/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
     
-      <category term="实验报告" scheme="https://zhj0125.github.io/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
+      <category term="技术笔记" scheme="https://zhj.forever305.cn/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="Linux" scheme="https://zhj0125.github.io/tags/Linux/"/>
+      <category term="Linux" scheme="https://zhj.forever305.cn/tags/Linux/"/>
     
-      <category term="Linux实训" scheme="https://zhj0125.github.io/tags/Linux%E5%AE%9E%E8%AE%AD/"/>
+      <category term="Linux实训" scheme="https://zhj.forever305.cn/tags/Linux%E5%AE%9E%E8%AE%AD/"/>
     
   </entry>
   
   <entry>
     <title>Linux实训——搭建HTTP服务器</title>
-    <link href="https://zhj0125.github.io/2019/06/20/Linux_HTTP_Server/"/>
-    <id>https://zhj0125.github.io/2019/06/20/Linux_HTTP_Server/</id>
+    <link href="https://zhj.forever305.cn/2019/06/20/Linux_HTTP_Server/"/>
+    <id>https://zhj.forever305.cn/2019/06/20/Linux_HTTP_Server/</id>
     <published>2019-06-20T10:32:34.000Z</published>
     <updated>2020-02-09T10:12:16.580Z</updated>
     
@@ -398,20 +398,20 @@
     
     
     
-      <category term="技术笔记" scheme="https://zhj0125.github.io/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="实验报告" scheme="https://zhj.forever305.cn/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
     
-      <category term="实验报告" scheme="https://zhj0125.github.io/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
+      <category term="技术笔记" scheme="https://zhj.forever305.cn/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="Linux" scheme="https://zhj0125.github.io/tags/Linux/"/>
+      <category term="Linux" scheme="https://zhj.forever305.cn/tags/Linux/"/>
     
-      <category term="Linux实训" scheme="https://zhj0125.github.io/tags/Linux%E5%AE%9E%E8%AE%AD/"/>
+      <category term="Linux实训" scheme="https://zhj.forever305.cn/tags/Linux%E5%AE%9E%E8%AE%AD/"/>
     
   </entry>
   
   <entry>
     <title>Linux实训——编译升级Linux内核</title>
-    <link href="https://zhj0125.github.io/2019/06/20/Linux_Upgrade_Core/"/>
-    <id>https://zhj0125.github.io/2019/06/20/Linux_Upgrade_Core/</id>
+    <link href="https://zhj.forever305.cn/2019/06/20/Linux_Upgrade_Core/"/>
+    <id>https://zhj.forever305.cn/2019/06/20/Linux_Upgrade_Core/</id>
     <published>2019-06-20T10:19:02.000Z</published>
     <updated>2020-02-09T10:12:51.999Z</updated>
     
@@ -428,20 +428,20 @@
     
     
     
-      <category term="技术笔记" scheme="https://zhj0125.github.io/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="实验报告" scheme="https://zhj.forever305.cn/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
     
-      <category term="实验报告" scheme="https://zhj0125.github.io/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
+      <category term="技术笔记" scheme="https://zhj.forever305.cn/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="Linux" scheme="https://zhj0125.github.io/tags/Linux/"/>
+      <category term="Linux" scheme="https://zhj.forever305.cn/tags/Linux/"/>
     
-      <category term="Linux实训" scheme="https://zhj0125.github.io/tags/Linux%E5%AE%9E%E8%AE%AD/"/>
+      <category term="Linux实训" scheme="https://zhj.forever305.cn/tags/Linux%E5%AE%9E%E8%AE%AD/"/>
     
   </entry>
   
   <entry>
     <title>Android——WebView网页应用</title>
-    <link href="https://zhj0125.github.io/2019/06/20/Android_WebView/"/>
-    <id>https://zhj0125.github.io/2019/06/20/Android_WebView/</id>
+    <link href="https://zhj.forever305.cn/2019/06/20/Android_WebView/"/>
+    <id>https://zhj.forever305.cn/2019/06/20/Android_WebView/</id>
     <published>2019-06-20T09:30:21.000Z</published>
     <updated>2020-02-09T10:11:17.314Z</updated>
     
@@ -461,20 +461,20 @@
     
     
     
-      <category term="技术笔记" scheme="https://zhj0125.github.io/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="Android" scheme="https://zhj.forever305.cn/tags/Android/"/>
     
-      <category term="Android" scheme="https://zhj0125.github.io/tags/Android/"/>
+      <category term="实验报告" scheme="https://zhj.forever305.cn/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
     
-      <category term="实验报告" scheme="https://zhj0125.github.io/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
+      <category term="技术笔记" scheme="https://zhj.forever305.cn/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="WebView" scheme="https://zhj0125.github.io/tags/WebView/"/>
+      <category term="WebView" scheme="https://zhj.forever305.cn/tags/WebView/"/>
     
   </entry>
   
   <entry>
     <title>Android——后台服务</title>
-    <link href="https://zhj0125.github.io/2019/05/19/Android_BackGround/"/>
-    <id>https://zhj0125.github.io/2019/05/19/Android_BackGround/</id>
+    <link href="https://zhj.forever305.cn/2019/05/19/Android_BackGround/"/>
+    <id>https://zhj.forever305.cn/2019/05/19/Android_BackGround/</id>
     <published>2019-05-19T03:42:16.000Z</published>
     <updated>2020-02-09T10:11:35.858Z</updated>
     
@@ -493,18 +493,18 @@
     
     
     
-      <category term="技术笔记" scheme="https://zhj0125.github.io/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="Android" scheme="https://zhj.forever305.cn/tags/Android/"/>
     
-      <category term="Android" scheme="https://zhj0125.github.io/tags/Android/"/>
+      <category term="实验报告" scheme="https://zhj.forever305.cn/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
     
-      <category term="实验报告" scheme="https://zhj0125.github.io/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
+      <category term="技术笔记" scheme="https://zhj.forever305.cn/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>Android——简易照相机</title>
-    <link href="https://zhj0125.github.io/2019/05/06/Android_Camera/"/>
-    <id>https://zhj0125.github.io/2019/05/06/Android_Camera/</id>
+    <link href="https://zhj.forever305.cn/2019/05/06/Android_Camera/"/>
+    <id>https://zhj.forever305.cn/2019/05/06/Android_Camera/</id>
     <published>2019-05-06T05:47:01.000Z</published>
     <updated>2020-02-09T10:11:55.667Z</updated>
     
@@ -520,20 +520,20 @@
     
     
     
-      <category term="技术笔记" scheme="https://zhj0125.github.io/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="Android" scheme="https://zhj.forever305.cn/tags/Android/"/>
     
-      <category term="Android" scheme="https://zhj0125.github.io/tags/Android/"/>
+      <category term="实验报告" scheme="https://zhj.forever305.cn/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
     
-      <category term="实验报告" scheme="https://zhj0125.github.io/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
+      <category term="技术笔记" scheme="https://zhj.forever305.cn/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="Camera" scheme="https://zhj0125.github.io/tags/Camera/"/>
+      <category term="Camera" scheme="https://zhj.forever305.cn/tags/Camera/"/>
     
   </entry>
   
   <entry>
     <title>Tensorflow学习笔记——交通标志识别</title>
-    <link href="https://zhj0125.github.io/2019/04/18/Tensorflow_Traffic/"/>
-    <id>https://zhj0125.github.io/2019/04/18/Tensorflow_Traffic/</id>
+    <link href="https://zhj.forever305.cn/2019/04/18/Tensorflow_Traffic/"/>
+    <id>https://zhj.forever305.cn/2019/04/18/Tensorflow_Traffic/</id>
     <published>2019-04-18T04:50:32.000Z</published>
     <updated>2020-02-09T10:14:46.012Z</updated>
     
@@ -549,20 +549,20 @@
     
     
     
-      <category term="技术笔记" scheme="https://zhj0125.github.io/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="技术笔记" scheme="https://zhj.forever305.cn/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="Tensorflow" scheme="https://zhj0125.github.io/tags/Tensorflow/"/>
+      <category term="Tensorflow" scheme="https://zhj.forever305.cn/tags/Tensorflow/"/>
     
-      <category term="交通标志识别" scheme="https://zhj0125.github.io/tags/%E4%BA%A4%E9%80%9A%E6%A0%87%E5%BF%97%E8%AF%86%E5%88%AB/"/>
+      <category term="转载" scheme="https://zhj.forever305.cn/tags/%E8%BD%AC%E8%BD%BD/"/>
     
-      <category term="转载" scheme="https://zhj0125.github.io/tags/%E8%BD%AC%E8%BD%BD/"/>
+      <category term="交通标志识别" scheme="https://zhj.forever305.cn/tags/%E4%BA%A4%E9%80%9A%E6%A0%87%E5%BF%97%E8%AF%86%E5%88%AB/"/>
     
   </entry>
   
   <entry>
     <title>TensorFlow学习笔记——车牌标志识别分类</title>
-    <link href="https://zhj0125.github.io/2019/04/16/TensorFlow_Vehicle/"/>
-    <id>https://zhj0125.github.io/2019/04/16/TensorFlow_Vehicle/</id>
+    <link href="https://zhj.forever305.cn/2019/04/16/TensorFlow_Vehicle/"/>
+    <id>https://zhj.forever305.cn/2019/04/16/TensorFlow_Vehicle/</id>
     <published>2019-04-16T10:03:40.000Z</published>
     <updated>2020-02-09T10:15:25.045Z</updated>
     
@@ -578,13 +578,13 @@
     
     
     
-      <category term="技术笔记" scheme="https://zhj0125.github.io/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="技术笔记" scheme="https://zhj.forever305.cn/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="Tensorflow" scheme="https://zhj0125.github.io/tags/Tensorflow/"/>
+      <category term="Tensorflow" scheme="https://zhj.forever305.cn/tags/Tensorflow/"/>
     
-      <category term="转载" scheme="https://zhj0125.github.io/tags/%E8%BD%AC%E8%BD%BD/"/>
+      <category term="车牌标志分类" scheme="https://zhj.forever305.cn/tags/%E8%BD%A6%E7%89%8C%E6%A0%87%E5%BF%97%E5%88%86%E7%B1%BB/"/>
     
-      <category term="车牌标志分类" scheme="https://zhj0125.github.io/tags/%E8%BD%A6%E7%89%8C%E6%A0%87%E5%BF%97%E5%88%86%E7%B1%BB/"/>
+      <category term="转载" scheme="https://zhj.forever305.cn/tags/%E8%BD%AC%E8%BD%BD/"/>
     
   </entry>
   
