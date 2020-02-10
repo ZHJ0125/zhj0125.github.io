@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="google8465b8d8518e96e5">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -17,7 +18,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="本博客的内容是：在 BlackWalnut Labs 完成车牌标志识别实验的学习笔记其中主要的部分是 BlackWalnut Labs 的实验过程介绍，少部分自己实验过程中的心得，所以就作为转载自 BlackWalnut 的一篇博文吧">
@@ -227,11 +228,11 @@
 
       
         <blockquote>
-<p>本博客的内容是：在 BlackWalnut Labs 完成车牌标志识别实验的学习笔记<br>其中主要的部分是 <a href="https://blackwalnut.tech/codelabs_detail?id=5caa367a56edfc0019c5c961" target="_blank" rel="noopener">BlackWalnut Labs 的实验过程介绍</a>，少部分自己实验过程中的心得，所以就作为转载自 <a href="https://blackwalnut.tech/codelabs_detail?id=5caa367a56edfc0019c5c961" target="_blank" rel="noopener">BlackWalnut</a> 的一篇博文吧</p>
+<p>本博客的内容是：在 BlackWalnut Labs 完成车牌标志识别实验的学习笔记<br>其中主要的部分是 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2NvZGVsYWJzX2RldGFpbD9pZD01Y2FhMzY3YTU2ZWRmYzAwMTljNWM5NjE=" title="https://blackwalnut.tech/codelabs_detail?id=5caa367a56edfc0019c5c961">BlackWalnut Labs 的实验过程介绍<i class="fa fa-external-link"></i></span>，少部分自己实验过程中的心得，所以就作为转载自 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2NvZGVsYWJzX2RldGFpbD9pZD01Y2FhMzY3YTU2ZWRmYzAwMTljNWM5NjE=" title="https://blackwalnut.tech/codelabs_detail?id=5caa367a56edfc0019c5c961">BlackWalnut<i class="fa fa-external-link"></i></span> 的一篇博文吧</p>
 </blockquote>
 <a id="more"></a>
 
-<h2 id="一、什么是车标识别"><a href="#一、什么是车标识别" class="headerlink" title="一、什么是车标识别"></a>一、什么是车标识别</h2><p>这次车标识别实验，主要内容是通过机器学习，构建模型，区分不同车牌标志。本次“车标图像分类”项目，基于TensorFlow框架和MobileNet模型，将其应用于分类不同车标的图片，可以说是基于<a href="https://codelabs.developers.google.com/" target="_blank" rel="noopener">Google Codelabs</a>项目 ——<a href="https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/" target="_blank" rel="noopener">tensorflow-for-poets</a> 的衍生。</p>
+<h2 id="一、什么是车标识别"><a href="#一、什么是车标识别" class="headerlink" title="一、什么是车标识别"></a>一、什么是车标识别</h2><p>这次车标识别实验，主要内容是通过机器学习，构建模型，区分不同车牌标志。本次“车标图像分类”项目，基于TensorFlow框架和MobileNet模型，将其应用于分类不同车标的图片，可以说是基于<span class="exturl" data-url="aHR0cHM6Ly9jb2RlbGFicy5kZXZlbG9wZXJzLmdvb2dsZS5jb20v" title="https://codelabs.developers.google.com/">Google Codelabs<i class="fa fa-external-link"></i></span>项目 ——<span class="exturl" data-url="aHR0cHM6Ly9jb2RlbGFicy5kZXZlbG9wZXJzLmdvb2dsZS5jb20vY29kZWxhYnMvdGVuc29yZmxvdy1mb3ItcG9ldHMv" title="https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/">tensorflow-for-poets<i class="fa fa-external-link"></i></span> 的衍生。</p>
 <h2 id="二、我们会创造什么"><a href="#二、我们会创造什么" class="headerlink" title="二、我们会创造什么"></a>二、我们会创造什么</h2><p>本次实验中，我们将要使用 5 种车标图像训练一个 MobileNet模型，并将其应用于不同车标图片的识别分类。在实验中，我们将学到以下内容：</p>
 <blockquote>
 <p>1.收集并分类车标图像<br>2.简单使用 MobileNet_v1_128 模型<br>3.尝试训练模型并测试效果<br>4.分别测试 Learning Rate 为 0.1、0.001、0.0001、0.00001 时的训练效果<br>5.测试将预训练模型替换为 MobileNet_v1_224 后的训练效果<br>6.学习如何选择最好的训练超参数，执行预测</p>
@@ -239,8 +240,8 @@
 <h2 id="三、我们需要什么"><a href="#三、我们需要什么" class="headerlink" title="三、我们需要什么"></a>三、我们需要什么</h2><ol>
 <li>对Linux和python命令基本了解</li>
 <li>已经配置好tensorflow的Linux的开发环境</li>
-<li>由于实验过程需要相关数据和开发环境，建议在<a href="https://blackwalnut.tech/index" target="_blank" rel="noopener">BlackWalnut Labs</a>注册账户，并使用该实验室提供的环境进行相关实验。==注意：以下实验均在<a href="https://blackwalnut.tech/index" target="_blank" rel="noopener">BlackWalnut Labs</a>所提供的环境下进行。==</li>
-<li>如果想在自己的环境中进行本次试验，其图片数据建议在<a href="http://image-net.org/index" target="_blank" rel="noopener">image_net</a>网站自己下载。或者直接做<a href="https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/" target="_blank" rel="noopener">tensorflow-for-poets</a>这个项目。</li>
+<li>由于实验过程需要相关数据和开发环境，建议在<span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span>注册账户，并使用该实验室提供的环境进行相关实验。==注意：以下实验均在<span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span>所提供的环境下进行。==</li>
+<li>如果想在自己的环境中进行本次试验，其图片数据建议在<span class="exturl" data-url="aHR0cDovL2ltYWdlLW5ldC5vcmcvaW5kZXg=" title="http://image-net.org/index">image_net<i class="fa fa-external-link"></i></span>网站自己下载。或者直接做<span class="exturl" data-url="aHR0cHM6Ly9jb2RlbGFicy5kZXZlbG9wZXJzLmdvb2dsZS5jb20vY29kZWxhYnMvdGVuc29yZmxvdy1mb3ItcG9ldHMv" title="https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/">tensorflow-for-poets<i class="fa fa-external-link"></i></span>这个项目。</li>
 </ol>
 <h2 id="四、Just-do-it"><a href="#四、Just-do-it" class="headerlink" title="四、Just do it"></a>四、Just do it</h2><p>首先，我们需要收集大量相关车牌的图片，并对图片数据进行分类标识。之后，通过这些图片数据集，对MobileNet模型进行训练，使之能够对新的数据进行预测和判断。最后，可以通过使用新的图片数据，对该模型进行准确性检验。</p>
 <h3 id="4-1-导入图片数据集"><a href="#4-1-导入图片数据集" class="headerlink" title="4.1 导入图片数据集"></a>4.1 导入图片数据集</h3><p>在用户目录下，新建名为<code>Codelab</code>的空目录，并在该目录下，新建名为<code>data</code>的子目录。在<code>Codelab</code>目录下，使用终端导入训练数据：</p>
@@ -415,7 +416,7 @@
 <p>图1 模型预测结果</p>
 <p>表示车牌的标签和该标签预测所得的分数，wow，bmw对应的得分最高，说明该模型预测，此图片为BMW标签的概率比较大，跟实际一样哦！</p>
 <p>如果想进一步验证模型的准确性，需要对这五种标签的图片都进行测试。如果五种标签全部预测成功，才能更好的说明模型的准确性。</p>
-<h2 id="五、实验总结"><a href="#五、实验总结" class="headerlink" title="五、实验总结"></a>五、实验总结</h2><h3 id="5-1-开发环境"><a href="#5-1-开发环境" class="headerlink" title="5.1 开发环境"></a>5.1 开发环境</h3><p><a href="https://blackwalnut.tech/index" target="_blank" rel="noopener">BlackWalnut Labs</a>提供的线上开发环境，解决了开发环境配置的一些问题，对初学者非常友好。</p>
+<h2 id="五、实验总结"><a href="#五、实验总结" class="headerlink" title="五、实验总结"></a>五、实验总结</h2><h3 id="5-1-开发环境"><a href="#5-1-开发环境" class="headerlink" title="5.1 开发环境"></a>5.1 开发环境</h3><p><span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span>提供的线上开发环境，解决了开发环境配置的一些问题，对初学者非常友好。</p>
 <h3 id="5-2-实验流程"><a href="#5-2-实验流程" class="headerlink" title="5.2 实验流程"></a>5.2 实验流程</h3><p>虽然说按照实验导引可以完成整个实验，但是课后还是得自学一下tensorflow的基础内容，认真总结一下才能理解更加深入。</p>
 
     </div>
@@ -455,7 +456,7 @@
     <a href="https://zhj.forever305.cn/2019/04/16/TensorFlow_Vehicle/" title="TensorFlow学习笔记——车牌标志识别分类">https://zhj.forever305.cn/2019/04/16/TensorFlow_Vehicle/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
   </li>
 </ul>
 </div>
@@ -616,14 +617,14 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/ZHJ0125" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ZHJ0125" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ZHJ0125"><i class="fa fa-fw fa-github"></i>GitHub</span>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:shandonghoujin@163.com" title="E-Mail → mailto:shandonghoujin@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <span class="exturl" data-url="bWFpbHRvOnNoYW5kb25naG91amluQDE2My5jb20=" title="E-Mail → mailto:shandonghoujin@163.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
       </span>
   </div>
   <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
   </div>
 
 
@@ -665,10 +666,10 @@
     </span>
     <span title="站点阅读时长">4:08</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.2.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.7.1
   </div>
 
         

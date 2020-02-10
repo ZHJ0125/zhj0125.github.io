@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="google8465b8d8518e96e5">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -17,7 +18,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="前几天做了一下电子工艺实习，实现了在数码管上显示温度和时间的功能，还写了篇博客。但当时没有注意到，这款PCB还设计了超声波测距的功能。在实现该功能后，我决定不再增改原来的文章，而写下这篇文章描述HC-SR04的控制方法。  我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。 我还做了一个使用数码管滚动显示学号的程序，就不再写成博客了，代码放在了GitHub  我已将该项目上传到G">
@@ -229,16 +230,16 @@
 
       
         <blockquote>
-<p>前几天做了一下电子工艺实习，实现了在数码管上显示温度和时间的功能，<a href="https://blog.csdn.net/ZHJ123CSDN/article/details/102299484" target="_blank" rel="noopener">还写了篇博客</a>。但当时没有注意到，这款PCB还设计了超声波测距的功能。在实现该功能后，我决定不再增改原来的文章，而写下这篇文章描述HC-SR04的控制方法。</p>
+<p>前几天做了一下电子工艺实习，实现了在数码管上显示温度和时间的功能，<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzEwMjI5OTQ4NA==" title="https://blog.csdn.net/ZHJ123CSDN/article/details/102299484">还写了篇博客<i class="fa fa-external-link"></i></span>。但当时没有注意到，这款PCB还设计了超声波测距的功能。在实现该功能后，我决定不再增改原来的文章，而写下这篇文章描述HC-SR04的控制方法。</p>
 <ol>
 <li>我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。</li>
 <li>我还做了一个使用数码管滚动显示学号的程序，就不再写成博客了，代码放在了GitHub</li>
 </ol>
-<p>我已将该项目上传到GitHub，项目地址为： <a href="https://github.com/ZHJ0125/STC11F04E" target="_blank" rel="noopener">STC11F04E项目</a>。 代码开源，欢迎测试</p>
+<p>我已将该项目上传到GitHub，项目地址为： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvU1RDMTFGMDRF" title="https://github.com/ZHJ0125/STC11F04E">STC11F04E项目<i class="fa fa-external-link"></i></span>。 代码开源，欢迎测试</p>
 </blockquote>
 <a id="more"></a>
 
-<p>&emsp;&emsp;单片机实验平台简介等信息，请阅读<a href="https://blog.csdn.net/ZHJ123CSDN/article/details/102299484" target="_blank" rel="noopener">上一篇文章</a>。</p>
+<p>&emsp;&emsp;单片机实验平台简介等信息，请阅读<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzEwMjI5OTQ4NA==" title="https://blog.csdn.net/ZHJ123CSDN/article/details/102299484">上一篇文章<i class="fa fa-external-link"></i></span>。</p>
 <h2 id="一、HC-SR04"><a href="#一、HC-SR04" class="headerlink" title="一、HC-SR04"></a>一、HC-SR04</h2><h3 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h3><p>&emsp;&emsp;HC-SR04超声波测距模块提供2cm~4m的非接触式测距功能，测距精度可达3mm。</p>
 <h3 id="1-2-电气参数"><a href="#1-2-电气参数" class="headerlink" title="1.2 电气参数"></a>1.2 电气参数</h3><table>
 <thead>
@@ -314,7 +315,7 @@
 <p>&emsp;&emsp;STC11/10xx系列单片有2个定时器，定时器0和定时器1，与传统8051的定时器完全兼容，也可以设置为1T模式，当在定时器1做波特率发生器时，定时器0可以当两个8位定时器用。<br>&emsp;&emsp;STC11/10xx系列单片机是1T的单片机，为兼容传统8051，定时器0和定时器1复位后是传统12T的速度，即12分频，这是为了兼容传统 。但也可不进行12分频，通过设置新增的特殊功能寄存器AUXR ,可以将T0,T1设置为1T。普通111条机器指令是固定的，快3到24倍，无法改变。</p>
 </blockquote>
 <p>&emsp;&emsp;也就是说，我这款单片机在上电之后，就默认初始化成了12分频的模式(可以通过AUXR调整分频模式)，即 $\text{T}_M =\dfrac{12}{\text{f}_\text{osc}}$。通过该公式即可算出晶振一次所消耗的时间。为了保证计数范围，需要设置TMOD计时方式控制寄存器，使用定时器0计时方式1，也就是用两个8位的组成一个16位的计时器。现在知道了这些知识，就可以着手编写程序了。</p>
-<h2 id="二、程序编写"><a href="#二、程序编写" class="headerlink" title="二、程序编写"></a>二、程序编写</h2><p>&emsp;&emsp;下面同样只列出主要的测距程序，项目工程文件已上传至GitHub，<a href="https://github.com/ZHJ0125/STC11F04E" target="_blank" rel="noopener">STC11F04E项目</a>。</p>
+<h2 id="二、程序编写"><a href="#二、程序编写" class="headerlink" title="二、程序编写"></a>二、程序编写</h2><p>&emsp;&emsp;下面同样只列出主要的测距程序，项目工程文件已上传至GitHub，<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvU1RDMTFGMDRF" title="https://github.com/ZHJ0125/STC11F04E">STC11F04E项目<i class="fa fa-external-link"></i></span>。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**********************************************************</span></span><br><span class="line"><span class="comment">*  函数名称：超声波测距函数</span></span><br><span class="line"><span class="comment">*  修改日期：2019-10-9</span></span><br><span class="line"><span class="comment">*  修改人：ZhangHJ</span></span><br><span class="line"><span class="comment">*  说明：1. 采用IO口TRIG触发测距，给至少10us的高电平信号</span></span><br><span class="line"><span class="comment">*        2. 模块自动发送8个40khz的方波，自动检测是否有信号返回</span></span><br><span class="line"><span class="comment">*        3. 若有信号返回，通过IO口ECHO输出一个高电平，高电平持续的时间就是超声波从发射到返回的时间</span></span><br><span class="line"><span class="comment">*        4. 测试距离 = (高电平时间*声速(340M/S))/2</span></span><br><span class="line"><span class="comment">***********************************************************/</span></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">GetDistance</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> dist = <span class="number">0.0f</span>;</span><br><span class="line">    uint count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    TMOD = <span class="number">0x01</span>;                        <span class="comment">// 计时器0方式1 (16位计数器,TL0、TH0全用)</span></span><br><span class="line">    TH0 = TL0 = <span class="number">0</span>;                      <span class="comment">// 装入初值</span></span><br><span class="line">    Trig = <span class="number">1</span>;                           <span class="comment">// 打开触发</span></span><br><span class="line">    delay_12us();                       <span class="comment">// 延时一会儿,保证延时10us时间</span></span><br><span class="line">    Trig = <span class="number">0</span>;                           <span class="comment">// 关闭触发</span></span><br><span class="line">    <span class="keyword">while</span>(!Echo);                       <span class="comment">// 测距过程中</span></span><br><span class="line">    TR0 = <span class="number">1</span>;                            <span class="comment">// 打开中断</span></span><br><span class="line">    <span class="keyword">while</span>(Echo);                        <span class="comment">// 等待输出电平结束</span></span><br><span class="line">    TR0 = <span class="number">0</span>;                            <span class="comment">// 关闭中断</span></span><br><span class="line">    count = (TH0 &lt;&lt; <span class="number">8</span>) | TL0;           <span class="comment">// 读取16位计时器里的数字</span></span><br><span class="line">    dist = CYCLE * count * <span class="number">0.017</span>;       <span class="comment">// 0.017cm/us</span></span><br><span class="line">    <span class="keyword">return</span> dist;                        <span class="comment">// 返回值是一个浮点型数据</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ol>
@@ -345,7 +346,7 @@
 <p>距离 = 回响信号时间(us) * 0.034(cm/us) ÷ 2<br>&emsp;&emsp; = 872(us) * 0.017(cm/us)<br>&emsp;&emsp; = 14.824(cm)</p>
 </blockquote>
 <p>&emsp;&emsp;手动计算的数值与单片机上的数值接近，但并不是完全相等，原因是：这一次上升沿的时间也许并不是我们此次单片机显示的时间对应的高电平。。有点绕嘴。因为示波器上的这一段高电平，是我在好几个周期的高电平中，随便挑的一个高电平，与单片机显示的数值就近就是正常的了。应该说清楚了吧?</p>
-<p><a href="http://47.95.13.239/Study/Microcomputer/STC11F04E/Video/Show_video/07_HC-SR04.MP4" target="_blank" rel="noopener">点击此处</a>查看演示视频</p>
+<p><span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9TdHVkeS9NaWNyb2NvbXB1dGVyL1NUQzExRjA0RS9WaWRlby9TaG93X3ZpZGVvLzA3X0hDLVNSMDQuTVA0" title="http://47.95.13.239/Study/Microcomputer/STC11F04E/Video/Show_video/07_HC-SR04.MP4">点击此处<i class="fa fa-external-link"></i></span>查看演示视频</p>
 <h2 id="四、改进"><a href="#四、改进" class="headerlink" title="四、改进"></a>四、改进</h2><p>&emsp;&emsp;超声波测距还有很多改进的空间，比如，为了保持测试数据的稳定，可以通过求平均值的方式进行改进。另外中断计时器应该还可以进行改进。。。<br>&emsp;&emsp;先写到这里吧，以后如果再有好的想法再来记录。</p>
 
     </div>
@@ -385,7 +386,7 @@
     <a href="https://zhj.forever305.cn/2019/10/16/STC11F04E_HC-SR04/" title="STC11F04E——HC-SR04">https://zhj.forever305.cn/2019/10/16/STC11F04E_HC-SR04/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
   </li>
 </ul>
 </div>
@@ -546,14 +547,14 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/ZHJ0125" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ZHJ0125" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ZHJ0125"><i class="fa fa-fw fa-github"></i>GitHub</span>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:shandonghoujin@163.com" title="E-Mail → mailto:shandonghoujin@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <span class="exturl" data-url="bWFpbHRvOnNoYW5kb25naG91amluQDE2My5jb20=" title="E-Mail → mailto:shandonghoujin@163.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
       </span>
   </div>
   <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
   </div>
 
 
@@ -595,10 +596,10 @@
     </span>
     <span title="站点阅读时长">4:08</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.2.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.7.1
   </div>
 
         

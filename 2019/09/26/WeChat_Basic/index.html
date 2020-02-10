@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="google8465b8d8518e96e5">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -17,7 +18,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="内容说明:这是微信小程序第一次实验报告本次实验主要实现了三部分内容：开发环境的搭建，开发工具的安装以及比较数字大小的实验案例。在进行实验的过程中，掌握了以下知识内容：  微信小程序开发环境的搭建 小程序项目的创建 页面文件WXML的编写 页面样式WXSS的编写(元素选择器、尺寸单位、样式引入) 配置文件JSON的编写(页面级和应用级配置文件的常见配置属性) 页面逻辑文件JS的编写(生命周期回调函">
@@ -289,7 +290,7 @@
 <h2 id="一、实验原理"><a href="#一、实验原理" class="headerlink" title="一、实验原理"></a>一、实验原理</h2><blockquote>
 <p>实现微信小程序开发环境的搭建，然后创建一个用于实验的小程序项目。<br>分布进行页面文件WXML的编写，页面样式WXSS的编写(元素选择器、尺寸单位、样式引入)，配置文件JSON的编写(页面级和应用级配置文件的常见配置属性)，页面逻辑文件JS的编写(生命周期回调函数、页面事件处理函数、组件事件处理函数)，最后使用五种方式实现页面逻辑(为不同的组件绑定不同的处理函数、为同类型组件绑定相同的处理函数、使用条件表达式、利用条件渲染显示需要的组件、通过表单格式form获取用户输入信息)。</p>
 </blockquote>
-<h2 id="二、实验过程记录"><a href="#二、实验过程记录" class="headerlink" title="二、实验过程记录"></a>二、实验过程记录</h2><h3 id="2-1-开发环境搭建"><a href="#2-1-开发环境搭建" class="headerlink" title="2.1 开发环境搭建"></a>2.1 开发环境搭建</h3><p>首先使用浏览器打开<a href="https://mp.weixin.qq.com" target="_blank" rel="noopener">微信公众号平台</a>，点击“立即注册”按钮，进入注册界面。之后选择注册的账号类型，点击“小程序”，填写小程序的注册登记信息。在“小程序发布流程”界面，可以查看小程序的配置信息和AppID。</p>
+<h2 id="二、实验过程记录"><a href="#二、实验过程记录" class="headerlink" title="二、实验过程记录"></a>二、实验过程记录</h2><h3 id="2-1-开发环境搭建"><a href="#2-1-开发环境搭建" class="headerlink" title="2.1 开发环境搭建"></a>2.1 开发环境搭建</h3><p>首先使用浏览器打开<span class="exturl" data-url="aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29t" title="https://mp.weixin.qq.com">微信公众号平台<i class="fa fa-external-link"></i></span>，点击“立即注册”按钮，进入注册界面。之后选择注册的账号类型，点击“小程序”，填写小程序的注册登记信息。在“小程序发布流程”界面，可以查看小程序的配置信息和AppID。</p>
 <h3 id="2-2-安装开发工具"><a href="#2-2-安装开发工具" class="headerlink" title="2.2 安装开发工具"></a>2.2 安装开发工具</h3><p>在小程序开发工具的下载界面，下载安装包。按照提示进行开发工具的安装。打开小程序开发工具，出现新建项目的配置界面。选择新建“小程序”项目，修改“项目名”、“目录”等信息，AppID选择测试号即可。点击“新建”按钮即可新建项目。</p>
 <h3 id="2-3-实验案例"><a href="#2-3-实验案例" class="headerlink" title="2.3 实验案例"></a>2.3 实验案例</h3><p>新建的小程序会自动创建“HelloWorld”项目的模板，为了熟悉小程序各个目录的功能，先将所有已创建的文件全部删除，再重新创建。</p>
 <h4 id="2-3-1-创建项目配置文件"><a href="#2-3-1-创建项目配置文件" class="headerlink" title="2.3.1 创建项目配置文件"></a>2.3.1 创建项目配置文件</h4><p>首先创建项目的配置文件app.json，编写小程序的配置信息。如图3.1所示。</p>
@@ -488,8 +489,8 @@
 <li>页面逻辑文件JS的编写(生命周期回调函数、页面事件处理函数、组件事件处理函数)</li>
 <li>五种实现页面逻辑的方法(为不同的组件绑定不同的处理函数、为同类型组件绑定相同的处理函数、使用条件表达式、利用条件渲染显示需要的组件、通过表单格式form获取用户输入信息)</li>
 </ol>
-<h2 id="六、附录"><a href="#六、附录" class="headerlink" title="六、附录"></a>六、附录</h2><h3 id="6-1-实验代码"><a href="#6-1-实验代码" class="headerlink" title="6.1 实验代码"></a>6.1 实验代码</h3><p>本次实验的项目代码，已经上传到了GitHub，网址为：<a href="https://github.com/ZHJ0125/WeChat" target="_blank" rel="noopener">https://github.com/ZHJ0125/WeChat</a></p>
-<h3 id="6-2参考资料"><a href="#6-2参考资料" class="headerlink" title="6.2参考资料"></a>6.2参考资料</h3><p>【1】 <a href="https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html" target="_blank" rel="noopener">微信官方文档——页面配置</a><br>【2】 <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html" target="_blank" rel="noopener">微信官方文档——事件</a></p>
+<h2 id="六、附录"><a href="#六、附录" class="headerlink" title="六、附录"></a>六、附录</h2><h3 id="6-1-实验代码"><a href="#6-1-实验代码" class="headerlink" title="6.1 实验代码"></a>6.1 实验代码</h3><p>本次实验的项目代码，已经上传到了GitHub，网址为：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvV2VDaGF0" title="https://github.com/ZHJ0125/WeChat">https://github.com/ZHJ0125/WeChat<i class="fa fa-external-link"></i></span></p>
+<h3 id="6-2参考资料"><a href="#6-2参考资料" class="headerlink" title="6.2参考资料"></a>6.2参考资料</h3><p>【1】 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vbWluaXByb2dyYW0vZGV2L3JlZmVyZW5jZS9jb25maWd1cmF0aW9uL3BhZ2UuaHRtbA==" title="https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html">微信官方文档——页面配置<i class="fa fa-external-link"></i></span><br>【2】 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vbWluaXByb2dyYW0vZGV2L2ZyYW1ld29yay92aWV3L3d4bWwvZXZlbnQuaHRtbA==" title="https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html">微信官方文档——事件<i class="fa fa-external-link"></i></span></p>
 
     </div>
 
@@ -528,7 +529,7 @@
     <a href="https://zhj.forever305.cn/2019/09/26/WeChat_Basic/" title="微信小程序——开发基础">https://zhj.forever305.cn/2019/09/26/WeChat_Basic/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
   </li>
 </ul>
 </div>
@@ -688,14 +689,14 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/ZHJ0125" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ZHJ0125" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ZHJ0125"><i class="fa fa-fw fa-github"></i>GitHub</span>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:shandonghoujin@163.com" title="E-Mail → mailto:shandonghoujin@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <span class="exturl" data-url="bWFpbHRvOnNoYW5kb25naG91amluQDE2My5jb20=" title="E-Mail → mailto:shandonghoujin@163.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
       </span>
   </div>
   <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
   </div>
 
 
@@ -737,10 +738,10 @@
     </span>
     <span title="站点阅读时长">4:08</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.2.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.7.1
   </div>
 
         
