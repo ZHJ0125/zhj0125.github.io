@@ -16,10 +16,12 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="本篇文章，我将使用Vultr服务商提供的VPS服务器，搭建 Shadowrocks 并开启 BBR 加速上网功能">
@@ -154,9 +156,19 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">22</span></a>
 
   </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
         <li class="menu-item menu-item-commonweal">
 
     <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
+
+  </li>
+        <li class="menu-item menu-item-个人网盘">
+
+    <span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOTo4ODg4"><i class="fa fa-fw fa-jsfiddle"></i>个人网盘</span>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -192,7 +204,6 @@
 
     
   <div class="reading-progress-bar"></div>
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
   <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjU=" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
 
@@ -244,6 +255,13 @@
               </span>
 
           
+            <span id="/2020/02/08/Vultr_VPS/" class="post-meta-item leancloud_visitors" data-flag-title="使用Vultr搭建SS服务器翻墙" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -301,7 +319,7 @@
 <p>在查阅一些资料后，觉得 <span class="exturl" data-url="aHR0cHM6Ly93d3cudnVsdHIuY29tLw==" title="https://www.vultr.com/">Vultr<i class="fa fa-external-link"></i></span> 比较合适SS服务器的搭建，所以首先去购买一台VPS服务器资源</p>
 <p>注册账户之后，选择需要的服务器类型，可以参考图1我的配置自行选择</p>
 <figure>
-<img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/vultr_purchase.png" alt="vultr_purchase" /><figcaption>vultr_purchase</figcaption>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/vultr_purchase.png" alt="vultr_purchase" /><figcaption>vultr_purchase</figcaption>
 </figure>
 <p>图1 服务器选择</p>
 <blockquote>
@@ -309,12 +327,12 @@
 </blockquote>
 <p>点击右下角 <code>Deploy Now</code> 进行购买，进入充值界面</p>
 <figure>
-<img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Alipay.png" alt="Vultr_Alipay" /><figcaption>Vultr_Alipay</figcaption>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Alipay.png" alt="Vultr_Alipay" /><figcaption>Vultr_Alipay</figcaption>
 </figure>
 <p>图2 充值页面</p>
 <p>目前 <span class="exturl" data-url="aHR0cHM6Ly93d3cudnVsdHIuY29tLw==" title="https://www.vultr.com/">Vultr 官网<i class="fa fa-external-link"></i></span> 的活动是：充值10美元，赠送100美元 最低充值额度是10美元，可以使用支付宝支付 另外，通过此链接注册支付，还会额外赠送25美元（给自己打个广告😜）</p>
 <figure>
-<img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Affiliate.png" alt="Vultr_Affiliate" /><figcaption>Vultr_Affiliate</figcaption>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Affiliate.png" alt="Vultr_Affiliate" /><figcaption>Vultr_Affiliate</figcaption>
 </figure>
 <p>图3 活动详情</p>
 <blockquote>
@@ -324,14 +342,14 @@
 <h2 id="二配置shadowrocks">二、配置Shadowrocks</h2>
 <p>如图4进入服务器详情，查看你的 VPS 服务器 IP 地址，使用 SSH 工具连接服务器</p>
 <figure>
-<img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Server_info.png" alt="Vultr_Server_info" /><figcaption>Vultr_Server_info</figcaption>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Server_info.png" alt="Vultr_Server_info" /><figcaption>Vultr_Server_info</figcaption>
 </figure>
 <p>图4 服务器信息</p>
 <p>SSH工具我推荐使用国产软件 <span class="exturl" data-url="aHR0cDovL3d3dy5ob3N0YnVmLmNvbS90Lzk4OC5odG1s" title="http://www.hostbuf.com/t/988.html">Finalshell<i class="fa fa-external-link"></i></span>，当然，<span class="exturl" data-url="aHR0cHM6Ly93d3cucHV0dHkub3JnLw==" title="https://www.putty.org/">Putty<i class="fa fa-external-link"></i></span> 或 <span class="exturl" data-url="aHR0cHM6Ly93d3cubmV0c2FyYW5nLmNvbS9lbi94c2hlbGwtZG93bmxvYWQv" title="https://www.netsarang.com/en/xshell-download/">Xshell<i class="fa fa-external-link"></i></span> 也是可以的。</p>
 <blockquote>
 <p>注意：使用 SSH 连不上 VPS 服务器是比较常见的问题，有可能是服务器的 IP 地址被封锁了。此时，最简便的解决方式是销毁当前的服务器（如图5），重新创建一台 VPS</p>
 <figure>
-<img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Destory.png" alt="Vultr_Destory" /><figcaption>Vultr_Destory</figcaption>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Destory.png" alt="Vultr_Destory" /><figcaption>Vultr_Destory</figcaption>
 </figure>
 <p>图5 销毁服务器</p>
 </blockquote>
@@ -355,27 +373,27 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log</span><br></pre></td></tr></table></figure>
 <p>设置密码</p>
 <figure>
-<img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_set_password.png" alt="Vultr_set_password" /><figcaption>Vultr_set_password</figcaption>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_set_password.png" alt="Vultr_set_password" /><figcaption>Vultr_set_password</figcaption>
 </figure>
 <p>图6 设置密码</p>
 <p>设置开放端口</p>
 <figure>
-<img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Set_Port.png" alt="Vultr_Set_Port" /><figcaption>Vultr_Set_Port</figcaption>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Set_Port.png" alt="Vultr_Set_Port" /><figcaption>Vultr_Set_Port</figcaption>
 </figure>
 <p>图7 设置端口</p>
 <p>设置加密方式，这里建议使用<code>方式7</code> <code>aes-256-cfb</code> 方式</p>
 <figure>
-<img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Set_Cipher.png" alt="Vultr_Set_Cipher" /><figcaption>Vultr_Set_Cipher</figcaption>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Set_Cipher.png" alt="Vultr_Set_Cipher" /><figcaption>Vultr_Set_Cipher</figcaption>
 </figure>
 <p>图8 设置加密方式</p>
 <p>点击任意键确认配置，等待安装完成即可</p>
 <figure>
-<img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Set_Finish.png" alt="Vultr_Set_Finish" /><figcaption>Vultr_Set_Finish</figcaption>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Set_Finish.png" alt="Vultr_Set_Finish" /><figcaption>Vultr_Set_Finish</figcaption>
 </figure>
 <p>图9 任意键继续</p>
 <p>配置完成后，可以看到以下配置信息</p>
 <figure>
-<img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Server_info2.png" alt="Vultr_Server_info2" /><figcaption>Vultr_Server_info2</figcaption>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Server_info2.png" alt="Vultr_Server_info2" /><figcaption>Vultr_Server_info2</figcaption>
 </figure>
 <p>图10 服务配置信息</p>
 <p>使用这些信息即可连接 SSR 客户端</p>
@@ -415,12 +433,12 @@
 <p>以我的iPhone为例，打开Shadowsocks软件，新建一个新节点</p>
 <p>分别填写图11 红框中服务器IP、端口、密码、加密方式等信息，即可创建新节点</p>
 <figure>
-<img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_iPhone.png" alt="Vultr_iPhone" /><figcaption>Vultr_iPhone</figcaption>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_iPhone.png" alt="Vultr_iPhone" /><figcaption>Vultr_iPhone</figcaption>
 </figure>
 <p>图11 iPhone 配置</p>
 <p>配置完成后，如图12，使用配置模式，点击连接该节点即可</p>
 <figure>
-<img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_iPhone2.png" alt="Vultr_iPhone2" /><figcaption>Vultr_iPhone2</figcaption>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_iPhone2.png" alt="Vultr_iPhone2" /><figcaption>Vultr_iPhone2</figcaption>
 </figure>
 <p>图12 iPhone 节点连接</p>
 <p>连接之后就可以访问 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20v" title="https://www.youtube.com/">YouTube<i class="fa fa-external-link"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8=" title="https://www.google.com/">Google<i class="fa fa-external-link"></i></span> 等网站了</p>
@@ -487,7 +505,7 @@
             <div class="social-item">
               <a target="_blank" class="social-link" href="https://blog.csdn.net/ZHJ123CSDN">
                 <span class="icon">
-                  <i class="fa fa-csdn"></i>
+                  <i class="fa fa-telegram"></i>
                 </span>
 
                 <span class="label">CSDN</span>
@@ -710,7 +728,10 @@
   </div>
 
   
+  
+  <script color='0,191,255' opacity='0.6' zIndex='-1' count='200' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -723,8 +744,6 @@
 
 
 <script src="/js/next-boot.js"></script>
-
-<script src="/js/bookmark.js"></script>
 
 
 
@@ -811,6 +830,16 @@
     
 
   
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout: 3000,
+        priority: true,
+        ignores: [uri => uri.includes('#'),uri => uri == 'https://zhj.forever305.cn/2020/02/08/Vultr_VPS/',]
+      });
+      });
+  </script>
 
 
 <script>
@@ -831,10 +860,10 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       avatar     : 'mm',
       meta       : guest,
       pageSize   : '10' || 10,
-      visitor    : false,
-      lang       : '' || 'zh-cn',
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
       path       : location.pathname,
-      recordIP   : true,
+      recordIP   : false,
       serverURLs : ''
     });
   }, window.Valine);
