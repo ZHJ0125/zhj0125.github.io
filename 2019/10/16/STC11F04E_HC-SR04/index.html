@@ -21,7 +21,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":20},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="前几天做了一下电子工艺实习，实现了在数码管上显示温度和时间的功能，还写了篇博客。但当时没有注意到，这款PCB还设计了超声波测距的功能。在实现该功能后，我决定不再增改原来的文章，而写下这篇文章描述HC-SR04的控制方法。  我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。 我还做了一个使用数码管滚动显示学号的程序，就不再写成博客了，代码放在了GitHub  我已将该">
@@ -35,12 +35,11 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191016201730216.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=1000x700">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191016203435654.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2019-10-16T12:56:36.000Z">
-<meta property="article:modified_time" content="2020-02-09T10:13:01.965Z">
+<meta property="article:modified_time" content="2020-02-11T11:53:07.095Z">
 <meta property="article:author" content="Zhang H.J.">
-<meta property="article:tag" content="技术笔记">
 <meta property="article:tag" content="STC11F04E">
-<meta property="article:tag" content="电子工艺实训">
 <meta property="article:tag" content="单片机外设">
+<meta property="article:tag" content="电子工艺">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20191010212059345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x250">
 
@@ -134,12 +133,12 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">29</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">26</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">1</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">4</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -242,8 +241,25 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-09 18:13:01" itemprop="dateModified" datetime="2020-02-09T18:13:01+08:00">2020-02-09</time>
+                <time title="修改时间：2020-02-11 19:53:07" itemprop="dateModified" datetime="2020-02-11T19:53:07+08:00">2020-02-11</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">技术笔记</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E6%95%99%E5%AD%A6%E5%AE%9E%E8%AE%AD/" itemprop="url" rel="index">
+                    <span itemprop="name">教学实训</span>
+                  </a>
+                </span>
+            </span>
 
           
             <span id="/2019/10/16/STC11F04E_HC-SR04/" class="post-meta-item leancloud_visitors" data-flag-title="STC11F04E——HC-SR04" title="阅读次数">
@@ -301,8 +317,8 @@
         <blockquote>
 <p>前几天做了一下电子工艺实习，实现了在数码管上显示温度和时间的功能，<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzEwMjI5OTQ4NA==" title="https://blog.csdn.net/ZHJ123CSDN/article/details/102299484">还写了篇博客<i class="fa fa-external-link"></i></span>。但当时没有注意到，这款PCB还设计了超声波测距的功能。在实现该功能后，我决定不再增改原来的文章，而写下这篇文章描述HC-SR04的控制方法。</p>
 <ol type="1">
-<li>我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。</li>
-<li>我还做了一个使用数码管滚动显示学号的程序，就不再写成博客了，代码放在了GitHub</li>
+<li><p>我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。</p></li>
+<li><p>我还做了一个使用数码管滚动显示学号的程序，就不再写成博客了，代码放在了GitHub</p></li>
 </ol>
 <p>我已将该项目上传到GitHub，项目地址为： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvU1RDMTFGMDRF" title="https://github.com/ZHJ0125/STC11F04E">STC11F04E项目<i class="fa fa-external-link"></i></span>。 代码开源，欢迎测试</p>
 </blockquote>
@@ -507,10 +523,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" rel="tag"># 技术笔记</a>
               <a href="/tags/STC11F04E/" rel="tag"># STC11F04E</a>
-              <a href="/tags/%E7%94%B5%E5%AD%90%E5%B7%A5%E8%89%BA%E5%AE%9E%E8%AE%AD/" rel="tag"># 电子工艺实训</a>
               <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA%E5%A4%96%E8%AE%BE/" rel="tag"># 单片机外设</a>
+              <a href="/tags/%E7%94%B5%E5%AD%90%E5%B7%A5%E8%89%BA/" rel="tag"># 电子工艺</a>
           </div>
 
         
@@ -609,13 +624,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -669,7 +684,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:12</span>
+    <span title="站点阅读时长">4:11</span>
 </div>
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.2.0
   </div>

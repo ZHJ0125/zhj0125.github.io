@@ -21,20 +21,19 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":20},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="本博客的内容是：在 BlackWalnut Labs 完成交通标志标志识别实验的学习笔记 其中主要的部分是 BlackWalnut Labs 的实验过程介绍，少部分自己实验过程中的心得，所以就作为转载自 BlackWalnut 的一篇博文吧 说明：以下内容均在 BlackWalnut Labs 提供的环境下进行，如果想在自己的环境下运行，可参考TensorFlow Object Detecti">
+  <meta name="description" content="本博客的内容是：在 BlackWalnut Labs 完成交通标志标志识别实验的学习笔记 其中主要的部分是 BlackWalnut Labs 的实验过程介绍，少部分自己实验过程中的心得，所以就作为转载自 BlackWalnut 的一篇博文吧 说明：以下内容均在 BlackWalnut Labs 提供的环境下进行，如果想在自己的环境下运行，可参考TensorFlow Object Detec">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tensorflow学习笔记——交通标志识别">
 <meta property="og:url" content="https://zhj.forever305.cn/2019/04/18/Tensorflow_Traffic/index.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="本博客的内容是：在 BlackWalnut Labs 完成交通标志标志识别实验的学习笔记 其中主要的部分是 BlackWalnut Labs 的实验过程介绍，少部分自己实验过程中的心得，所以就作为转载自 BlackWalnut 的一篇博文吧 说明：以下内容均在 BlackWalnut Labs 提供的环境下进行，如果想在自己的环境下运行，可参考TensorFlow Object Detecti">
+<meta property="og:description" content="本博客的内容是：在 BlackWalnut Labs 完成交通标志标志识别实验的学习笔记 其中主要的部分是 BlackWalnut Labs 的实验过程介绍，少部分自己实验过程中的心得，所以就作为转载自 BlackWalnut 的一篇博文吧 说明：以下内容均在 BlackWalnut Labs 提供的环境下进行，如果想在自己的环境下运行，可参考TensorFlow Object Detec">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-04-18T04:50:32.000Z">
-<meta property="article:modified_time" content="2020-02-09T10:14:46.012Z">
+<meta property="article:modified_time" content="2020-02-11T11:52:44.460Z">
 <meta property="article:author" content="Zhang H.J.">
-<meta property="article:tag" content="技术笔记">
 <meta property="article:tag" content="Tensorflow">
 <meta property="article:tag" content="转载">
 <meta property="article:tag" content="交通标志识别">
@@ -130,12 +129,12 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">29</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">26</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">1</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">4</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -238,8 +237,19 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-09 18:14:46" itemprop="dateModified" datetime="2020-02-09T18:14:46+08:00">2020-02-09</time>
+                <time title="修改时间：2020-02-11 19:52:44" itemprop="dateModified" datetime="2020-02-11T19:52:44+08:00">2020-02-11</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">技术笔记</span>
+                  </a>
+                </span>
+            </span>
 
           
             <span id="/2019/04/18/Tensorflow_Traffic/" class="post-meta-item leancloud_visitors" data-flag-title="Tensorflow学习笔记——交通标志识别" title="阅读次数">
@@ -295,7 +305,9 @@
 
       
         <blockquote>
-<p>本博客的内容是：在 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span> 完成<span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2NvZGVsYWJzX2RldGFpbD9pZD01Y2FhMzY3YTU2ZWRmYzAwMTljNWM5NjI=" title="https://blackwalnut.tech/codelabs_detail?id=5caa367a56edfc0019c5c962">交通标志标志识别实验<i class="fa fa-external-link"></i></span>的学习笔记 其中主要的部分是 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span> 的实验过程介绍，少部分自己实验过程中的心得，所以就作为转载自 BlackWalnut 的一篇博文吧 说明：以下内容均在 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span> 提供的环境下进行，如果想在自己的环境下运行，可参考<a href="https://github.com/tensorflow/models/tree/master/research/object_detection" target="_blank" rel="noopener"><code>TensorFlow Object Detection</code> 项目</a></p>
+<p>本博客的内容是：在 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span> 完成<span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2NvZGVsYWJzX2RldGFpbD9pZD01Y2FhMzY3YTU2ZWRmYzAwMTljNWM5NjI=" title="https://blackwalnut.tech/codelabs_detail?id=5caa367a56edfc0019c5c962">交通标志标志识别实验<i class="fa fa-external-link"></i></span>的学习笔记</p>
+<p>其中主要的部分是 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span> 的实验过程介绍，少部分自己实验过程中的心得，所以就作为转载自 BlackWalnut 的一篇博文吧</p>
+<p>说明：以下内容均在 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span> 提供的环境下进行，如果想在自己的环境下运行，可参考<a href="https://github.com/tensorflow/models/tree/master/research/object_detection" target="_blank" rel="noopener"><code>TensorFlow Object Detection</code> 项目</a></p>
 </blockquote>
 <a id="more"></a>
 <h2 id="一什么是交通标志识别">一、什么是交通标志识别</h2>
@@ -615,7 +627,6 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" rel="tag"># 技术笔记</a>
               <a href="/tags/Tensorflow/" rel="tag"># Tensorflow</a>
               <a href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag"># 转载</a>
               <a href="/tags/%E4%BA%A4%E9%80%9A%E6%A0%87%E5%BF%97%E8%AF%86%E5%88%AB/" rel="tag"># 交通标志识别</a>
@@ -717,13 +728,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -777,7 +788,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:12</span>
+    <span title="站点阅读时长">4:11</span>
 </div>
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.2.0
   </div>

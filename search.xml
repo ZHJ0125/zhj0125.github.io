@@ -139,8 +139,11 @@
 <p>图12 iPhone 节点连接</p>
 <p>连接之后就可以访问 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20v" title="https://www.youtube.com/">YouTube<i class="fa fa-external-link"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8=" title="https://www.google.com/">Google<i class="fa fa-external-link"></i></span> 等网站了</p>
 ]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>解决方案</category>
+      </categories>
       <tags>
-        <tag>技术笔记</tag>
         <tag>资源分享</tag>
         <tag>翻墙</tag>
         <tag>VPN</tag>
@@ -727,6 +730,9 @@
 <p><span class="exturl" data-url="aHR0cDovL2hlbGxvLmZvcmV2ZXIzMDUuY24v" title="http://hello.forever305.cn/">共享3D打印物联平台首页<i class="fa fa-external-link"></i></span></p>
 <p><span class="exturl" data-url="aHR0cHM6Ly9uY2FzZS5tZS8=" title="https://ncase.me/">It's Nicky Case!<i class="fa fa-external-link"></i></span></p>
 ]]></content>
+      <categories>
+        <category>日常随笔</category>
+      </categories>
       <tags>
         <tag>资源分享</tag>
       </tags>
@@ -735,7 +741,9 @@
     <title>VLC 外挂字幕乱码</title>
     <url>/2020/01/22/VLC_Garbled/</url>
     <content><![CDATA[<blockquote>
-<p>最近下载了一些电影，由于我的外语水平有限，因此使用VLC播放器添加了外挂字幕。 问题描述： VLC 添加外挂字幕乱码</p>
+<p>最近下载了一些电影，由于我的外语水平有限，因此使用VLC播放器添加了外挂字幕。</p>
+<p>问题描述：</p>
+<p>VLC 添加外挂字幕乱码</p>
 </blockquote>
 <a id="more"></a>
 <h2 id="软件环境">软件环境</h2>
@@ -780,9 +788,12 @@
 <p>图. 更改编码格式</p>
 <p>最后别忘了 <code>重启VLC</code> 使配置生效。</p>
 ]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>解决方案</category>
+      </categories>
       <tags>
-        <tag>技术笔记</tag>
-        <tag>常见问题</tag>
+        <tag>VLC</tag>
       </tags>
   </entry>
   <entry>
@@ -810,6 +821,9 @@
 <li><span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS91c2Vycy8xMDcyMDYzNC96aGFuZy1oLWo=" title="https://stackoverflow.com/users/10720634/zhang-h-j">Stark Overflow<i class="fa fa-external-link"></i></span></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>日常随笔</category>
+      </categories>
       <tags>
         <tag>资源分享</tag>
       </tags>
@@ -817,10 +831,10 @@
   <entry>
     <title>我的随笔</title>
     <url>/2020/01/18/My_First_Share/</url>
-    <content><![CDATA[<h2 id="博客迁移">博客迁移</h2>
-<p>上午和下午大部分时间被占用了，晚上回来准备把CSDN上的文章迁移到了这里。 现在是2020年01月18 <del>晚上</del> 凌晨 3:30，已经迁移了九篇文章。。。 继续熬夜迁移 哈哈(～￣▽￣)～</p>
+    <content><![CDATA[<p>上午和下午大部分时间被占用了，晚上回来准备把CSDN上的文章迁移到了这里。 现在是2020年01月18 <del>晚上</del> 凌晨 3:30，已经迁移了九篇文章。。。 继续熬夜迁移 哈哈(～￣▽￣)～</p>
 <p>话说 Hexo 还真是有趣，前端和后端分离的感觉真棒！</p>
 <a id="more"></a>
+<h2 id="博客迁移">博客迁移</h2>
 <blockquote>
 <p>这篇随笔写完了，前端竟然不能显示。。真是尴尬</p>
 </blockquote>
@@ -846,8 +860,11 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>日常随笔</category>
+      </categories>
       <tags>
-        <tag>随笔</tag>
+        <tag>博客搭建</tag>
       </tags>
   </entry>
   <entry>
@@ -869,13 +886,18 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s" title="https://hexo.io/docs/one-command-deployment.html">Deployment<i class="fa fa-external-link"></i></span></p>
 ]]></content>
+      <categories>
+        <category>日常随笔</category>
+      </categories>
   </entry>
   <entry>
     <title>微信小程序——图片识别</title>
     <url>/2020/01/03/WeChat_Image_Recognition/</url>
     <content><![CDATA[<blockquote>
 <p>我的微信小程序 期末大作业——<strong>基于百度大脑API的图片识别小程序</strong></p>
-<p>具体实现了<strong>动物识别</strong>、<strong>植物识别</strong>、<strong>车辆识别</strong> 三个功能 实验源码已经放到了<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvSW1hZ2VNYXN0ZXI=" title="https://github.com/ZHJ0125/ImageMaster">我的GitHub<i class="fa fa-external-link"></i></span>，欢迎测试修改 (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvSW1hZ2VNYXN0ZXI=" title="https://github.com/ZHJ0125/ImageMaster">项目地址：https://github.com/ZHJ0125/ImageMaster<i class="fa fa-external-link"></i></span>) 下面给大家分享该项目的实验报告😜</p>
+<p>具体实现了<strong>动物识别</strong>、<strong>植物识别</strong>、<strong>车辆识别</strong> 三个功能</p>
+<p>实验源码已经放到了<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvSW1hZ2VNYXN0ZXI=" title="https://github.com/ZHJ0125/ImageMaster">我的GitHub<i class="fa fa-external-link"></i></span>，欢迎测试修改 (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvSW1hZ2VNYXN0ZXI=" title="https://github.com/ZHJ0125/ImageMaster">项目地址：https://github.com/ZHJ0125/ImageMaster<i class="fa fa-external-link"></i></span>)</p>
+<p>下面给大家分享该项目的实验报告😜</p>
 </blockquote>
 <a id="more"></a>
 <div id="badge-container-ZHJ0125-ImageMaster-b7c7fe0" class="hexo-github" style="width: ="></div>
@@ -1369,9 +1391,11 @@
 </figure>
 <p>图6.6 识别结果</p>
 ]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>教学实训</category>
+      </categories>
       <tags>
-        <tag>技术笔记</tag>
-        <tag>实验报告</tag>
         <tag>微信小程序</tag>
         <tag>图片识别</tag>
         <tag>API</tag>
@@ -1405,11 +1429,13 @@
 <li><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vdGhteC9wLzg1NjU1MzAuaHRtbA==" title="https://www.cnblogs.com/thmx/p/8565530.html">安装opencv3.4.0报错<i class="fa fa-external-link"></i></span></p></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>解决方案</category>
+      </categories>
       <tags>
-        <tag>技术笔记</tag>
         <tag>OpenCV</tag>
-        <tag>Ubuntu18.04</tag>
-        <tag>日常Debug</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -1418,8 +1444,8 @@
     <content><![CDATA[<blockquote>
 <p>前几天做了一下电子工艺实习，实现了在数码管上显示温度和时间的功能，<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzEwMjI5OTQ4NA==" title="https://blog.csdn.net/ZHJ123CSDN/article/details/102299484">还写了篇博客<i class="fa fa-external-link"></i></span>。但当时没有注意到，这款PCB还设计了超声波测距的功能。在实现该功能后，我决定不再增改原来的文章，而写下这篇文章描述HC-SR04的控制方法。</p>
 <ol type="1">
-<li>我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。</li>
-<li>我还做了一个使用数码管滚动显示学号的程序，就不再写成博客了，代码放在了GitHub</li>
+<li><p>我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。</p></li>
+<li><p>我还做了一个使用数码管滚动显示学号的程序，就不再写成博客了，代码放在了GitHub</p></li>
 </ol>
 <p>我已将该项目上传到GitHub，项目地址为： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvU1RDMTFGMDRF" title="https://github.com/ZHJ0125/STC11F04E">STC11F04E项目<i class="fa fa-external-link"></i></span>。 代码开源，欢迎测试</p>
 </blockquote>
@@ -1540,11 +1566,14 @@
 <h2 id="四改进">四、改进</h2>
 <p>  超声波测距还有很多改进的空间，比如，为了保持测试数据的稳定，可以通过求平均值的方式进行改进。另外中断计时器应该还可以进行改进。。。   先写到这里吧，以后如果再有好的想法再来记录。</p>
 ]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>教学实训</category>
+      </categories>
       <tags>
-        <tag>技术笔记</tag>
         <tag>STC11F04E</tag>
-        <tag>电子工艺实训</tag>
         <tag>单片机外设</tag>
+        <tag>电子工艺</tag>
       </tags>
   </entry>
   <entry>
@@ -1552,7 +1581,9 @@
     <url>/2019/10/07/STC11F04E_Electronic/</url>
     <content><![CDATA[<blockquote>
 <p>这几天做了一下电子工艺实习，焊接了PCB然后烧写了相应的程序，现在将实验过程记录下来。</p>
-<p>声明1：我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。 声明2：我将控制位选的4个三极管更换了，<del>程序由原来的位选高电平选中，换成了位选低电平选中</del>，在此声明。 声明3：这款PCB还实现了超声波测距、数码管滚动显示学号等功能，请见<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzEwMjQ5MDgyMw==" title="https://blog.csdn.net/ZHJ123CSDN/article/details/102490823">另一篇博客<i class="fa fa-external-link"></i></span>，代码详见GitHub</p>
+<p>声明1：我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。</p>
+<p>声明2：我将控制位选的4个三极管更换了，<del>程序由原来的位选高电平选中，换成了位选低电平选中</del>，在此声明。</p>
+<p>声明3：这款PCB还实现了超声波测距、数码管滚动显示学号等功能，请见<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzEwMjQ5MDgyMw==" title="https://blog.csdn.net/ZHJ123CSDN/article/details/102490823">另一篇博客<i class="fa fa-external-link"></i></span>，代码详见GitHub</p>
 <p>我已将该项目上传到GitHub，项目地址为： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvU1RDMTFGMDRF" title="https://github.com/ZHJ0125/STC11F04E">STC11F04E项目<i class="fa fa-external-link"></i></span>。 代码开源，欢迎测试</p>
 </blockquote>
 <a id="more"></a>
@@ -1707,10 +1738,13 @@
 <h4 id="esp8266">5.2.5 ESP8266</h4>
 <p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMxMzEwNzkzL2FydGljbGUvZGV0YWlscy83NzE2MjQwOA==" title="https://blog.csdn.net/qq_31310793/article/details/77162408">ESP8266-01 固件更新过程 - qq_31310793的博客 - CSDN博客<i class="fa fa-external-link"></i></span> <span class="exturl" data-url="aHR0cHM6Ly93d3cuZXNwcmVzc2lmLmNvbS96aC1oYW5zL3N1cHBvcnQvZG93bmxvYWQvb3RoZXItdG9vbHM=" title="https://www.espressif.com/zh-hans/support/download/other-tools">工具 | 乐鑫<i class="fa fa-external-link"></i></span> <span class="exturl" data-url="aHR0cHM6Ly93aWtpLmFwcmJyb3RoZXIuY29tL2VuL0Zpcm13YXJlX0Zvcl9FU1A4MjY2Lmh0bWw=" title="https://wiki.aprbrother.com/en/Firmware_For_ESP8266.html">v1.1.1 · GitBook<i class="fa fa-external-link"></i></span> <span class="exturl" data-url="aHR0cHM6Ly9sYXN0bWludXRlZW5naW5lZXJzLmNvbS9lc3A4MjY2LW50cC1zZXJ2ZXItZGF0ZS10aW1lLXR1dG9yaWFsLw==" title="https://lastminuteengineers.com/esp8266-ntp-server-date-time-tutorial/">使用ESP8266 NodeMCU从NTP服务器获取日期和时间<i class="fa fa-external-link"></i></span> <span class="exturl" data-url="aHR0cHM6Ly93d3cubnV0c3ZvbHRzLmNvbS9tYWdhemluZS9hcnRpY2xlL0p1bmUyMDE2X0VTUDgyNjYtTlRQLUNsb2Nr" title="https://www.nutsvolts.com/magazine/article/June2016_ESP8266-NTP-Clock">ESP8266 NTP时钟| 坚果与伏特杂志<i class="fa fa-external-link"></i></span> <span class="exturl" data-url="aHR0cHM6Ly93d3cubnV0c3ZvbHRzLmNvbS9tYWdhemluZS9hcnRpY2xlL09jdG9iZXIyMDE1X0xpbmRsZXk=" title="https://www.nutsvolts.com/magazine/article/October2015_Lindley">认识ESP8266 | 坚果与伏特杂志<i class="fa fa-external-link"></i></span> <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdHJ1Y3RhYmxlcy5jb20vaWQvU2ltcGxlc3QtRVNQODI2Ni1Mb2NhbC1UaW1lLUludGVybmV0LUNsb2NrLVdpdGgtT0wv" title="https://www.instructables.com/id/Simplest-ESP8266-Local-Time-Internet-Clock-With-OL/">带OLED的最简单ESP8266本地时间互联网时钟：4个步骤（带图片）<i class="fa fa-external-link"></i></span> <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mjc1NzY3NC9hcnRpY2xlL2RldGFpbHMvODMwMDk5MDQ=" title="https://blog.csdn.net/weixin_42757674/article/details/83009904">51单片机利用8266获取网络时间 - weixin_42757674的博客 - CSDN博客<i class="fa fa-external-link"></i></span> <span class="exturl" data-url="aHR0cDovL3d3dy5zdGNtY3UuY29tL2luZGV4Lmh0bQ==" title="http://www.stcmcu.com/index.htm">STC: 1T 8051 单片机创新者, ISP/IAP 技术创新者<i class="fa fa-external-link"></i></span> <span class="exturl" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3F1ZXN0aW9uLzE5OTk4OTk1" title="https://www.zhihu.com/question/19998995">三极管是如何导通的？ - 知乎<i class="fa fa-external-link"></i></span></p>
 ]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>教学实训</category>
+      </categories>
       <tags>
-        <tag>技术笔记</tag>
         <tag>STC11F04E</tag>
-        <tag>电子工艺实训</tag>
+        <tag>电子工艺</tag>
       </tags>
   </entry>
   <entry>
@@ -2042,9 +2076,11 @@
 <h3 id="参考资料">6.2参考资料</h3>
 <p>【1】 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vbWluaXByb2dyYW0vZGV2L3JlZmVyZW5jZS9jb25maWd1cmF0aW9uL3BhZ2UuaHRtbA==" title="https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html">微信官方文档——页面配置<i class="fa fa-external-link"></i></span> 【2】 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vbWluaXByb2dyYW0vZGV2L2ZyYW1ld29yay92aWV3L3d4bWwvZXZlbnQuaHRtbA==" title="https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html">微信官方文档——事件<i class="fa fa-external-link"></i></span></p>
 ]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>教学实训</category>
+      </categories>
       <tags>
-        <tag>技术笔记</tag>
-        <tag>实验报告</tag>
         <tag>微信小程序</tag>
       </tags>
   </entry>
@@ -2054,9 +2090,7 @@
     <content><![CDATA[<h2 id="修复无法锁定ubuntu中的管理目录varlibdpkg">修复&quot;无法锁定Ubuntu中的管理目录(/var/lib/dpkg/)&quot;</h2>
 <blockquote>
 <p>问题描述： Ubuntu18.04在更新软件源时，出现“Unable to lock the administration directory (/var/lib/dpkg/)” 报错信息。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190626215634585.png#pic_center" alt="图片描述" /><figcaption>图片描述</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190626215634585.png#pic_center" /></p>
 <p>问题分析： Linux为了避免已经运行的apt-get或apt进程被用户或需要处理apt文件的其他进程中断，运行apt-get或apt命令后，将在以下任何目录<code>/var/lib/apt/lists/</code>，<code>/var/lib/dpkg/</code> 和 <code>/var/cache/apt/archives/</code> 下创建一个 <em>lock</em>(锁定文件)。正常情况下，当进程执行完毕后，将删除锁定文件。如果有程序正在占用该进程，锁定文件未删除，就会导致此问题发生。</p>
 </blockquote>
 <a id="more"></a>
@@ -2102,16 +2136,29 @@
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">or</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>解决方案</category>
+      </categories>
       <tags>
-        <tag>技术笔记</tag>
-        <tag>日常Debug</tag>
         <tag>Ubuntu</tag>
+        <tag>dpkg</tag>
       </tags>
   </entry>
   <entry>
     <title>Linux实训——搭建动态网站</title>
     <url>/2019/06/20/Linux_MyWeb/</url>
-    <content><![CDATA[<p>山东科技大学 信息工程系 &gt; 内容说明：本篇文章是《嵌入式操作系统》实训报告的<strong>第三部分</strong>，使用WordPress实现了动态网站的搭建，使用php编写了学生信息管理系统的动态网页。 &gt; 建议先阅读实训报告<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzkzMDg4MTg3" title="https://blog.csdn.net/ZHJ123CSDN/article/details/93088187">第二部分<i class="fa fa-external-link"></i></span> &gt; 《嵌入式操作系统》实训报告完整内容介绍： &gt; 第一部分：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzkzMDc0NDEz" title="https://blog.csdn.net/ZHJ123CSDN/article/details/93074413">编译升级系统Linux内核<i class="fa fa-external-link"></i></span> &gt; 第二部分：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzkzMDg4MTg3" title="https://blog.csdn.net/ZHJ123CSDN/article/details/93088187">搭建HTTP服务器<i class="fa fa-external-link"></i></span> &gt; 第三部分：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzkzMDkwNDg4" title="https://blog.csdn.net/ZHJ123CSDN/article/details/93090488">搭建动态网站<i class="fa fa-external-link"></i></span> &gt; <span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9TdHVkeS9MaW51eC9saW51eCVFNSVBRSU5RSVFOCVBRSVBRCUyMF8lRTUlQkMlQTAlRTUlOEUlOUElRTQlQkIlOEEucGRm" title="http://47.95.13.239/Study/Linux/linux%E5%AE%9E%E8%AE%AD%20_%E5%BC%A0%E5%8E%9A%E4%BB%8A.pdf">完整实验报告PDF文件<i class="fa fa-external-link"></i></span></p>
+    <content><![CDATA[<blockquote>
+<p>内容说明：本篇文章是《嵌入式操作系统》实训报告的<strong>第三部分</strong>，使用WordPress实现了动态网站的搭建，使用php编写了学生信息管理系统的动态网页</p>
+<p>建议先阅读实训报告<a href="https://zhj.forever305.cn/2019/06/20/Linux_HTTP_Server/">第二部分</a></p>
+<p><code>嵌入式操作系统</code>实训报告内容介绍：</p>
+<ul>
+<li><p>第一部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_Upgrade_Core/">编译升级系统Linux内核</a></p></li>
+<li><p>第二部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_HTTP_Server/">搭建HTTP服务器</a></p></li>
+<li><p>第三部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_MyWeb/">搭建动态网站</a></p></li>
+</ul>
+<p><span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9TdHVkeS9MaW51eC9saW51eCVFNSVBRSU5RSVFOCVBRSVBRCUyMF8lRTUlQkMlQTAlRTUlOEUlOUElRTQlQkIlOEEucGRm" title="http://47.95.13.239/Study/Linux/linux%E5%AE%9E%E8%AE%AD%20_%E5%BC%A0%E5%8E%9A%E4%BB%8A.pdf">完整实验报告PDF文件<i class="fa fa-external-link"></i></span></p>
+</blockquote>
 <a id="more"></a>
 <h2 id="三构建一个简单的动态网站">三、构建一个简单的动态网站</h2>
 <h3 id="实验原理">3.1 实验原理</h3>
@@ -2544,19 +2591,26 @@
 <li><span class="exturl" data-url="SFRUUHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvODY0NTg4OS90aGVyZS1jYW4tYmUtb25seS1vbmUtYXV0by1jb2x1bW4=" title="HTTPs://stackoverflow.com/questions/8645889/there-can-be-only-one-auto-column">There can be only one auto column<i class="fa fa-external-link"></i></span></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>教学实训</category>
+      </categories>
       <tags>
-        <tag>技术笔记</tag>
-        <tag>实验报告</tag>
         <tag>Linux</tag>
-        <tag>Linux实训</tag>
       </tags>
   </entry>
   <entry>
     <title>Linux实训——搭建HTTP服务器</title>
     <url>/2019/06/20/Linux_HTTP_Server/</url>
-    <content><![CDATA[<p>山东科技大学 信息工程系</p>
-<blockquote>
-<p>内容说明：本篇文章是《嵌入式操作系统》实训报告的<strong>第二部分</strong>，实现了HTTP服务器的搭建 《嵌入式操作系统》实训报告内容介绍： 第一部分：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzkzMDc0NDEz" title="https://blog.csdn.net/ZHJ123CSDN/article/details/93074413">编译升级系统Linux内核<i class="fa fa-external-link"></i></span> 第二部分：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzkzMDg4MTg3" title="https://blog.csdn.net/ZHJ123CSDN/article/details/93088187">搭建HTTP服务器<i class="fa fa-external-link"></i></span> 第三部分：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzkzMDkwNDg4" title="https://blog.csdn.net/ZHJ123CSDN/article/details/93090488">搭建动态网站<i class="fa fa-external-link"></i></span> <span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9TdHVkeS9MaW51eC9saW51eCVFNSVBRSU5RSVFOCVBRSVBRCUyMF8lRTUlQkMlQTAlRTUlOEUlOUElRTQlQkIlOEEucGRm" title="http://47.95.13.239/Study/Linux/linux%E5%AE%9E%E8%AE%AD%20_%E5%BC%A0%E5%8E%9A%E4%BB%8A.pdf">完整实验报告PDF文件<i class="fa fa-external-link"></i></span></p>
+    <content><![CDATA[<blockquote>
+<p>内容说明：本篇文章是《嵌入式操作系统》实训报告的<strong>第二部分</strong>，实现了HTTP服务器的搭建</p>
+<p><code>嵌入式操作系统</code>实训报告内容介绍：</p>
+<ul>
+<li><p>第一部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_Upgrade_Core/">编译升级系统Linux内核</a></p></li>
+<li><p>第二部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_HTTP_Server/">搭建HTTP服务器</a></p></li>
+<li><p>第三部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_MyWeb/">搭建动态网站</a></p></li>
+</ul>
+<p><span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9TdHVkeS9MaW51eC9saW51eCVFNSVBRSU5RSVFOCVBRSVBRCUyMF8lRTUlQkMlQTAlRTUlOEUlOUElRTQlQkIlOEEucGRm" title="http://47.95.13.239/Study/Linux/linux%E5%AE%9E%E8%AE%AD%20_%E5%BC%A0%E5%8E%9A%E4%BB%8A.pdf">完整实验报告PDF文件<i class="fa fa-external-link"></i></span></p>
 </blockquote>
 <a id="more"></a>
 <h2 id="二构建http服务器">二、构建HTTP服务器</h2>
@@ -2597,19 +2651,26 @@
 </figure>
 <p>图 测试内容</p>
 ]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>教学实训</category>
+      </categories>
       <tags>
-        <tag>技术笔记</tag>
-        <tag>实验报告</tag>
         <tag>Linux</tag>
-        <tag>Linux实训</tag>
       </tags>
   </entry>
   <entry>
     <title>Linux实训——编译升级Linux内核</title>
     <url>/2019/06/20/Linux_Upgrade_Core/</url>
-    <content><![CDATA[<p>山东科技大学 信息工程系</p>
-<blockquote>
-<p>内容说明：本篇文章是《嵌入式操作系统》实训报告的<strong>第一部分</strong>，实现了编译和升级Linux内核 《嵌入式操作系统》实训报告内容介绍： 第一部分：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzkzMDc0NDEz" title="https://blog.csdn.net/ZHJ123CSDN/article/details/93074413">编译升级系统Linux内核<i class="fa fa-external-link"></i></span> 第二部分：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzkzMDg4MTg3" title="https://blog.csdn.net/ZHJ123CSDN/article/details/93088187">搭建HTTP服务器<i class="fa fa-external-link"></i></span> 第三部分：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzkzMDkwNDg4" title="https://blog.csdn.net/ZHJ123CSDN/article/details/93090488">搭建动态网站<i class="fa fa-external-link"></i></span> <span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9TdHVkeS9MaW51eC9saW51eCVFNSVBRSU5RSVFOCVBRSVBRCUyMF8lRTUlQkMlQTAlRTUlOEUlOUElRTQlQkIlOEEucGRm" title="http://47.95.13.239/Study/Linux/linux%E5%AE%9E%E8%AE%AD%20_%E5%BC%A0%E5%8E%9A%E4%BB%8A.pdf">完整实验报告PDF文件<i class="fa fa-external-link"></i></span></p>
+    <content><![CDATA[<blockquote>
+<p>内容说明：本篇文章是《嵌入式操作系统》实训报告的<strong>第一部分</strong>，实现了编译和升级Linux内核</p>
+<p><code>嵌入式操作系统</code>实训报告内容介绍：</p>
+<ul>
+<li><p>第一部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_Upgrade_Core/">编译升级系统Linux内核</a></p></li>
+<li><p>第二部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_HTTP_Server/">搭建HTTP服务器</a></p></li>
+<li><p>第三部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_MyWeb/">搭建动态网站</a></p></li>
+</ul>
+<p><span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9TdHVkeS9MaW51eC9saW51eCVFNSVBRSU5RSVFOCVBRSVBRCUyMF8lRTUlQkMlQTAlRTUlOEUlOUElRTQlQkIlOEEucGRm" title="http://47.95.13.239/Study/Linux/linux%E5%AE%9E%E8%AE%AD%20_%E5%BC%A0%E5%8E%9A%E4%BB%8A.pdf">完整实验报告PDF文件<i class="fa fa-external-link"></i></span></p>
 </blockquote>
 <a id="more"></a>
 <h2 id="一编译升级linux内核">一、编译升级Linux内核</h2>
@@ -2851,17 +2912,28 @@
 <p>图 最终内核版本</p>
 <p>第一个实验顺利结束。</p>
 ]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>教学实训</category>
+      </categories>
       <tags>
-        <tag>技术笔记</tag>
-        <tag>实验报告</tag>
         <tag>Linux</tag>
-        <tag>Linux实训</tag>
       </tags>
   </entry>
   <entry>
     <title>Android——WebView网页应用</title>
     <url>/2019/06/20/Android_WebView/</url>
-    <content><![CDATA[<p>实验报告 课程名称 Android应用编程实验 &gt; 实验名称：网页应用-WebView &gt; 实验目的：学习WebView的相关功能 &gt; 实验仪器设备：电脑、Android Studio、Android手机 &gt; 实验内容： &gt;&gt; 1.应用WebView对象浏览网页 &gt;&gt; 2.调用本地HTML网页文件的JavaScript &gt;&gt; 3.用Android程序操纵JavaScript对话框</p>
+    <content><![CDATA[<blockquote>
+<p>实验名称：网页应用-WebView</p>
+<p>实验目的：学习WebView的相关功能</p>
+<p>实验仪器设备：电脑、Android Studio、Android手机</p>
+<p>实验内容：</p>
+<ul>
+<li><p>应用WebView对象浏览网页</p></li>
+<li><p>调用本地HTML网页文件的JavaScript</p></li>
+<li><p>用Android程序操纵JavaScript对话框</p></li>
+</ul>
+</blockquote>
 <a id="more"></a>
 <h2 id="一应用webview对象浏览网页">一、应用WebView对象浏览网页</h2>
 <h3 id="实验原理">1.1实验原理</h3>
@@ -3134,10 +3206,12 @@
 <li><span class="citation" data-cites="JavascriptInterface">[124、@JavascriptInterface]</span>(https://www.cnblogs.com/androidsj/p/6414891.html)</li>
 </ol>
 ]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>教学实训</category>
+      </categories>
       <tags>
-        <tag>技术笔记</tag>
         <tag>Android</tag>
-        <tag>实验报告</tag>
         <tag>WebView</tag>
       </tags>
   </entry>
@@ -3145,7 +3219,14 @@
     <title>Android——后台服务</title>
     <url>/2019/05/19/Android_BackGround/</url>
     <content><![CDATA[<blockquote>
-<p>实验名称：Android 后台服务 实验目的：通过Service设计后台服务程序，通过Broadcast实现信息广播机制 实验内容： &gt; 1.设计一个简单的后台音乐服务程序 &gt; 2.设计一个简单的信息广播程序示例 &gt; 3.利用Broadcast实现后台服务广播音乐的播放或暂停信息，接收器接收到信息后执行改变用户界面按钮上文本的操作</p>
+<p>实验名称：Android 后台服务</p>
+<p>实验目的：通过Service设计后台服务程序，通过Broadcast实现信息广播机制</p>
+<p>实验内容：</p>
+<ul>
+<li><p>设计一个简单的后台音乐服务程序</p></li>
+<li><p>设计一个简单的信息广播程序示例</p></li>
+<li><p>利用Broadcast实现后台服务广播音乐的播放或暂停信息，接收器接收到信息后执行改变用户界面按钮上文本的操作</p></li>
+</ul>
 </blockquote>
 <a id="more"></a>
 <h2 id="一后台音乐服务程序">一、后台音乐服务程序</h2>
@@ -3561,17 +3642,22 @@
 <li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dpMnJmbDc4L2FydGljbGUvZGV0YWlscy83ODMxNDI4Ng==" title="https://blog.csdn.net/wi2rfl78/article/details/78314286">解决安卓7.0系统写入SD卡权限失败问题<i class="fa fa-external-link"></i></span></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>教学实训</category>
+      </categories>
       <tags>
-        <tag>技术笔记</tag>
         <tag>Android</tag>
-        <tag>实验报告</tag>
       </tags>
   </entry>
   <entry>
     <title>Android——简易照相机</title>
     <url>/2019/05/06/Android_Camera/</url>
     <content><![CDATA[<blockquote>
-<p>实验名称：Android多媒体应用-拍照 实验目的：设计一个简易照相机 实验内容：利用Camera类设计一个简易照相机，通过SurfaceView组件实现取景预览，拍照保存等功能，拍照保存时按camera+序号.jpg的方式保存照片，序号自动增加，确保拍照保存不会覆盖前面的照片。 实验日期：2019年5月</p>
+<p>实验名称：Android多媒体应用-拍照</p>
+<p>实验目的：设计一个简易照相机</p>
+<p>实验内容：利用Camera类设计一个简易照相机，通过SurfaceView组件实现取景预览，拍照保存等功能，拍照保存时按camera+序号.jpg的方式保存照片，序号自动增加，确保拍照保存不会覆盖前面的照片</p>
+<p>实验日期：2019年5月</p>
 </blockquote>
 <a id="more"></a>
 <h2 id="一实验原理">一、实验原理</h2>
@@ -3782,10 +3868,12 @@
 <li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3h4MzI2NjY0MTYyL2FydGljbGUvZGV0YWlscy81MzM1MDU1MQ==" title="https://blog.csdn.net/xx326664162/article/details/53350551">Android相机开发和遇到的坑<i class="fa fa-external-link"></i></span></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>教学实训</category>
+      </categories>
       <tags>
-        <tag>技术笔记</tag>
         <tag>Android</tag>
-        <tag>实验报告</tag>
         <tag>Camera</tag>
       </tags>
   </entry>
@@ -3793,7 +3881,9 @@
     <title>Tensorflow学习笔记——交通标志识别</title>
     <url>/2019/04/18/Tensorflow_Traffic/</url>
     <content><![CDATA[<blockquote>
-<p>本博客的内容是：在 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span> 完成<span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2NvZGVsYWJzX2RldGFpbD9pZD01Y2FhMzY3YTU2ZWRmYzAwMTljNWM5NjI=" title="https://blackwalnut.tech/codelabs_detail?id=5caa367a56edfc0019c5c962">交通标志标志识别实验<i class="fa fa-external-link"></i></span>的学习笔记 其中主要的部分是 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span> 的实验过程介绍，少部分自己实验过程中的心得，所以就作为转载自 BlackWalnut 的一篇博文吧 说明：以下内容均在 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span> 提供的环境下进行，如果想在自己的环境下运行，可参考<a href="https://github.com/tensorflow/models/tree/master/research/object_detection" target="_blank" rel="noopener"><code>TensorFlow Object Detection</code> 项目</a></p>
+<p>本博客的内容是：在 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span> 完成<span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2NvZGVsYWJzX2RldGFpbD9pZD01Y2FhMzY3YTU2ZWRmYzAwMTljNWM5NjI=" title="https://blackwalnut.tech/codelabs_detail?id=5caa367a56edfc0019c5c962">交通标志标志识别实验<i class="fa fa-external-link"></i></span>的学习笔记</p>
+<p>其中主要的部分是 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span> 的实验过程介绍，少部分自己实验过程中的心得，所以就作为转载自 BlackWalnut 的一篇博文吧</p>
+<p>说明：以下内容均在 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span> 提供的环境下进行，如果想在自己的环境下运行，可参考<a href="https://github.com/tensorflow/models/tree/master/research/object_detection" target="_blank" rel="noopener"><code>TensorFlow Object Detection</code> 项目</a></p>
 </blockquote>
 <a id="more"></a>
 <h2 id="一什么是交通标志识别">一、什么是交通标志识别</h2>
@@ -4029,8 +4119,10 @@
 <h2 id="五附录">五、附录</h2>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#file_name: Image2TFRecord.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">'/home/jovyan/Appendix/tensorflow_models/research'</span>)</span><br><span class="line">sys.path.append(<span class="string">'/home/jovyan/Appendix/tensorflow_models/research/slim'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> xml.dom.minidom</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> object_detection.utils <span class="keyword">import</span> dataset_util</span><br><span class="line"></span><br><span class="line">imageInfo = &#123;</span><br><span class="line">    <span class="string">'height'</span>:<span class="number">480</span>,</span><br><span class="line">    <span class="string">'width'</span>:<span class="number">480</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_tf_example</span><span class="params">(image,labelInfo,imageInfo)</span>:</span></span><br><span class="line">    height = imageInfo[<span class="string">'height'</span>] <span class="comment"># Image height</span></span><br><span class="line">    width = imageInfo[<span class="string">'width'</span>] <span class="comment"># Image width</span></span><br><span class="line">    filename = labelInfo[<span class="string">'name'</span>] <span class="comment"># Filename of the image. Empty if image is not from file</span></span><br><span class="line">    encoded_image_data = image <span class="comment"># Encoded image bytes</span></span><br><span class="line">    image_format = <span class="string">b'jpeg'</span> <span class="comment"># b'jpeg' or b'png'</span></span><br><span class="line">    xmins = labelInfo[<span class="string">'xmins'</span>] <span class="comment"># List of normalized left x coordinates in bounding box (1 per box)</span></span><br><span class="line">    xmaxs = labelInfo[<span class="string">'xmaxs'</span>] <span class="comment"># List of normalized right x coordinates in bounding box</span></span><br><span class="line">            <span class="comment"># (1 per box)</span></span><br><span class="line">    ymins = labelInfo[<span class="string">'ymins'</span>] <span class="comment"># List of normalized top y coordinates in bounding box (1 per box)</span></span><br><span class="line">    ymaxs = labelInfo[<span class="string">'ymaxs'</span>] <span class="comment"># List of normalized bottom y coordinates in bounding box</span></span><br><span class="line">            <span class="comment"># (1 per box)</span></span><br><span class="line">    classes_text = labelInfo[<span class="string">'classes_text'</span>] <span class="comment"># List of string class name of bounding box (1 per box)</span></span><br><span class="line">    classes = labelInfo[<span class="string">'classes'</span>] <span class="comment"># List of integer class id of bounding box (1 per box)</span></span><br><span class="line">    tf_example = tf.train.Example(features=tf.train.Features(feature=&#123;</span><br><span class="line">        <span class="string">'image/height'</span>: dataset_util.int64_feature(height),</span><br><span class="line">        <span class="string">'image/width'</span>: dataset_util.int64_feature(width),</span><br><span class="line">        <span class="string">'image/filename'</span>: dataset_util.bytes_feature(filename),</span><br><span class="line">        <span class="string">'image/source_id'</span>: dataset_util.bytes_feature(filename),</span><br><span class="line">        <span class="string">'image/encoded'</span>: dataset_util.bytes_feature(encoded_image_data),</span><br><span class="line">        <span class="string">'image/format'</span>: dataset_util.bytes_feature(image_format),</span><br><span class="line">        <span class="string">'image/object/bbox/xmin'</span>: dataset_util.float_list_feature(xmins),</span><br><span class="line">        <span class="string">'image/object/bbox/xmax'</span>: dataset_util.float_list_feature(xmaxs),</span><br><span class="line">        <span class="string">'image/object/bbox/ymin'</span>: dataset_util.float_list_feature(ymins),</span><br><span class="line">        <span class="string">'image/object/bbox/ymax'</span>: dataset_util.float_list_feature(ymaxs),</span><br><span class="line">        <span class="string">'image/object/class/text'</span>: dataset_util.bytes_list_feature(classes_text),</span><br><span class="line">        <span class="string">'image/object/class/label'</span>: dataset_util.int64_list_feature(classes),</span><br><span class="line">    &#125;))</span><br><span class="line">    <span class="keyword">return</span> tf_example</span><br><span class="line"></span><br><span class="line">trainFileWriter = tf.python_io.TFRecordWriter(<span class="string">'data/train.record'</span>)</span><br><span class="line"></span><br><span class="line">trainDirString = <span class="string">'data/TrafficSign'</span></span><br><span class="line">trainDir =  os.listdir(trainDirString)</span><br><span class="line"><span class="keyword">for</span> fileName <span class="keyword">in</span> trainDir:</span><br><span class="line">    <span class="keyword">if</span>(fileName.endswith(<span class="string">'.jpg'</span>)):</span><br><span class="line">        DOMTree = xml.dom.minidom.parse(trainDirString + <span class="string">'/'</span> + fileName[<span class="number">0</span>:len(fileName)<span class="number">-4</span>] + <span class="string">'.xml'</span>)</span><br><span class="line">        collection = DOMTree.documentElement</span><br><span class="line">        objects = collection.getElementsByTagName(<span class="string">"object"</span>)</span><br><span class="line">        labelInfo = &#123;</span><br><span class="line">            <span class="string">'name'</span>:bytes(fileName, encoding = <span class="string">"utf8"</span>),</span><br><span class="line">            <span class="string">'xmins'</span>:[],</span><br><span class="line">            <span class="string">'xmaxs'</span>:[],</span><br><span class="line">            <span class="string">'ymins'</span>:[],</span><br><span class="line">            <span class="string">'ymaxs'</span>:[],</span><br><span class="line">            <span class="string">'classes_text'</span>:[],</span><br><span class="line">            <span class="string">'classes'</span>:[]</span><br><span class="line">        &#125;</span><br><span class="line">        textDict = &#123;</span><br><span class="line">            <span class="string">'Car'</span>:<span class="number">1</span>,</span><br><span class="line">            <span class="string">'10T'</span>:<span class="number">2</span>,</span><br><span class="line">            <span class="string">'BanRight'</span>:<span class="number">3</span>,</span><br><span class="line">            <span class="string">'Pedestrian'</span>:<span class="number">4</span>,</span><br><span class="line">            <span class="string">'TurnLeft'</span>:<span class="number">5</span>,</span><br><span class="line">            <span class="string">'Speaker'</span>:<span class="number">6</span>,</span><br><span class="line">            <span class="string">'Crosswalk'</span>:<span class="number">7</span>,</span><br><span class="line">            <span class="string">'TurnAround'</span>:<span class="number">8</span>,</span><br><span class="line">            <span class="string">'GoStraight'</span>:<span class="number">9</span>,</span><br><span class="line">            <span class="string">'GoStraightOrRight'</span>:<span class="number">10</span>,</span><br><span class="line">            <span class="string">'GoStraightOrLeft'</span>:<span class="number">11</span>,</span><br><span class="line">            <span class="string">'BanLeft'</span>:<span class="number">12</span>,</span><br><span class="line">            <span class="string">'TurnRight'</span>:<span class="number">13</span>,</span><br><span class="line">            <span class="string">'BanSpeaker'</span>:<span class="number">14</span>,</span><br><span class="line">            <span class="string">'NoParking'</span>:<span class="number">15</span>,</span><br><span class="line">            <span class="string">'BanTurnAround'</span>:<span class="number">16</span>,</span><br><span class="line">            <span class="string">'BanCar'</span>:<span class="number">17</span>,</span><br><span class="line">            <span class="string">'BanStraightAndLeft'</span>:<span class="number">18</span>,</span><br><span class="line">            <span class="string">'SlowDown'</span>:<span class="number">19</span>,</span><br><span class="line">            <span class="string">'BanLeftAndRight'</span>:<span class="number">20</span>,</span><br><span class="line">            <span class="string">'Limit40'</span>:<span class="number">21</span>,</span><br><span class="line">            <span class="string">'BanStraightAndRight'</span>:<span class="number">22</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> object <span class="keyword">in</span> objects:</span><br><span class="line">            labelInfo[<span class="string">'xmins'</span>].append(float(object.getElementsByTagName(<span class="string">'xmin'</span>)[<span class="number">0</span>].childNodes[<span class="number">0</span>].data)/imageInfo[<span class="string">'width'</span>])</span><br><span class="line">            labelInfo[<span class="string">'xmaxs'</span>].append(float(object.getElementsByTagName(<span class="string">'xmax'</span>)[<span class="number">0</span>].childNodes[<span class="number">0</span>].data)/imageInfo[<span class="string">'width'</span>])</span><br><span class="line">            labelInfo[<span class="string">'ymins'</span>].append(float(object.getElementsByTagName(<span class="string">'ymin'</span>)[<span class="number">0</span>].childNodes[<span class="number">0</span>].data)/imageInfo[<span class="string">'height'</span>])</span><br><span class="line">            labelInfo[<span class="string">'ymaxs'</span>].append(float(object.getElementsByTagName(<span class="string">'ymax'</span>)[<span class="number">0</span>].childNodes[<span class="number">0</span>].data)/imageInfo[<span class="string">'height'</span>])</span><br><span class="line">            labelInfo[<span class="string">'classes_text'</span>].append(bytes(object.getElementsByTagName(<span class="string">'name'</span>)[<span class="number">0</span>].childNodes[<span class="number">0</span>].data, encoding = <span class="string">"utf8"</span>))</span><br><span class="line">            labelInfo[<span class="string">'classes'</span>].append(textDict[object.getElementsByTagName(<span class="string">'name'</span>)[<span class="number">0</span>].childNodes[<span class="number">0</span>].data])</span><br><span class="line">        print(labelInfo)</span><br><span class="line">        img_path = trainDirString + <span class="string">'/'</span> + fileName</span><br><span class="line">        <span class="keyword">with</span> tf.gfile.GFile(img_path, <span class="string">'rb'</span>) <span class="keyword">as</span> fid:</span><br><span class="line">            encoded_jpg = fid.read()</span><br><span class="line">        tf_example = create_tf_example(encoded_jpg,labelInfo,imageInfo)</span><br><span class="line">        trainFileWriter.write(tf_example.SerializeToString())</span><br><span class="line">trainFileWriter.close()</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>技术笔记</category>
+      </categories>
       <tags>
-        <tag>技术笔记</tag>
         <tag>Tensorflow</tag>
         <tag>转载</tag>
         <tag>交通标志识别</tag>
@@ -4040,7 +4132,8 @@
     <title>TensorFlow学习笔记——车牌标志识别分类</title>
     <url>/2019/04/16/TensorFlow_Vehicle/</url>
     <content><![CDATA[<blockquote>
-<p>本博客的内容是：在 BlackWalnut Labs 完成车牌标志识别实验的学习笔记 其中主要的部分是 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2NvZGVsYWJzX2RldGFpbD9pZD01Y2FhMzY3YTU2ZWRmYzAwMTljNWM5NjE=" title="https://blackwalnut.tech/codelabs_detail?id=5caa367a56edfc0019c5c961">BlackWalnut Labs 的实验过程介绍<i class="fa fa-external-link"></i></span>，少部分自己实验过程中的心得，所以就作为转载自 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2NvZGVsYWJzX2RldGFpbD9pZD01Y2FhMzY3YTU2ZWRmYzAwMTljNWM5NjE=" title="https://blackwalnut.tech/codelabs_detail?id=5caa367a56edfc0019c5c961">BlackWalnut<i class="fa fa-external-link"></i></span> 的一篇博文吧</p>
+<p>本博客的内容是：在 BlackWalnut Labs 完成车牌标志识别实验的学习笔记</p>
+<p>其中主要的部分是 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2NvZGVsYWJzX2RldGFpbD9pZD01Y2FhMzY3YTU2ZWRmYzAwMTljNWM5NjE=" title="https://blackwalnut.tech/codelabs_detail?id=5caa367a56edfc0019c5c961">BlackWalnut Labs 的实验过程介绍<i class="fa fa-external-link"></i></span>，少部分自己实验过程中的心得，所以就作为转载自 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2NvZGVsYWJzX2RldGFpbD9pZD01Y2FhMzY3YTU2ZWRmYzAwMTljNWM5NjE=" title="https://blackwalnut.tech/codelabs_detail?id=5caa367a56edfc0019c5c961">BlackWalnut<i class="fa fa-external-link"></i></span> 的一篇博文吧</p>
 </blockquote>
 <a id="more"></a>
 <h2 id="一什么是车标识别">一、什么是车标识别</h2>
@@ -4253,8 +4346,10 @@
 <h3 id="实验流程">5.2 实验流程</h3>
 <p>虽然说按照实验导引可以完成整个实验，但是课后还是得自学一下tensorflow的基础内容，认真总结一下才能理解更加深入。</p>
 ]]></content>
+      <categories>
+        <category>技术笔记</category>
+      </categories>
       <tags>
-        <tag>技术笔记</tag>
         <tag>Tensorflow</tag>
         <tag>车牌标志分类</tag>
         <tag>转载</tag>
@@ -4314,11 +4409,13 @@
 <h4 id="start.sh">4.2 start.sh</h4>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">/usr/local/ngrok/ngrok -config=/usr/local/ngrok/ngrok.cfg -subdomain pi 80</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>技术笔记</category>
+      </categories>
       <tags>
-        <tag>树莓派</tag>
         <tag>Ngrok</tag>
         <tag>内网穿透</tag>
-        <tag>技术笔记</tag>
+        <tag>Raspberry</tag>
       </tags>
   </entry>
   <entry>
@@ -4330,18 +4427,18 @@
 <table>
 <thead>
 <tr class="header">
-<th>服务器类型</th>
-<th>阿里云轻量应用服务器</th>
+<th style="text-align: center;">服务器类型</th>
+<th style="text-align: center;">阿里云轻量应用服务器</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>服务器系统</td>
-<td>Ubuntu16.04</td>
+<td style="text-align: center;">服务器系统</td>
+<td style="text-align: center;">Ubuntu16.04</td>
 </tr>
 <tr class="even">
-<td>树莓派类型</td>
-<td>树莓派3B+</td>
+<td style="text-align: center;">树莓派类型</td>
+<td style="text-align: center;">树莓派3B+</td>
 </tr>
 </tbody>
 </table>
@@ -4415,7 +4512,6 @@
         <tag>树莓派</tag>
         <tag>Ngrok</tag>
         <tag>内网穿透</tag>
-        <tag>技术笔记</tag>
       </tags>
   </entry>
 </search>
