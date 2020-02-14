@@ -24,26 +24,20 @@
     var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":20},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="修复&quot;无法锁定Ubuntu中的管理目录(&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)&quot;  问题描述： Ubuntu18.04在更新软件源时，出现“Unable to lock the administration directory (&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)” 报错信息。  问题分析： Linux为了避免已经运行的apt-get或apt进程被用户或需要处理apt文件的其他进程">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Unable to lock the administration directory (&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)解决办法">
-<meta property="og:url" content="https://zhj.forever305.cn/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/index.html">
+  <meta name="description" content="声明  自2020年02月14日起，本项目的博客源码及前端文件迁移至Coding进行维护，Source分支在GitHub停止维护并已移除 出于安全考虑，Source分支保存在Coding不再开源，但Hexo前端文件依然在GitHub上处于公开状态；Coding也会同步更新，欢迎前往查看   以下是博客迁移前的自述文件  使用 GitHub Pages + Hexo 搭建个人博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="README.md">
+<meta property="og:url" content="https://zhj.forever305.cn/README.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="修复&quot;无法锁定Ubuntu中的管理目录(&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)&quot;  问题描述： Ubuntu18.04在更新软件源时，出现“Unable to lock the administration directory (&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)” 报错信息。  问题分析： Linux为了避免已经运行的apt-get或apt进程被用户或需要处理apt文件的其他进程">
+<meta property="og:description" content="声明  自2020年02月14日起，本项目的博客源码及前端文件迁移至Coding进行维护，Source分支在GitHub停止维护并已移除 出于安全考虑，Source分支保存在Coding不再开源，但Hexo前端文件依然在GitHub上处于公开状态；Coding也会同步更新，欢迎前往查看   以下是博客迁移前的自述文件  使用 GitHub Pages + Hexo 搭建个人博客">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190626215634585.png#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190626215953373.png#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2019062622015450.png#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190626221321107.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="article:published_time" content="2019-06-26T14:24:37.000Z">
-<meta property="article:modified_time" content="2019-06-26T14:24:37.000Z">
+<meta property="article:published_time" content="2020-02-14T15:25:00.000Z">
+<meta property="article:modified_time" content="2020-02-14T15:25:00.000Z">
 <meta property="article:author" content="Zhang H.J.">
-<meta property="article:tag" content="Ubuntu">
-<meta property="article:tag" content="dpkg">
+<meta property="article:tag" content="NexT">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190626215634585.png#pic_center">
 
-<link rel="canonical" href="https://zhj.forever305.cn/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/">
+<link rel="canonical" href="https://zhj.forever305.cn/README">
 
 
 <script id="page-configurations">
@@ -51,11 +45,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true
+    isPost: false
   };
 </script>
 
-  <title>Unable to lock the administration directory (/var/lib/dpkg/)解决办法 | 厚今的博客</title>
+  <title>README.md | 厚今的博客
+  </title>
   
 
 
@@ -221,262 +216,103 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+  
+  
 
           <div class="content">
             
 
   <div class="posts-expand">
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zhj.forever305.cn/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Zhang H.J.">
-      <meta itemprop="description" content="Talk is cheap, Show me the code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="厚今的博客">
-    </span>
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          Unable to lock the administration directory (/var/lib/dpkg/)解决办法
-        </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+<h2 class="post-title" itemprop="name headline">README.md
+</h2>
 
-              <time title="创建时间：2019-06-26 22:24:37" itemprop="dateCreated datePublished" datetime="2019-06-26T22:24:37+08:00">2019-06-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">技术笔记</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url" rel="index">
-                    <span itemprop="name">解决方案</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/" class="post-meta-item leancloud_visitors" data-flag-title="Unable to lock the administration directory (/var/lib/dpkg/)解决办法" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
+<div class="post-meta">
   
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>713</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
 
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <h2 id="修复无法锁定ubuntu中的管理目录varlibdpkg">修复&quot;无法锁定Ubuntu中的管理目录(/var/lib/dpkg/)&quot;</h2>
-<blockquote>
-<p>问题描述： Ubuntu18.04在更新软件源时，出现“Unable to lock the administration directory (/var/lib/dpkg/)” 报错信息。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20190626215634585.png#pic_center" /></p>
-<p>问题分析： Linux为了避免已经运行的apt-get或apt进程被用户或需要处理apt文件的其他进程中断，运行apt-get或apt命令后，将在以下任何目录<code>/var/lib/apt/lists/</code>，<code>/var/lib/dpkg/</code> 和 <code>/var/cache/apt/archives/</code> 下创建一个 <em>lock</em>(锁定文件)。正常情况下，当进程执行完毕后，将删除锁定文件。如果有程序正在占用该进程，锁定文件未删除，就会导致此问题发生。</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="两种解决办法">两种解决办法</h3>
-<h4 id="方案一找到并杀死apt进程">方案一：找到并杀死apt进程</h4>
-<blockquote>
-<p>1.使用ps命令找到正在运行的apt进程：</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -A | grep apt</span><br></pre></td></tr></table></figure>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190626215953373.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
-</figure>
-<blockquote>
-<p>2.使用kill命令杀死该进程</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo kill -9 进程号</span><br></pre></td></tr></table></figure>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/2019062622015450.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
-</figure>
-<blockquote>
-<p>3.重新更新软件源即可：</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">or</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190626221321107.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
-</figure>
-<p>第一种方案亲测可用。</p>
-<h4 id="方案2删除锁定文件">方案2：删除锁定文件</h4>
-<blockquote>
-<p>1.首先删除锁定文件</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/lib/dpkg/lock</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>2.之后强制dpkg重新配置</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg --configure -a</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>3.删除另外两个锁定文件</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/lib/apt/lists/lock</span><br><span class="line">sudo rm /var/cache/apt/archives/lock</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>4.最后进行软件源更新即可</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">or</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
-
-    </div>
-
-    
-    
-    
-        <div class="reward-container">
-  <div>谢谢你请我喝快乐水 😜</div>
-  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
-    打赏
-  </button>
-  <div id="qr" style="display: none;">
-      
-      <div style="display: inline-block;">
-        <img src="/images/wechatpay.png" alt="Zhang H.J. 微信支付">
-        <p>微信支付</p>
-      </div>
-      
-      <div style="display: inline-block;">
-        <img src="/images/alipay.png" alt="Zhang H.J. 支付宝">
-        <p>支付宝</p>
-      </div>
-
-  </div>
 </div>
 
-        
+</header>
 
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者： </strong>Zhang H.J.
-  </li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="https://zhj.forever305.cn/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/" title="Unable to lock the administration directory (&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)解决办法">https://zhj.forever305.cn/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
-  </li>
+      
+      
+      
+      <div class="post-body">
+          <h2 id="声明">声明</h2>
+<ul>
+<li><p>自2020年02月14日起，本项目的博客源码及前端文件迁移至Coding进行维护，<strong>Source分支在GitHub停止维护并已移除</strong></p></li>
+<li><p>出于安全考虑，Source分支保存在Coding不再开源，但Hexo前端文件依然在GitHub上处于公开状态；Coding也会同步更新，欢迎<span class="exturl" data-url="aHR0cHM6Ly96aGowMTI1LmNvZGluZy5uZXQvcC96aGowMTI1L2QvemhqMDEyNS9naXQ=" title="https://zhj0125.coding.net/p/zhj0125/d/zhj0125/git">前往查看<i class="fa fa-external-link"></i></span></p></li>
 </ul>
-</div>
+<hr />
+<p>以下是博客迁移前的自述文件</p>
+<blockquote>
+<p>使用 GitHub Pages + Hexo 搭建个人博客</p>
+</blockquote>
+<h2 id="分支说明">分支说明</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">分支</th>
+<th style="text-align: left;">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">source 分支（当前）</td>
+<td style="text-align: left;">用于存储博客后台源代码</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">master 分支</td>
+<td style="text-align: left;">用于存储前端代码</td>
+</tr>
+</tbody>
+</table>
+<h2 id="参考教程">参考教程</h2>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9mOGIwYTRmN2E4MjI=" title="https://www.jianshu.com/p/f8b0a4f7a822">Linux或Win下安装node和npm - 简书<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9lZmViZWFkODQwYjI=" title="https://www.jianshu.com/p/efebead840b2">使用Hexo+GitHub搭建免费个人博客<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8zNTY2ODIzNw==" title="https://zhuanlan.zhihu.com/p/35668237">超详细Hexo+Github博客搭建小白教程 - 知乎<i class="fa fa-external-link"></i></span></li>
+<li><a href="www.mdslq.cn/archives/f44e13b.html">Hexo备份方案 | DongSheng's Blog</a></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9iYWFiMDQyODQ5MjM=" title="https://www.jianshu.com/p/baab04284923">怎么去备份你的Hexo博客 - 简书<i class="fa fa-external-link"></i></span></li>
+</ul>
+<h2 id="备忘">备忘</h2>
+<blockquote>
+<p>Hexo 相关命令</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-cli -g   <span class="comment"># 安装 Hexo</span></span><br><span class="line">hexo -v             <span class="comment"># 用于验证 Hexo安装</span></span><br><span class="line">hexo init           <span class="comment"># 初始化文件夹</span></span><br><span class="line">npm install         <span class="comment"># 安装必备的组件</span></span><br><span class="line">hexo g              <span class="comment"># 生成静态网页</span></span><br><span class="line">hexo s              <span class="comment"># 启动本地服务</span></span><br><span class="line">hexo d              <span class="comment"># 将前端文件上传到 github上的 master分支</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 本地服务地址 http://localhost:4000/</span></span><br><span class="line">npm i hexo-deployer-git  <span class="comment"># 安装写文章的插件</span></span><br><span class="line">hexo new post <span class="string">"文章标题"</span>  <span class="comment"># 新建一篇文章</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 后台根目录 _config.yml 修改如下</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: https://github.com/ZHJ0125/zhj0125.github.io.git</span><br><span class="line">  branch: master</span><br><span class="line"><span class="comment"># _config.yml 修改结束</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Git 相关命令</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 主题模板</span></span><br><span class="line">/theme $ git <span class="built_in">clone</span> --depth=1 https://github.com/JoeyBling/hexo-theme-yilia-plus.git ./yilia-plus  <span class="comment"># 到 themes目录下载主题模板</span></span><br><span class="line">_config.yml → theme: yilia-plus     <span class="comment"># 修改根目录配置文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 分支</span></span><br><span class="line">git branch             <span class="comment"># 查看项目分支</span></span><br><span class="line">git branch 分支名       <span class="comment"># 新建分支</span></span><br><span class="line">git checkout 分支名     <span class="comment"># 切换当前分支</span></span><br><span class="line"><span class="comment"># 本项目默认分支为 source分支，在source分支下直接上传文件即可</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意：不要使用 git操作 master分支！不要合并分支！不要合并分支！不要合并分支！</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 后台更新过程：</span></span><br><span class="line">git add .                       <span class="comment"># 添加文件至工作区</span></span><br><span class="line">git commit -m <span class="string">"New Comment"</span>     <span class="comment"># 提交更改</span></span><br><span class="line">git pull origin <span class="built_in">source</span>          <span class="comment"># 从 source分支拉取内容（此步可省去）</span></span><br><span class="line">git push origin <span class="built_in">source</span>          <span class="comment"># 提交新内容至 source分支</span></span><br></pre></td></tr></table></figure>
+<h2 id="重要更新">重要更新</h2>
+<ul>
+<li>2020年02月10日
+<ul>
+<li>更换博客主题为<span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==" title="https://theme-next.org">NexT<i class="fa fa-external-link"></i></span></li>
+</ul></li>
+<li>2020年02月14日
+<ul>
+<li>将博客源码由GitHub迁移至Coding</li>
+</ul></li>
+</ul>
+<h2 id="致谢">致谢</h2>
+<p>博客搭建使用了 @<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpc3NuYW4=" title="https://github.com/iissnan">iissnan<i class="fa fa-external-link"></i></span> 发布的主题模板 <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==" title="https://theme-next.org">NexT<i class="fa fa-external-link"></i></span> ,非常感谢！</p>
 
-        
-
-  <div class="followme">
-    <p>欢迎关注我的其它发布渠道</p>
-
-    <div class="social-list">
-
-            <div class="social-item">
-              <a target="_blank" class="social-link" href="https://github.com/ZHJ0125">
-                <span class="icon">
-                  <i class="fa fa-github"></i>
-                </span>
-
-                <span class="label">GitHub</span>
-              </a>
-            </div>
-
-            <div class="social-item">
-              <a target="_blank" class="social-link" href="https://blog.csdn.net/ZHJ123CSDN">
-                <span class="icon">
-                  <i class="fa fa-telegram"></i>
-                </span>
-
-                <span class="label">CSDN</span>
-              </a>
-            </div>
-
-            <div class="social-item">
-              <a target="_blank" class="social-link" href="/atom.xml">
-                <span class="icon">
-                  <i class="fa fa-rss"></i>
-                </span>
-
-                <span class="label">RSS</span>
-              </a>
-            </div>
+      </div>
+      
+      
+      
     </div>
-  </div>
-
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
-              <a href="/tags/dpkg/" rel="tag"># dpkg</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2019/06/20/Linux_MyWeb/" rel="prev" title="Linux实训——搭建动态网站">
-      <i class="fa fa-chevron-left"></i> Linux实训——搭建动态网站
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2019/09/26/WeChat_Basic/" rel="next" title="微信小程序——开发基础">
-      微信小程序——开发基础 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
     
-  </article>
-  
-  
-  
 
+    
+    
+    
   </div>
 
 
@@ -529,7 +365,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#修复无法锁定ubuntu中的管理目录varlibdpkg"><span class="nav-text">修复&quot;无法锁定Ubuntu中的管理目录(&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)&quot;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#两种解决办法"><span class="nav-text">两种解决办法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方案一找到并杀死apt进程"><span class="nav-text">方案一：找到并杀死apt进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方案2删除锁定文件"><span class="nav-text">方案2：删除锁定文件</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#声明"><span class="nav-text">声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支说明"><span class="nav-text">分支说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考教程"><span class="nav-text">参考教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#备忘"><span class="nav-text">备忘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重要更新"><span class="nav-text">重要更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#致谢"><span class="nav-text">致谢</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -785,7 +621,7 @@
       quicklink({
         timeout: 3000,
         priority: true,
-        ignores: [uri => uri.includes('#'),uri => uri == 'https://zhj.forever305.cn/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/',]
+        ignores: [uri => uri.includes('#'),uri => uri == 'https://zhj.forever305.cn/README.html',]
       });
       });
   </script>

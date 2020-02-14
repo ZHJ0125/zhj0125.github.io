@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zhj.forever305.cn/2020/02/14/Hello_World/</loc>
+    <lastmod>2020-02-14</lastmod>
+  </url>  <url>
     <loc>https://zhj.forever305.cn/2020/02/08/Vultr_VPS/</loc>
     <lastmod>2020-02-08</lastmod>
   </url>  <url>
@@ -15,9 +18,6 @@
   </url>  <url>
     <loc>https://zhj.forever305.cn/2020/01/18/My_First_Share/</loc>
     <lastmod>2020-01-17</lastmod>
-  </url>  <url>
-    <loc>https://zhj.forever305.cn/2020/01/16/Hello_World/</loc>
-    <lastmod>2020-01-15</lastmod>
   </url>  <url>
     <loc>https://zhj.forever305.cn/2020/01/03/WeChat_Image_Recognition/</loc>
     <lastmod>2020-01-03</lastmod>
