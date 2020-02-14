@@ -2,20 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zhj.forever305.cn/README.html</loc>
-    
-    <lastmod>2020-02-14T15:25:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhj.forever305.cn/2020/02/14/Hello_World/</loc>
-    
-    <lastmod>2020-02-14T12:50:35.095Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://zhj.forever305.cn/log/index.html</loc>
     
     <lastmod>2020-02-13T13:03:44.000Z</lastmod>
@@ -124,6 +110,13 @@
     <loc>https://zhj.forever305.cn/2019/06/20/Linux_MyWeb/</loc>
     
     <lastmod>2019-06-20T12:43:40.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhj.forever305.cn/2019/06/20/Hello_World/</loc>
+    
+    <lastmod>2019-06-20T11:30:21.000Z</lastmod>
     
   </url>
   
