@@ -1,0 +1,86 @@
+# zhj0125.github.io
+
+## **声明**
+
+自2020年02月14日起，本项目的博客源码及前端文件迁移至Coding进行维护，GitHub与Coding保持同步状态
+
+出于安全考虑，博客源码**不再开源**，但Hexo前端文件依然在Coding上处于公开状态，欢迎[前往查看](https://zhj0125.coding.net/p/zhj0125/d/zhj0125/git)
+
+---
+
+以下是博客迁移前的自述文件
+
+> 使用 GitHub Pages + Hexo 搭建个人博客
+
+## 分支说明
+
+| 分支 | 说明 |
+| :----------- | :----------- |
+source 分支 ~~（当前）~~ （已移除） | 用于存储博客后台源代码
+master 分支 | 用于存储前端代码
+
+## 参考教程
+
+* [Linux或Win下安装node和npm - 简书](https://www.jianshu.com/p/f8b0a4f7a822)
+* [使用Hexo+GitHub搭建免费个人博客](https://www.jianshu.com/p/efebead840b2)
+* [超详细Hexo+Github博客搭建小白教程 - 知乎](https://zhuanlan.zhihu.com/p/35668237)
+* [Hexo备份方案 | DongSheng's Blog](www.mdslq.cn/archives/f44e13b.html)
+* [怎么去备份你的Hexo博客 - 简书](https://www.jianshu.com/p/baab04284923)
+
+## 备忘
+
+> Hexo 相关命令
+
+```bash
+npm i hexo-cli -g   # 安装 Hexo
+hexo -v             # 用于验证 Hexo安装
+hexo init           # 初始化文件夹
+npm install         # 安装必备的组件
+hexo g              # 生成静态网页
+hexo s              # 启动本地服务
+hexo d              # 将前端文件上传到 github上的 master分支
+
+# 本地服务地址 http://localhost:4000/
+npm i hexo-deployer-git  # 安装写文章的插件
+hexo new post "文章标题"  # 新建一篇文章
+
+# 后台根目录 _config.yml 修改如下
+deploy:
+  type: git
+  repository: https://github.com/ZHJ0125/zhj0125.github.io.git
+  branch: master
+# _config.yml 修改结束
+```
+
+> Git 相关命令
+
+```bash
+# 主题模板
+/theme $ git clone --depth=1 https://github.com/JoeyBling/hexo-theme-yilia-plus.git ./yilia-plus  # 到 themes目录下载主题模板
+_config.yml → theme: yilia-plus     # 修改根目录配置文件
+
+# 分支
+git branch             # 查看项目分支
+git branch 分支名       # 新建分支
+git checkout 分支名     # 切换当前分支
+# 本项目默认分支为 source分支，在source分支下直接上传文件即可
+
+# 注意：不要使用 git操作 master分支！不要合并分支！不要合并分支！不要合并分支！
+
+# 后台更新过程：
+git add .                       # 添加文件至工作区
+git commit -m "New Comment"     # 提交更改
+git pull origin source          # 从 source分支拉取内容（此步可省去）
+git push origin source          # 提交新内容至 source分支
+```
+
+## 重要更新
+
+* 2020年02月10日
+  * 更换博客主题为[NexT](https://theme-next.org)
+* 2020年02月14日
+  * 将博客源码由GitHub迁移至Coding
+
+## 致谢
+
+博客搭建使用了 @[iissnan](https://github.com/iissnan) 发布的主题模板 [NexT](https://theme-next.org) ,非常感谢！
