@@ -1568,14 +1568,6 @@
 </ul></li>
 </ul>
 <a id="more"></a>
-<div id="badge-container-ZHJ0125-STC11F04E-2205f1" class="hexo-github" style="width: ="></div>
-<script src="/hexo-github/badge.js"></script>
-<script type="text/javascript">
-  loadStyle("/hexo-github/style.css");
-  loadStyle("/hexo-github/octicons/octicons.css");
-  new Badge("#badge-container-ZHJ0125-STC11F04E-2205f1", "ZHJ0125", "STC11F04E", "2205f1", false);
-</script>
-
 <h2 id="一实验平台介绍">一、实验平台介绍</h2>
 <p>  本次实验使用的PCB是老师自己画的，老师给了一张并不清晰的原理图截图，如下图所示。可以看到，这块PCB能实现三个功能：使用DS1302显示时间、使用DS18B20显示温度以及使用HC-SR04进行超声波测距(原理图上没有画，实际上它是与DS1302复用了IO和2SLCK引脚)，数值显示都是用数码管。实验用到的主控芯片是：STC11F04E</p>
 <figure>
