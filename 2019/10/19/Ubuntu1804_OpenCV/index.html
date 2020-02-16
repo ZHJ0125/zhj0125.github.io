@@ -320,10 +320,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote>
-<p>记录 Ubuntu18.04 编译安装 OpenCV 过程中遇到的问题</p>
-<p>参考的安装教程：<span class="exturl" data-url="aHR0cHM6Ly93d3cucHlpbWFnZXNlYXJjaC5jb20vMjAxOC8wNS8yOC91YnVudHUtMTgtMDQtaG93LXRvLWluc3RhbGwtb3BlbmN2Lw==" title="https://www.pyimagesearch.com/2018/05/28/ubuntu-18-04-how-to-install-opencv/">Ubuntu 18.04: How to install OpenCV by Adrian Rosebrock on May 28, 2018 in OpenCV, Tutorials<i class="fa fa-external-link"></i></span></p>
-</blockquote>
+        <ul>
+<li>记录 Ubuntu18.04 编译安装 OpenCV 过程中遇到的问题</li>
+<li>参考的安装教程：<span class="exturl" data-url="aHR0cHM6Ly93d3cucHlpbWFnZXNlYXJjaC5jb20vMjAxOC8wNS8yOC91YnVudHUtMTgtMDQtaG93LXRvLWluc3RhbGwtb3BlbmN2Lw==" title="https://www.pyimagesearch.com/2018/05/28/ubuntu-18-04-how-to-install-opencv/">Ubuntu 18.04: How to install OpenCV by Adrian Rosebrock on May 28, 2018 in OpenCV, Tutorials<i class="fa fa-external-link"></i></span></li>
+</ul>
 <a id="more"></a>
 <h2 id="报错1-fatal-error-boostdesc_bgm.i-no-such-file-or-directory">报错1： fatal error: boostdesc_bgm.i: No such file or directory</h2>
 <p>报错截图： <img data-src="https://img-blog.csdnimg.cn/20191029181732561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /> 报错原因：在编译CMake的时候 <strong>boostdesc_bgm.i</strong> 这个文件就没有下载成功，导致make编译的时候找不到该文件。 解决方案：手动下载相关文件。总共需要下载11个文件，我已经将它们上传到了服务器上，<span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9wbGF5L09wZW5DVi9mYXRhbF9lcnJvci8=" title="http://47.95.13.239/play/OpenCV/fatal_error/">点击此处可以下载<i class="fa fa-external-link"></i></span>。下载完成后，将他们复制到 <strong>opencv_contrib/modules/xfeatures2d/src/</strong> 文件夹中，重新编译即可。</p>

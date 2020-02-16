@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":250,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":20},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="这几天做了一下电子工艺实习，焊接了PCB然后烧写了相应的程序，现在将实验过程记录下来。 声明1：我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。 声明2：我将控制位选的4个三极管更换了，程序由原来的位选高电平选中，换成了位选低电平选中，在此声明。 声明3：这款PCB还实现了超声波测距、数码管滚动显示学号等功能，请见另一篇博客，代码详见GitHub 我已将该项目上传到G">
+  <meta name="description" content="这几天做了一下电子工艺实习，焊接了PCB然后烧写了相应的程序，现在将实验过程记录下来。 我已将该项目上传到GitHub，项目地址为： STC11F04E项目。 代码开源，欢迎测试  声明1：我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。 声明2：我将控制位选的4个三极管更换了，程序由原来的位选高电平选中，换成了位选低电平选中，在此声明。 声明3：这款PCB还实现了">
 <meta property="og:type" content="article">
 <meta property="og:title" content="STC11F04E——电子工艺实习">
 <meta property="og:url" content="https://zhj.forever305.cn/2019/10/07/STC11F04E_Electronic/index.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="这几天做了一下电子工艺实习，焊接了PCB然后烧写了相应的程序，现在将实验过程记录下来。 声明1：我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。 声明2：我将控制位选的4个三极管更换了，程序由原来的位选高电平选中，换成了位选低电平选中，在此声明。 声明3：这款PCB还实现了超声波测距、数码管滚动显示学号等功能，请见另一篇博客，代码详见GitHub 我已将该项目上传到G">
+<meta property="og:description" content="这几天做了一下电子工艺实习，焊接了PCB然后烧写了相应的程序，现在将实验过程记录下来。 我已将该项目上传到GitHub，项目地址为： STC11F04E项目。 代码开源，欢迎测试  声明1：我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。 声明2：我将控制位选的4个三极管更换了，程序由原来的位选高电平选中，换成了位选低电平选中，在此声明。 声明3：这款PCB还实现了">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191007123216239.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=1000x600">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191007123405264.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=300x250">
@@ -328,13 +328,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote>
-<p>这几天做了一下电子工艺实习，焊接了PCB然后烧写了相应的程序，现在将实验过程记录下来。</p>
-<p>声明1：我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。</p>
-<p>声明2：我将控制位选的4个三极管更换了，<del>程序由原来的位选高电平选中，换成了位选低电平选中</del>，在此声明。</p>
-<p>声明3：这款PCB还实现了超声波测距、数码管滚动显示学号等功能，请见<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzEwMjQ5MDgyMw==" title="https://blog.csdn.net/ZHJ123CSDN/article/details/102490823">另一篇博客<i class="fa fa-external-link"></i></span>，代码详见GitHub</p>
-<p>我已将该项目上传到GitHub，项目地址为： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvU1RDMTFGMDRF" title="https://github.com/ZHJ0125/STC11F04E">STC11F04E项目<i class="fa fa-external-link"></i></span>。 代码开源，欢迎测试</p>
-</blockquote>
+        <ul>
+<li>这几天做了一下电子工艺实习，焊接了PCB然后烧写了相应的程序，现在将实验过程记录下来。</li>
+<li>我已将该项目上传到GitHub，项目地址为： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvU1RDMTFGMDRF" title="https://github.com/ZHJ0125/STC11F04E">STC11F04E项目<i class="fa fa-external-link"></i></span>。 代码开源，欢迎测试
+<ul>
+<li>声明1：我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。</li>
+<li>声明2：我将控制位选的4个三极管更换了，<del>程序由原来的位选高电平选中，换成了位选低电平选中</del>，在此声明。</li>
+<li>声明3：这款PCB还实现了超声波测距、数码管滚动显示学号等功能，请见<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzEwMjQ5MDgyMw==" title="https://blog.csdn.net/ZHJ123CSDN/article/details/102490823">另一篇博客<i class="fa fa-external-link"></i></span>，代码详见GitHub</li>
+</ul></li>
+</ul>
 <a id="more"></a>
 <div id="badge-container-ZHJ0125-STC11F04E-2205f1" class="hexo-github" style="width: ="></div>
 <script src="/hexo-github/badge.js"></script>

@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":250,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":20},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前几天做了一下电子工艺实习，实现了在数码管上显示温度和时间的功能，还写了篇博客。但当时没有注意到，这款PCB还设计了超声波测距的功能。在实现该功能后，我决定不再增改原来的文章，而写下这篇文章描述HC-SR04的控制方法。  我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。 我还做了一个使用数码管滚动显示学号的程序，就不再写成博客了，代码放在了GitHub  我已将该">
+  <meta name="description" content="前几天做了一下电子工艺实习，实现了在数码管上显示温度和时间的功能，还写了篇博客。但当时没有注意到，这款PCB还设计了超声波测距的功能。在实现该功能后，我决定不再增改原来的文章，而写下这篇文章描述HC-SR04的控制方法。 我已将该项目上传到GitHub，项目地址为： STC11F04E项目。 代码开源，欢迎测试  我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。 我还">
 <meta property="og:type" content="article">
 <meta property="og:title" content="STC11F04E——HC-SR04">
 <meta property="og:url" content="https://zhj.forever305.cn/2019/10/16/STC11F04E_HC-SR04/index.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="前几天做了一下电子工艺实习，实现了在数码管上显示温度和时间的功能，还写了篇博客。但当时没有注意到，这款PCB还设计了超声波测距的功能。在实现该功能后，我决定不再增改原来的文章，而写下这篇文章描述HC-SR04的控制方法。  我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。 我还做了一个使用数码管滚动显示学号的程序，就不再写成博客了，代码放在了GitHub  我已将该">
+<meta property="og:description" content="前几天做了一下电子工艺实习，实现了在数码管上显示温度和时间的功能，还写了篇博客。但当时没有注意到，这款PCB还设计了超声波测距的功能。在实现该功能后，我决定不再增改原来的文章，而写下这篇文章描述HC-SR04的控制方法。 我已将该项目上传到GitHub，项目地址为： STC11F04E项目。 代码开源，欢迎测试  我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。 我还">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191010212059345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x250">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191016201730216.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=1000x700">
@@ -319,14 +319,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote>
-<p>前几天做了一下电子工艺实习，实现了在数码管上显示温度和时间的功能，<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzEwMjI5OTQ4NA==" title="https://blog.csdn.net/ZHJ123CSDN/article/details/102299484">还写了篇博客<i class="fa fa-external-link"></i></span>。但当时没有注意到，这款PCB还设计了超声波测距的功能。在实现该功能后，我决定不再增改原来的文章，而写下这篇文章描述HC-SR04的控制方法。</p>
-<ol type="1">
-<li><p>我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。</p></li>
-<li><p>我还做了一个使用数码管滚动显示学号的程序，就不再写成博客了，代码放在了GitHub</p></li>
-</ol>
-<p>我已将该项目上传到GitHub，项目地址为： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvU1RDMTFGMDRF" title="https://github.com/ZHJ0125/STC11F04E">STC11F04E项目<i class="fa fa-external-link"></i></span>。 代码开源，欢迎测试</p>
-</blockquote>
+        <ul>
+<li>前几天做了一下电子工艺实习，实现了在数码管上显示温度和时间的功能，<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzEwMjI5OTQ4NA==" title="https://blog.csdn.net/ZHJ123CSDN/article/details/102299484">还写了篇博客<i class="fa fa-external-link"></i></span>。但当时没有注意到，这款PCB还设计了超声波测距的功能。在实现该功能后，我决定不再增改原来的文章，而写下这篇文章描述HC-SR04的控制方法。</li>
+<li>我已将该项目上传到GitHub，项目地址为： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvU1RDMTFGMDRF" title="https://github.com/ZHJ0125/STC11F04E">STC11F04E项目<i class="fa fa-external-link"></i></span>。 代码开源，欢迎测试
+<ul>
+<li>我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。</li>
+<li>我还做了一个使用数码管滚动显示学号的程序，就不再写成博客了，代码放在了GitHub</li>
+</ul></li>
+</ul>
 <a id="more"></a>
 <p>  单片机实验平台简介等信息，请阅读<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzEwMjI5OTQ4NA==" title="https://blog.csdn.net/ZHJ123CSDN/article/details/102299484">上一篇文章<i class="fa fa-external-link"></i></span>。</p>
 <h2 id="一hc-sr04">一、HC-SR04</h2>
