@@ -1256,7 +1256,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #01dafc;
+  background: #328bc8;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1496,7 +1496,7 @@ pre .javascript .function {
   }
 }
 .with-love {
-  color: #808080;
+  color: ##ff0000;
   display: inline-block;
   margin: 0 5px;
   animation: iconAnimate 1.33s ease-in-out infinite;
@@ -1562,21 +1562,35 @@ pre .javascript .function {
   }
 }
 .back-to-top {
-  background: #eee;
+  background: #222;
+  bottom: -100px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
   font-size: 12px;
-  margin: 8px -10px -20px;
-  opacity: 0;
+  left: 30px;
+  opacity: 0.6;
+  padding: 0 6px;
+  position: fixed;
   text-align: center;
+  transition-property: bottom;
+  z-index: 1300;
   transition-delay: 0s;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
+  width: initial;
+}
+.back-to-top:hover {
+  color: #fc6423;
 }
 .back-to-top.back-to-top-on {
-  cursor: pointer;
-  opacity: 0.6;
+  bottom: 30px;
 }
-.back-to-top.back-to-top-on:hover {
-  opacity: 0.8;
+@media (max-width: 991px) {
+  .back-to-top {
+    left: 20px;
+    opacity: 0.8;
+  }
 }
 .reading-progress-bar {
   background: #37c6c0;
@@ -2404,6 +2418,25 @@ ul.breadcrumb li + li:last-child {
 .search-popup #no-result {
   color: #ccc;
   margin: auto;
+}
+.popular-posts-header {
+  border-bottom: 1px solid #eee;
+  display: block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-top: 60px;
+}
+.popular-posts {
+  padding: 0;
+}
+.popular-posts .popular-posts-item {
+  margin-left: 2em;
+}
+.popular-posts .popular-posts-item .popular-posts-title {
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 2.4;
+  margin: 0;
 }
 .has-jax {
   overflow-x: auto;
