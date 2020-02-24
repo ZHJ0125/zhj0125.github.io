@@ -145,7 +145,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">26</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">27</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -155,7 +155,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">22</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -365,21 +365,17 @@
 <figure>
 <img data-src="https://img-blog.csdnimg.cn/2019022221375848.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图1 防火墙端口设置" /><figcaption>图1 防火墙端口设置</figcaption>
 </figure>
-<p>图1 防火墙端口设置</p>
 <p>然后在域名的解析界面中，添加<code>*.forever305.cn</code>这条记录</p>
 <figure>
 <img data-src="https://img-blog.csdnimg.cn/20190222214038694.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图2 域名解析设置" /><figcaption>图2 域名解析设置</figcaption>
 </figure>
-<p>图2 域名解析设置</p>
 <p>在cmd里面用<code>ping</code>命令测试网络</p>
 <figure>
 <img data-src="https://img-blog.csdnimg.cn/20190222214236251.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图3 测试网络" /><figcaption>图3 测试网络</figcaption>
 </figure>
-<p>图3 测试网络</p>
 <p>这样域名已经解析成功了，而且输入任意的二级域名都可以指向服务器公网IP。然后运行服务器端的ngrokd进行测试</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/ngrok/bin/linux_386/ngrokd -domain="forever305.cn" -httpAddr=":8080" -httpsAddr=":4433" -tunnelAddr=":4443"</span><br></pre></td></tr></table></figure>
 <p>在地址栏输入<code>http://47.95.13.239:8080/</code>，网页中出现<code>&quot;Tunnel 47.95.13.239:8080 not found&quot;</code>，这样说明服务端应该是没有问题了，出现这一行内容是因为现在服务器的8080端口还没有内容。<img data-src="https://img-blog.csdnimg.cn/2019022221434769.png#pic_center" alt="图4 服务端测试" /></p>
-<p>图4 服务端测试</p>
 <h2 id="客户端测试">9.客户端测试</h2>
 <p>刚才已经把编译生成的客户端拷贝到了树莓派的<code>/home/pi/ngrok/aliyun</code>目录下，然后写一个<code>ngrok.cfg</code>文件，其内容如下</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server_addr: "forever305.cn:4443"  /**一定要注意这里的空格**/</span><br><span class="line">trust_host_root_certs: false       /**我就是因为没加空格卡住了***(⊙﹏⊙)*****/</span><br></pre></td></tr></table></figure>
@@ -389,7 +385,6 @@
 <figure>
 <img data-src="https://img-blog.csdnimg.cn/2019022221455134.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图5 客户端测试" /><figcaption>图5 客户端测试</figcaption>
 </figure>
-<p>图5 客户端测试</p>
 <p>可以看到，现在它映射了<code>127.0.0.1:80</code>到<code>http://pi.forever305.cn:8080</code>，所以已经可以把octoprint放到公网上去了。在浏览器地址栏输入<code>http://pi.forever305.cn:8080</code>即可实现公网访问。</p>
 <p>在实现的过程中，我也参考了很多资料，在此也列出来供大家参考。</p>
 <ol type="1">
@@ -587,7 +582,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -600,7 +595,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -668,12 +663,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">151k</span>
+    <span title="站点总字数">153k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:11</span>
+    <span title="站点阅读时长">4:15</span>
 </div>
 
 <!--

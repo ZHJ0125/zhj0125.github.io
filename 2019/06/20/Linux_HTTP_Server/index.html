@@ -25,12 +25,12 @@
     var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":250,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":20},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="内容说明：本篇文章是《嵌入式操作系统》实训报告的第二部分，实现了HTTP服务器的搭建 嵌入式操作系统实训报告内容介绍：  第一部分：编译升级系统Linux内核 第二部分：搭建HTTP服务器 第三部分：搭建动态网站  完整实验报告PDF文件">
+  <meta name="description" content="内容说明：本篇文章是《嵌入式操作系统》实训报告的第二部分，实现了HTTP服务器的搭建 嵌入式操作系统实训报告内容介绍：  第一部分：编译升级系统Linux内核 第二部分：搭建HTTP服务器 第三部分：搭建动态网站 完整实验报告PDF文件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux实训——搭建HTTP服务器">
 <meta property="og:url" content="https://zhj.forever305.cn/2019/06/20/Linux_HTTP_Server/index.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="内容说明：本篇文章是《嵌入式操作系统》实训报告的第二部分，实现了HTTP服务器的搭建 嵌入式操作系统实训报告内容介绍：  第一部分：编译升级系统Linux内核 第二部分：搭建HTTP服务器 第三部分：搭建动态网站  完整实验报告PDF文件">
+<meta property="og:description" content="内容说明：本篇文章是《嵌入式操作系统》实训报告的第二部分，实现了HTTP服务器的搭建 嵌入式操作系统实训报告内容介绍：  第一部分：编译升级系统Linux内核 第二部分：搭建HTTP服务器 第三部分：搭建动态网站 完整实验报告PDF文件">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190620182509566.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190620182531743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center">
@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">26</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">27</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -153,7 +153,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">22</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -324,16 +324,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote>
-<p>内容说明：本篇文章是《嵌入式操作系统》实训报告的<strong>第二部分</strong>，实现了HTTP服务器的搭建</p>
-<p><code>嵌入式操作系统</code>实训报告内容介绍：</p>
+        <ul>
+<li>内容说明：本篇文章是《嵌入式操作系统》实训报告的<strong>第二部分</strong>，实现了HTTP服务器的搭建</li>
+<li><code>嵌入式操作系统</code>实训报告内容介绍：
 <ul>
-<li><p>第一部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_Upgrade_Core/">编译升级系统Linux内核</a></p></li>
-<li><p>第二部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_HTTP_Server/">搭建HTTP服务器</a></p></li>
-<li><p>第三部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_MyWeb/">搭建动态网站</a></p></li>
+<li>第一部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_Upgrade_Core/">编译升级系统Linux内核</a></li>
+<li>第二部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_HTTP_Server/">搭建HTTP服务器</a></li>
+<li>第三部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_MyWeb/">搭建动态网站</a></li>
+<li><span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9TdHVkeS9MaW51eC9saW51eCVFNSVBRSU5RSVFOCVBRSVBRCUyMF8lRTUlQkMlQTAlRTUlOEUlOUElRTQlQkIlOEEucGRm" title="http://47.95.13.239/Study/Linux/linux%E5%AE%9E%E8%AE%AD%20_%E5%BC%A0%E5%8E%9A%E4%BB%8A.pdf">完整实验报告PDF文件<i class="fa fa-external-link"></i></span></li>
+</ul></li>
 </ul>
-<p><span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9TdHVkeS9MaW51eC9saW51eCVFNSVBRSU5RSVFOCVBRSVBRCUyMF8lRTUlQkMlQTAlRTUlOEUlOUElRTQlQkIlOEEucGRm" title="http://47.95.13.239/Study/Linux/linux%E5%AE%9E%E8%AE%AD%20_%E5%BC%A0%E5%8E%9A%E4%BB%8A.pdf">完整实验报告PDF文件<i class="fa fa-external-link"></i></span></p>
-</blockquote>
 <a id="more"></a>
 <h2 id="二构建http服务器">二、构建HTTP服务器</h2>
 <h3 id="实验原理">2.1 实验原理</h3>
@@ -345,33 +345,28 @@
 <h4 id="安装apache">2.3.1 安装Apache</h4>
 <p>首先使用<code>sudo apt-get update</code>命令，对软件包进行更新。之后，使用<code>sudo apt-get install apache2</code>安装apache软件。为了测试Apache是否安装成功，可以直接访问 <code>http://your_server_IP_address</code> 查看。使用<code>ifconfig</code>命令可以查看到主机的IP地址。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190620182509566.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190620182509566.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图 查看本地IP" /><figcaption>图 查看本地IP</figcaption>
 </figure>
-<p>图 查看本地IP</p>
 <p>后来想到这一步不是必要的，可以直接使用localhost进行测试。</p>
 <p>可以看到，这里显示了<code>127.0.0.1</code>这个用于本地环回的IP。现在打开虚拟机中的Firefox，在地址栏输入<code>http://127.0.0.1</code>并访问，可以看到，apache服务已经搭建成功。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190620182531743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190620182531743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图 apache访问测试" /><figcaption>图 apache访问测试</figcaption>
 </figure>
-<p>图 apache访问测试</p>
 <p>到目前为止，HTTP服务器已经可以算是搭建成功了，甚至现在已经可以上传静态网页到该服务器以提供访问服务了。</p>
 <h4 id="编写网页测试">2.3.2 编写网页测试</h4>
 <p>现在编写一个简单的HTTP静态网页，上传到虚拟机服务器，检测是否能进行访问。在用户目录下，编写一个test.html文件，然后进入到<code>/var/www/html</code>目录，将<code>test.html</code>文件复制到该目录下。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190620182551451.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190620182551451.png#pic_center" alt="图 文件转移" /><figcaption>图 文件转移</figcaption>
 </figure>
-<p>图 文件转移</p>
 <p>现在该目录下应该有两个html文件，一个是原来的默认索引文件<code>index.html</code>，另一个就是用于测试的<code>test.html</code>。现在再次打开<code>Firefox</code>，访问<code>http://127.0.0.1/test.html</code>。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190620182616184.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190620182616184.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图 静态网页测试" /><figcaption>图 静态网页测试</figcaption>
 </figure>
-<p>图 静态网页测试</p>
 <p>所以说，现在“制作静态网页并访问”是完全没有问题的。</p>
 <p>其中，<code>test.html</code>文件内容如下：</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190620182625390.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190620182625390.png#pic_center" alt="图 测试内容" /><figcaption>图 测试内容</figcaption>
 </figure>
-<p>图 测试内容</p>
 
     </div>
 
@@ -382,10 +377,10 @@
   <div class="popular-posts-header">相关文章推荐</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2019\06\20\Linux_Upgrade_Core\" rel="bookmark">Linux实训——编译升级Linux内核</a></div>
+      <div class="popular-posts-title"><a href="\2019\06\20\Linux_MyWeb\" rel="bookmark">Linux实训——搭建动态网站</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2019\06\20\Linux_MyWeb\" rel="bookmark">Linux实训——搭建动态网站</a></div>
+      <div class="popular-posts-title"><a href="\2019\06\20\Linux_Upgrade_Core\" rel="bookmark">Linux实训——编译升级Linux内核</a></div>
     </li>
   </ul>
 
@@ -560,7 +555,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -573,7 +568,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -641,12 +636,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">151k</span>
+    <span title="站点总字数">153k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:11</span>
+    <span title="站点阅读时长">4:15</span>
 </div>
 
 <!--

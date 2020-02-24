@@ -141,7 +141,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">26</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">27</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -151,7 +151,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">22</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -316,10 +316,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote>
-<p>本博客的内容是：在 BlackWalnut Labs 完成车牌标志识别实验的学习笔记</p>
-<p>其中主要的部分是 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2NvZGVsYWJzX2RldGFpbD9pZD01Y2FhMzY3YTU2ZWRmYzAwMTljNWM5NjE=" title="https://blackwalnut.tech/codelabs_detail?id=5caa367a56edfc0019c5c961">BlackWalnut Labs 的实验过程介绍<i class="fa fa-external-link"></i></span>，少部分自己实验过程中的心得，所以就作为转载自 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2NvZGVsYWJzX2RldGFpbD9pZD01Y2FhMzY3YTU2ZWRmYzAwMTljNWM5NjE=" title="https://blackwalnut.tech/codelabs_detail?id=5caa367a56edfc0019c5c961">BlackWalnut<i class="fa fa-external-link"></i></span> 的一篇博文吧</p>
-</blockquote>
+        <ul>
+<li>本博客的内容是：在 BlackWalnut Labs 完成车牌标志识别实验的学习笔记</li>
+<li>其中主要的部分是 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2NvZGVsYWJzX2RldGFpbD9pZD01Y2FhMzY3YTU2ZWRmYzAwMTljNWM5NjE=" title="https://blackwalnut.tech/codelabs_detail?id=5caa367a56edfc0019c5c961">BlackWalnut Labs 的实验过程介绍<i class="fa fa-external-link"></i></span>，少部分自己实验过程中的心得，所以就作为转载自 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2NvZGVsYWJzX2RldGFpbD9pZD01Y2FhMzY3YTU2ZWRmYzAwMTljNWM5NjE=" title="https://blackwalnut.tech/codelabs_detail?id=5caa367a56edfc0019c5c961">BlackWalnut<i class="fa fa-external-link"></i></span> 的一篇博文吧</li>
+</ul>
 <a id="more"></a>
 <h2 id="一什么是车标识别">一、什么是车标识别</h2>
 <p>这次车标识别实验，主要内容是通过机器学习，构建模型，区分不同车牌标志。本次“车标图像分类”项目，基于TensorFlow框架和MobileNet模型，将其应用于分类不同车标的图片，可以说是基于<span class="exturl" data-url="aHR0cHM6Ly9jb2RlbGFicy5kZXZlbG9wZXJzLmdvb2dsZS5jb20v" title="https://codelabs.developers.google.com/">Google Codelabs<i class="fa fa-external-link"></i></span>项目 ——<span class="exturl" data-url="aHR0cHM6Ly9jb2RlbGFicy5kZXZlbG9wZXJzLmdvb2dsZS5jb20vY29kZWxhYnMvdGVuc29yZmxvdy1mb3ItcG9ldHMv" title="https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/">tensorflow-for-poets<i class="fa fa-external-link"></i></span> 的衍生。</p>
@@ -342,7 +342,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r ../Tools/datasets/* data</span><br></pre></td></tr></table></figure>
 <h3 id="建立数据标签">4.2建立数据标签</h3>
 <p>在图像分类模型的训练过程中，模型需要知道训练的标签以及每个标签对应的图片，因此还需要图片按照车标种类分类。 在<code>data</code>目录下，新建标签文件夹，分别命名为：<code>BUICK</code>、<code>CHANGAN</code>、<code>BMW</code>、<code>NISSAN</code>、<code>GM</code>，之后将图片数据按照内容，分别移动到对应的文件夹下，执行以下命令：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Codelab/data</span><br><span class="line">mv <span class="number">1521121</span>* BUICK</span><br><span class="line">mv <span class="number">1521171</span>* CHANGAN</span><br><span class="line">mv <span class="number">1521187</span>* BMW  </span><br><span class="line">mv <span class="number">1521189</span>* NISSAN</span><br><span class="line">mv <span class="number">1521257</span>* GM</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Codelab/data</span><br><span class="line">mv <span class="number">1521121</span>* BUICK</span><br><span class="line">mv <span class="number">1521171</span>* CHANGAN</span><br><span class="line">mv <span class="number">1521187</span>* BMW</span><br><span class="line">mv <span class="number">1521189</span>* NISSAN</span><br><span class="line">mv <span class="number">1521257</span>* GM</span><br></pre></td></tr></table></figure>
 <h3 id="mobilenet-模型的使用">4.3 MobileNet 模型的使用</h3>
 <p>MobileNet V1 模型目前支持 2 种分辨率的图像，分别为 128<em>128 和 224</em>224，其提供的训练程序会自动将传入的图片转换成指定的分辨率。下面使用MobileNet_v1_128模型，即分辨率为128*128的MobileNet_v1模型进行训练。</p>
 <h4 id="环境变量">4.3.1环境变量</h4>
@@ -522,7 +522,6 @@
 <figure>
 <img data-src="https://img-blog.csdnimg.cn/20190416155306491.png#pic_center?" alt="图1 模型预测结果" /><figcaption>图1 模型预测结果</figcaption>
 </figure>
-<p>图1 模型预测结果</p>
 <p>表示车牌的标签和该标签预测所得的分数，wow，bmw对应的得分最高，说明该模型预测，此图片为BMW标签的概率比较大，跟实际一样哦！</p>
 <p>如果想进一步验证模型的准确性，需要对这五种标签的图片都进行测试。如果五种标签全部预测成功，才能更好的说明模型的准确性。</p>
 <h2 id="五实验总结">五、实验总结</h2>
@@ -717,7 +716,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -730,7 +729,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -798,12 +797,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">151k</span>
+    <span title="站点总字数">153k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:11</span>
+    <span title="站点阅读时长">4:15</span>
 </div>
 
 <!--

@@ -139,7 +139,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">26</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">27</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -149,7 +149,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">22</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -314,11 +314,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote>
-<p>本博客的内容是：在 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span> 完成<span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2NvZGVsYWJzX2RldGFpbD9pZD01Y2FhMzY3YTU2ZWRmYzAwMTljNWM5NjI=" title="https://blackwalnut.tech/codelabs_detail?id=5caa367a56edfc0019c5c962">交通标志标志识别实验<i class="fa fa-external-link"></i></span>的学习笔记</p>
-<p>其中主要的部分是 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span> 的实验过程介绍，少部分自己实验过程中的心得，所以就作为转载自 BlackWalnut 的一篇博文吧</p>
-<p>说明：以下内容均在 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span> 提供的环境下进行，如果想在自己的环境下运行，可参考<a href="https://github.com/tensorflow/models/tree/master/research/object_detection" target="_blank" rel="noopener"><code>TensorFlow Object Detection</code> 项目</a></p>
-</blockquote>
+        <ul>
+<li>本博客的内容是：在 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span> 完成<span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2NvZGVsYWJzX2RldGFpbD9pZD01Y2FhMzY3YTU2ZWRmYzAwMTljNWM5NjI=" title="https://blackwalnut.tech/codelabs_detail?id=5caa367a56edfc0019c5c962">交通标志标志识别实验<i class="fa fa-external-link"></i></span>的学习笔记</li>
+<li>其中主要的部分是 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span> 的实验过程介绍，少部分自己实验过程中的心得，所以就作为转载自 BlackWalnut 的一篇博文吧</li>
+<li>说明：以下内容均在 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span> 提供的环境下进行，如果想在自己的环境下运行，可参考<a href="https://github.com/tensorflow/models/tree/master/research/object_detection" target="_blank" rel="noopener"><code>TensorFlow Object Detection</code> 项目</a></li>
+</ul>
 <a id="more"></a>
 <h2 id="一什么是交通标志识别">一、什么是交通标志识别</h2>
 <p>交通标志识别系统是 <span class="exturl" data-url="aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvQWR2YW5jZWRfZHJpdmVyLWFzc2lzdGFuY2Vfc3lzdGVtcw==" title="https://en.wikipedia.org/wiki/Advanced_driver-assistance_systems">ADAS(高级驾驶辅助系统)<i class="fa fa-external-link"></i></span>场景的组成部分之一，能使小车能自动识别前方的交通标志并提醒驾驶人。 Google 在 github 上提供的了一个<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RlbnNvcmZsb3cvbW9kZWxzL3RyZWUvbWFzdGVyL3Jlc2VhcmNoL29iamVjdF9kZXRlY3Rpb24=" title="https://github.com/tensorflow/models/tree/master/research/object_detection">对象识别的项目<i class="fa fa-external-link"></i></span>，可以利用该项目训练各种对象识别模型。这些模型不需要进行预处理，可以直接识别图像中的交通标志，并返回交通标志类型和在图中的位置。 对象识别模型是一种混合技术，先用图像分割技术把每一个对象分割出来，然后用图像分类技术识别分割出的对象是否是训练集中的对象。</p>
@@ -739,7 +739,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -752,7 +752,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -820,12 +820,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">151k</span>
+    <span title="站点总字数">153k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:11</span>
+    <span title="站点阅读时长">4:15</span>
 </div>
 
 <!--

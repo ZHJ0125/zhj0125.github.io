@@ -25,12 +25,12 @@
     var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":250,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":20},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="修复&quot;无法锁定Ubuntu中的管理目录(&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)&quot;   问题描述： Ubuntu18.04在更新软件源时，出现“Unable to lock the administration directory (&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)” 报错信息。  问题分析： Linux为了避免已经运行的apt-get或apt进程被用户或需要处理apt文件的其">
+  <meta name="description" content="修复&quot;无法锁定Ubuntu中的管理目录(&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)&quot;  问题描述： Ubuntu18.04在更新软件源时，出现“Unable to lock the administration directory (&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)” 报错信息。  问题分析： Linux为了避免已经运行的apt-get或apt进程被用户或需要处理apt文件的其他进">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Unable to lock the administration directory (&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)解决办法">
 <meta property="og:url" content="https://zhj.forever305.cn/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/index.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="修复&quot;无法锁定Ubuntu中的管理目录(&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)&quot;   问题描述： Ubuntu18.04在更新软件源时，出现“Unable to lock the administration directory (&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)” 报错信息。  问题分析： Linux为了避免已经运行的apt-get或apt进程被用户或需要处理apt文件的其">
+<meta property="og:description" content="修复&quot;无法锁定Ubuntu中的管理目录(&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)&quot;  问题描述： Ubuntu18.04在更新软件源时，出现“Unable to lock the administration directory (&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)” 报错信息。  问题分析： Linux为了避免已经运行的apt-get或apt进程被用户或需要处理apt文件的其他进">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190626215634585.png#pic_center">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190626215953373.png#pic_center">
@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">26</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">27</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -153,7 +153,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">22</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -305,7 +305,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>713</span>
+              <span>699</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -325,14 +325,12 @@
 
       
         <h2 id="修复无法锁定ubuntu中的管理目录varlibdpkg">修复&quot;无法锁定Ubuntu中的管理目录(/var/lib/dpkg/)&quot;</h2>
-<blockquote>
 <ul>
 <li>问题描述：</li>
-<li>Ubuntu18.04在更新软件源时，出现“Unable to lock the administration directory (/var/lib/dpkg/)” 报错信息。 <img data-src="https://img-blog.csdnimg.cn/20190626215634585.png#pic_center" /></li>
+<li><p>Ubuntu18.04在更新软件源时，出现“Unable to lock the administration directory (/var/lib/dpkg/)” 报错信息。 <img data-src="https://img-blog.csdnimg.cn/20190626215634585.png#pic_center" alt="报错截图" /></p></li>
 <li>问题分析：</li>
-<li>Linux为了避免已经运行的apt-get或apt进程被用户或需要处理apt文件的其他进程中断，运行apt-get或apt命令后，将在以下任何目录<code>/var/lib/apt/lists/</code>，<code>/var/lib/dpkg/</code> 和 <code>/var/cache/apt/archives/</code> 下创建一个 <em>lock</em>(锁定文件)。正常情况下，当进程执行完毕后，将删除锁定文件。如果有程序正在占用该进程，锁定文件未删除，就会导致此问题发生。</li>
+<li><p>Linux为了避免已经运行的apt-get或apt进程被用户或需要处理apt文件的其他进程中断，运行apt-get或apt命令后，将在以下任何目录<code>/var/lib/apt/lists/</code>，<code>/var/lib/dpkg/</code> 和 <code>/var/cache/apt/archives/</code> 下创建一个 <em>lock</em>(锁定文件)。正常情况下，当进程执行完毕后，将删除锁定文件。如果有程序正在占用该进程，锁定文件未删除，就会导致此问题发生。</p></li>
 </ul>
-</blockquote>
 <a id="more"></a>
 <h3 id="两种解决办法">两种解决办法</h3>
 <h4 id="方案一找到并杀死apt进程">方案一：找到并杀死apt进程</h4>
@@ -341,21 +339,21 @@
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -A | grep apt</span><br></pre></td></tr></table></figure>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190626215953373.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190626215953373.png#pic_center" alt="查看进程" /><figcaption>查看进程</figcaption>
 </figure>
 <blockquote>
 <p>2.使用kill命令杀死该进程</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo kill -9 进程号</span><br></pre></td></tr></table></figure>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/2019062622015450.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/2019062622015450.png#pic_center" alt="杀死进程" /><figcaption>杀死进程</figcaption>
 </figure>
 <blockquote>
 <p>3.重新更新软件源即可：</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">or</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190626221321107.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190626221321107.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="更新软件源" /><figcaption>更新软件源</figcaption>
 </figure>
 <p>第一种方案亲测可用。</p>
 <h4 id="方案2删除锁定文件">方案2：删除锁定文件</h4>
@@ -561,7 +559,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -574,7 +572,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -642,12 +640,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">151k</span>
+    <span title="站点总字数">153k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:11</span>
+    <span title="站点阅读时长">4:15</span>
 </div>
 
 <!--

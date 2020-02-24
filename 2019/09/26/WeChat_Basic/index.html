@@ -186,7 +186,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">26</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">27</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -196,7 +196,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">22</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -348,7 +348,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>7.4k</span>
+              <span>7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -395,131 +395,105 @@
 <h4 id="创建项目配置文件">2.3.1 创建项目配置文件</h4>
 <p>首先创建项目的配置文件app.json，编写小程序的配置信息。如图3.1所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926215221393.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926215221393.png#pic_center" alt="图3.1 小程序初始化配置信息" /><figcaption>图3.1 小程序初始化配置信息</figcaption>
 </figure>
-<p>图3.1 小程序初始化配置信息</p>
 <p>使用“ctrl+s”保存文件，开发工具会自动进行编译，并生成所需的页面文件。此时，文件目录如下图3.2所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926215305313.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926215305313.png#pic_center" alt="图3.2 自动生成的页面" /><figcaption>图3.2 自动生成的页面</figcaption>
 </figure>
-<p>图3.2 自动生成的页面</p>
 <p>配置文件自动生成了四个文件，分别是主页的逻辑文件“index.js”、主页的配置文件“index.json”、主页的布局文件“index.wxml”以及主页的样式文件“index.wxss”。</p>
 <h4 id="编写页面文件">2.3.2 编写页面文件</h4>
 <p>在自动创建的index.wxml文件中，已有如图3.3所示的代码文件。此时主界面只显示文件的路径文本信息。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926215342524.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926215342524.png#pic_center" alt="图3.3 布局文件初始化内容" /><figcaption>图3.3 布局文件初始化内容</figcaption>
 </figure>
-<p>图3.3 布局文件初始化内容</p>
 <p>现在修改布局文件，使其显示数值比较的界面。修改代码如图3.4所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926215403686.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926215403686.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图3.4 布局文件内容修改" /><figcaption>图3.4 布局文件内容修改</figcaption>
 </figure>
-<p>图3.4 布局文件内容修改</p>
 <p>此时打开模拟器进行界面的测试，界面显示结果如图3.5所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/2019092621542039.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/2019092621542039.png#pic_center" alt="图3.5 模拟器测试界面1" /><figcaption>图3.5 模拟器测试界面1</figcaption>
 </figure>
-<p>图3.5 模拟器测试界面1</p>
 <h4 id="编写样式文件">2.3.3 编写样式文件</h4>
 <p>接下来修改小程序界面的样式，打开index.wxss文件，尝试使用不同的选择器进行样式设置。首先使用element选择器，在index.wxss界面中，为view组件设置样式，代码如图3.6所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926215438805.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926215438805.png#pic_center" alt="图3.6 编写样式文件" /><figcaption>图3.6 编写样式文件</figcaption>
 </figure>
-<p>图3.6 编写样式文件</p>
 <p>此时，模拟器显示的界面如图3.7所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926215514645.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926215514645.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图3.7 模拟器测试界面2" /><figcaption>图3.7 模拟器测试界面2</figcaption>
 </figure>
-<p>图3.7 模拟器测试界面2</p>
-<p>在wxml中，同样可以使用标签的style属性进行样式修改。现将第一个view组件的style属性添加“margin:40px”，以和之前的设置进行区分，模拟器显示的界面如图3.8所示。 <img data-src="https://img-blog.csdnimg.cn/20190926215527719.png#pic_center" alt="在这里插入图片描述" /></p>
-<p>图3.8 模拟器测试界面3</p>
+<p>在wxml中，同样可以使用标签的style属性进行样式修改。现将第一个view组件的style属性添加“margin:40px”，以和之前的设置进行区分，模拟器显示的界面如图3.8所示。 <img data-src="https://img-blog.csdnimg.cn/20190926215527719.png#pic_center" alt="图3.8 模拟器测试界面3" /></p>
 <p>可以看到，第一个view组件的边距比第二个的边距大一些，说明在组建中直接更改属性的方法是可行的。下面测试.class选择器的方式。在第二个view组件上，设置其class属性为container，之后在index.wxss文件中，添加container属性为“margin: 25px”，如图3.9所示。为了界面美观，将第一个组件的style属性，也修改为边距25px。在模拟器中测试的界面结果如图3.10所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926215718438.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926215718438.png#pic_center" alt="图3.9 设置组件样式" /><figcaption>图3.9 设置组件样式</figcaption>
 </figure>
-<p>图3.9 设置组件样式</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926215734688.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926215734688.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图3.10 模拟器测试界面4" /><figcaption>图3.10 模拟器测试界面4</figcaption>
 </figure>
-<p>图3.10 模拟器测试界面4</p>
 <h4 id="统一尺寸规格">2.3.4 统一尺寸规格</h4>
-<p>为了更加直观地对比WXSS中的rpx和px两种单位的区别，同时统一组件的尺寸规格，在index.wxss文件中，修改文件中的样式内容，如图3.11所示。 <img data-src="https://img-blog.csdnimg.cn/20190926215751302.png#pic_center" alt="在这里插入图片描述" /></p>
-<p>图3.11 样式文件</p>
+<p>为了更加直观地对比WXSS中的rpx和px两种单位的区别，同时统一组件的尺寸规格，在index.wxss文件中，修改文件中的样式内容，如图3.11所示。 <img data-src="https://img-blog.csdnimg.cn/20190926215751302.png#pic_center" alt="图3.11 样式文件" /></p>
 <p>其中，主要设置了input组件的宽度、顶层边距、以及底边框线条颜色，设置了button按钮的外边框。其中需要注意的是，尺寸单位使用了rpx(responsive pixel)响应式像素，rpx规定了任何手机的屏幕宽度均为750rpx，有小程序负责讲、将逻辑像素自动转换为当前手机中的物理像素。也就是按照手机屏幕比例进行缩放，这样就不用担心手机宽度不同的问题了。在模拟器中的界面结果如图3.12所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926220038683.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926220038683.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图3.12 模拟器测试界面5" /><figcaption>图3.12 模拟器测试界面5</figcaption>
 </figure>
-<p>图3.12 模拟器测试界面5</p>
 <h4 id="样式导入">2.3.5 样式导入</h4>
-<p>设置wxss样式文件时，可以通过@import语句进行外联样式的导入。首先在index文件夹中，创建test.wxss文件，作为外联样式文件，在文件中编写如图3.13所示的代码。 <img data-src="https://img-blog.csdnimg.cn/20190926215847973.png#pic_center" alt="在这里插入图片描述" /></p>
-<p>图3.13 按钮样式</p>
+<p>设置wxss样式文件时，可以通过@import语句进行外联样式的导入。首先在index文件夹中，创建test.wxss文件，作为外联样式文件，在文件中编写如图3.13所示的代码。 <img data-src="https://img-blog.csdnimg.cn/20190926215847973.png#pic_center" alt="图3.13 按钮样式" /></p>
 <p>之后在index.wxss文件中，导入test.wxss文件，如图3.14所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926215911180.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926215911180.png#pic_center" alt="图3.14 导入外联样式" /><figcaption>图3.14 导入外联样式</figcaption>
 </figure>
-<p>图3.14 导入外联样式</p>
 <p>保存文件并使用模拟器查看界面效果，如图3.15所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926220053635.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926220053635.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图3.15 模拟器测试界面6" /><figcaption>图3.15 模拟器测试界面6</figcaption>
 </figure>
-<p>图3.15 模拟器测试界面6</p>
 <p>需要注意的是，在index.wxss文件中，导入的外联样式和在内部直接定义的样式可以同时生效。</p>
 <h4 id="设置全局样式">2.3.6 设置全局样式</h4>
 <p>可以在根目录下，创建一个全局样式文件，便于代码修改和维护。现在在根目录下创建app.wxss文件作为全局样式。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926220108837.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926220108837.png#pic_center" alt="图3.16 按钮字符样式" /><figcaption>图3.16 按钮字符样式</figcaption>
 </figure>
-<p>图3.16 按钮字符样式</p>
 <p>上图3.16中的代码设置了全局button组件的字符间距为12rpx。</p>
 <p>需要注意的是，当全局样式与页面样式发生冲突时，页面样式的优先级更高，会覆盖全局样式。</p>
 <h4 id="设置配置文件">2.3.7 设置配置文件</h4>
-<p>小程序的页面均可以通过json文件进行配置，其中又分为页面级的配置文件和全局配置文件。首先进行页面级配置文件的编写，在index.json文件中编写如下图3.17所示的代码。 <img data-src="https://img-blog.csdnimg.cn/20190926220146470.png#pic_center" alt="在这里插入图片描述" /></p>
-<p>图3.17 配置文件</p>
+<p>小程序的页面均可以通过json文件进行配置，其中又分为页面级的配置文件和全局配置文件。首先进行页面级配置文件的编写，在index.json文件中编写如下图3.17所示的代码。 <img data-src="https://img-blog.csdnimg.cn/20190926220146470.png#pic_center" alt="图3.17 配置文件" /></p>
 <p>此时，模拟器中的小程序的标题栏界面如下图3.18所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926220213340.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926220213340.png#pic_center" alt="图3.18 模拟器测试标题栏界面" /><figcaption>图3.18 模拟器测试标题栏界面</figcaption>
 </figure>
-<p>图3.18 模拟器测试标题栏界面</p>
 <p>现在进行页面级配置文件的编写，修改根目录下的app.json配置文件，代码如下图3.19所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/2019092622024447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/2019092622024447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图3.19 全局配置文件" /><figcaption>图3.19 全局配置文件</figcaption>
 </figure>
-<p>图3.19 全局配置文件</p>
 <p>其中，navigationBarTitleText表示导航栏标题文字内容；navigationBarBackgroundColor表示导航栏背景颜色；navigationBarTextStyle表示导航栏标题颜色；backgroundColor表示窗口的背景颜色；</p>
 <p>backgroundTextStyle表示下拉loading的样式；enablePullDownRefresh表示是否允许当前页面的下拉刷新【1】。Debug表示是否允许程序进行调试。此时，在控制台查看调试信息，如图3.20所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926220305363.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926220305363.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图3.20 控制台调试信息" /><figcaption>图3.20 控制台调试信息</figcaption>
 </figure>
-<p>图3.20 控制台调试信息</p>
 <h4 id="逻辑文件配置">2.3.8 逻辑文件配置</h4>
 <p>微信小程序中，.js文件表示程序的逻辑文件，打开index.js文件，可以看到开发者工具已经初始化生成了一些代码，现在在此基础上进行修改。</p>
 <p>首先测试生命周期回调函数，以onLoad、onReady、onShow函数为例进行测试，通过console.log()函数输出调试信息，代码如图3.21所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926220345439.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926220345439.png#pic_center" alt="图3.21 生命周期函数测试" /><figcaption>图3.21 生命周期函数测试</figcaption>
 </figure>
-<p>图3.21 生命周期函数测试</p>
 <p>为了方便观察调试信息，先将全局配置文件中的debug选项设置为false，保存并编译程序，效果如图3.22所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926220359798.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926220359798.png#pic_center" alt="图3.22 控制台调试信息" /><figcaption>图3.22 控制台调试信息</figcaption>
 </figure>
-<p>图3.22 控制台调试信息</p>
-<p>之后测试页面事件处理函数，以onPullDownfresh、onReachBottom、onPageScroll函数为例，在index.js文件中分别使用控制台日志显示触发提示，代码如图3.23所示。 <img data-src="https://img-blog.csdnimg.cn/20190926220432158.png#pic_center" alt="在这里插入图片描述" /></p>
-<p>图3.23 页面事件处理函数</p>
+<p>之后测试页面事件处理函数，以onPullDownfresh、onReachBottom、onPageScroll函数为例，在index.js文件中分别使用控制台日志显示触发提示，代码如图3.23所示。 <img data-src="https://img-blog.csdnimg.cn/20190926220432158.png#pic_center" alt="图3.23 页面事件处理函数" /></p>
 <p>以下拉刷新为例，在模拟器上下拉刷新后，控制台将会显示如下图3.24所示的调试信息。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926220502545.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926220502545.png#pic_center" alt="图3.24 控制台调试信息" /><figcaption>图3.24 控制台调试信息</figcaption>
 </figure>
-<p>图3.24 控制台调试信息</p>
 <p>下面测试组件事件的处理函数，对组件的事件处理，需要将组件绑定特定的触发函数。以button组件为例，为其绑定tap事件，tap事件表示当用户触摸到组件时会触发的事件，绑定tap事件之后，还需要为其编写相应的事件处理函数。按照题目要求，编写compare函数作为button组件的事件处理函数，代码如下图3.25所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/2019092622053034.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/2019092622053034.png#pic_center" alt="图3.25 组件事件处理函数" /><figcaption>图3.25 组件事件处理函数</figcaption>
 </figure>
-<p>图3.25 组件事件处理函数</p>
 <p>现在点击比较按钮，可以在控制台看到事件的响应信息，如图3.26所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926220557226.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926220557226.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图3.26 控制台调试信息" /><figcaption>图3.26 控制台调试信息</figcaption>
 </figure>
-<p>图3.26 控制台调试信息</p>
 <p>常用的冒泡事件如下表3-1所示【2】</p>
 <p>表3-1 常用的冒泡事件</p>
 <table>
@@ -559,105 +533,85 @@
 <h4 id="注册程序">2.3.9 注册程序</h4>
 <p>若要在小程序启动、显示、隐藏时执行某些操作，可以通过App()函数来实现。App()函数用于注册小程序，它会接受一个对象参数，通过该参数指定小程序的生命周期回调等。下面对小程序的App()进行测试，具体代码如下图3.27所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926220630541.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926220630541.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图3.27 注册程序测试" /><figcaption>图3.27 注册程序测试</figcaption>
 </figure>
-<p>图3.27 注册程序测试</p>
 <p>保存并进行调试，在控制台查看调试信息如下图3.28所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926220654118.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926220654118.png#pic_center" alt="图3.28 控制台调试信息" /><figcaption>图3.28 控制台调试信息</figcaption>
 </figure>
-<p>图3.28 控制台调试信息</p>
 <h4 id="实现比较功能">2.3.10实现比较功能</h4>
 <p>方式一、为两个input组件绑定两个不同的事件处理函数</p>
 <p>Input组件提供了change事件，该事件能够在输入框中的内容发生变化时触发，并能获取到用户输入的数字。下面在两个input组件中，分别绑定change事件，代码如下图3.29所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926220718696.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926220718696.png#pic_center" alt="图3.29 事件处理函数" /><figcaption>图3.29 事件处理函数</figcaption>
 </figure>
-<p>图3.29 事件处理函数</p>
 <p>该段代码中，需要注意的是Number()函数，它用于将字符串数据转换为数字类型的数据。于是，用户输入的数字数据就被分别赋值在了this.num1和this.num2中。 现在在模拟器的input组件中，输入数字数据，即可在控制台查看输入的数字内容。以在第二个输入框中输入数字1为例，控制台中的调试信息如下图3.30所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/2019092622073750.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/2019092622073750.png#pic_center" alt="图3.30 控制台调试程序" /><figcaption>图3.30 控制台调试程序</figcaption>
 </figure>
-<p>图3.30 控制台调试程序</p>
-<p>当用户单击“比较”按钮时，对this.num1和this.num2进行比较即可。为了将比较结果显示出来，可以在wxml文件的比较结果之后，添加一个变量result，代码如下图3.31所示。 <img data-src="https://img-blog.csdnimg.cn/20190926220801478.png#pic_center" alt="在这里插入图片描述" /></p>
-<p>图3.31 添加自变量</p>
+<p>当用户单击“比较”按钮时，对this.num1和this.num2进行比较即可。为了将比较结果显示出来，可以在wxml文件的比较结果之后，添加一个变量result，代码如下图3.31所示。 <img data-src="https://img-blog.csdnimg.cn/20190926220801478.png#pic_center" alt="图3.31 添加自变量" /></p>
 <p>上述代码中需要注意的是，在WXML中使用了双括号数据绑定的格式，被称为Mustache语法。括号中填写变量名，在程序初始化过程中，就会到逻辑文件的data字段里查找变量的初始值。 之后需要在index.js逻辑文件中的data字段添加result的初始化变量为空字符，代码如下图3.32所示。 图3.32 添加变量初始化</p>
-<p>最后，在index.js文件中，修改button的事件处理函数compare，将比较的结果通过this.setData()显示在页面中，具体代码如下图3.33所示。 <img data-src="https://img-blog.csdnimg.cn/2019092622084096.png#pic_center" alt="在这里插入图片描述" /></p>
-<p>图3.33 事件处理函数</p>
+<p>最后，在index.js文件中，修改button的事件处理函数compare，将比较的结果通过this.setData()显示在页面中，具体代码如下图3.33所示。 <img data-src="https://img-blog.csdnimg.cn/2019092622084096.png#pic_center" alt="图3.33 事件处理函数" /></p>
 <p>上述代码中需要注意的是，如果想要改变result的值，不能通过直接赋值的方式，而是使用this.setData()方法实现。该方法的参数是一个对象，传入{result: str}表示将result的值赋为str。最后通过console.log(str)在控制台中显示提示信息。现在程序的比较逻辑部分已经完成，在模拟器中进行测试，显示如下图3.34所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926220855730.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926220855730.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图3.34 模拟器测试界面" /><figcaption>图3.34 模拟器测试界面</figcaption>
 </figure>
-<p>图3.34 模拟器测试界面</p>
 <p>在控制台中的调试信息如下图3.35所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926220915734.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926220915734.png#pic_center" alt="图3.35 控制台调试信息" /><figcaption>图3.35 控制台调试信息</figcaption>
 </figure>
-<p>图3.35 控制台调试信息</p>
 <p>方式二、为两个input组件绑定两个相同的处理函数</p>
 <p>可以为多个input组件绑定相同的事件处理函数，然后通过不同组件的id或dataset进行区分。首先测试通过id进行区分，在index.wxml文件的input组件中，添加id属性，并绑定相同的事件处理函数btnchange，代码如下图3.36所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926220948939.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926220948939.png#pic_center" alt="图3.36 添加id属性" /><figcaption>图3.36 添加id属性</figcaption>
 </figure>
-<p>图3.36 添加id属性</p>
 <p>然后在index.js文件中编写btnchange函数，用于获取用户在input组件输入的数值，代码如下图3.37所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926221032301.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926221032301.png#pic_center" alt="图3.37 事件处理函数" /><figcaption>图3.37 事件处理函数</figcaption>
 </figure>
-<p>图3.37 事件处理函数</p>
 <p>在模拟器进行测试，控制台中的调试信息可以正常输出，如下图3.38所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926221114594.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926221114594.png#pic_center" alt="图3.38 控制台调试信息" /><figcaption>图3.38 控制台调试信息</figcaption>
 </figure>
-<p>图3.38 控制台调试信息</p>
 <p>现在尝试通过dataset区分元素。在wxml文件的input组件中，删除id属性，添加data-id属性，如下图3.39所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926221146337.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926221146337.png#pic_center" alt="图3.39 事件处理函数" /><figcaption>图3.39 事件处理函数</figcaption>
 </figure>
-<p>图3.39 事件处理函数</p>
 <p>在控制台查看调试信息，同样可以正常显示input输入的数值。这里需要注意的是，在未进行初始化的时候 this.num1和this.num2均为undefined未定义状态。 方式三、在页面中直接进行比较</p>
 <p>使用WXML中的变量语法，可以直接比较两个变量的大小，代码如下图3.40所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/2019092622123376.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/2019092622123376.png#pic_center" alt="图3.40 条件表达式控制" /><figcaption>图3.40 条件表达式控制</figcaption>
 </figure>
-<p>图3.40 条件表达式控制</p>
 <p>在逻辑文件中增加change3处理事件，其代码如下图3.41所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926221258482.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926221258482.png#pic_center" alt="图3.41 事件处理函数" /><figcaption>图3.41 事件处理函数</figcaption>
 </figure>
-<p>图3.41 事件处理函数</p>
 <p>使用此方法时出现了问题，不管我输入的数据是多少，最后的比较结果总是显示“第1个数大”，问题已经解决，（解决过程见“四、实验中存在的问题及解决方案”）。 方式四、通过条件渲染产生不同的结果</p>
 <p>除了使用条件运算符进行判断之外，还可以通过条件运算符的渲染，实现根据不同的判断结果显示不同标签的效果，修改index.wxml文件，代码如下图3.42所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926221325233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926221325233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图3.42 条件渲染方式" /><figcaption>图3.42 条件渲染方式</figcaption>
 </figure>
-<p>图3.42 条件渲染方式</p>
 <p>同时在index.js文件中，编写change4事件处理函数，与方式三中的change3函数类似，其代码如下图3.43所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926221348360.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926221348360.png#pic_center" alt="图3.43 事件处理函数" /><figcaption>图3.43 事件处理函数</figcaption>
 </figure>
-<p>图3.43 事件处理函数</p>
 <p>在模拟器中进行调试，数字比较结果显示正常。</p>
 <p>下面对布局文件进行改进，使用<code>&lt;block&gt;</code>标签控制区域的显示与否，其关键代码如下图3.44所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926221414982.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926221414982.png#pic_center" alt="图3.44 使用&lt;block&gt;组件" /><figcaption>图3.44 使用<code>&lt;block&gt;</code>组件</figcaption>
 </figure>
-<p>图3.44 使用<code>&lt;block&gt;</code>组件</p>
 <p>需要注意的是，<code>&lt;block&gt;</code>标签没有渲染的功能，它只是一个包装组件，用来控制某一块区域是否进行显示。测试该方式，程序同样正常运行。 方式五、通过表单获取input组件的值.</p>
 <p>可以通过<code>&lt;from&gt;</code>标签创建表单，获取表单组件中的值。在本案例中，可以将两个input组件和button组件做成一个表单，代码如下图3.45所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926221436654.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926221436654.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图3.45 使用&lt;form&gt;表单组件" /><figcaption>图3.45 使用<code>&lt;form&gt;</code>表单组件</figcaption>
 </figure>
-<p>图3.45 使用<code>&lt;form&gt;</code>表单组件</p>
 <p>进行模拟器上的测试，结果发现程序未能正常显示数值比较结果，控制台也没有发出任何警告或错误信息。经过反复查找，终于找到错误原因。原因是我误将<code>&lt;form&gt;</code>组件写成了<code>&lt;from&gt;</code>组件，如下图3.46所示。经过查阅资料，发现并不存在名为<code>&lt;from&gt;</code>的组件，但是开发工具没有报错。为了进行测试，我改正错误之后，又新增了一行没有定义过的标签<code>&lt;hello123&gt;</code>，如图3.47所示，发现程序正常运行。说明WXML对于标签的检查是不严格的，它对于错误的标签只会忽略渲染，对整个布局不会产生影响。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926221444343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926221444343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图3.46 错误位置" /><figcaption>图3.46 错误位置</figcaption>
 </figure>
-<p>图3.46 错误位置</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926221459276.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926221459276.png#pic_center" alt="图3.47 未定义组件测试" /><figcaption>图3.47 未定义组件测试</figcaption>
 </figure>
-<p>图3.47 未定义组件测试</p>
 <p>至此，实现比较功能的五种方式均以经过测试，其中第三种方式(在页面中直接进行比较)，还存在问题，没有调试成功。将在“四、实验中存在的问题及解决方案”章节进行第三种方式的问题调试。</p>
 <h2 id="三实验结果">三、实验结果</h2>
 <p>本次实验实现微信小程序开发环境的搭建，并创建一个用于测试的小程序项目。完成了小程序布局文件、逻辑文件等内容的而编写，最后使用五种方式实现了页面逻辑。本次实验小程序项目文件，已经上传到GitHub储存。</p>
@@ -666,13 +620,11 @@
 <p>目前为止，实现比较功能的五种方式均以经过测试，只有第三种方式，即在页面中直接显示结果的方式没有实现功能。该方法意在使用变量语法和条件表达式相结合的方式，直接在布局页面实现数字大小的比较与结果的显示。</p>
 <p>现在程序运行的状态是不管输入任何数字，都只会显示“第 1 个数字大”这样的结果。现在程序代码截图如下图4.1和图4.2所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926221526292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926221526292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图4.1 布局文件" /><figcaption>图4.1 布局文件</figcaption>
 </figure>
-<p>图4.1 布局文件</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190926221550409.png#pic_center" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20190926221550409.png#pic_center" alt="图4.2 事件处理函数" /><figcaption>图4.2 事件处理函数</figcaption>
 </figure>
-<p>图4.2 事件处理函数</p>
 <h3 id="问题分析">4.2问题分析</h3>
 <p>能够显示数字比较的结果，说明input的事件处理函数应该是没有问题，它的this.setData()函数能够实现返回num数值的功能，所以问题应该出现在布局文件中的条件表达式上。仔细观察条件表达式，发现条件表达式的输出结果写重复了，都写成了“第1个数大”。将其改正后，程序正常运行。</p>
 <h3 id="问题总结">4.3问题总结</h3>
@@ -692,7 +644,10 @@
 <h3 id="实验代码">6.1 实验代码</h3>
 <p>本次实验的项目代码，已经上传到了GitHub，网址为：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvV2VDaGF0" title="https://github.com/ZHJ0125/WeChat">https://github.com/ZHJ0125/WeChat<i class="fa fa-external-link"></i></span></p>
 <h3 id="参考资料">6.2参考资料</h3>
-<p>【1】 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vbWluaXByb2dyYW0vZGV2L3JlZmVyZW5jZS9jb25maWd1cmF0aW9uL3BhZ2UuaHRtbA==" title="https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html">微信官方文档——页面配置<i class="fa fa-external-link"></i></span> 【2】 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vbWluaXByb2dyYW0vZGV2L2ZyYW1ld29yay92aWV3L3d4bWwvZXZlbnQuaHRtbA==" title="https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html">微信官方文档——事件<i class="fa fa-external-link"></i></span></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vbWluaXByb2dyYW0vZGV2L3JlZmVyZW5jZS9jb25maWd1cmF0aW9uL3BhZ2UuaHRtbA==" title="https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html">微信官方文档——页面配置<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vbWluaXByb2dyYW0vZGV2L2ZyYW1ld29yay92aWV3L3d4bWwvZXZlbnQuaHRtbA==" title="https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html">微信官方文档——事件<i class="fa fa-external-link"></i></span></li>
+</ul>
 
     </div>
 
@@ -878,7 +833,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -891,7 +846,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -959,12 +914,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">151k</span>
+    <span title="站点总字数">153k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:11</span>
+    <span title="站点阅读时长">4:15</span>
 </div>
 
 <!--

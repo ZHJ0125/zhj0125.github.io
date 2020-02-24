@@ -140,7 +140,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">26</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">27</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">22</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -232,6 +232,125 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhj.forever305.cn/2020/02/24/Flutter-Start/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhang H.J.">
+      <meta itemprop="description" content="Talk is cheap, Show me the code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="厚今的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/24/Flutter-Start/" class="post-title-link" itemprop="url">安装Flutter遇到的问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-24 09:46:38" itemprop="dateCreated datePublished" datetime="2020-02-24T09:46:38+08:00">2020-02-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">技术笔记</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/02/24/Flutter-Start/" class="post-meta-item leancloud_visitors" data-flag-title="安装Flutter遇到的问题" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/02/24/Flutter-Start/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/24/Flutter-Start/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>9 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li>最近忽然想玩玩Flutter，安装的时候遇到了一些问题，在这里记录一下</li>
+</ul>
+<h2 id="android-license-status-unknown">1. Android license status unknown</h2>
+<p>下载Flutter SDK，配置环境变量之后，在命令行输入<code>flutter doctor</code>诊断当前环境</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\ZHJ&gt; flutter doctor</span><br><span class="line">Doctor summary (to see all details, run flutter doctor <span class="literal">-v</span>):</span><br><span class="line"><span class="function">[√] <span class="title">Flutter</span></span> (Channel stable, v1.<span class="number">0.0</span>, on Microsoft Windows [<span class="type">Version</span> <span class="number">10.0</span><span class="type">.19564.1000</span>], locale en<span class="literal">-US</span>)</span><br><span class="line">[!] Android toolchain - develop <span class="keyword">for</span> Android devices (Android SDK <span class="number">29.0</span>.<span class="number">2</span>)</span><br><span class="line">    X Android license status unknown.</span><br><span class="line">[√] Android Studio (version <span class="number">3.2</span>)</span><br><span class="line">    X Flutter plugin not installed; this adds Flutter specific functionality.</span><br><span class="line">    X Dart plugin not installed; this adds Dart specific functionality.</span><br><span class="line">[!] Connected device</span><br><span class="line">    ! No devices available</span><br><span class="line"></span><br><span class="line">! Doctor found issues <span class="keyword">in</span> <span class="number">2</span> categories.</span><br></pre></td></tr></table></figure>
+<p>使用以下命令诊断安卓证书 <code>flutter doctor --android-licenses</code></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\ZHJ&gt; flutter doctor -<span class="literal">-android</span><span class="literal">-licenses</span></span><br><span class="line">A newer version of the Android SDK is required. To update, run:</span><br><span class="line">E:\AndroidStudio\SDK\tools\bin\sdkmanager -<span class="literal">-update</span></span><br></pre></td></tr></table></figure>
+<p>按照提示，输入相应命令<code>E:\AndroidStudio\SDK\tools\bin\sdkmanager --update</code>，然而....</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/24/Flutter-Start/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://zhj.forever305.cn/2020/02/08/Vultr_VPS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -303,7 +422,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.1k</span>
+              <span>1.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -322,9 +441,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
-<p>本篇文章，我将使用Vultr服务商提供的VPS服务器，搭建 Shadowrocks 并开启 BBR 加速上网功能</p>
-</blockquote>
+          <ul>
+<li>本篇文章，我将使用Vultr服务商提供的VPS服务器，搭建 Shadowrocks 并开启 BBR 加速上网功能</li>
+<li>特别说明：本次博客中提到的软件均已进行备份，如原链接失效，可查看 <a href="http://47.95.13.239/data/Blog/Vultr_VPN/" target="_blank" rel="noopener">备份页面</a></li>
+</ul>
+<p>之前一直使用 <a href="http://47.95.13.239:8888/externalLinksController/downloadFileByKey/%E8%B0%B7%E6%AD%8C%E8%AE%BF%E9%97%AE%E5%8A%A9%E6%89%8B_v2.3.zip?dkey=3e46a3a3-61f5-4947-9308-9ab450dee4d6" target="_blank" rel="noopener">谷歌访问助手</a> 翻墙，虽然比较稳定，但是它限制访问 YouTube 等网站； 我还尝试过使用像 <a href="http://sfcloud.pw/user" target="_blank" rel="noopener">顺风云</a>、<a href="https://www.jdb02.xyz/user" target="_blank" rel="noopener">加多宝</a> 这样的节点订阅，但这样的节点不太稳定，访问速度也不太快； 尝试使用过 <a href="https://lncn.org/" target="_blank" rel="noopener">lncn.org</a> 这样的节点网站，虽然利用无法订阅的特点减少了阻塞情况，但几乎每次使用都需要去网站更新节点，很不方便； 因此，本次我将尝试使用<strong>自建的VPS服务器</strong>，搭建 <a href="https://shadowsockshelp.github.io/Shadowsocks/" target="_blank" rel="noopener">Shadowrocks</a> 服务，通过BBR实现网络加速功能</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/08/Vultr_VPS/#more" rel="contents">
@@ -536,7 +657,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>342</span>
+              <span>328</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -560,6 +681,37 @@
 <li>问题描述：</li>
 <li>VLC 添加外挂字幕乱码</li>
 </ul>
+<h2 id="软件环境">软件环境</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">描述</th>
+<th style="text-align: left;">说明</th>
+<th style="text-align: left;">下载地址</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">VLC 版本</td>
+<td style="text-align: left;">3.0.8</td>
+<td style="text-align: left;"><a href="https://get.videolan.org/vlc/3.0.8/win64/vlc-3.0.8-win64.exe" target="_blank" rel="noopener">VLC 3.0.8</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">字母格式</td>
+<td style="text-align: left;">ASS/SRT</td>
+<td style="text-align: left;"><a href="http://www.zimuku.la/" target="_blank" rel="noopener">字幕库</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="解决方案">解决方案</h2>
+<ol type="1">
+<li>启动VLC播放器;</li>
+<li>依次点击左上标题栏 <code>工具--&gt;设置</code> (<code>Tools --&gt; Preferences</code>) 进入配置页面;</li>
+<li>在配置页面上方的导航栏，选择 <code>字符/OSD</code> (<code>Subtitles/OSD</code>) 栏目;</li>
+<li>在 <code>默认编码</code> (<code>Default encoding</code>) 右侧选择 <code>默认GB18030</code> (<code>Universal,Chinese GB18030</code>);</li>
+<li>在字幕效果-字体右侧选择一个中文字体;(选做)</li>
+<li>重启 VLC 播放器</li>
+</ol>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/01/22/VLC_Garbled/#more" rel="contents">
@@ -884,14 +1036,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>10k</span>
+              <span>9.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>17 分钟</span>
+              <span>16 分钟</span>
             </span>
 
         </div>
@@ -1006,7 +1158,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>789</span>
+              <span>780</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1028,6 +1180,12 @@
           <ul>
 <li>记录 Ubuntu18.04 编译安装 OpenCV 过程中遇到的问题</li>
 <li>参考的安装教程：<a href="https://www.pyimagesearch.com/2018/05/28/ubuntu-18-04-how-to-install-opencv/" target="_blank" rel="noopener">Ubuntu 18.04: How to install OpenCV by Adrian Rosebrock on May 28, 2018 in OpenCV, Tutorials</a></li>
+</ul>
+<h2 id="报错1-fatal-error-boostdesc_bgm.i-no-such-file-or-directory">报错1： fatal error: boostdesc_bgm.i: No such file or directory</h2>
+<p>报错截图： <img src="https://img-blog.csdnimg.cn/20191029181732561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="fatal error" /></p>
+<ul>
+<li>报错原因：在编译CMake的时候 <strong>boostdesc_bgm.i</strong> 这个文件就没有下载成功，导致make编译的时候找不到该文件。</li>
+<li>解决方案：手动下载相关文件。总共需要下载11个文件，我已经将它们上传到了服务器上，<a href="http://47.95.13.239/play/OpenCV/fatal_error/" target="_blank" rel="noopener">点击此处可以下载</a>。下载完成后，将他们复制到 <strong>opencv_contrib/modules/xfeatures2d/src/</strong> 文件夹中，重新编译即可。</li>
 </ul>
           <!--noindex-->
             <div class="post-button">
@@ -1153,6 +1311,70 @@
 <li>我还做了一个使用数码管滚动显示学号的程序，就不再写成博客了，代码放在了GitHub</li>
 </ul></li>
 </ul>
+<p>  单片机实验平台简介等信息，请阅读<a href="https://blog.csdn.net/ZHJ123CSDN/article/details/102299484" target="_blank" rel="noopener">上一篇文章</a>。</p>
+<h2 id="一hc-sr04">一、HC-SR04</h2>
+<h3 id="简介">1.1 简介</h3>
+<p>  HC-SR04超声波测距模块提供2cm~4m的非接触式测距功能，测距精度可达3mm。</p>
+<h3 id="电气参数">1.2 电气参数</h3>
+<table>
+<thead>
+<tr class="header">
+<th>电气参数</th>
+<th>HC-SR04模块</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>工作电压</td>
+<td>DC 5V</td>
+</tr>
+<tr class="even">
+<td>工作电流</td>
+<td>15mA</td>
+</tr>
+<tr class="odd">
+<td>工作频率</td>
+<td>40Hz</td>
+</tr>
+<tr class="even">
+<td>最远射程</td>
+<td>4m</td>
+</tr>
+<tr class="odd">
+<td>最近射程</td>
+<td>2cm</td>
+</tr>
+<tr class="even">
+<td>测量角度</td>
+<td>15°</td>
+</tr>
+<tr class="odd">
+<td>输入触发信号</td>
+<td>10us的TTL高电平脉冲</td>
+</tr>
+<tr class="even">
+<td>输出回响信号</td>
+<td>输出TTL高电平，时间与射程成正比</td>
+</tr>
+<tr class="odd">
+<td>规格尺寸</td>
+<td>45×20×15mm</td>
+</tr>
+</tbody>
+</table>
+<h3 id="时序图">1.3 时序图</h3>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20191010212059345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x250" alt="图1 HC-SR04时序图" /><figcaption>图1 HC-SR04时序图</figcaption>
+</figure>
+<p>通过阅读时序图可以看出HCSR04的工作原理：</p>
+<blockquote>
+<ol type="1">
+<li>采用IO口TRIG触发测距，给至少10us的高电平信号</li>
+<li>模块自动发送8个40khz的方波，自动检测是否有信号返回</li>
+<li>有信号返回，通过IO口ECHO输出一个高电平，高电平持续的时间就是超声波从发射到返回的时间</li>
+<li>测试距离 = (高电平时间 * 声速(340M/S)) / 2</li>
+</ol>
+</blockquote>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/10/16/STC11F04E_HC-SR04/#more" rel="contents">
@@ -1257,7 +1479,7 @@
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>21 分钟</span>
+              <span>20 分钟</span>
             </span>
 
         </div>
@@ -1281,135 +1503,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/10/07/STC11F04E_Electronic/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zhj.forever305.cn/2019/09/26/WeChat_Basic/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Zhang H.J.">
-      <meta itemprop="description" content="Talk is cheap, Show me the code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="厚今的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/09/26/WeChat_Basic/" class="post-title-link" itemprop="url">微信小程序——开发基础</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-09-26 22:32:47" itemprop="dateCreated datePublished" datetime="2019-09-26T22:32:47+08:00">2019-09-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">技术笔记</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E6%95%99%E5%AD%A6%E5%AE%9E%E8%AE%AD/" itemprop="url" rel="index">
-                    <span itemprop="name">教学实训</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/09/26/WeChat_Basic/" class="post-meta-item leancloud_visitors" data-flag-title="微信小程序——开发基础" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2019/09/26/WeChat_Basic/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/26/WeChat_Basic/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>7.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>12 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li>内容说明:这是微信小程序第一次实验报告</li>
-<li><p>本次实验主要实现了三部分内容：开发环境的搭建，开发工具的安装以及比较数字大小的实验案例。在进行实验的过程中，掌握了以下知识内容：</p>
-<ul>
-<li>微信小程序开发环境的搭建</li>
-<li>小程序项目的创建</li>
-<li>页面文件WXML的编写</li>
-<li>页面样式WXSS的编写(元素选择器、尺寸单位、样式引入)</li>
-<li>配置文件JSON的编写(页面级和应用级配置文件的常见配置属性)</li>
-<li>页面逻辑文件JS的编写(生命周期回调函数、页面事件处理函数、组件事件处理函数)</li>
-<li>五种实现页面逻辑的方法(为不同的组件绑定不同的处理函数、为同类型组件绑定相同的处理函数、使用条件表达式、利用条件渲染显示需要的组件、通过表单格式<code>form</code>获取用户输入信息)</li>
-</ul></li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/09/26/WeChat_Basic/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1501,7 +1594,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1514,7 +1607,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1582,12 +1675,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">151k</span>
+    <span title="站点总字数">153k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:11</span>
+    <span title="站点阅读时长">4:15</span>
 </div>
 
 <!--

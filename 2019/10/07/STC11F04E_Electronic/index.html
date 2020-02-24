@@ -152,7 +152,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">26</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">27</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -162,7 +162,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">22</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -321,7 +321,7 @@
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>21 分钟</span>
+              <span>20 分钟</span>
             </span>
 
         </div>
@@ -346,18 +346,15 @@
 <h2 id="一实验平台介绍">一、实验平台介绍</h2>
 <p>  本次实验使用的PCB是老师自己画的，老师给了一张并不清晰的原理图截图，如下图所示。可以看到，这块PCB能实现三个功能：使用DS1302显示时间、使用DS18B20显示温度以及使用HC-SR04进行超声波测距(原理图上没有画，实际上它是与DS1302复用了IO和2SLCK引脚)，数值显示都是用数码管。实验用到的主控芯片是：STC11F04E</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20191007123216239.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=1000x600" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20191007123216239.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=1000x600" alt="图1 原理图" /><figcaption>图1 原理图</figcaption>
 </figure>
-<p>图1 原理图</p>
 <p>  焊接完成后大概长这样：</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20191007123405264.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=300x250" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20191007123405264.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=300x250" alt="图2 正面" /><figcaption>图2 正面</figcaption>
 </figure>
-<p>图2 正面</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20191007123423448.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=300x250" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20191007123423448.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=300x250" alt="图3 背面" /><figcaption>图3 背面</figcaption>
 </figure>
-<p>图3 背面</p>
 <h2 id="二功能实现">二、功能实现</h2>
 <h3 id="数码管驱动">2.1 数码管驱动</h3>
 <h4 id="原理">2.1.1 原理</h4>
@@ -365,16 +362,14 @@
 <h4 id="共阴还是共阳">2.1.2 共阴还是共阳</h4>
 <p>  点亮每个数码管之前，都需要知道你的数码管是共阴的还是共阳的，这样才能点亮。测试的方法就是给公共端一个高电位，其他端口给个低点位，如果有一段被点亮了，说明这个数码管是共阳的，否则就是共阴的数码管。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20191007123440576.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=600x600" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20191007123440576.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=600x600" alt="图4 数码管测试" /><figcaption>图4 数码管测试</figcaption>
 </figure>
-<p>图4 数码管测试</p>
 <p>  上面是利用Arduino的3.3V和GND接口，测试数码管的过程，可以看到本次实验使用的5611BH数码管是共阳的数码管。</p>
 <h4 id="编写驱动程序">2.1.3 编写驱动程序</h4>
 <p>  先看一下这部分的原理图</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20191007123456798.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=1000x600" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20191007123456798.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=1000x600" alt="图5 数码管部分原理图" /><figcaption>图5 数码管部分原理图</figcaption>
 </figure>
-<p>图5 数码管部分原理图</p>
 <p>  可以看到原理图中控制位选的是P1.0~P1.3这四个IO口，控制数码管段选的是74HC164这个芯片。</p>
 <p>-（1）位选部分</p>
 <p>  刚才已经测量过，实验使用的数码管是一个共阳的数码管，所以位选选中的话就需要给每一个公共端高电平。公共端连结了一个三极管，三极管的基极连结P1口，射级连结了VCC，集电极连结数码管的公共端。因此，想要选中某一个数码管，只需使位选P1口输出高电平即可。</p>
@@ -385,9 +380,8 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**********************************************************</span></span><br><span class="line"><span class="comment">*  函数名称：74HC164发送Byte函数</span></span><br><span class="line"><span class="comment">*  日期：2019-9-29</span></span><br><span class="line"><span class="comment">*  姓名：ZhangHJ</span></span><br><span class="line"><span class="comment">*  说明：74HC164移位寄存器输入一字节数据发给寄存器</span></span><br><span class="line"><span class="comment">***********************************************************/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SendByte_74HC164</span><span class="params">(uchar <span class="keyword">byte</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    uchar num,c;</span><br><span class="line">    num=tab[<span class="keyword">byte</span>];</span><br><span class="line">    <span class="keyword">for</span>(c=<span class="number">0</span>; c&lt;<span class="number">8</span>; c++)</span><br><span class="line">    &#123;</span><br><span class="line">        DAT=num&amp;<span class="number">0x01</span>;           <span class="comment">// P3^0 --&gt; 0000 000x</span></span><br><span class="line">        CLK=<span class="number">0</span>;                  <span class="comment">// 制造一个上升沿</span></span><br><span class="line">        CLK=<span class="number">1</span>;</span><br><span class="line">        num&gt;&gt;=<span class="number">1</span>;                <span class="comment">// 将数据发送到寄存器</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>  上面贴出来的是74HC164发送数据的函数，也就是数码管段选的函数。位选控制的话，直接将P1口全部选中就可以了。   这部分做完后，现在板子可以实现4位数码管同时点亮的功能了，如下图所示。拍照可能数码管不太清楚，但实际看着效果可以。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20191007125411710.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x400" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20191007125411710.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x400" alt="图6 数码管静态显示效果" /><figcaption>图6 数码管静态显示效果</figcaption>
 </figure>
-<p>图6 数码管静态显示效果</p>
 <p>点击查看<span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9TdHVkeS9NaWNyb2NvbXB1dGVyL1NUQzExRjA0RS9WaWRlby9TaG93X3ZpZGVvLzAxX0RpZ2l0YWxfVHViZV9TdGF0aWNfRGlzcGxheS5NUDQ=" title="http://47.95.13.239/Study/Microcomputer/STC11F04E/Video/Show_video/01_Digital_Tube_Static_Display.MP4">静态显示<i class="fa fa-external-link"></i></span>的展示效果视频</p>
 <h4 id="数码管动态显示">2.1.4 数码管动态显示</h4>
 <p>  上面做完之后，就已经实现了数码管的静态显示，也就是4个数码管只能同时显示同一个数，要实现动态显示，就需要对数码管的位选进行详细的控制。 （1）动态原理   一般来说，动态显示的流程是： &gt; 循环进行： &gt; &gt;1. 关闭位选（位选都不选中） &gt;2. 开启段选（74HC164向寄存器传送数据） &gt;3. 开启位选（选中要显示的数码管） &gt;4. 关闭段选（清空段选数据，防止残影） &gt;5. 关闭位选（防止残影） &gt;</p>
@@ -397,9 +391,8 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**********************************************************</span></span><br><span class="line"><span class="comment">*  函数名称：按位控制数码管动态显示函数</span></span><br><span class="line"><span class="comment">*  日期：2019-9-30</span></span><br><span class="line"><span class="comment">*  姓名：ZhangHJ</span></span><br><span class="line"><span class="comment">*  说明：实现4个数码管显示 4321 的效果</span></span><br><span class="line"><span class="comment">*       数码管引脚高电平有效,首先设置各位段选信号,然后给寄存器发送数据</span></span><br><span class="line"><span class="comment">*       延时一段时间实现数字显示,最后清除段选信号清屏.</span></span><br><span class="line"><span class="comment">***********************************************************/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_light_bit</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    DPY0 = ON;</span><br><span class="line">    DPY1 = OFF;</span><br><span class="line">    DPY2 = OFF;</span><br><span class="line">    DPY3 = OFF;</span><br><span class="line">    SendByte_74HC164(<span class="number">1</span>);</span><br><span class="line">    delay_ms(DELAY_TIME);</span><br><span class="line">    SendByte_74HC164(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">    DPY0 = OFF;</span><br><span class="line">    DPY1 = ON;</span><br><span class="line">    DPY2 = OFF;</span><br><span class="line">    DPY3 = OFF;</span><br><span class="line">    SendByte_74HC164(<span class="number">2</span>);</span><br><span class="line">    delay_ms(DELAY_TIME);</span><br><span class="line">    SendByte_74HC164(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">    DPY0 = OFF;</span><br><span class="line">    DPY1 = OFF;</span><br><span class="line">    DPY2 = ON;</span><br><span class="line">    DPY3 = OFF;</span><br><span class="line">    SendByte_74HC164(<span class="number">3</span>);</span><br><span class="line">    delay_ms(DELAY_TIME);</span><br><span class="line">    SendByte_74HC164(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">    DPY0 = OFF;</span><br><span class="line">    DPY1 = OFF;</span><br><span class="line">    DPY2 = OFF;</span><br><span class="line">    DPY3 = ON;</span><br><span class="line">    SendByte_74HC164(<span class="number">4</span>);</span><br><span class="line">    delay_ms(DELAY_TIME);</span><br><span class="line">    SendByte_74HC164(<span class="number">10</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>  差不多的流程，同样能实现数码管的动态显示控制。动态显示做完之后，这四个数码管就能显示不同的数字了，效果如下图所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20191007125933886.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x400" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20191007125933886.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x400" alt="图7 数码管动态显示效果" /><figcaption>图7 数码管动态显示效果</figcaption>
 </figure>
-<p>图7 数码管动态显示效果</p>
 <p>点击查看<span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9TdHVkeS9NaWNyb2NvbXB1dGVyL1NUQzExRjA0RS9WaWRlby9TaG93X3ZpZGVvLzAyX0RpZ2l0YWxfVHViZV9EeW5hbWljX0Rpc3BsYXkuTVA0" title="http://47.95.13.239/Study/Microcomputer/STC11F04E/Video/Show_video/02_Digital_Tube_Dynamic_Display.MP4">数码管动态显示<i class="fa fa-external-link"></i></span>的效果视频</p>
 <p>  可以看到，在按键按下后，显示的4321是有残影的。这是因为按位操作显示4321的函数，没有严格按照动态显示的顺序进行编写，没有关闭位选。就先这样吧，不再改了。   数码管能做到这里基本就算完事了，接下来进行DS18B20温度传感器的控制。</p>
 <h3 id="ds18b20-温度传感器驱动">2.2 DS18B20 温度传感器驱动</h3>
@@ -423,40 +416,35 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**********************************************************</span></span><br><span class="line"><span class="comment">*  函数名称：18B20温度转换完整过程函数</span></span><br><span class="line"><span class="comment">*  修改日期：2019-9-11</span></span><br><span class="line"><span class="comment">*  修改人：ZhangHJ</span></span><br><span class="line"><span class="comment">*  说明：1.首先进行18B20初始化</span></span><br><span class="line"><span class="comment">*       2.进行适当延时</span></span><br><span class="line"><span class="comment">*       3.发送跳过光刻ROM指令</span></span><br><span class="line"><span class="comment">*       4.发送RAM指令,进行温度转换</span></span><br><span class="line"><span class="comment">*       5.读取两个8位数据,放到16位寄存器 temp 中</span></span><br><span class="line"><span class="comment">*       6.将读取到的二进制数据(默认为正数),转换为十进制数据</span></span><br><span class="line"><span class="comment">*       7.返回温度数据</span></span><br><span class="line"><span class="comment">*   详见18B20资料“2.8.3.1存储器操作命令”章节</span></span><br><span class="line"><span class="comment">***********************************************************/</span></span><br><span class="line"><span class="function">uint <span class="title">tmp</span><span class="params">()</span>                          <span class="comment">// get the temperature</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> tt;</span><br><span class="line">    uchar high,low;</span><br><span class="line">    <span class="comment">//P1 |= 0x0f;</span></span><br><span class="line">    <span class="keyword">while</span>(dsreset() == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        SendByte_74HC164(<span class="number">0</span>);</span><br><span class="line">        P1 &amp;= <span class="number">0xfB</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="comment">//tmpchange();</span></span><br><span class="line">    tmpwritebyte(<span class="number">0xCC</span>);             <span class="comment">// 跳过 ROM 操作</span></span><br><span class="line">    tmpwritebyte(<span class="number">0xBE</span>);             <span class="comment">// 读暂存寄存器</span></span><br><span class="line">    low=tmpread();</span><br><span class="line">    high=tmpread();</span><br><span class="line">    temp=high;</span><br><span class="line">    temp&lt;&lt;=<span class="number">8</span>;                       <span class="comment">// two byte compose a int variable</span></span><br><span class="line">    temp=temp|low;</span><br><span class="line">    tt=temp*<span class="number">0.0625</span>;</span><br><span class="line">    temp=tt*<span class="number">10</span>+<span class="number">0.5</span>;</span><br><span class="line">    <span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>  上面的函数就是DS18B20温度转换的完整过程，因为涉及到了一些寄存器的操作，温度数值转换的操作，我也没深入研究，也不说啥了。想要知道原理的话可以看一看DS18B20的手册。   现在已经能够实现读取DS18B20温度数值的功能了，只要将温度转换之后的数值，显示到数码管上就完事了。数码管那一部分就不贴代码了，跟动态显示差不太多。效果如下图所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20191007130258503.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x400" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20191007130258503.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x400" alt="图8 温度显示效果" /><figcaption>图8 温度显示效果</figcaption>
 </figure>
-<p>图8 温度显示效果</p>
 <p>点击查看<span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9TdHVkeS9NaWNyb2NvbXB1dGVyL1NUQzExRjA0RS9WaWRlby9TaG93X3ZpZGVvLzAzX0RTMThCMjBfVGVzdC5NUDQ=" title="http://47.95.13.239/Study/Microcomputer/STC11F04E/Video/Show_video/03_DS18B20_Test.MP4">DS18B20温度传感器<i class="fa fa-external-link"></i></span>测试视频</p>
 <h3 id="ds1302时钟模块">2.3 DS1302时钟模块</h3>
 <h4 id="原理-2">2.3.1 原理</h4>
 <p>  DS1302是一个常见的时钟芯片，它可以可提供秒、分、时、日、星期、月和年的时间记录，同时还有每月多少天的自动调整，还具有闰年补偿功能。<del>嗯，功能多到我们都用不着哈?。这东西拿来做一个万年历还行，但是我的PCB上面只有4个数码管，一次也显示不全，还不如只用“时分”功能来得方便。</del>   DS1302的封装就长这样：</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/2019100712364634.png#pic_center=300x150" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/2019100712364634.png#pic_center=300x150" alt="图9 DS1302时钟芯片" /><figcaption>图9 DS1302时钟芯片</figcaption>
 </figure>
-<p>图9 DS1302时钟芯片</p>
 <blockquote>
 <p>Vcc2是它的主电源，Vcc1是它的备用电源 X1、X2是晶振的输入端 SCLK是时钟的输入端 CE是片选使能</p>
 </blockquote>
 <p>  ==在芯片手册里有要求==，外接的晶振是标准的32.768KHz，按要求外接一个就行了。SCLK接单片机的引脚，因为这个芯片在读写操作时需要进行时钟的控制（在时钟上升沿写入数据；在时钟下降沿读数据），所以接到单片机上给它造上升沿和下降沿。CE是片选使能，在时序图里面可以看到，要进行读写操作时，CE必须要是高电平。低电平的CE会禁止读写操作，终止数据的传输。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20191007123655290.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=600x450" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20191007123655290.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=600x450" alt="图10 DS1302时序图" /><figcaption>图10 DS1302时序图</figcaption>
 </figure>
-<p>图10 DS1302时序图</p>
 <h4 id="程序编写-1">2.3.2 程序编写</h4>
 <p>  DS1302这个芯片操作还是比较方便的，这个芯片因为是专门用来当时钟的芯片，所以对他的访问也无非就只有“写入初始时间”和“读取时间”。   对于写入初始时间来说，也就是往DS1302寄存器里写入数据而已；对于读取时间来说，需要你提供一个地址，用来告诉单片机你想访问DS1302的哪个寄存器，然后单片机就会去DS1302这个寄存器里面取值，经过数值转换后，就成了我们想要的时间数值。   DS1302的寄存器也有点意思，因为它是专门的时钟芯片，所以寄存器也是很好理解。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20191007123710882.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=600x320" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20191007123710882.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=600x320" alt="图11 DS1302寄存器" /><figcaption>图11 DS1302寄存器</figcaption>
 </figure>
-<p>图11 DS1302寄存器</p>
 <p>  首先来进行写命令函数的编写，下面贴出代码。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**********************************************************</span></span><br><span class="line"><span class="comment">*  函数名称：DS1302写操作函数</span></span><br><span class="line"><span class="comment">*  日期：2019-10-4</span></span><br><span class="line"><span class="comment">*  姓名：ZhangHJ</span></span><br><span class="line"><span class="comment">*  说明：写操作包含两个参数,add表示要写入的地址;wdata表示要写入的数据</span></span><br><span class="line"><span class="comment">*       1. 读写操作需要先将RST拉高才能进行</span></span><br><span class="line"><span class="comment">*       2. 先写入控制字节,在时钟上升沿串行写入数据</span></span><br><span class="line"><span class="comment">*       3. 再写入数据字节,同样在时钟上升沿写入数据</span></span><br><span class="line"><span class="comment">*       4. 最后拉低RST禁止数据传输</span></span><br><span class="line"><span class="comment">***********************************************************/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DS1302Write</span><span class="params">(uchar add,uchar wdata)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    uchar a;</span><br><span class="line">    <span class="comment">//wdata = hex(wdata);       // 转换为BCD码</span></span><br><span class="line">    RST=<span class="number">0</span>;                      <span class="comment">// 拉低RST引脚,终止数据传输</span></span><br><span class="line">    SCLK=<span class="number">0</span>;                     <span class="comment">// 拉低SCLK引脚,清零时钟线</span></span><br><span class="line">    RST=<span class="number">1</span>;                      <span class="comment">// 拉高RST引脚,所有数据传输都要拉高RST脚,启动控制逻辑</span></span><br><span class="line">    <span class="comment">//先写入控制字节</span></span><br><span class="line">    <span class="keyword">for</span>(a=<span class="number">0</span>; a&lt;<span class="number">8</span>; a++)</span><br><span class="line">    &#123;</span><br><span class="line">        IO= add &amp; <span class="number">0x01</span>;         <span class="comment">// IO引脚准备好要写入的1位数据</span></span><br><span class="line">        SCLK=<span class="number">1</span>;                 <span class="comment">// SCLK上升沿,1位数据从IO脚写入,低位先写入</span></span><br><span class="line">        add&gt;&gt;=<span class="number">1</span>;                <span class="comment">// 数据右移1位</span></span><br><span class="line">        SCLK=<span class="number">0</span>;                 <span class="comment">// 拉低SCLK,为下次写入准备,循环8次写入1字节</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//再写入数据字节</span></span><br><span class="line">    <span class="keyword">for</span>(a=<span class="number">0</span>; a&lt;<span class="number">8</span>; a++)</span><br><span class="line">    &#123;</span><br><span class="line">        IO= wdata &amp; <span class="number">0x01</span>;</span><br><span class="line">        SCLK=<span class="number">1</span>;</span><br><span class="line">        wdata&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">        SCLK=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    RST=<span class="number">0</span>;                      <span class="comment">// 数据传输完拉低RST</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>  写入数据也是串行写入的，可以依照时序图进行该函数的编写。另外读命令函数也贴出代码。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**********************************************************</span></span><br><span class="line"><span class="comment">*  函数名称：DS1302读操作函数</span></span><br><span class="line"><span class="comment">*  日期：2019-10-4</span></span><br><span class="line"><span class="comment">*  姓名：ZhangHJ</span></span><br><span class="line"><span class="comment">*  说明：读操作只需一个参数,即需要读取的寄存器地址add</span></span><br><span class="line"><span class="comment">*       1. 首先需要将需要读取的地址(1Byte)写入寄存器,在上升沿进行写入操作</span></span><br><span class="line"><span class="comment">*       2. 之后读取该地址中的数据,在下降沿读取数据</span></span><br><span class="line"><span class="comment">*       3. 最后返回读取到的1Byte数据</span></span><br><span class="line"><span class="comment">***********************************************************/</span></span><br><span class="line"><span class="function">uchar <span class="title">DS1302Read</span><span class="params">(uchar add)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    uchar a, rdata=<span class="number">0</span>;</span><br><span class="line">    RST = <span class="number">0</span>;                    <span class="comment">// 拉低RST引脚,终止数据传输</span></span><br><span class="line">    SCLK = <span class="number">0</span>;                   <span class="comment">// 拉低SCLK引脚,清零时钟线</span></span><br><span class="line">    RST = <span class="number">1</span>;                    <span class="comment">// 拉高RST引脚,启动控制逻辑</span></span><br><span class="line">    <span class="comment">//发送控制字节</span></span><br><span class="line">    <span class="keyword">for</span>(a=<span class="number">0</span>; a&lt;<span class="number">8</span>; a++)</span><br><span class="line">    &#123;</span><br><span class="line">        SCLK = <span class="number">0</span>;</span><br><span class="line">        IO = add &amp; <span class="number">0x01</span>;</span><br><span class="line">        SCLK = <span class="number">1</span>;               <span class="comment">// 制造一个上升沿,写入地址</span></span><br><span class="line">        add &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//读1字节数据</span></span><br><span class="line">    <span class="keyword">for</span>(a=<span class="number">0</span>; a&lt;<span class="number">8</span>; a++)</span><br><span class="line">    &#123;</span><br><span class="line">        SCLK = <span class="number">1</span>;</span><br><span class="line">        rdata &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        SCLK = <span class="number">0</span>;               <span class="comment">// 制造一个下降沿,读取数据</span></span><br><span class="line">        <span class="keyword">if</span>(IO)</span><br><span class="line">        &#123;                       <span class="comment">// 如果读到1</span></span><br><span class="line">            rdata |= <span class="number">0x80</span>;      <span class="comment">// 把最高位置为1,记录到rdata中</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    RST=<span class="number">0</span>;                      <span class="comment">// 拉低RST</span></span><br><span class="line">    <span class="comment">//return dec(d);            // 读取的数据转换成十进制</span></span><br><span class="line">    <span class="keyword">return</span> rdata;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>  读命令也是依照时序图就可以编写出来，方便理解。   现在读写指令都编写完成了，基本上DS1302的功能就可以实现了。其他的数码管显示、初始时间设置等等，就不再说了，直接看GitHub。效果如下图所示。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20191007130532344.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x400" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20191007130532344.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x400" alt="图12 时间显示效果" /><figcaption>图12 时间显示效果</figcaption>
 </figure>
-<p>图12 时间显示效果</p>
 <p>点击查看<span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9TdHVkeS9NaWNyb2NvbXB1dGVyL1NUQzExRjA0RS9WaWRlby9TaG93X3ZpZGVvLzA0X0RTMTMwMi5NUDQ=" title="http://47.95.13.239/Study/Microcomputer/STC11F04E/Video/Show_video/04_DS1302.MP4">DS1302时钟芯片<i class="fa fa-external-link"></i></span>测试视频</p>
 <h3 id="代码整合">2.4 代码整合</h3>
 <p>  现在已经实现了数码管显示、DS1302获取时间、DS18B20获取温度这三个功能了，只要将代码整合一下就能烧到单片机中了。具体的整合过程也不再赘述了，只贴一下最终的主函数。</p>
@@ -466,9 +454,8 @@
 <h2 id="三设想">三、设想</h2>
 <p>  现在单片机能实现两个功能：温度显示、时间显示 。但是时间的显示是通过DS1302时钟芯片来实现的，这就有一些缺点。比如我可能需要在初始化时钟芯片时写入初始化的时间，这就显得不太合适；同时，由于单片机晶振和外部晶振的问题，可能导致时间不准确，过一段时间还得手动校时，这也很不方便。   比较好的解决办法是将单片机联网，在网络获取时间后写入DS1302，每隔一段时间进行一次自动校时，这样就解决了时间不准确的问题。然而单片机自身不能联网，需要通过其他方式接入网络。ESP8266就是一款小巧的WiFi模块，通过单片机与ESP8266的通信，可以将网络时间传输到单片机中。   ESP8266可以通过AT指令的方式，与单片机进行数据通信；同时，它自身的WiFi功能还能通过网络GET请求获取到NTP服务器的精确时间，通过串口传给单片机进行校时。   目前我已实现使用ESP8266获取到网络时间的功能，我是用TTL连接的电脑，用串口助手给ESP8266发送AT指令，通过GET请求获取到了NTP服务器的时间，如下图9所示。   在GET请求到的数据中，可以看到date1就是我们想要的时间，而且还是UTC +8.00的东八区时间，用起来会更方便了。   我现在是使用串口与ESP8266通信，需要实现的单片机与ESP8266的通信，与这种方式差不多，所以实现起来还是可行的。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20191007123747515.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=600x450" alt="在这里插入图片描述" /><figcaption>在这里插入图片描述</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20191007123747515.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=600x450" alt="图13 串口助手" /><figcaption>图13 串口助手</figcaption>
 </figure>
-<p>图13 串口助手</p>
 <h2 id="四总结">四、总结</h2>
 <p>  以前玩过Arduino、树莓派，现在看来Arduino，它的IDE是很方便，适合初学者；而树莓派因为能搭载Linux所以功能太强大，跟电脑差不多了。还是单片机好玩，因为在学习单片机的过程中，才能真正理解每一个器件是如何工作的，学习工程中需要了解很多底层的知识才能玩转。   单片机一开始上手都不知道怎么烧程序，后来查阅资料之后才慢慢了解。另外就是DS18B20 时序很重要。。。因为我花了很长时间才把它玩起来，让人头大。</p>
 <h2 id="五资料">五、资料</h2>
@@ -671,7 +658,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -684,7 +671,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -752,12 +739,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">151k</span>
+    <span title="站点总字数">153k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:11</span>
+    <span title="站点阅读时长">4:15</span>
 </div>
 
 <!--
