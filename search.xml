@@ -1,6 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>VMware 共享文件夹</title>
+    <url>/2020/02/26/VMware-Share/</url>
+    <content><![CDATA[<ul>
+<li>今天上课，老师建议我们试试用<code>共享文件夹</code>实现文件传输</li>
+<li>闲着也没事，就写篇博客记录一下实现过程</li>
+</ul>
+<h2 id="我的虚拟机配置">1. 我的虚拟机配置</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td>Product</td>
+<td>VMware® Workstation 15 Player</td>
+</tr>
+<tr class="even">
+<td>VMware Version</td>
+<td>15.5.0 build-14665864</td>
+</tr>
+<tr class="odd">
+<td>Ubuntu Version</td>
+<td>Ubuntu 18.04.4 LTS</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>安装说明: 配置共享文件夹之前，需要事先安装好<code>VMware Tools</code>。如果您还未安装，建议移至文章末尾，查看相关教程（P.S：教程由我的同学@<span class="exturl" data-url="aHR0cHM6Ly9tZS5jc2RuLm5ldC93ZWl4aW5fNDQ3MzI5MzA=" title="https://me.csdn.net/weixin_44732930">SS<i class="fa fa-external-link"></i></span>编写，感谢SS）</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="具体配置过程">2. 具体配置过程</h2>
+<h3 id="启动虚拟机">2.1 启动虚拟机</h3>
+<p>在设置共享文件夹之前，需要启动虚拟机，否则不能设置。选择你需要配置的虚拟机，点击启动。</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/choose_vmware.png" alt="VMware_Setup" /><figcaption>VMware_Setup</figcaption>
+</figure>
+<h3 id="进入设置界面">2.2 进入设置界面</h3>
+<p>启动虚拟机后，依次点击左上角的<code>Player</code> -&gt; <code>Manage</code> -&gt; <code>Virtual Machine Settings...</code> 进入虚拟机配置界面</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/VMware_Setting.png" alt="VMware_Setting" /><figcaption>VMware_Setting</figcaption>
+</figure>
+<h3 id="开启共享文件夹">2.3 开启共享文件夹</h3>
+<p>在弹出的设置对话框中，选择<code>Options</code>页面 -&gt; <code>Shared Floders</code>栏目。在右侧的文件夹分享框中开启共享文件夹，选择<code>Always enabled</code>。 点击<code>Add</code>创建新的共享目录</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/VMware_Options.png" alt="VMware_Options" /><figcaption>VMware_Options</figcaption>
+</figure>
+<p>在弹出的页面中，选择主机中的共享文件夹位置</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/Choose_Folder.png" alt="Choose_Folder" /><figcaption>Choose_Folder</figcaption>
+</figure>
+<p>接下来设置文件夹属性，直接保持默认的<code>Enable this share</code>选项即可</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/Floder_Attributes.png" alt="Floder_Attributes" /><figcaption>Floder_Attributes</figcaption>
+</figure>
+<p>设置完成后，界面类似于下面这样：</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/Setup_OK.png" alt="Setup_OK" /><figcaption>Setup_OK</figcaption>
+</figure>
+<p>到这里，共享文件夹已经设置完成了。</p>
+<h3 id="文件共享测试">2.4 文件共享测试</h3>
+<p>共享文件夹默认挂载在<code>/mnt/hgfs/</code>路径下，我们现在可以去看一下</p>
+<blockquote>
+<p><code>/mnt/hgfs/</code>是 VMware Linux 共享文件夹的默认挂载点，可以使用<code>mount</code>命令改变挂载位置</p>
+</blockquote>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/Check_Mount.png" alt="Check_Mount" /><figcaption>Check_Mount</figcaption>
+</figure>
+<p>可以看到，该路径下的<code>Share</code>文件夹就是我们刚刚创建的共享文件夹</p>
+<p>现在可以将虚拟机中的某个文件拷贝到这个目录下，然后到主机查看此文件是否存在</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/Move_File.png" alt="Move_File" /><figcaption>Move_File</figcaption>
+</figure>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/Check_File.png" alt="Check_File" /><figcaption>Check_File</figcaption>
+</figure>
+<p>当然，主机的文件也可以通过共享文件夹传到虚拟机中，文件传输就很方便了。</p>
+<h2 id="常见问题及解决方法">3. 常见问题及解决方法</h2>
+<ol type="1">
+<li><p>没有找到 <code>/mnt/hgfs</code> 共享文件夹 ? -&gt; <span class="exturl" data-url="aHR0cHM6Ly9hc2t1YnVudHUuY29tL3F1ZXN0aW9ucy83NDc3NS93aHktaXMtbW50LWhnZnMtbm90LWFwcGVhcmluZw==" title="https://askubuntu.com/questions/74775/why-is-mnt-hgfs-not-appearing">Why is /mnt/hgfs not appearing?<i class="fa fa-external-link"></i></span></p></li>
+<li><p>未安装 <code>VMware Tools</code> ? -&gt; <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDczMjkzMC9hcnRpY2xlL2RldGFpbHMvMTAxNDU4NDQ0" title="https://blog.csdn.net/weixin_44732930/article/details/101458444">虚拟机实现与主机复制粘贴<i class="fa fa-external-link"></i></span></p></li>
+<li><p>如何改变共享文件夹挂载的位置 ? -&gt; <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnZtd2FyZS5jb20vY24vVk13YXJlLVdvcmtzdGF0aW9uLVByby8xNS4wL2NvbS52bXdhcmUud3MudXNpbmcuZG9jL0dVSUQtQUI1QzgwRkUtOUI4QS00ODk5LTgxODYtM0RCODIwMUIxNzU4Lmh0bWw=" title="https://docs.vmware.com/cn/VMware-Workstation-Pro/15.0/com.vmware.ws.using.doc/GUID-AB5C80FE-9B8A-4899-8186-3DB8201B1758.html">VMware Workstation Pro 产品文档 - 在 Linux 客户机中装载共享文件夹<i class="fa fa-external-link"></i></span></p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>解决方案</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>VMware</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>安装Flutter遇到的问题</title>
     <url>/2020/02/24/Flutter-Start/</url>
     <content><![CDATA[<ul>

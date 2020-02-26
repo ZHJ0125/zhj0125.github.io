@@ -25,26 +25,31 @@
     var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":250,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":20},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="修复&quot;无法锁定Ubuntu中的管理目录(&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)&quot;  问题描述： Ubuntu18.04在更新软件源时，出现“Unable to lock the administration directory (&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)” 报错信息。  问题分析： Linux为了避免已经运行的apt-get或apt进程被用户或需要处理apt文件的其他进">
+  <meta name="description" content="今天上课，老师建议我们试试用共享文件夹实现文件传输 闲着也没事，就写篇博客记录一下实现过程  1. 我的虚拟机配置    Product VMware® Workstation 15 Player   VMware Version 15.5.0 build-14665864   Ubuntu Version Ubuntu 18.04.4 LTS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Unable to lock the administration directory (&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)解决办法">
-<meta property="og:url" content="https://zhj.forever305.cn/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/index.html">
+<meta property="og:title" content="VMware 共享文件夹">
+<meta property="og:url" content="https://zhj.forever305.cn/2020/02/26/VMware-Share/index.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="修复&quot;无法锁定Ubuntu中的管理目录(&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)&quot;  问题描述： Ubuntu18.04在更新软件源时，出现“Unable to lock the administration directory (&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)” 报错信息。  问题分析： Linux为了避免已经运行的apt-get或apt进程被用户或需要处理apt文件的其他进">
+<meta property="og:description" content="今天上课，老师建议我们试试用共享文件夹实现文件传输 闲着也没事，就写篇博客记录一下实现过程  1. 我的虚拟机配置    Product VMware® Workstation 15 Player   VMware Version 15.5.0 build-14665864   Ubuntu Version Ubuntu 18.04.4 LTS">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190626215634585.png#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190626215953373.png#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2019062622015450.png#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190626221321107.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="article:published_time" content="2019-06-26T14:24:37.000Z">
-<meta property="article:modified_time" content="2019-06-26T14:24:37.000Z">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/choose_vmware.png">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/VMware_Setting.png">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/VMware_Options.png">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/Choose_Folder.png">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/Floder_Attributes.png">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/Setup_OK.png">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/Check_Mount.png">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/Move_File.png">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/Check_File.png">
+<meta property="article:published_time" content="2020-02-26T13:17:51.000Z">
+<meta property="article:modified_time" content="2020-02-26T13:17:51.000Z">
 <meta property="article:author" content="Zhang H.J.">
 <meta property="article:tag" content="Ubuntu">
-<meta property="article:tag" content="dpkg">
+<meta property="article:tag" content="VMware">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190626215634585.png#pic_center">
+<meta name="twitter:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/choose_vmware.png">
 
-<link rel="canonical" href="https://zhj.forever305.cn/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/">
+<link rel="canonical" href="https://zhj.forever305.cn/2020/02/26/VMware-Share/">
 
 
 <script id="page-configurations">
@@ -56,7 +61,7 @@
   };
 </script>
 
-  <title>Unable to lock the administration directory (/var/lib/dpkg/)解决办法 | 厚今的博客</title>
+  <title>VMware 共享文件夹 | 厚今的博客</title>
   
 
 
@@ -235,7 +240,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zhj.forever305.cn/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/">
+    <link itemprop="mainEntityOfPage" href="https://zhj.forever305.cn/2020/02/26/VMware-Share/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -248,7 +253,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          Unable to lock the administration directory (/var/lib/dpkg/)解决办法
+          VMware 共享文件夹
         </h2>
 
         <div class="post-meta">
@@ -258,7 +263,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-06-26 22:24:37" itemprop="dateCreated datePublished" datetime="2019-06-26T22:24:37+08:00">2019-06-26</time>
+              <time title="创建时间：2020-02-26 21:17:51" itemprop="dateCreated datePublished" datetime="2020-02-26T21:17:51+08:00">2020-02-26</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -279,7 +284,7 @@
             </span>
 
           
-            <span id="/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/" class="post-meta-item leancloud_visitors" data-flag-title="Unable to lock the administration directory (/var/lib/dpkg/)解决办法" title="阅读次数">
+            <span id="/2020/02/26/VMware-Share/" class="post-meta-item leancloud_visitors" data-flag-title="VMware 共享文件夹" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -294,8 +299,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/02/26/VMware-Share/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/26/VMware-Share/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -305,14 +310,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>699</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -324,55 +329,83 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="修复无法锁定ubuntu中的管理目录varlibdpkg">修复&quot;无法锁定Ubuntu中的管理目录(/var/lib/dpkg/)&quot;</h2>
-<ul>
-<li>问题描述：</li>
-<li><p>Ubuntu18.04在更新软件源时，出现“Unable to lock the administration directory (/var/lib/dpkg/)” 报错信息。 <img data-src="https://img-blog.csdnimg.cn/20190626215634585.png#pic_center" alt="报错截图" /></p></li>
-<li>问题分析：</li>
-<li><p>Linux为了避免已经运行的apt-get或apt进程被用户或需要处理apt文件的其他进程中断，运行apt-get或apt命令后，将在以下任何目录<code>/var/lib/apt/lists/</code>，<code>/var/lib/dpkg/</code> 和 <code>/var/cache/apt/archives/</code> 下创建一个 <em>lock</em>(锁定文件)。正常情况下，当进程执行完毕后，将删除锁定文件。如果有程序正在占用该进程，锁定文件未删除，就会导致此问题发生。</p></li>
+        <ul>
+<li>今天上课，老师建议我们试试用<code>共享文件夹</code>实现文件传输</li>
+<li>闲着也没事，就写篇博客记录一下实现过程</li>
 </ul>
+<h2 id="我的虚拟机配置">1. 我的虚拟机配置</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td>Product</td>
+<td>VMware® Workstation 15 Player</td>
+</tr>
+<tr class="even">
+<td>VMware Version</td>
+<td>15.5.0 build-14665864</td>
+</tr>
+<tr class="odd">
+<td>Ubuntu Version</td>
+<td>Ubuntu 18.04.4 LTS</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>安装说明: 配置共享文件夹之前，需要事先安装好<code>VMware Tools</code>。如果您还未安装，建议移至文章末尾，查看相关教程（P.S：教程由我的同学@<span class="exturl" data-url="aHR0cHM6Ly9tZS5jc2RuLm5ldC93ZWl4aW5fNDQ3MzI5MzA=" title="https://me.csdn.net/weixin_44732930">SS<i class="fa fa-external-link"></i></span>编写，感谢SS）</p>
+</blockquote>
 <a id="more"></a>
-<h3 id="两种解决办法">两种解决办法</h3>
-<h4 id="方案一找到并杀死apt进程">方案一：找到并杀死apt进程</h4>
-<blockquote>
-<p>1.使用ps命令找到正在运行的apt进程：</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -A | grep apt</span><br></pre></td></tr></table></figure>
+<h2 id="具体配置过程">2. 具体配置过程</h2>
+<h3 id="启动虚拟机">2.1 启动虚拟机</h3>
+<p>在设置共享文件夹之前，需要启动虚拟机，否则不能设置。选择你需要配置的虚拟机，点击启动。</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190626215953373.png#pic_center" alt="查看进程" /><figcaption>查看进程</figcaption>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/choose_vmware.png" alt="VMware_Setup" /><figcaption>VMware_Setup</figcaption>
 </figure>
-<blockquote>
-<p>2.使用kill命令杀死该进程</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo kill -9 进程号</span><br></pre></td></tr></table></figure>
+<h3 id="进入设置界面">2.2 进入设置界面</h3>
+<p>启动虚拟机后，依次点击左上角的<code>Player</code> -&gt; <code>Manage</code> -&gt; <code>Virtual Machine Settings...</code> 进入虚拟机配置界面</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/2019062622015450.png#pic_center" alt="杀死进程" /><figcaption>杀死进程</figcaption>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/VMware_Setting.png" alt="VMware_Setting" /><figcaption>VMware_Setting</figcaption>
 </figure>
-<blockquote>
-<p>3.重新更新软件源即可：</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">or</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+<h3 id="开启共享文件夹">2.3 开启共享文件夹</h3>
+<p>在弹出的设置对话框中，选择<code>Options</code>页面 -&gt; <code>Shared Floders</code>栏目。在右侧的文件夹分享框中开启共享文件夹，选择<code>Always enabled</code>。 点击<code>Add</code>创建新的共享目录</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20190626221321107.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="更新软件源" /><figcaption>更新软件源</figcaption>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/VMware_Options.png" alt="VMware_Options" /><figcaption>VMware_Options</figcaption>
 </figure>
-<p>第一种方案亲测可用。</p>
-<h4 id="方案2删除锁定文件">方案2：删除锁定文件</h4>
+<p>在弹出的页面中，选择主机中的共享文件夹位置</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/Choose_Folder.png" alt="Choose_Folder" /><figcaption>Choose_Folder</figcaption>
+</figure>
+<p>接下来设置文件夹属性，直接保持默认的<code>Enable this share</code>选项即可</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/Floder_Attributes.png" alt="Floder_Attributes" /><figcaption>Floder_Attributes</figcaption>
+</figure>
+<p>设置完成后，界面类似于下面这样：</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/Setup_OK.png" alt="Setup_OK" /><figcaption>Setup_OK</figcaption>
+</figure>
+<p>到这里，共享文件夹已经设置完成了。</p>
+<h3 id="文件共享测试">2.4 文件共享测试</h3>
+<p>共享文件夹默认挂载在<code>/mnt/hgfs/</code>路径下，我们现在可以去看一下</p>
 <blockquote>
-<p>1.首先删除锁定文件</p>
+<p><code>/mnt/hgfs/</code>是 VMware Linux 共享文件夹的默认挂载点，可以使用<code>mount</code>命令改变挂载位置</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/lib/dpkg/lock</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>2.之后强制dpkg重新配置</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg --configure -a</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>3.删除另外两个锁定文件</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/lib/apt/lists/lock</span><br><span class="line">sudo rm /var/cache/apt/archives/lock</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>4.最后进行软件源更新即可</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">or</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/Check_Mount.png" alt="Check_Mount" /><figcaption>Check_Mount</figcaption>
+</figure>
+<p>可以看到，该路径下的<code>Share</code>文件夹就是我们刚刚创建的共享文件夹</p>
+<p>现在可以将虚拟机中的某个文件拷贝到这个目录下，然后到主机查看此文件是否存在</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/Move_File.png" alt="Move_File" /><figcaption>Move_File</figcaption>
+</figure>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/VMware_Share/Check_File.png" alt="Check_File" /><figcaption>Check_File</figcaption>
+</figure>
+<p>当然，主机的文件也可以通过共享文件夹传到虚拟机中，文件传输就很方便了。</p>
+<h2 id="常见问题及解决方法">3. 常见问题及解决方法</h2>
+<ol type="1">
+<li><p>没有找到 <code>/mnt/hgfs</code> 共享文件夹 ? -&gt; <span class="exturl" data-url="aHR0cHM6Ly9hc2t1YnVudHUuY29tL3F1ZXN0aW9ucy83NDc3NS93aHktaXMtbW50LWhnZnMtbm90LWFwcGVhcmluZw==" title="https://askubuntu.com/questions/74775/why-is-mnt-hgfs-not-appearing">Why is /mnt/hgfs not appearing?<i class="fa fa-external-link"></i></span></p></li>
+<li><p>未安装 <code>VMware Tools</code> ? -&gt; <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDczMjkzMC9hcnRpY2xlL2RldGFpbHMvMTAxNDU4NDQ0" title="https://blog.csdn.net/weixin_44732930/article/details/101458444">虚拟机实现与主机复制粘贴<i class="fa fa-external-link"></i></span></p></li>
+<li><p>如何改变共享文件夹挂载的位置 ? -&gt; <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnZtd2FyZS5jb20vY24vVk13YXJlLVdvcmtzdGF0aW9uLVByby8xNS4wL2NvbS52bXdhcmUud3MudXNpbmcuZG9jL0dVSUQtQUI1QzgwRkUtOUI4QS00ODk5LTgxODYtM0RCODIwMUIxNzU4Lmh0bWw=" title="https://docs.vmware.com/cn/VMware-Workstation-Pro/15.0/com.vmware.ws.using.doc/GUID-AB5C80FE-9B8A-4899-8186-3DB8201B1758.html">VMware Workstation Pro 产品文档 - 在 Linux 客户机中装载共享文件夹<i class="fa fa-external-link"></i></span></p></li>
+</ol>
 
     </div>
 
@@ -386,7 +419,7 @@
       <div class="popular-posts-title"><a href="\2019\10\19\Ubuntu1804_OpenCV\" rel="bookmark">Ubuntu18.04 编译安装 OpenCV 遇到的问题</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\02\26\VMware-Share\" rel="bookmark">VMware 共享文件夹</a></div>
+      <div class="popular-posts-title"><a href="\2019\06\26\Unable-to-lock-the-administration-directory-var-lib-dpkg\" rel="bookmark">Unable to lock the administration directory (/var/lib/dpkg/)解决办法</a></div>
     </li>
   </ul>
 
@@ -419,7 +452,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://zhj.forever305.cn/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/" title="Unable to lock the administration directory (&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)解决办法">https://zhj.forever305.cn/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/</a>
+    <a href="https://zhj.forever305.cn/2020/02/26/VMware-Share/" title="VMware 共享文件夹">https://zhj.forever305.cn/2020/02/26/VMware-Share/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -470,7 +503,7 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
-              <a href="/tags/dpkg/" rel="tag"># dpkg</a>
+              <a href="/tags/VMware/" rel="tag"># VMware</a>
           </div>
 
         
@@ -479,13 +512,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/06/20/Linux_MyWeb/" rel="prev" title="Linux实训——搭建动态网站">
-      <i class="fa fa-chevron-left"></i> Linux实训——搭建动态网站
+    <a href="/2020/02/24/Flutter-Start/" rel="prev" title="安装Flutter遇到的问题">
+      <i class="fa fa-chevron-left"></i> 安装Flutter遇到的问题
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2019/09/26/WeChat_Basic/" rel="next" title="微信小程序——开发基础">
-      微信小程序——开发基础 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -546,7 +576,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#修复无法锁定ubuntu中的管理目录varlibdpkg"><span class="nav-text">修复&quot;无法锁定Ubuntu中的管理目录(&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;)&quot;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#两种解决办法"><span class="nav-text">两种解决办法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方案一找到并杀死apt进程"><span class="nav-text">方案一：找到并杀死apt进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方案2删除锁定文件"><span class="nav-text">方案2：删除锁定文件</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#我的虚拟机配置"><span class="nav-text">1. 我的虚拟机配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体配置过程"><span class="nav-text">2. 具体配置过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#启动虚拟机"><span class="nav-text">2.1 启动虚拟机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进入设置界面"><span class="nav-text">2.2 进入设置界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启共享文件夹"><span class="nav-text">2.3 开启共享文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件共享测试"><span class="nav-text">2.4 文件共享测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见问题及解决方法"><span class="nav-text">3. 常见问题及解决方法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -841,7 +871,7 @@
       quicklink({
         timeout: 3000,
         priority: true,
-        ignores: [uri => uri.includes('#'),uri => uri == 'https://zhj.forever305.cn/2019/06/26/Unable-to-lock-the-administration-directory-var-lib-dpkg/',]
+        ignores: [uri => uri.includes('#'),uri => uri == 'https://zhj.forever305.cn/2020/02/26/VMware-Share/',]
       });
       });
   </script>
