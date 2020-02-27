@@ -140,7 +140,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">28</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">30</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">24</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">25</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -228,6 +228,194 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhj.forever305.cn/2019/10/16/STC11F04E_HC-SR04/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhang H.J.">
+      <meta itemprop="description" content="Talk is cheap, Show me the code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="厚今的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/16/STC11F04E_HC-SR04/" class="post-title-link" itemprop="url">STC11F04E——HC-SR04</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-16 20:56:36" itemprop="dateCreated datePublished" datetime="2019-10-16T20:56:36+08:00">2019-10-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">技术笔记</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E6%95%99%E5%AD%A6%E5%AE%9E%E8%AE%AD/" itemprop="url" rel="index">
+                    <span itemprop="name">教学实训</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/10/16/STC11F04E_HC-SR04/" class="post-meta-item leancloud_visitors" data-flag-title="STC11F04E——HC-SR04" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/10/16/STC11F04E_HC-SR04/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/16/STC11F04E_HC-SR04/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li>前几天做了一下电子工艺实习，实现了在数码管上显示温度和时间的功能，<a href="https://blog.csdn.net/ZHJ123CSDN/article/details/102299484" target="_blank" rel="noopener">还写了篇博客</a>。但当时没有注意到，这款PCB还设计了超声波测距的功能。在实现该功能后，我决定不再增改原来的文章，而写下这篇文章描述HC-SR04的控制方法。</li>
+<li>我已将该项目上传到GitHub，项目地址为： <a href="https://github.com/ZHJ0125/STC11F04E" target="_blank" rel="noopener">STC11F04E项目</a>。 代码开源，欢迎测试
+<ul>
+<li>我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。</li>
+<li>我还做了一个使用数码管滚动显示学号的程序，就不再写成博客了，代码放在了GitHub</li>
+</ul></li>
+</ul>
+<p>  单片机实验平台简介等信息，请阅读<a href="https://blog.csdn.net/ZHJ123CSDN/article/details/102299484" target="_blank" rel="noopener">上一篇文章</a>。</p>
+<h2 id="一hc-sr04">一、HC-SR04</h2>
+<h3 id="简介">1.1 简介</h3>
+<p>  HC-SR04超声波测距模块提供2cm~4m的非接触式测距功能，测距精度可达3mm。</p>
+<h3 id="电气参数">1.2 电气参数</h3>
+<table>
+<thead>
+<tr class="header">
+<th>电气参数</th>
+<th>HC-SR04模块</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>工作电压</td>
+<td>DC 5V</td>
+</tr>
+<tr class="even">
+<td>工作电流</td>
+<td>15mA</td>
+</tr>
+<tr class="odd">
+<td>工作频率</td>
+<td>40Hz</td>
+</tr>
+<tr class="even">
+<td>最远射程</td>
+<td>4m</td>
+</tr>
+<tr class="odd">
+<td>最近射程</td>
+<td>2cm</td>
+</tr>
+<tr class="even">
+<td>测量角度</td>
+<td>15°</td>
+</tr>
+<tr class="odd">
+<td>输入触发信号</td>
+<td>10us的TTL高电平脉冲</td>
+</tr>
+<tr class="even">
+<td>输出回响信号</td>
+<td>输出TTL高电平，时间与射程成正比</td>
+</tr>
+<tr class="odd">
+<td>规格尺寸</td>
+<td>45×20×15mm</td>
+</tr>
+</tbody>
+</table>
+<h3 id="时序图">1.3 时序图</h3>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20191010212059345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x250" alt="图1 HC-SR04时序图" /><figcaption>图1 HC-SR04时序图</figcaption>
+</figure>
+<p>通过阅读时序图可以看出HCSR04的工作原理：</p>
+<blockquote>
+<ol type="1">
+<li>采用IO口TRIG触发测距，给至少10us的高电平信号</li>
+<li>模块自动发送8个40khz的方波，自动检测是否有信号返回</li>
+<li>有信号返回，通过IO口ECHO输出一个高电平，高电平持续的时间就是超声波从发射到返回的时间</li>
+<li>测试距离 = (高电平时间 * 声速(340M/S)) / 2</li>
+</ol>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/16/STC11F04E_HC-SR04/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -1348,128 +1536,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zhj.forever305.cn/2019/05/06/Android_Camera/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Zhang H.J.">
-      <meta itemprop="description" content="Talk is cheap, Show me the code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="厚今的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/05/06/Android_Camera/" class="post-title-link" itemprop="url">Android——简易照相机</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-05-06 13:47:01" itemprop="dateCreated datePublished" datetime="2019-05-06T13:47:01+08:00">2019-05-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">技术笔记</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E6%95%99%E5%AD%A6%E5%AE%9E%E8%AE%AD/" itemprop="url" rel="index">
-                    <span itemprop="name">教学实训</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/05/06/Android_Camera/" class="post-meta-item leancloud_visitors" data-flag-title="Android——简易照相机" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2019/05/06/Android_Camera/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/05/06/Android_Camera/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>14k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>23 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li>实验名称：Android多媒体应用-拍照</li>
-<li>实验目的：设计一个简易照相机</li>
-<li>实验内容：利用Camera类设计一个简易照相机，通过SurfaceView组件实现取景预览，拍照保存等功能，拍照保存时按camera+序号.jpg的方式保存照片，序号自动增加，确保拍照保存不会覆盖前面的照片</li>
-<li>实验日期：2019年5月</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/05/06/Android_Camera/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1542,7 +1608,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1555,7 +1621,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1623,12 +1689,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">154k</span>
+    <span title="站点总字数">157k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:16</span>
+    <span title="站点阅读时长">4:22</span>
 </div>
 
 <!--

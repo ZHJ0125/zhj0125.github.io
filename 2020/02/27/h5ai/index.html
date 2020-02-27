@@ -25,20 +25,26 @@
     var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":250,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":20},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="上午和下午大部分时间被占用了，晚上回来准备把CSDN上的文章迁移到了这里。 现在是2020年01月18 晚上 凌晨 3:30，已经迁移了九篇文章。。。 继续熬夜迁移 哈哈(～￣▽￣)～ 话说 Hexo 还真是有趣，前端和后端分离的感觉真棒！">
+  <meta name="description" content="H5AI 介绍  h5ai is a modern file indexer for HTTP web servers with focus on your files. Directories are displayed in a appealing way and browsing them is enhanced by different views, a breadcrumb and">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的随笔">
-<meta property="og:url" content="https://zhj.forever305.cn/2020/01/18/My_First_Share/index.html">
+<meta property="og:title" content="Ubuntu LAMP 环境下安装 H5AI">
+<meta property="og:url" content="https://zhj.forever305.cn/2020/02/27/h5ai/index.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="上午和下午大部分时间被占用了，晚上回来准备把CSDN上的文章迁移到了这里。 现在是2020年01月18 晚上 凌晨 3:30，已经迁移了九篇文章。。。 继续熬夜迁移 哈哈(～￣▽￣)～ 话说 Hexo 还真是有趣，前端和后端分离的感觉真棒！">
+<meta property="og:description" content="H5AI 介绍  h5ai is a modern file indexer for HTTP web servers with focus on your files. Directories are displayed in a appealing way and browsing them is enhanced by different views, a breadcrumb and">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-01-17T19:26:05.000Z">
-<meta property="article:modified_time" content="2020-01-17T19:26:05.000Z">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/h5ai/Show_MyWeb.png">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/h5ai/Add_Search.png">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/h5ai/h5ai_show.png">
+<meta property="article:published_time" content="2020-02-27T06:13:29.000Z">
+<meta property="article:modified_time" content="2020-02-27T06:13:29.000Z">
 <meta property="article:author" content="Zhang H.J.">
-<meta property="article:tag" content="博客搭建">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="H5AI">
+<meta property="article:tag" content="LAMP">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/h5ai/Show_MyWeb.png">
 
-<link rel="canonical" href="https://zhj.forever305.cn/2020/01/18/My_First_Share/">
+<link rel="canonical" href="https://zhj.forever305.cn/2020/02/27/h5ai/">
 
 
 <script id="page-configurations">
@@ -50,7 +56,7 @@
   };
 </script>
 
-  <title>我的随笔 | 厚今的博客</title>
+  <title>Ubuntu LAMP 环境下安装 H5AI | 厚今的博客</title>
   
 
 
@@ -229,7 +235,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zhj.forever305.cn/2020/01/18/My_First_Share/">
+    <link itemprop="mainEntityOfPage" href="https://zhj.forever305.cn/2020/02/27/h5ai/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -242,7 +248,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          我的随笔
+          Ubuntu LAMP 环境下安装 H5AI
         </h2>
 
         <div class="post-meta">
@@ -252,7 +258,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-01-18 03:26:05" itemprop="dateCreated datePublished" datetime="2020-01-18T03:26:05+08:00">2020-01-18</time>
+              <time title="创建时间：2020-02-27 14:13:29" itemprop="dateCreated datePublished" datetime="2020-02-27T14:13:29+08:00">2020-02-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -260,14 +266,14 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%97%A5%E5%B8%B8%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index">
-                    <span itemprop="name">日常随笔</span>
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">技术笔记</span>
                   </a>
                 </span>
             </span>
 
           
-            <span id="/2020/01/18/My_First_Share/" class="post-meta-item leancloud_visitors" data-flag-title="我的随笔" title="阅读次数">
+            <span id="/2020/02/27/h5ai/" class="post-meta-item leancloud_visitors" data-flag-title="Ubuntu LAMP 环境下安装 H5AI" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -282,8 +288,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/01/18/My_First_Share/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/18/My_First_Share/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/02/27/h5ai/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/27/h5ai/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -293,14 +299,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>411</span>
+              <span>3.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>6 分钟</span>
             </span>
 
         </div>
@@ -312,36 +318,129 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <ul>
-<li><p>上午和下午大部分时间被占用了，晚上回来准备把CSDN上的文章迁移到了这里。 现在是2020年01月18 <del>晚上</del> 凌晨 3:30，已经迁移了九篇文章。。。 继续熬夜迁移 哈哈(～￣▽￣)～</p></li>
-<li><p>话说 Hexo 还真是有趣，前端和后端分离的感觉真棒！</p></li>
-</ul>
+        <h2 id="h5ai-介绍">H5AI 介绍</h2>
+<blockquote>
+<p>h5ai is a modern file indexer for HTTP web servers with focus on your files. Directories are displayed in a appealing way and browsing them is enhanced by different views, a breadcrumb and a tree overview. —— 摘自<span class="exturl" data-url="aHR0cHM6Ly9sYXJzanVuZy5kZS9oNWFpLw==" title="https://larsjung.de/h5ai/">h5ai官网<i class="fa fa-external-link"></i></span></p>
+</blockquote>
+<p>H5AI 是一个 php 文件目录列表程序，由德国开发者 @<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xyc2puZw==" title="https://github.com/lrsjng">Lars Jung<i class="fa fa-external-link"></i></span> 主导开发，它提供多种文件目录列表呈现方式，支持多种主流 Web 服务器。这是一个开源项目，<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xyc2puZy9oNWFp" title="https://github.com/lrsjng/h5ai">项目地址在这<i class="fa fa-external-link"></i></span>。感谢开源社区和项目开发者的无私贡献。</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/h5ai/Show_MyWeb.png" alt="Show_MyWeb" /><figcaption>Show_MyWeb</figcaption>
+</figure>
+<p>安装H5AI是因为它能够很好的管理服务器上的文件，并以列表的形式显示在前端，正好适合我的需要。下面，我将安装及配置过程记录下来，与大家分享。</p>
 <a id="more"></a>
-<h2 id="博客迁移">博客迁移</h2>
+<h2 id="安装前的准备">1 安装前的准备</h2>
+<p>h5ai能够实现文件的在线查看，依赖于各种Linux的软件，为了让其正常工作，需要首先安装这些软件。因为我的环境是Ubuntu，所以默认是Ubuntu的安装命令，使用其他发行版本的朋友可以自己搜一下安装方法哈😄</p>
+<ul>
+<li>ffmpeg</li>
+</ul>
 <blockquote>
-<p>这篇随笔写完了，前端竟然不能显示。。真是尴尬</p>
+<p>ffmpeg是一款视频处理最常用的开源软件，用于音视频的标准编码/解码</p>
 </blockquote>
-<hr />
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get -y install ffmpeg</span><br></pre></td></tr></table></figure>
+<ul>
+<li>convert</li>
+</ul>
 <blockquote>
-<p>2020年01月20日 更新</p>
+<p>convert命令可以用来转换图像的格式，支持JPG, BMP, PCX, GIF, PNG, TIFF, XPM和XWD等类型</p>
 </blockquote>
-<p>现在找到了随笔页面的显示方法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install imagemagick-6.q16</span><br></pre></td></tr></table></figure>
 <ul>
-<li>修改 <code>themes/yilia-plus/_config.yml</code> 配置文件</li>
+<li>zip</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Header-菜单</span></span><br><span class="line">menu:</span><br><span class="line">  主页: /</span><br><span class="line">  技术笔记: https://blog.csdn.net/ZHJ123CSDN</span><br><span class="line">  随笔: /tags/随笔</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Linux zip命令用于压缩文件，zip是个使用广泛的压缩程序，文件经它压缩后会另外产生具有&quot;.zip&quot;扩展名的压缩文件。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install zip</span><br></pre></td></tr></table></figure>
+<h2 id="安装h5ai">2 安装h5ai</h2>
+<h3 id="下载安装包">2.1 下载安装包</h3>
+<p>h5ai官方网站在这里：<span class="exturl" data-url="aHR0cHM6Ly9sYXJzanVuZy5kZS9oNWFpLw==" title="https://larsjung.de/h5ai/">https://larsjung.de/h5ai/<i class="fa fa-external-link"></i></span></p>
+<p>在官网能够下载到最新的安装包，不过好像一直没有更新，目前是<code>0.29.2</code>版本</p>
+<h3 id="解压文件">2.2 解压文件</h3>
 <ul>
-<li>新建 <code>post</code> 页面</li>
+<li>移动文件夹</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post <span class="string">"New_Post_Name"</span></span><br></pre></td></tr></table></figure>
+<p>将下载得到的文件夹移动到你的web目录即可。我是搭建的LAMP架构，所以将解压后的文件夹移动到了<code>/var/www/html/</code>目录。</p>
 <ul>
-<li>修改 <code>Front-matter</code> 中的 <code>tags</code> 标签为 <code>随笔</code></li>
+<li>增加默认索引页</li>
 </ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 我的随笔</span><br><span class="line">date: 2020-01-18 03:26:05</span><br><span class="line">tags: [随笔]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>我们知道，apache默认索引的页面是<code>index.*</code>，而为了使h5ai能够被索引到，我们需要修改apache的配置文件</p>
+<p>官网给出的修改方法如下：</p>
+<blockquote>
 <ul>
-<li>上传文件</li>
+<li><code>Apache httpd 2.2/2.4</code>: in <code>httpd.conf</code> or in the root directory's .htaccess file set for example:
+<ul>
+<li>DirectoryIndex index.html index.php <code>/_h5ai/public/index.php</code></li>
+</ul></li>
+<li><code>lighttpd 1.4</code>: in <code>lighttpd.conf</code> set for example:
+<ul>
+<li>index-file.names += (&quot;index.html&quot;, &quot;index.php&quot;, <code>&quot;/_h5ai/public/index.php&quot;</code>)</li>
+</ul></li>
+<li><code>nginx 1.2</code>: in <code>nginx.conf</code> set for example:
+<ul>
+<li>index index.html index.php <code>/_h5ai/public/index.php</code>;</li>
+</ul></li>
+<li><code>Cherokee 1.2</code>: in <code>cherokee.conf</code> set for example:
+<ul>
+<li>vserver!1!directory_index = index.html,index.php,<code>/_h5ai/public/index.php</code></li>
+</ul></li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>按照上面的提示，找到相应的文件修改配置即可。比如，如果您使用centos+Apache的环境，就可以进入<code>/etc/httpd/conf/httpd.conf</code>文件进行配置。</p>
+<p>我这里的LAMP因为是用Ubuntu搭建的，所以配置过程有点不一样。Ubuntu环境下没有<code>httpd.conf</code>文件，取而代之的是<code>dir.conf</code>文件，默认是在<code>/etc/apache2/mods-enabled/</code>目录下，如果没有的话，可以使用<code>find / -name dir.conf</code>查找一下文件位置。</p>
+<p>打开<code>/etc/apache2/mods-enabled/dir.conf</code>文件，添加新的默认索引名<code>/_h5ai/public/index.php</code>，注意不要丢掉开头的<code>/</code>。修改完成后，大概是这样的：</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/h5ai/Add_Search.png" alt="Add_Search" /><figcaption>Add_Search</figcaption>
+</figure>
+<ul>
+<li>文件夹权限</li>
+</ul>
+<p>为了确保程序正常运行，需要将<code>_h5ai</code>目录下的<code>private</code>和<code>public</code>均设置为755权限。当然，为了使文件夹拥有缓存功能，可以将文件夹权限改为777</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod <span class="number">755</span> private/ public/</span><br></pre></td></tr></table></figure>
+<p>设置成功后，<code>_h5ai</code>文件夹的权限应该是下面这样</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@Aliyun:/var/www/html/_h5ai<span class="comment"># ls -l</span></span><br><span class="line">total <span class="number">32</span></span><br><span class="line"><span class="literal">-rw</span><span class="literal">-r</span>-<span class="literal">-r</span>-- <span class="number">1</span> root root <span class="number">18943</span> Feb <span class="number">27</span> <span class="number">13</span>:<span class="number">05</span> CHANGELOG.md</span><br><span class="line">drwxr<span class="literal">-xr</span><span class="literal">-x</span> <span class="number">5</span> root root  <span class="number">4096</span> Feb <span class="number">27</span> <span class="number">13</span>:<span class="number">05</span> private</span><br><span class="line">drwxr<span class="literal">-xr</span><span class="literal">-x</span> <span class="number">7</span> root root  <span class="number">4096</span> Feb <span class="number">27</span> <span class="number">13</span>:<span class="number">06</span> public</span><br><span class="line"><span class="literal">-rw</span><span class="literal">-r</span>-<span class="literal">-r</span>-- <span class="number">1</span> root root  <span class="number">2755</span> Feb <span class="number">27</span> <span class="number">13</span>:<span class="number">06</span> README.md</span><br></pre></td></tr></table></figure>
+<p>现在，你可以登录_h5ai的后台，检查相关软件是否安装成功。 在浏览器中输入<code>http://YOUR-DOMAIN/_h5ai/public/index.php</code>(将<code>YOUR-DOMAIN</code>换成自己的域名)即可。</p>
+<p>进入网页之后，需要你填写密码。默认密码是空的，直接点击登录即可。后面会提到如何修改密码。</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/h5ai/h5ai_show.png" alt="h5ai_show" /><figcaption>h5ai_show</figcaption>
+</figure>
+<p>如果显示这样的配置情况，说明软件已经可以使用了</p>
+<p>现在在浏览器中输入你自己的域名或者IP， <strong><em>就可以使用h5ai了!</em></strong></p>
+<h2 id="修改配置文件">3 修改配置文件</h2>
+<p>下面进行一些自定义的设置，这些不是必要的，可以自己探索一下</p>
+<p><code>h5ai</code>的配置文件是<code>_h5ai/private/conf/options.json</code>，<strong><em>以下设置均是在该文件中进行</em></strong>。</p>
+<h3 id="更改显示语言">3.1 更改显示语言</h3>
+<p>在配置文件中查找<code>l10</code>字段，将其中的<code>lang</code>键值改为<code>zh-cn</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"l10n"</span>: &#123;</span><br><span class="line">        <span class="string">"enabled"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="string">"lang"</span>: <span class="string">"zh-cn"</span>,</span><br><span class="line">        <span class="string">"useBrowserLang"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="文件搜索功能">3.2 文件搜索功能</h3>
+<p>查找<code>search</code>字段，将<code>enable</code>键值改为<code>true</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"search"</span>: &#123;</span><br><span class="line">        <span class="string">"enabled"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="string">"advanced"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="string">"debounceTime"</span>: <span class="number">300</span>,</span><br><span class="line">        <span class="string">"ignorecase"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="多文件下载功能">3.3 多文件下载功能</h3>
+<p>多文件下载就是允许用户选择多个文件，然后打包下载，要实现该功能，首先要开启文件选择权限，之后开启打包下载功能</p>
+<p>首先开启多文件选择功能，找到<code>select</code>字段，它默认是开启的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"select"</span>: &#123;</span><br><span class="line">       <span class="string">"enabled"</span>: <span class="literal">true</span>,</span><br><span class="line">       <span class="string">"clickndrag"</span>: <span class="literal">true</span>,</span><br><span class="line">       <span class="string">"checkboxes"</span>: <span class="literal">true</span></span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>
+<p>之后，找到<code>download</code>字段，将它设为允许状态</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"download"</span>: &#123;</span><br><span class="line">       <span class="string">"enabled"</span>: <span class="literal">true</span>,</span><br><span class="line">       <span class="string">"type"</span>: <span class="string">"php-tar"</span>,</span><br><span class="line">       <span class="string">"packageName"</span>: <span class="literal">null</span>,</span><br><span class="line">       <span class="string">"alwaysVisible"</span>: <span class="literal">false</span></span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="设置密码">3.4 设置密码</h3>
+<ul>
+<li>初次登陆时密码默认为空，可以在配置文件中修改密码</li>
+<li>h5ai使用SHA512对密码进行了加密，如果需要设置自己的密码，需要先将密码明文使用SHA512加密一下，再将密文写到配置文件中。</li>
+<li>官方推荐使用<code>http://md5hashing.net/hashing/sha512</code>这个网站进行SHA512密文生成，但是这个网站好像不太好用，我在这里推荐一个网站<code>http://www.bejson.com/enc/sha/</code>，用它来生成SHA512加密的密文，然后复制到配置文件中。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">"passhash": "cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e",</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="string">"passhash"</span>: <span class="string">"0c6fef16fe89cd7a7745c973913f00531d363c6ea7c747268d0f74d293c20a2005e6be799694e04f54f34163b288e2342d5122737dff4fc80c269636e22dbd23"</span>,</span><br></pre></td></tr></table></figure>
+<p>这里注意，最好将原有的空密码保留一下。</p>
+<blockquote>
+<p>P.S: 不要试图去破解SHA512 😂</p>
+</blockquote>
+<p>其他的配置可以自己探索一下，谢谢大家</p>
+<h2 id="参考资料">4 参考资料</h2>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9sYXJzanVuZy5kZS9oNWFpLw==" title="https://larsjung.de/h5ai/">h5ai - 官网<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xyc2puZy9oNWFp" title="https://github.com/lrsjng/h5ai">h5ai - GitHub项目地址<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cudG9rOS5jb20vYXJjaGl2ZXMvMzc0Lw==" title="https://www.tok9.com/archives/374/">H5ai 完整安装及使用教程 - 雨林的博客<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cueHp5bW9lLmNvbS9oNWFpLw==" title="https://www.xzymoe.com/h5ai/">h5ai安装、使用及加密目录教程 - XZYMOE'S BLOG<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cubW9lcmF0cy5jb20vYXJjaGl2ZXMvMTIxLw==" title="https://www.moerats.com/archives/121/">一款不错的PHP目录列表程序：h5ai安装教程 - Rat's Blog<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NDI3ODI4L2FydGljbGUvZGV0YWlscy84ODY2NzM4NA==" title="https://blog.csdn.net/qq_37427828/article/details/88667384">Ubuntu 18.04 Apache2默认网站目录和默认网站主页修改 - ShainEli_CSDN<i class="fa fa-external-link"></i></span></li>
+</ul>
 
     </div>
 
@@ -349,6 +448,18 @@
     
     
       
+  <div class="popular-posts-header">相关文章推荐</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\10\19\Ubuntu1804_OpenCV\" rel="bookmark">Ubuntu18.04 编译安装 OpenCV 遇到的问题</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\06\26\Unable-to-lock-the-administration-directory-var-lib-dpkg\" rel="bookmark">Unable to lock the administration directory (/var/lib/dpkg/)解决办法</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\02\26\VMware-Share\" rel="bookmark">VMware 共享文件夹</a></div>
+    </li>
+  </ul>
 
         <div class="reward-container">
   <div>谢谢你请我喝快乐水 😜</div>
@@ -379,7 +490,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://zhj.forever305.cn/2020/01/18/My_First_Share/" title="我的随笔">https://zhj.forever305.cn/2020/01/18/My_First_Share/</a>
+    <a href="https://zhj.forever305.cn/2020/02/27/h5ai/" title="Ubuntu LAMP 环境下安装 H5AI">https://zhj.forever305.cn/2020/02/27/h5ai/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -429,7 +540,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag"># 博客搭建</a>
+              <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+              <a href="/tags/H5AI/" rel="tag"># H5AI</a>
+              <a href="/tags/LAMP/" rel="tag"># LAMP</a>
           </div>
 
         
@@ -438,13 +551,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/01/03/WeChat_Image_Recognition/" rel="prev" title="微信小程序——图片识别">
-      <i class="fa fa-chevron-left"></i> 微信小程序——图片识别
+    <a href="/2020/02/26/VMware-Share/" rel="prev" title="VMware 共享文件夹">
+      <i class="fa fa-chevron-left"></i> VMware 共享文件夹
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/01/20/MyLink/" rel="next" title="技术资源链接">
-      技术资源链接 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -505,7 +615,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#博客迁移"><span class="nav-text">博客迁移</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#h5ai-介绍"><span class="nav-text">H5AI 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装前的准备"><span class="nav-text">1 安装前的准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装h5ai"><span class="nav-text">2 安装h5ai</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载安装包"><span class="nav-text">2.1 下载安装包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压文件"><span class="nav-text">2.2 解压文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改配置文件"><span class="nav-text">3 修改配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#更改显示语言"><span class="nav-text">3.1 更改显示语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件搜索功能"><span class="nav-text">3.2 文件搜索功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多文件下载功能"><span class="nav-text">3.3 多文件下载功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置密码"><span class="nav-text">3.4 设置密码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-text">4 参考资料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -800,7 +910,7 @@
       quicklink({
         timeout: 3000,
         priority: true,
-        ignores: [uri => uri.includes('#'),uri => uri == 'https://zhj.forever305.cn/2020/01/18/My_First_Share/',]
+        ignores: [uri => uri.includes('#'),uri => uri == 'https://zhj.forever305.cn/2020/02/27/h5ai/',]
       });
       });
   </script>
