@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C4D 建模</title>
+    <url>/2020/03/02/C4D/</url>
+    <content><![CDATA[<ul>
+<li>昨天尝试了一下C4D建模，做了一个简单的模型</li>
+<li>离百万建模师又近了一步</li>
+</ul>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/C4D/first.png" alt="效果图" /><figcaption>效果图</figcaption>
+</figure>
+<a id="more"></a>
+<p>最开始下载了<code>C4D R21</code>版本，发现<code>ALT+鼠标左键</code>不能旋转摄像头。不能旋转视角的话，建模很不方便啊。网上资料说这是因为快捷键冲突导致的，可以使用如下方法可以解决：</p>
+<ol type="1">
+<li>最小化CINEMA 4D</li>
+<li>依次按下小键盘的数字键：0123456789</li>
+<li>回到CINEMA 4D就正常了</li>
+</ol>
+<p><strong><em>尝试之后不起作用。</em></strong></p>
+<p>在这个<span class="exturl" data-url="aHR0cHM6Ly93d3cuYzRkY2FmZS5jb20vaXBiL2ZvcnVtcy90b3BpYy84ODAxOC11bmFibGUtdG8tbW92ZS1hcm91bmQtd2l0aC1yaWdodC1jbGljay8=" title="https://www.c4dcafe.com/ipb/forums/topic/88018-unable-to-move-around-with-right-click/">C4D论坛<i class="fa fa-external-link"></i></span>里，找到了一个2009年的帖子，网友<code>joeldberry</code>提示说可以用以下方式查看并改写C4D快捷键。</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/C4D/community.png" alt="论坛截图" /><figcaption>论坛截图</figcaption>
+</figure>
+<p>根据他的描述，找的了C4D的快捷键。</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/C4D/command.png" alt="快捷键" /><figcaption>快捷键</figcaption>
+</figure>
+<p>可以看到，我的<code>ALT+鼠标左键</code>的快捷键确实是用于<code>旋转摄像机</code>，但是移动就是不起作用。 哎😔</p>
+<p>无奈之下，卸载了R21，重新安装了R20版本。没想到ALT+鼠标左键居然可以用了。</p>
+<p>很神奇 ~~</p>
+<p>之后在B站找了一篇@<span class="exturl" data-url="aHR0cHM6Ly9zcGFjZS5iaWxpYmlsaS5jb20vOTU3Njk2OTIv" title="https://space.bilibili.com/95769692/">丛伊俊<i class="fa fa-external-link"></i></span>的C4D<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL2F2NDM0MTk5Mjg=" title="https://www.bilibili.com/video/av43419928">入门教程<i class="fa fa-external-link"></i></span>，跟着做了一下。效果就是开头所示的图片。</p>
+<p>离百万建模师又近了一步。</p>
+]]></content>
+      <categories>
+        <category>日常随笔</category>
+      </categories>
+      <tags>
+        <tag>C4D</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu LAMP 环境下安装 H5AI</title>
     <url>/2020/02/27/h5ai/</url>
     <content><![CDATA[<h2 id="h5ai-介绍">H5AI 介绍</h2>
@@ -1616,8 +1655,8 @@
         <category>解决方案</category>
       </categories>
       <tags>
-        <tag>OpenCV</tag>
         <tag>Ubuntu</tag>
+        <tag>OpenCV</tag>
       </tags>
   </entry>
   <entry>
