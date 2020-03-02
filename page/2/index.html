@@ -303,14 +303,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>9.1k</span>
+              <span>9.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>15 分钟</span>
+              <span>16 分钟</span>
             </span>
 
         </div>
@@ -425,7 +425,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>769</span>
+              <span>780</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -448,9 +448,8 @@
 <li>记录 Ubuntu18.04 编译安装 OpenCV 过程中遇到的问题</li>
 <li>参考的安装教程：<a href="https://www.pyimagesearch.com/2018/05/28/ubuntu-18-04-how-to-install-opencv/" target="_blank" rel="noopener">Ubuntu 18.04: How to install OpenCV by Adrian Rosebrock on May 28, 2018 in OpenCV, Tutorials</a></li>
 </ul>
-<h2 id="报错1：-fatal-error-boostdesc-bgm-i-No-such-file-or-directory"><a class="header-anchor" href="#报错1：-fatal-error-boostdesc-bgm-i-No-such-file-or-directory">¶</a>报错1： fatal error: boostdesc_bgm.i: No such file or directory</h2>
-<p>报错截图：<br>
-<img src="https://img-blog.csdnimg.cn/20191029181732561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="fatal error"></p>
+<h2 id="报错1-fatal-error-boostdesc_bgm.i-no-such-file-or-directory">报错1： fatal error: boostdesc_bgm.i: No such file or directory</h2>
+<p>报错截图： <img src="https://img-blog.csdnimg.cn/20191029181732561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="fatal error" /></p>
 <ul>
 <li>报错原因：在编译CMake的时候 <strong>boostdesc_bgm.i</strong> 这个文件就没有下载成功，导致make编译的时候找不到该文件。</li>
 <li>解决方案：手动下载相关文件。总共需要下载11个文件，我已经将它们上传到了服务器上，<a href="http://47.95.13.239/play/OpenCV/fatal_error/" target="_blank" rel="noopener">点击此处可以下载</a>。下载完成后，将他们复制到 <strong>opencv_contrib/modules/xfeatures2d/src/</strong> 文件夹中，重新编译即可。</li>
@@ -552,7 +551,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.4k</span>
+              <span>3.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -577,65 +576,66 @@
 <ul>
 <li>我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。</li>
 <li>我还做了一个使用数码管滚动显示学号的程序，就不再写成博客了，代码放在了GitHub</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>  单片机实验平台简介等信息，请阅读<a href="https://blog.csdn.net/ZHJ123CSDN/article/details/102299484" target="_blank" rel="noopener">上一篇文章</a>。</p>
-<h2 id="一、HC-SR04"><a class="header-anchor" href="#一、HC-SR04">¶</a>一、HC-SR04</h2>
-<h3 id="1-1-简介"><a class="header-anchor" href="#1-1-简介">¶</a>1.1 简介</h3>
+<h2 id="一hc-sr04">一、HC-SR04</h2>
+<h3 id="简介">1.1 简介</h3>
 <p>  HC-SR04超声波测距模块提供2cm~4m的非接触式测距功能，测距精度可达3mm。</p>
-<h3 id="1-2-电气参数"><a class="header-anchor" href="#1-2-电气参数">¶</a>1.2 电气参数</h3>
+<h3 id="电气参数">1.2 电气参数</h3>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>电气参数</th>
 <th>HC-SR04模块</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>工作电压</td>
 <td>DC 5V</td>
 </tr>
-<tr>
+<tr class="even">
 <td>工作电流</td>
 <td>15mA</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>工作频率</td>
 <td>40Hz</td>
 </tr>
-<tr>
+<tr class="even">
 <td>最远射程</td>
 <td>4m</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>最近射程</td>
 <td>2cm</td>
 </tr>
-<tr>
+<tr class="even">
 <td>测量角度</td>
 <td>15°</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>输入触发信号</td>
 <td>10us的TTL高电平脉冲</td>
 </tr>
-<tr>
+<tr class="even">
 <td>输出回响信号</td>
 <td>输出TTL高电平，时间与射程成正比</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>规格尺寸</td>
 <td>45×20×15mm</td>
 </tr>
 </tbody>
 </table>
-<h3 id="1-3-时序图"><a class="header-anchor" href="#1-3-时序图">¶</a>1.3 时序图</h3>
-<p><img src="https://img-blog.csdnimg.cn/20191010212059345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x250" alt="图1 HC-SR04时序图"></p>
+<h3 id="时序图">1.3 时序图</h3>
+<figure>
+<img src="https://img-blog.csdnimg.cn/20191010212059345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x250" alt="图1 HC-SR04时序图" /><figcaption>图1 HC-SR04时序图</figcaption>
+</figure>
 <p>通过阅读时序图可以看出HCSR04的工作原理：</p>
 <blockquote>
-<ol>
+<ol type="1">
 <li>采用IO口TRIG触发测距，给至少10us的高电平信号</li>
 <li>模块自动发送8个40khz的方波，自动检测是否有信号返回</li>
 <li>有信号返回，通过IO口ECHO输出一个高电平，高电平持续的时间就是超声波从发射到返回的时间</li>
@@ -763,10 +763,9 @@
 <li>我已将该项目上传到GitHub，项目地址为： <a href="https://github.com/ZHJ0125/STC11F04E" target="_blank" rel="noopener">STC11F04E项目</a>。 代码开源，欢迎测试
 <ul>
 <li>声明1：我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。</li>
-<li>声明2：我将控制位选的4个三极管更换了，<s>程序由原来的位选高电平选中，换成了位选低电平选中</s>，在此声明。</li>
+<li>声明2：我将控制位选的4个三极管更换了，<del>程序由原来的位选高电平选中，换成了位选低电平选中</del>，在此声明。</li>
 <li>声明3：这款PCB还实现了超声波测距、数码管滚动显示学号等功能，请见<a href="https://blog.csdn.net/ZHJ123CSDN/article/details/102490823" target="_blank" rel="noopener">另一篇博客</a>，代码详见GitHub</li>
-</ul>
-</li>
+</ul></li>
 </ul>
           <!--noindex-->
             <div class="post-button">
@@ -865,14 +864,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.5k</span>
+              <span>7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>11 分钟</span>
+              <span>12 分钟</span>
             </span>
 
         </div>
@@ -885,11 +884,8 @@
 
       
           <ul>
-<li>
-<p>内容说明:这是微信小程序第一次实验报告</p>
-</li>
-<li>
-<p>本次实验主要实现了三部分内容：开发环境的搭建，开发工具的安装以及比较数字大小的实验案例。在进行实验的过程中，掌握了以下知识内容：</p>
+<li>内容说明:这是微信小程序第一次实验报告</li>
+<li><p>本次实验主要实现了三部分内容：开发环境的搭建，开发工具的安装以及比较数字大小的实验案例。在进行实验的过程中，掌握了以下知识内容：</p>
 <ul>
 <li>微信小程序开发环境的搭建</li>
 <li>小程序项目的创建</li>
@@ -898,8 +894,7 @@
 <li>配置文件JSON的编写(页面级和应用级配置文件的常见配置属性)</li>
 <li>页面逻辑文件JS的编写(生命周期回调函数、页面事件处理函数、组件事件处理函数)</li>
 <li>五种实现页面逻辑的方法(为不同的组件绑定不同的处理函数、为同类型组件绑定相同的处理函数、使用条件表达式、利用条件渲染显示需要的组件、通过表单格式<code>form</code>获取用户输入信息)</li>
-</ul>
-</li>
+</ul></li>
 </ul>
           <!--noindex-->
             <div class="post-button">
@@ -998,7 +993,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>690</span>
+              <span>699</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1017,21 +1012,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="修复-无法锁定Ubuntu中的管理目录-var-lib-dpkg"><a class="header-anchor" href="#修复-无法锁定Ubuntu中的管理目录-var-lib-dpkg">¶</a>修复&quot;无法锁定Ubuntu中的管理目录(/var/lib/dpkg/)&quot;</h2>
+          <h2 id="修复无法锁定ubuntu中的管理目录varlibdpkg">修复&quot;无法锁定Ubuntu中的管理目录(/var/lib/dpkg/)&quot;</h2>
 <ul>
-<li>
-<p>问题描述：</p>
-</li>
-<li>
-<p>Ubuntu18.04在更新软件源时，出现“Unable to lock the administration directory (/var/lib/dpkg/)” 报错信息。<br>
-<img src="https://img-blog.csdnimg.cn/20190626215634585.png#pic_center" alt="报错截图"></p>
-</li>
-<li>
-<p>问题分析：</p>
-</li>
-<li>
-<p>Linux为了避免已经运行的apt-get或apt进程被用户或需要处理apt文件的其他进程中断，运行apt-get或apt命令后，将在以下任何目录<code>/var/lib/apt/lists/</code>，<code>/var/lib/dpkg/</code> 和 <code>/var/cache/apt/archives/</code> 下创建一个 <em>lock</em>(锁定文件)。正常情况下，当进程执行完毕后，将删除锁定文件。如果有程序正在占用该进程，锁定文件未删除，就会导致此问题发生。</p>
-</li>
+<li>问题描述：</li>
+<li><p>Ubuntu18.04在更新软件源时，出现“Unable to lock the administration directory (/var/lib/dpkg/)” 报错信息。 <img src="https://img-blog.csdnimg.cn/20190626215634585.png#pic_center" alt="报错截图" /></p></li>
+<li>问题分析：</li>
+<li><p>Linux为了避免已经运行的apt-get或apt进程被用户或需要处理apt文件的其他进程中断，运行apt-get或apt命令后，将在以下任何目录<code>/var/lib/apt/lists/</code>，<code>/var/lib/dpkg/</code> 和 <code>/var/cache/apt/archives/</code> 下创建一个 <em>lock</em>(锁定文件)。正常情况下，当进程执行完毕后，将删除锁定文件。如果有程序正在占用该进程，锁定文件未删除，就会导致此问题发生。</p></li>
 </ul>
           <!--noindex-->
             <div class="post-button">
@@ -1130,14 +1116,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>7k</span>
+              <span>7.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>12 分钟</span>
+              <span>13 分钟</span>
             </span>
 
         </div>
@@ -1158,8 +1144,7 @@
 <li>第二部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_HTTP_Server/">搭建HTTP服务器</a></li>
 <li>第三部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_MyWeb/">搭建动态网站</a></li>
 <li><a href="http://47.95.13.239/Study/Linux/linux%E5%AE%9E%E8%AE%AD%20_%E5%BC%A0%E5%8E%9A%E4%BB%8A.pdf" target="_blank" rel="noopener">完整实验报告PDF文件</a></li>
-</ul>
-</li>
+</ul></li>
 </ul>
           <!--noindex-->
             <div class="post-button">
@@ -1252,7 +1237,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>362</span>
+              <span>357</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1396,8 +1381,7 @@
 <li>第二部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_HTTP_Server/">搭建HTTP服务器</a></li>
 <li>第三部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_MyWeb/">搭建动态网站</a></li>
 <li><a href="http://47.95.13.239/Study/Linux/linux%E5%AE%9E%E8%AE%AD%20_%E5%BC%A0%E5%8E%9A%E4%BB%8A.pdf" target="_blank" rel="noopener">完整实验报告PDF文件</a></li>
-</ul>
-</li>
+</ul></li>
 </ul>
           <!--noindex-->
             <div class="post-button">
@@ -1496,14 +1480,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.7k</span>
+              <span>4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
+              <span>7 分钟</span>
             </span>
 
         </div>
@@ -1523,8 +1507,7 @@
 <li>第二部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_HTTP_Server/">搭建HTTP服务器</a></li>
 <li>第三部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_MyWeb/">搭建动态网站</a></li>
 <li><a href="http://47.95.13.239/Study/Linux/linux%E5%AE%9E%E8%AE%AD%20_%E5%BC%A0%E5%8E%9A%E4%BB%8A.pdf" target="_blank" rel="noopener">完整实验报告PDF文件</a></li>
-</ul>
-</li>
+</ul></li>
 </ul>
           <!--noindex-->
             <div class="post-button">
@@ -1701,12 +1684,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">156k</span>
+    <span title="站点总字数">159k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:20</span>
+    <span title="站点阅读时长">4:26</span>
 </div>
 
 <!--

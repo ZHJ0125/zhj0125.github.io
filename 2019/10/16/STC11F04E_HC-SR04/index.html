@@ -25,12 +25,12 @@
     var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":250,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":20},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前几天做了一下电子工艺实习，实现了在数码管上显示温度和时间的功能，还写了篇博客。但当时没有注意到，这款PCB还设计了超声波测距的功能。在实现该功能后，我决定不再增改原来的文章，而写下这篇文章描述HC-SR04的控制方法。 我已将该项目上传到GitHub，项目地址为： STC11F04E项目。 代码开源，欢迎测试  我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。 我还做了一个使">
+  <meta name="description" content="前几天做了一下电子工艺实习，实现了在数码管上显示温度和时间的功能，还写了篇博客。但当时没有注意到，这款PCB还设计了超声波测距的功能。在实现该功能后，我决定不再增改原来的文章，而写下这篇文章描述HC-SR04的控制方法。 我已将该项目上传到GitHub，项目地址为： STC11F04E项目。 代码开源，欢迎测试  我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。 我还">
 <meta property="og:type" content="article">
 <meta property="og:title" content="STC11F04E——HC-SR04">
 <meta property="og:url" content="https://zhj.forever305.cn/2019/10/16/STC11F04E_HC-SR04/index.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="前几天做了一下电子工艺实习，实现了在数码管上显示温度和时间的功能，还写了篇博客。但当时没有注意到，这款PCB还设计了超声波测距的功能。在实现该功能后，我决定不再增改原来的文章，而写下这篇文章描述HC-SR04的控制方法。 我已将该项目上传到GitHub，项目地址为： STC11F04E项目。 代码开源，欢迎测试  我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。 我还做了一个使">
+<meta property="og:description" content="前几天做了一下电子工艺实习，实现了在数码管上显示温度和时间的功能，还写了篇博客。但当时没有注意到，这款PCB还设计了超声波测距的功能。在实现该功能后，我决定不再增改原来的文章，而写下这篇文章描述HC-SR04的控制方法。 我已将该项目上传到GitHub，项目地址为： STC11F04E项目。 代码开源，欢迎测试  我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。 我还">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191010212059345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x250">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191016201730216.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=1000x700">
@@ -305,7 +305,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.4k</span>
+              <span>3.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -330,65 +330,66 @@
 <ul>
 <li>我是一个单片机小白，下面有任何说的不对的地方，恳请各位指正，谢谢。</li>
 <li>我还做了一个使用数码管滚动显示学号的程序，就不再写成博客了，代码放在了GitHub</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>  单片机实验平台简介等信息，请阅读<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzEwMjI5OTQ4NA==" title="https://blog.csdn.net/ZHJ123CSDN/article/details/102299484">上一篇文章<i class="fa fa-external-link"></i></span>。</p>
-<h2 id="一、HC-SR04"><a class="header-anchor" href="#一、HC-SR04">¶</a>一、HC-SR04</h2>
-<h3 id="1-1-简介"><a class="header-anchor" href="#1-1-简介">¶</a>1.1 简介</h3>
+<h2 id="一hc-sr04">一、HC-SR04</h2>
+<h3 id="简介">1.1 简介</h3>
 <p>  HC-SR04超声波测距模块提供2cm~4m的非接触式测距功能，测距精度可达3mm。</p>
-<h3 id="1-2-电气参数"><a class="header-anchor" href="#1-2-电气参数">¶</a>1.2 电气参数</h3>
+<h3 id="电气参数">1.2 电气参数</h3>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>电气参数</th>
 <th>HC-SR04模块</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>工作电压</td>
 <td>DC 5V</td>
 </tr>
-<tr>
+<tr class="even">
 <td>工作电流</td>
 <td>15mA</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>工作频率</td>
 <td>40Hz</td>
 </tr>
-<tr>
+<tr class="even">
 <td>最远射程</td>
 <td>4m</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>最近射程</td>
 <td>2cm</td>
 </tr>
-<tr>
+<tr class="even">
 <td>测量角度</td>
 <td>15°</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>输入触发信号</td>
 <td>10us的TTL高电平脉冲</td>
 </tr>
-<tr>
+<tr class="even">
 <td>输出回响信号</td>
 <td>输出TTL高电平，时间与射程成正比</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>规格尺寸</td>
 <td>45×20×15mm</td>
 </tr>
 </tbody>
 </table>
-<h3 id="1-3-时序图"><a class="header-anchor" href="#1-3-时序图">¶</a>1.3 时序图</h3>
-<p><img data-src="https://img-blog.csdnimg.cn/20191010212059345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x250" alt="图1 HC-SR04时序图"></p>
+<h3 id="时序图">1.3 时序图</h3>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20191010212059345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x250" alt="图1 HC-SR04时序图" /><figcaption>图1 HC-SR04时序图</figcaption>
+</figure>
 <p>通过阅读时序图可以看出HCSR04的工作原理：</p>
 <blockquote>
-<ol>
+<ol type="1">
 <li>采用IO口TRIG触发测距，给至少10us的高电平信号</li>
 <li>模块自动发送8个40khz的方波，自动检测是否有信号返回</li>
 <li>有信号返回，通过IO口ECHO输出一个高电平，高电平持续的时间就是超声波从发射到返回的时间</li>
@@ -399,29 +400,23 @@
 <p>  通过阅读时序图和工作原理，可以了解到：当单片机给TRIG端口一个 &gt;10us 的高电平信号之后，就触发了HC-SR04传感器。此时，HCSR04会自动发出8个4KHz的方波信号，同时自动检测是否有方波信号返回。如果传感器接收到了信号回复，就会通过ECHO输出一个高电平的回响信号，而这个回响信号持续的时间就是超声波从发出到返回所用的时间。得到这个回响时间(t)之后，将其乘以超声波声速(v)，就是超声波从发出到接收所含经过的路程(s)。这个路程除以2，就是传感器到被测物体之间的距离。</p>
 <p>  虽然时序看起来比较简单，但其实控制它的重点，是对单片机定时器/计时器的控制。为什么呢？因为回响信号输出时间的计算需要用到定时器。因为第一次使用计时器，我大致了解了一下单片机定时器/计时器的使用方式。</p>
 <ul>
-<li>1个机器周期 = 12个晶振周期。即 $\text{T}<em>M =\dfrac{12}{\text{f}</em>\text{osc}}$</li>
+<li>1个机器周期 = 12个晶振周期。即 <span class="math inline">\(\text{T}_M =\dfrac{12}{\text{f}_\text{osc}}\)</span></li>
 </ul>
 <blockquote>
-<p>$\text{T}<em>M$ 表示机器周期<br>
-$\text{f}</em>\text{osc}$表示系统晶振的频率</p>
+<p><span class="math inline">\(\text{T}_M\)</span> 表示机器周期 <span class="math inline">\(\text{f}_\text{osc}\)</span>表示系统晶振的频率</p>
 </blockquote>
 <ul>
-<li>定时时间 = 计数值 x 机器周期。$\text{T}_C=X×\text{T}_M$</li>
+<li>定时时间 = 计数值 x 机器周期。<span class="math inline">\(\text{T}_C=X×\text{T}_M\)</span></li>
 </ul>
 <blockquote>
-<p>$\text{T}_C$  表示定时时间<br>
-$X$  表示计数器计的个数</p>
+<p><span class="math inline">\(\text{T}_C\)</span> 表示定时时间 <span class="math inline">\(X\)</span> 表示计数器计的个数</p>
 </blockquote>
-<p>在STC官方手册里指出：</p>
-<blockquote>
-<p>  STC11/10xx系列单片有2个定时器，定时器0和定时器1，与传统8051的定时器完全兼容，也可以设置为1T模式，当在定时器1做波特率发生器时，定时器0可以当两个8位定时器用。<br>
-  STC11/10xx系列单片机是1T的单片机，为兼容传统8051，定时器0和定时器1复位后是传统12T的速度，即12分频，这是为了兼容传统 。但也可不进行12分频，通过设置新增的特殊功能寄存器AUXR ,可以将T0,T1设置为1T。普通111条机器指令是固定的，快3到24倍，无法改变。</p>
-</blockquote>
-<p>  也就是说，我这款单片机在上电之后，就默认初始化成了12分频的模式(可以通过AUXR调整分频模式)，即 $\text{T}<em>M =\dfrac{12}{\text{f}</em>\text{osc}}$。通过该公式即可算出晶振一次所消耗的时间。为了保证计数范围，需要设置TMOD计时方式控制寄存器，使用定时器0计时方式1，也就是用两个8位的组成一个16位的计时器。现在知道了这些知识，就可以着手编写程序了。</p>
-<h2 id="二、程序编写"><a class="header-anchor" href="#二、程序编写">¶</a>二、程序编写</h2>
+<p>在STC官方手册里指出： &gt;   STC11/10xx系列单片有2个定时器，定时器0和定时器1，与传统8051的定时器完全兼容，也可以设置为1T模式，当在定时器1做波特率发生器时，定时器0可以当两个8位定时器用。 &gt;   STC11/10xx系列单片机是1T的单片机，为兼容传统8051，定时器0和定时器1复位后是传统12T的速度，即12分频，这是为了兼容传统 。但也可不进行12分频，通过设置新增的特殊功能寄存器AUXR ,可以将T0,T1设置为1T。普通111条机器指令是固定的，快3到24倍，无法改变。</p>
+<p>  也就是说，我这款单片机在上电之后，就默认初始化成了12分频的模式(可以通过AUXR调整分频模式)，即 <span class="math inline">\(\text{T}_M =\dfrac{12}{\text{f}_\text{osc}}\)</span>。通过该公式即可算出晶振一次所消耗的时间。为了保证计数范围，需要设置TMOD计时方式控制寄存器，使用定时器0计时方式1，也就是用两个8位的组成一个16位的计时器。现在知道了这些知识，就可以着手编写程序了。</p>
+<h2 id="二程序编写">二、程序编写</h2>
 <p>  下面同样只列出主要的测距程序，项目工程文件已上传至GitHub，<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvU1RDMTFGMDRF" title="https://github.com/ZHJ0125/STC11F04E">STC11F04E项目<i class="fa fa-external-link"></i></span>。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**********************************************************</span></span><br><span class="line"><span class="comment">*  函数名称：超声波测距函数</span></span><br><span class="line"><span class="comment">*  修改日期：2019-10-9</span></span><br><span class="line"><span class="comment">*  修改人：ZhangHJ</span></span><br><span class="line"><span class="comment">*  说明：1. 采用IO口TRIG触发测距，给至少10us的高电平信号</span></span><br><span class="line"><span class="comment">*        2. 模块自动发送8个40khz的方波，自动检测是否有信号返回</span></span><br><span class="line"><span class="comment">*        3. 若有信号返回，通过IO口ECHO输出一个高电平，高电平持续的时间就是超声波从发射到返回的时间</span></span><br><span class="line"><span class="comment">*        4. 测试距离 = (高电平时间*声速(340M/S))/2</span></span><br><span class="line"><span class="comment">***********************************************************/</span></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">GetDistance</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> dist = <span class="number">0.0f</span>;</span><br><span class="line">    uint count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    TMOD = <span class="number">0x01</span>;                        <span class="comment">// 计时器0方式1 (16位计数器,TL0、TH0全用)</span></span><br><span class="line">    TH0 = TL0 = <span class="number">0</span>;                      <span class="comment">// 装入初值</span></span><br><span class="line">    Trig = <span class="number">1</span>;                           <span class="comment">// 打开触发</span></span><br><span class="line">    delay_12us();                       <span class="comment">// 延时一会儿,保证延时10us时间</span></span><br><span class="line">    Trig = <span class="number">0</span>;                           <span class="comment">// 关闭触发</span></span><br><span class="line">    <span class="keyword">while</span>(!Echo);                       <span class="comment">// 测距过程中</span></span><br><span class="line">    TR0 = <span class="number">1</span>;                            <span class="comment">// 打开中断</span></span><br><span class="line">    <span class="keyword">while</span>(Echo);                        <span class="comment">// 等待输出电平结束</span></span><br><span class="line">    TR0 = <span class="number">0</span>;                            <span class="comment">// 关闭中断</span></span><br><span class="line">    count = (TH0 &lt;&lt; <span class="number">8</span>) | TL0;           <span class="comment">// 读取16位计时器里的数字</span></span><br><span class="line">    dist = CYCLE * count * <span class="number">0.017</span>;       <span class="comment">// 0.017cm/us</span></span><br><span class="line">    <span class="keyword">return</span> dist;                        <span class="comment">// 返回值是一个浮点型数据</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
+<ol type="1">
 <li>首先设置TMOD定时计数器工作模式寄存器，将其设置成计时器0，工作方式1，表示使用的是两个8位的寄存器计数，高八位是TH0，低八位是TL0。将其装入初值为0。</li>
 <li>接着设置Trig触发输入端为高电平，延时12us确保触发成功，然后将其重置为0。此时，传感器已经开始工作。</li>
 <li>等待回响输入端置为低电平，保证记录一次完整的回响信号时间。</li>
@@ -434,26 +429,22 @@ $X$  表示计数器计的个数</p>
 <p>  其中需要注意的是，计算距离的公式中，需要用到每次计数器计数的时间，也就是上面分析过的一个机器周期。在程序起始位置进行机器周期的宏定义：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FOSC 11059200L                  <span class="comment">// 晶振频率11.0592MHz(s)</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CYCLE (12000000.0/FOSC)         <span class="comment">// 系统机器周期(us)</span></span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>FOSC   ： 表示系统晶振频率，我的单片机使用的是11.0592MHz的晶振，所以定义为11059200L<br>
-CYCLE ：表示机器周期，按照之前的公式， 12/FOSC  即为系统周期(单位为秒)，再乘以$\text{10}^6$，就是以us为单位的机器周期。</p>
+<p>FOSC ： 表示系统晶振频率，我的单片机使用的是11.0592MHz的晶振，所以定义为11059200L CYCLE ：表示机器周期，按照之前的公式， 12/FOSC 即为系统周期(单位为秒)，再乘以<span class="math inline">\(\text{10}^6\)</span>，就是以us为单位的机器周期。</p>
 </blockquote>
 <p>  通过数码管显示函数，格式化控制该函数返回的浮点数值，即可实现测距的结果显示。</p>
-<h2 id="三、程序测试"><a class="header-anchor" href="#三、程序测试">¶</a>三、程序测试</h2>
+<h2 id="三程序测试">三、程序测试</h2>
 <p>  因为超声波模块需要一个比较稳定的测试环境，所以我做了一个超声波模块测距装置。利用游标卡尺得到正确的距离数值(实际值)，与单片机数码管显示的数值(测试值)进行比较，可以得出超声波测距装置是否准确。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20191016201730216.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=1000x700" alt="图2 超声波测距装置"></p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20191016201730216.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=1000x700" alt="图2 超声波测距装置" /><figcaption>图2 超声波测距装置</figcaption>
+</figure>
 <p>上图中，可以看出游标卡尺的数值大概是15cm左右，单片机显示的数值也在15.0附近（单位：cm）。现在使用示波器，测量一下Echo回响信号的高电平时间，如下图3所示。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20191016203435654.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图3 示波器测量回响信号时间"></p>
-<p>  可以看到。高电平时间 $\Delta x$ 为872.0us，这样按照公式算一下距离：</p>
-<blockquote>
-<p>距离 = 回响信号时间(us) * 0.034(cm/us) ÷ 2<br>
-   = 872(us) * 0.017(cm/us)<br>
-   = 14.824(cm)</p>
-</blockquote>
-<p>  手动计算的数值与单片机上的数值接近，但并不是完全相等，原因是：这一次上升沿的时间也许并不是我们此次单片机显示的时间对应的高电平。。有点绕嘴。因为示波器上的这一段高电平，是我在好几个周期的高电平中，随便挑的一个高电平，与单片机显示的数值就近就是正常的了。应该说清楚了吧?</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20191016203435654.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图3 示波器测量回响信号时间" /><figcaption>图3 示波器测量回响信号时间</figcaption>
+</figure>
+<p>  可以看到。高电平时间 <span class="math inline">\(\Delta x\)</span> 为872.0us，这样按照公式算一下距离： &gt; 距离 = 回响信号时间(us) * 0.034(cm/us) ÷ 2 &gt;    = 872(us) * 0.017(cm/us) &gt;    = 14.824(cm) &gt;   手动计算的数值与单片机上的数值接近，但并不是完全相等，原因是：这一次上升沿的时间也许并不是我们此次单片机显示的时间对应的高电平。。有点绕嘴。因为示波器上的这一段高电平，是我在好几个周期的高电平中，随便挑的一个高电平，与单片机显示的数值就近就是正常的了。应该说清楚了吧?</p>
 <p><span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9TdHVkeS9NaWNyb2NvbXB1dGVyL1NUQzExRjA0RS9WaWRlby9TaG93X3ZpZGVvLzA3X0hDLVNSMDQuTVA0" title="http://47.95.13.239/Study/Microcomputer/STC11F04E/Video/Show_video/07_HC-SR04.MP4">点击此处<i class="fa fa-external-link"></i></span>查看演示视频</p>
-<h2 id="四、改进"><a class="header-anchor" href="#四、改进">¶</a>四、改进</h2>
-<p>  超声波测距还有很多改进的空间，比如，为了保持测试数据的稳定，可以通过求平均值的方式进行改进。另外中断计时器应该还可以进行改进。。。<br>
-  先写到这里吧，以后如果再有好的想法再来记录。</p>
+<h2 id="四改进">四、改进</h2>
+<p>  超声波测距还有很多改进的空间，比如，为了保持测试数据的稳定，可以通过求平均值的方式进行改进。另外中断计时器应该还可以进行改进。。。   先写到这里吧，以后如果再有好的想法再来记录。</p>
 
     </div>
 
@@ -625,7 +616,7 @@ CYCLE ：表示机器周期，按照之前的公式， 12/FOSC  即为系统周�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、HC-SR04"><span class="nav-text">¶一、HC-SR04</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-简介"><span class="nav-text">¶1.1 简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-电气参数"><span class="nav-text">¶1.2 电气参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-时序图"><span class="nav-text">¶1.3 时序图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、程序编写"><span class="nav-text">¶二、程序编写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、程序测试"><span class="nav-text">¶三、程序测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、改进"><span class="nav-text">¶四、改进</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一hc-sr04"><span class="nav-text">一、HC-SR04</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-text">1.1 简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#电气参数"><span class="nav-text">1.2 电气参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时序图"><span class="nav-text">1.3 时序图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二程序编写"><span class="nav-text">二、程序编写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三程序测试"><span class="nav-text">三、程序测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四改进"><span class="nav-text">四、改进</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -722,12 +713,12 @@ CYCLE ：表示机器周期，按照之前的公式， 12/FOSC  即为系统周�
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">156k</span>
+    <span title="站点总字数">159k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:20</span>
+    <span title="站点阅读时长">4:26</span>
 </div>
 
 <!--
