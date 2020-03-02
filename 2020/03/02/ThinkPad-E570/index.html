@@ -25,25 +25,43 @@
     var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":250,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":20},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="张厚今 搭建网站的初衷，是与大家分享有趣的技术，相互交流 🤝 联系方式  Email：shandonghoujin@163.com QQ：489275003  个人信息  张厚今&#x2F;男&#x2F;1999 Github：https:&#x2F;&#x2F;github.com&#x2F;ZHJ0125 目前就读于山东科技大学，电子信息科学与技术专业 坐标泰安">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于我">
-<meta property="og:url" content="https://zhj.forever305.cn/about/index.html">
+  <meta name="description" content="周末又闲着没事，就把笔记本拆开看了看。 主要是想清清灰，其次是想看看里面的结构  1 笔记本配置 这个笔记本是2017年购买的，经过我的多次升级，现配置如下：    参数 说明     处理器 Intel Core i5 7200U   主板 Lenovo 20H5A01RCD   内存 DDR4 16GBytes   独显 NVIDIA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ThinkPad_E570 拆机">
+<meta property="og:url" content="https://zhj.forever305.cn/2020/03/02/ThinkPad-E570/index.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="张厚今 搭建网站的初衷，是与大家分享有趣的技术，相互交流 🤝 联系方式  Email：shandonghoujin@163.com QQ：489275003  个人信息  张厚今&#x2F;男&#x2F;1999 Github：https:&#x2F;&#x2F;github.com&#x2F;ZHJ0125 目前就读于山东科技大学，电子信息科学与技术专业 坐标泰安">
+<meta property="og:description" content="周末又闲着没事，就把笔记本拆开看了看。 主要是想清清灰，其次是想看看里面的结构  1 笔记本配置 这个笔记本是2017年购买的，经过我的多次升级，现配置如下：    参数 说明     处理器 Intel Core i5 7200U   主板 Lenovo 20H5A01RCD   内存 DDR4 16GBytes   独显 NVIDIA">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-02-10T09:26:45.000Z">
-<meta property="article:modified_time" content="2020-02-10T09:26:45.000Z">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/d_show.JPG">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/dianchi.JPG">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/d_1.JPG">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/d_2.JPG">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/memory.JPG">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/jianpan.JPG">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/paixian_1.JPG">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/paixian_2.JPG">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/guangqu.JPG">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/jianpan_3.JPG">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/M27.JPG">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/paixian_C.JPG">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/zhuban_1.JPG">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/jiaolian.JPG">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/lianjie.JPG">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/left.JPG">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/middle.JPG">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/right.JPG">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/right_2.JPG">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/SSD.JPG">
+<meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/WD.JPG">
+<meta property="article:published_time" content="2020-03-02T02:38:26.000Z">
+<meta property="article:modified_time" content="2020-03-02T02:38:26.000Z">
 <meta property="article:author" content="Zhang H.J.">
-<meta property="article:tag" content="张厚今">
-<meta property="article:tag" content="厚今">
-<meta property="article:tag" content="ZHJ0125">
-<meta property="article:tag" content="CSDN">
-<meta property="article:tag" content="程序">
-<meta property="article:tag" content="山东科技大学">
+<meta property="article:tag" content="ThinkPad">
+<meta property="article:tag" content="拆机">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/d_show.JPG">
 
-<link rel="canonical" href="https://zhj.forever305.cn/about/">
+<link rel="canonical" href="https://zhj.forever305.cn/2020/03/02/ThinkPad-E570/">
 
 
 <script id="page-configurations">
@@ -51,12 +69,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>关于我 | 厚今的博客
-  </title>
+  <title>ThinkPad_E570 拆机 | 厚今的博客</title>
   
 
 
@@ -226,58 +243,370 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
           <div class="content">
             
 
   <div class="posts-expand">
-    
-    
-    
-    <div class="post-block" lang="zh-CN">
-      <header class="post-header">
-
-<h2 class="post-title" itemprop="name headline">关于我
-</h2>
-
-<div class="post-meta">
+      
   
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhj.forever305.cn/2020/03/02/ThinkPad-E570/">
 
-</div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhang H.J.">
+      <meta itemprop="description" content="Talk is cheap, Show me the code">
+    </span>
 
-</header>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="厚今的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          ThinkPad_E570 拆机
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-02 10:38:26" itemprop="dateCreated datePublished" datetime="2020-03-02T10:38:26+08:00">2020-03-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index">
+                    <span itemprop="name">日常随笔</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/03/02/ThinkPad-E570/" class="post-meta-item leancloud_visitors" data-flag-title="ThinkPad_E570 拆机" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/03/02/ThinkPad-E570/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/02/ThinkPad-E570/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-      
-      
-      <div class="post-body">
-          <h2 id="张厚今">张厚今</h2>
-<p>搭建网站的初衷，是与大家分享有趣的技术，相互交流 🤝</p>
-<h2 id="联系方式"><strong>联系方式</strong></h2>
-<ul>
-<li>Email：shandonghoujin@163.com</li>
-<li>QQ：489275003</li>
+        <ul>
+<li>周末又闲着没事，就把笔记本拆开看了看。</li>
+<li>主要是想清清灰，其次是想看看里面的结构</li>
 </ul>
-<h2 id="个人信息"><strong>个人信息</strong></h2>
+<h2 id="笔记本配置">1 笔记本配置</h2>
+<p>这个笔记本是2017年购买的，经过我的多次升级，现配置如下：</p>
+<table>
+<thead>
+<tr class="header">
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>处理器</td>
+<td>Intel Core i5 7200U</td>
+</tr>
+<tr class="even">
+<td>主板</td>
+<td>Lenovo 20H5A01RCD</td>
+</tr>
+<tr class="odd">
+<td>内存</td>
+<td>DDR4 16GBytes</td>
+</tr>
+<tr class="even">
+<td>独显</td>
+<td>NVIDIA GeForce GTX 950M</td>
+</tr>
+<tr class="odd">
+<td>集显</td>
+<td>Intel(R) HD Graphics 620</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h2 id="拆机步骤">2 拆机步骤</h2>
+<h3 id="工具准备">2.1 工具准备</h3>
 <ul>
-<li><strong>张厚今</strong>/男/1999</li>
-<li>Github：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjU=" title="https://github.com/ZHJ0125">https://github.com/ZHJ0125<i class="fa fa-external-link"></i></span></li>
-<li>目前就读于山东科技大学，电子信息科学与技术专业</li>
-<li>坐标泰安</li>
+<li>十字螺丝刀</li>
+<li>镊子</li>
+<li>小刷子</li>
+<li>银行卡</li>
 </ul>
+<h3 id="拆除独仓">2.2 拆除独仓</h3>
+<p>ThinkPad笔记本一直是以商务笔记本著称，其键盘的小红点更是极为经典的标志。</p>
+<p>首先检查一下笔记本D面外观</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/d_show.JPG" alt="D面展示" /><figcaption>D面展示</figcaption>
+</figure>
+<p>可以看到，D面有一个独立的外仓，如果只是想升级内存和硬盘，只需打开这个独立的外仓即可，非常方便。</p>
+<p>另外可以注意到，除了外围的螺丝外，中间的几个螺丝都已经标注了丝印，用来标识键盘螺丝和光驱螺丝。如果想更换键盘和光驱，也只需卸下这几个螺丝，省去了拆机的麻烦。</p>
+<p>现在将电池和独仓的螺丝拆下</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/dianchi.JPG" alt="电池和独仓盖" /><figcaption>电池和独仓盖</figcaption>
+</figure>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/d_1.JPG" alt="独仓展示" /><figcaption>独仓展示</figcaption>
+</figure>
+<p>可以看到，独仓中有机械硬盘、两个内存条槽位、无线模块以及一个类似给主板供电的电池。这些东西都可以自行更换升级，我的内存条好像就是由原来的8G自行升级到了16G。</p>
+<p>拆开SSD的封装，就可以看到固态硬盘</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/d_2.JPG" alt="固态硬盘" /><figcaption>固态硬盘</figcaption>
+</figure>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/memory.JPG" alt="细节展示" /><figcaption>细节展示</figcaption>
+</figure>
+<p>固态硬盘就在内存条和无线模块之间，是窄窄的一条。</p>
+<h3 id="拆除键盘">2.3 拆除键盘</h3>
+<p>刚才提到，拆除键盘只要卸掉三个D面的螺丝就可以了。卸下螺丝后，到C面往前推键盘，在往上一提，键盘就下来了。</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/jianpan.JPG" alt="键盘" /><figcaption>键盘</figcaption>
+</figure>
+<p>键盘由两个排线连接主板，分别用于键盘和小红点功能。</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/paixian_1.JPG" alt="排线" /><figcaption>排线</figcaption>
+</figure>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/paixian_2.JPG" alt="排线细节" /><figcaption>排线细节</figcaption>
+</figure>
+<p>拔下两个排线，就可以直接把键盘卸下，很方便。</p>
+<h3 id="拆除预置光驱盒">2.4 拆除预置光驱盒</h3>
+<p>ThinkPad E570默认没有安装光驱，只是预留了一个光驱的位置，可以拿来升级硬盘或者安装光驱。光驱盒拆除也只需卸下D面相应的螺丝即可。</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/guangqu.JPG" alt="光驱盒" /><figcaption>光驱盒</figcaption>
+</figure>
+<p>这就是光驱盒，里面啥都没有。旁边是SSD的盖板。</p>
+<h3 id="拆除c面外壳">2.5 拆除C面外壳</h3>
+<p>键盘拆下来之后，C面便成了下面这样</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/jianpan_3.JPG" alt="C面展示" /><figcaption>C面展示</figcaption>
+</figure>
+<p>这里需要注意，要现卸下这个M2*7的螺丝，然后将三个相关排线拆除。</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/M27.JPG" alt="M2*7螺丝" /><figcaption>M2*7螺丝</figcaption>
+</figure>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/paixian_C.JPG" alt="排线细节" /><figcaption>排线细节</figcaption>
+</figure>
+<p>这里的FPC连接线（其实我不知道这种线叫什么）挺难拆的，最好使用镊子一点点拆，不要把线弄断了~~ 软排线比较好拆。</p>
+<p>卸下排线后，使用银行卡等卡片，插到C面边缘的缝隙中，沿着C面缝隙翘一周，就可以把整个C面拆除了。</p>
+<h3 id="主板细节">2.6 主板细节</h3>
+<p>C面拆除后，可以看到主板是这样的</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/zhuban_1.JPG" alt="主板" /><figcaption>主板</figcaption>
+</figure>
+<p>左侧大部分是电脑的主板，右侧是预置的光驱盒、硬盘槽位等等。</p>
+<ul>
+<li>屏幕铰链</li>
+</ul>
+<p>这款ThinkPad E570是可以单手开合的，如果再加上一个光驱，更是没问题了。可以看一下铰链的细节。</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/jiaolian.JPG" alt="铰链细节" /><figcaption>铰链细节</figcaption>
+</figure>
+<ul>
+<li>网口和耳机接口</li>
+</ul>
+<p>右侧的以太网口、USB接口以及耳机接口是与主板分离的，需要使用排线连接到主板上。</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/lianjie.JPG" alt="软排连接" /><figcaption>软排连接</figcaption>
+</figure>
+<ul>
+<li>左下主板</li>
+</ul>
+<p>主板左下部分可以看到包括VGA接口、HDMI接口、两个USB接口以及散热风扇的部分鳍片结构。</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/left.JPG" alt="左下细节" /><figcaption>左下细节</figcaption>
+</figure>
+<p>左边中部可以看到连接笔记本触摸板的排线接口以及键盘的接口。</p>
+<ul>
+<li>主板中部</li>
+</ul>
+<p>主板中部可以看到Lenovo的标志，背面是CPU和显卡，因为主板没有卸下来，所以就不展示了。</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/middle.JPG" alt="主板中部" /><figcaption>主板中部</figcaption>
+</figure>
+<p>主板上密密麻麻的元器件，看得出来确实十分精密</p>
+<ul>
+<li>主板右部</li>
+</ul>
+<p>主板右部是连接光驱的接口，还有一个<code>IFRP1</code>排线接口，这个接口暂时没有用到，我猜它是指纹模块。</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/right.JPG" alt="主板右部" /><figcaption>主板右部</figcaption>
+</figure>
+<ul>
+<li>主板右下部</li>
+</ul>
+<p>主板右下部分有一个连接硬盘的SATA接口，左边还有一个连接右侧PCB的排线接口，上面已经提到了。</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/right_2.JPG" alt="主板右下部" /><figcaption>主板右下部</figcaption>
+</figure>
+<h3 id="其他部分">2.7 其他部分</h3>
+<p>拆到这一步就没往下进行（我怕拆坏了），如果想换硅脂的话，还得继续拆卸下主板，在背面拿下散热片，才能更换硅脂。</p>
+<p>就拆到这一步吧。下面附带两张图片。</p>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/SSD.JPG" alt="SSD特写" /><figcaption>SSD特写</figcaption>
+</figure>
+<figure>
+<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/ThinkPad/WD.JPG" alt="固态硬盘特写" /><figcaption>固态硬盘特写</figcaption>
+</figure>
+<h2 id="装机">装机</h2>
+<p>装机过程就不说了，直接装回去就可以了。</p>
 
+    </div>
+
+    
+    
+    
+      
+
+        <div class="reward-container">
+  <div>谢谢你请我喝快乐水 😜</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Zhang H.J. 微信支付">
+        <p>微信支付</p>
       </div>
       
-      
-      
-    </div>
-    
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Zhang H.J. 支付宝">
+        <p>支付宝</p>
+      </div>
 
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Zhang H.J.
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zhj.forever305.cn/2020/03/02/ThinkPad-E570/" title="ThinkPad_E570 拆机">https://zhj.forever305.cn/2020/03/02/ThinkPad-E570/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://github.com/ZHJ0125">
+                <span class="icon">
+                  <i class="fa fa-github"></i>
+                </span>
+
+                <span class="label">GitHub</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://blog.csdn.net/ZHJ123CSDN">
+                <span class="icon">
+                  <i class="fa fa-telegram"></i>
+                </span>
+
+                <span class="label">CSDN</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ThinkPad/" rel="tag"># ThinkPad</a>
+              <a href="/tags/%E6%8B%86%E6%9C%BA/" rel="tag"># 拆机</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/02/C4D/" rel="prev" title="C4D 建模">
+      <i class="fa fa-chevron-left"></i> C4D 建模
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
     
-    
-    
+  </article>
+  
+  
+  
+
   </div>
 
 
@@ -330,7 +659,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#张厚今"><span class="nav-text">张厚今</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系方式"><span class="nav-text">联系方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人信息"><span class="nav-text">个人信息</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#笔记本配置"><span class="nav-text">1 笔记本配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拆机步骤"><span class="nav-text">2 拆机步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工具准备"><span class="nav-text">2.1 工具准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拆除独仓"><span class="nav-text">2.2 拆除独仓</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拆除键盘"><span class="nav-text">2.3 拆除键盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拆除预置光驱盒"><span class="nav-text">2.4 拆除预置光驱盒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拆除c面外壳"><span class="nav-text">2.5 拆除C面外壳</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主板细节"><span class="nav-text">2.6 主板细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他部分"><span class="nav-text">2.7 其他部分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#装机"><span class="nav-text">装机</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -625,7 +954,7 @@
       quicklink({
         timeout: 3000,
         priority: true,
-        ignores: [uri => uri.includes('#'),uri => uri == 'https://zhj.forever305.cn/about/',]
+        ignores: [uri => uri.includes('#'),uri => uri == 'https://zhj.forever305.cn/2020/03/02/ThinkPad-E570/',]
       });
       });
   </script>
