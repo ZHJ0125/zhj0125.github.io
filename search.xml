@@ -1,6 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>VMware 映射网络驱动器</title>
+    <url>/2020/03/03/VMware-Map-Network-Drive/</url>
+    <content><![CDATA[<blockquote>
+<p>文章同步发布在我的<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzEwNDYzMDYyNw==" title="https://blog.csdn.net/ZHJ123CSDN/article/details/104630627">CSDN博客<i class="fa fa-external-link"></i></span></p>
+</blockquote>
+<ul>
+<li>前几天做了一下<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzEwNDUyNjg3MQ==" title="https://blog.csdn.net/ZHJ123CSDN/article/details/104526871">VMware的共享文件夹<i class="fa fa-external-link"></i></span>，今天想用一下，发现之前共享的目录竟然没有挂载。</li>
+<li>心想，如果每次都要先挂载一下，得多麻烦（当然，有一次性挂载的方法，我懒得查了😂）。</li>
+<li>于是想换一种方式实现文件夹的共享。</li>
+<li>以前见过有人用<code>映射网络驱动器</code>的方式实现了文件夹共享，于是这次就想试试这种方式。下面给大家分享一下过程。</li>
+</ul>
+<h2 id="我的环境">1 我的环境</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td>Product</td>
+<td>VMware® Workstation 15 Player</td>
+</tr>
+<tr class="even">
+<td>VMware Version</td>
+<td>15.5.0 build-14665864</td>
+</tr>
+<tr class="odd">
+<td>Ubuntu Version</td>
+<td>Ubuntu 18.04.4 LTS</td>
+</tr>
+<tr class="even">
+<td>Windows Version</td>
+<td>Version 10 Education</td>
+</tr>
+</tbody>
+</table>
+<h2 id="效果展示">2 效果展示</h2>
+<p>最终的效果就是这样的，可以在Windows10的资源管理器界面，查看VMware的共享文件夹内容。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303141024783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="效果展示" /><figcaption>效果展示</figcaption>
+</figure>
+<a id="more"></a>
+<h2 id="实现过程">3 实现过程</h2>
+<p>假设我们想共享用户目录文件夹（<code>/home/usrename</code>），首先需要在Ubuntu里右键单击该目录，然后选择<code>Local Network Share</code>选项</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/2020030313145516.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="本地网络共享" /><figcaption>本地网络共享</figcaption>
+</figure>
+<p>点击<code>Share this folder</code>选项</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303131628284.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="共享此文件夹" /><figcaption>共享此文件夹</figcaption>
+</figure>
+<p>此时，如果你没有安装相关的共享服务软件，Ubuntu会提示您安装。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303131800549.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="安装共享软件" /><figcaption>安装共享软件</figcaption>
+</figure>
+<p>点击<code>Install service</code>即可进行安装</p>
+<p>Ubuntu默认会为您安装<code>Samba</code>软件，如果没有特殊要求，直接点击安装即可。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303131959500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="安装samba" /><figcaption>安装samba</figcaption>
+</figure>
+<p>输入用户密码，即可开始安装。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303132207521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="安装过程" /><figcaption>安装过程</figcaption>
+</figure>
+<p>安装完成后，可以对共享文件夹的属性进行设置</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303132455325.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="设置属性" /><figcaption>设置属性</figcaption>
+</figure>
+<p>点击创建共享按钮，会弹出一个提示。意思是需要为这个文件夹添加写权限，才能完成设置，它询问您是否为其添加写权限。我们点击自动添加即可。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303132812288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="添加权限" /><figcaption>添加权限</figcaption>
+</figure>
+<p>这时，出现了一个错误：</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303133222639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="错误提示" /><figcaption>错误提示</figcaption>
+</figure>
+<p>这个意思是说，不能用当前的用户名作为共享文件夹的文件夹名。所以我们只要将文件夹名称改一下就可以了。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303133409193.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="更改文件名" /><figcaption>更改文件名</figcaption>
+</figure>
+<p>重新为文件夹授予写权限，即可完成共享文件夹的创建。</p>
+<p>现在重启虚拟机，在终端里查看局域网IP地址。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/2020030313423782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="查询IP地址" /><figcaption>查询IP地址</figcaption>
+</figure>
+<p>然后到Windows的桌面，右键单击此电脑，选择<code>映射网络驱动器</code>选项。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303134040395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="映射网络驱动器" /><figcaption>映射网络驱动器</figcaption>
+</figure>
+<p>在下面打开的窗口中，按<code>\\server\share</code>的格式，填写您的共享文件夹地址。其中，server表示刚才查到的局域网IP，share是我们之前设置的文件夹名。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303144103327.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="网络驱动器" /><figcaption>网络驱动器</figcaption>
+</figure>
+<p>点击完成按钮，会弹出来密码提示框，这里输入我们虚拟机的用户名和密码，然后选择<code>记住我的凭据</code>选项，这样下次登陆就不需要密码了。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303141719725.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="记录凭证" /><figcaption>记录凭证</figcaption>
+</figure>
+<p>这样，我们就可以访问共享文件夹的内容了！</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303135317573.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="访问内容" /><figcaption>访问内容</figcaption>
+</figure>
+<p>因为我是设置的共享用户目录，也就是<code>/home/zhj/</code>目录下的内容，所以Windows文件夹下的内容就是Ubuntu家目录的内容。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/2020030313553485.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="Ubuntu用户目录" /><figcaption>Ubuntu用户目录</figcaption>
+</figure>
+<p>至此，VMware网络映射驱动器已经设置成功了。</p>
+<h2 id="功能测试">4 功能测试</h2>
+<ul>
+<li>Windows读数据</li>
+</ul>
+<p>这个直接在Windows打开相应的文件进行测试即可，能打开文件且不乱码说明Windows可以正常读取数据。</p>
+<ul>
+<li>Windows10写数据及VMware读数据</li>
+</ul>
+<p>我们先在Windows中创建一个文件，向里面写入数据，然后到VMware中尝试读取该文件。可以看到，VMware可以正常读数据；Windows也是可以正常写入数据的。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303143049492.png" alt="功能测试" /><figcaption>功能测试</figcaption>
+</figure>
+<ul>
+<li>VMware写数据</li>
+</ul>
+<p>这个，，，还用测试吗😂</p>
+<h2 id="总结">5 总结</h2>
+<p>一般来说，如果虚拟机的IP地址不变，这个磁盘映射就会一直有效，不用担心挂载的问题了。。。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>解决方案</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>VMware</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ThinkPad_E570 拆机</title>
     <url>/2020/03/02/ThinkPad-E570/</url>
     <content><![CDATA[<ul>

@@ -25,23 +25,39 @@
     var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":250,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":20},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="最近下载了一些电影，由于我的外语水平有限，因此使用VLC播放器添加了外挂字幕。 问题描述： VLC 添加外挂字幕乱码  软件环境    描述 说明 下载地址     VLC 版本 3.0.8 VLC 3.0.8   字母格式 ASS&#x2F;SRT 字幕库    解决方案  启动VLC播放器; 依次点击左上标题栏 工具--&gt;设置 (Too">
+  <meta name="description" content="文章同步发布在我的CSDN博客   前几天做了一下VMware的共享文件夹，今天想用一下，发现之前共享的目录竟然没有挂载。 心想，如果每次都要先挂载一下，得多麻烦（当然，有一次性挂载的方法，我懒得查了😂）。 于是想换一种方式实现文件夹的共享。 以前见过有人用映射网络驱动器的方式实现了文件夹共享，于是这次就想试试这种方式。下面给大家分享一下过程。  1 我的环境">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VLC 外挂字幕乱码">
-<meta property="og:url" content="https://zhj.forever305.cn/2020/01/22/VLC_Garbled/index.html">
+<meta property="og:title" content="VMware 映射网络驱动器">
+<meta property="og:url" content="https://zhj.forever305.cn/2020/03/03/VMware-Map-Network-Drive/index.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="最近下载了一些电影，由于我的外语水平有限，因此使用VLC播放器添加了外挂字幕。 问题描述： VLC 添加外挂字幕乱码  软件环境    描述 说明 下载地址     VLC 版本 3.0.8 VLC 3.0.8   字母格式 ASS&#x2F;SRT 字幕库    解决方案  启动VLC播放器; 依次点击左上标题栏 工具--&gt;设置 (Too">
+<meta property="og:description" content="文章同步发布在我的CSDN博客   前几天做了一下VMware的共享文件夹，今天想用一下，发现之前共享的目录竟然没有挂载。 心想，如果每次都要先挂载一下，得多麻烦（当然，有一次性挂载的方法，我懒得查了😂）。 于是想换一种方式实现文件夹的共享。 以前见过有人用映射网络驱动器的方式实现了文件夹共享，于是这次就想试试这种方式。下面给大家分享一下过程。  1 我的环境">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200122214920377.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200122214507404.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2020-01-22T13:11:13.000Z">
-<meta property="article:modified_time" content="2020-01-22T13:11:13.000Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303141024783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020030313145516.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303131628284.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303131800549.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303131959500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303132207521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303132455325.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303132812288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303133222639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303133409193.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020030313423782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303134040395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303144103327.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303141719725.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303135317573.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020030313553485.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303143049492.png">
+<meta property="article:published_time" content="2020-03-03T06:44:53.000Z">
+<meta property="article:modified_time" content="2020-03-03T06:44:53.000Z">
 <meta property="article:author" content="Zhang H.J.">
-<meta property="article:tag" content="VLC">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="VMware">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200122214920377.png">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200303141024783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="https://zhj.forever305.cn/2020/01/22/VLC_Garbled/">
+<link rel="canonical" href="https://zhj.forever305.cn/2020/03/03/VMware-Map-Network-Drive/">
 
 
 <script id="page-configurations">
@@ -53,7 +69,7 @@
   };
 </script>
 
-  <title>VLC 外挂字幕乱码 | 厚今的博客</title>
+  <title>VMware 映射网络驱动器 | 厚今的博客</title>
   
 
 
@@ -232,7 +248,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zhj.forever305.cn/2020/01/22/VLC_Garbled/">
+    <link itemprop="mainEntityOfPage" href="https://zhj.forever305.cn/2020/03/03/VMware-Map-Network-Drive/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -245,7 +261,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          VLC 外挂字幕乱码
+          VMware 映射网络驱动器
         </h2>
 
         <div class="post-meta">
@@ -255,7 +271,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-01-22 21:11:13" itemprop="dateCreated datePublished" datetime="2020-01-22T21:11:13+08:00">2020-01-22</time>
+              <time title="创建时间：2020-03-03 14:44:53" itemprop="dateCreated datePublished" datetime="2020-03-03T14:44:53+08:00">2020-03-03</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -276,7 +292,7 @@
             </span>
 
           
-            <span id="/2020/01/22/VLC_Garbled/" class="post-meta-item leancloud_visitors" data-flag-title="VLC 外挂字幕乱码" title="阅读次数">
+            <span id="/2020/03/03/VMware-Map-Network-Drive/" class="post-meta-item leancloud_visitors" data-flag-title="VMware 映射网络驱动器" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -291,8 +307,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/01/22/VLC_Garbled/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/22/VLC_Garbled/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/03/03/VMware-Map-Network-Drive/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/03/VMware-Map-Network-Drive/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -302,14 +318,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>328</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -321,51 +337,124 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <ul>
-<li>最近下载了一些电影，由于我的外语水平有限，因此使用VLC播放器添加了外挂字幕。</li>
-<li>问题描述：</li>
-<li>VLC 添加外挂字幕乱码</li>
+        <blockquote>
+<p>文章同步发布在我的<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzEwNDYzMDYyNw==" title="https://blog.csdn.net/ZHJ123CSDN/article/details/104630627">CSDN博客<i class="fa fa-external-link"></i></span></p>
+</blockquote>
+<ul>
+<li>前几天做了一下<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzEwNDUyNjg3MQ==" title="https://blog.csdn.net/ZHJ123CSDN/article/details/104526871">VMware的共享文件夹<i class="fa fa-external-link"></i></span>，今天想用一下，发现之前共享的目录竟然没有挂载。</li>
+<li>心想，如果每次都要先挂载一下，得多麻烦（当然，有一次性挂载的方法，我懒得查了😂）。</li>
+<li>于是想换一种方式实现文件夹的共享。</li>
+<li>以前见过有人用<code>映射网络驱动器</code>的方式实现了文件夹共享，于是这次就想试试这种方式。下面给大家分享一下过程。</li>
 </ul>
-<h2 id="软件环境">软件环境</h2>
+<h2 id="我的环境">1 我的环境</h2>
 <table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">描述</th>
-<th style="text-align: left;">说明</th>
-<th style="text-align: left;">下载地址</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">VLC 版本</td>
-<td style="text-align: left;">3.0.8</td>
-<td style="text-align: left;"><span class="exturl" data-url="aHR0cHM6Ly9nZXQudmlkZW9sYW4ub3JnL3ZsYy8zLjAuOC93aW42NC92bGMtMy4wLjgtd2luNjQuZXhl" title="https://get.videolan.org/vlc/3.0.8/win64/vlc-3.0.8-win64.exe">VLC 3.0.8<i class="fa fa-external-link"></i></span></td>
+<td>Product</td>
+<td>VMware® Workstation 15 Player</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">字母格式</td>
-<td style="text-align: left;">ASS/SRT</td>
-<td style="text-align: left;"><span class="exturl" data-url="aHR0cDovL3d3dy56aW11a3UubGEv" title="http://www.zimuku.la/">字幕库<i class="fa fa-external-link"></i></span></td>
+<td>VMware Version</td>
+<td>15.5.0 build-14665864</td>
+</tr>
+<tr class="odd">
+<td>Ubuntu Version</td>
+<td>Ubuntu 18.04.4 LTS</td>
+</tr>
+<tr class="even">
+<td>Windows Version</td>
+<td>Version 10 Education</td>
 </tr>
 </tbody>
 </table>
-<h2 id="解决方案">解决方案</h2>
-<ol type="1">
-<li>启动VLC播放器;</li>
-<li>依次点击左上标题栏 <code>工具--&gt;设置</code> (<code>Tools --&gt; Preferences</code>) 进入配置页面;</li>
-<li>在配置页面上方的导航栏，选择 <code>字符/OSD</code> (<code>Subtitles/OSD</code>) 栏目;</li>
-<li>在 <code>默认编码</code> (<code>Default encoding</code>) 右侧选择 <code>默认GB18030</code> (<code>Universal,Chinese GB18030</code>);</li>
-<li>在字幕效果-字体右侧选择一个中文字体;(选做)</li>
-<li>重启 VLC 播放器</li>
-</ol>
+<h2 id="效果展示">2 效果展示</h2>
+<p>最终的效果就是这样的，可以在Windows10的资源管理器界面，查看VMware的共享文件夹内容。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303141024783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="效果展示" /><figcaption>效果展示</figcaption>
+</figure>
 <a id="more"></a>
-<p>具体配置页面如下:</p>
+<h2 id="实现过程">3 实现过程</h2>
+<p>假设我们想共享用户目录文件夹（<code>/home/usrename</code>），首先需要在Ubuntu里右键单击该目录，然后选择<code>Local Network Share</code>选项</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20200122214920377.png" alt="配置选项" /><figcaption>配置选项</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/2020030313145516.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="本地网络共享" /><figcaption>本地网络共享</figcaption>
 </figure>
+<p>点击<code>Share this folder</code>选项</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20200122214507404.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="更改编码格式" /><figcaption>更改编码格式</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20200303131628284.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="共享此文件夹" /><figcaption>共享此文件夹</figcaption>
 </figure>
-<p>最后别忘了 <code>重启VLC</code> 使配置生效。</p>
+<p>此时，如果你没有安装相关的共享服务软件，Ubuntu会提示您安装。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303131800549.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="安装共享软件" /><figcaption>安装共享软件</figcaption>
+</figure>
+<p>点击<code>Install service</code>即可进行安装</p>
+<p>Ubuntu默认会为您安装<code>Samba</code>软件，如果没有特殊要求，直接点击安装即可。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303131959500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="安装samba" /><figcaption>安装samba</figcaption>
+</figure>
+<p>输入用户密码，即可开始安装。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303132207521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="安装过程" /><figcaption>安装过程</figcaption>
+</figure>
+<p>安装完成后，可以对共享文件夹的属性进行设置</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303132455325.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="设置属性" /><figcaption>设置属性</figcaption>
+</figure>
+<p>点击创建共享按钮，会弹出一个提示。意思是需要为这个文件夹添加写权限，才能完成设置，它询问您是否为其添加写权限。我们点击自动添加即可。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303132812288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="添加权限" /><figcaption>添加权限</figcaption>
+</figure>
+<p>这时，出现了一个错误：</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303133222639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="错误提示" /><figcaption>错误提示</figcaption>
+</figure>
+<p>这个意思是说，不能用当前的用户名作为共享文件夹的文件夹名。所以我们只要将文件夹名称改一下就可以了。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303133409193.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="更改文件名" /><figcaption>更改文件名</figcaption>
+</figure>
+<p>重新为文件夹授予写权限，即可完成共享文件夹的创建。</p>
+<p>现在重启虚拟机，在终端里查看局域网IP地址。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/2020030313423782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="查询IP地址" /><figcaption>查询IP地址</figcaption>
+</figure>
+<p>然后到Windows的桌面，右键单击此电脑，选择<code>映射网络驱动器</code>选项。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303134040395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="映射网络驱动器" /><figcaption>映射网络驱动器</figcaption>
+</figure>
+<p>在下面打开的窗口中，按<code>\\server\share</code>的格式，填写您的共享文件夹地址。其中，server表示刚才查到的局域网IP，share是我们之前设置的文件夹名。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303144103327.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="网络驱动器" /><figcaption>网络驱动器</figcaption>
+</figure>
+<p>点击完成按钮，会弹出来密码提示框，这里输入我们虚拟机的用户名和密码，然后选择<code>记住我的凭据</code>选项，这样下次登陆就不需要密码了。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303141719725.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="记录凭证" /><figcaption>记录凭证</figcaption>
+</figure>
+<p>这样，我们就可以访问共享文件夹的内容了！</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303135317573.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="访问内容" /><figcaption>访问内容</figcaption>
+</figure>
+<p>因为我是设置的共享用户目录，也就是<code>/home/zhj/</code>目录下的内容，所以Windows文件夹下的内容就是Ubuntu家目录的内容。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/2020030313553485.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="Ubuntu用户目录" /><figcaption>Ubuntu用户目录</figcaption>
+</figure>
+<p>至此，VMware网络映射驱动器已经设置成功了。</p>
+<h2 id="功能测试">4 功能测试</h2>
+<ul>
+<li>Windows读数据</li>
+</ul>
+<p>这个直接在Windows打开相应的文件进行测试即可，能打开文件且不乱码说明Windows可以正常读取数据。</p>
+<ul>
+<li>Windows10写数据及VMware读数据</li>
+</ul>
+<p>我们先在Windows中创建一个文件，向里面写入数据，然后到VMware中尝试读取该文件。可以看到，VMware可以正常读数据；Windows也是可以正常写入数据的。</p>
+<figure>
+<img data-src="https://img-blog.csdnimg.cn/20200303143049492.png" alt="功能测试" /><figcaption>功能测试</figcaption>
+</figure>
+<ul>
+<li>VMware写数据</li>
+</ul>
+<p>这个，，，还用测试吗😂</p>
+<h2 id="总结">5 总结</h2>
+<p>一般来说，如果虚拟机的IP地址不变，这个磁盘映射就会一直有效，不用担心挂载的问题了。。。</p>
 
     </div>
 
@@ -373,6 +462,21 @@
     
     
       
+  <div class="popular-posts-header">相关文章推荐</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\02\26\VMware-Share\" rel="bookmark">VMware 共享文件夹</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\10\19\Ubuntu1804_OpenCV\" rel="bookmark">Ubuntu18.04 编译安装 OpenCV 遇到的问题</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\06\26\Unable-to-lock-the-administration-directory-var-lib-dpkg\" rel="bookmark">Unable to lock the administration directory (/var/lib/dpkg/)解决办法</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\02\27\h5ai\" rel="bookmark">Ubuntu LAMP 环境下安装 H5AI</a></div>
+    </li>
+  </ul>
 
         <div class="reward-container">
   <div>谢谢你请我喝快乐水 😜</div>
@@ -403,7 +507,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://zhj.forever305.cn/2020/01/22/VLC_Garbled/" title="VLC 外挂字幕乱码">https://zhj.forever305.cn/2020/01/22/VLC_Garbled/</a>
+    <a href="https://zhj.forever305.cn/2020/03/03/VMware-Map-Network-Drive/" title="VMware 映射网络驱动器">https://zhj.forever305.cn/2020/03/03/VMware-Map-Network-Drive/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -453,7 +557,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/VLC/" rel="tag"># VLC</a>
+              <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+              <a href="/tags/VMware/" rel="tag"># VMware</a>
           </div>
 
         
@@ -462,13 +567,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/01/20/MyLink/" rel="prev" title="技术资源链接">
-      <i class="fa fa-chevron-left"></i> 技术资源链接
+    <a href="/2020/03/02/ThinkPad-E570/" rel="prev" title="ThinkPad_E570 拆机">
+      <i class="fa fa-chevron-left"></i> ThinkPad_E570 拆机
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/01/25/My_Bookmarks/" rel="next" title="My_Bookmarks">
-      My_Bookmarks <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -529,7 +631,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#软件环境"><span class="nav-text">软件环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-text">解决方案</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#我的环境"><span class="nav-text">1 我的环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果展示"><span class="nav-text">2 效果展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现过程"><span class="nav-text">3 实现过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能测试"><span class="nav-text">4 功能测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">5 总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -824,7 +926,7 @@
       quicklink({
         timeout: 3000,
         priority: true,
-        ignores: [uri => uri.includes('#'),uri => uri == 'https://zhj.forever305.cn/2020/01/22/VLC_Garbled/',]
+        ignores: [uri => uri.includes('#'),uri => uri == 'https://zhj.forever305.cn/2020/03/03/VMware-Map-Network-Drive/',]
       });
       });
   </script>
