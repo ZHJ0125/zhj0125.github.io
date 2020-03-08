@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhj.forever305.cn/"/>
-  <updated>2020-03-03T06:44:53.000Z</updated>
+  <updated>2020-03-08T10:12:47.000Z</updated>
   <id>https://zhj.forever305.cn/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>fd_open_write 是一组奇妙的组合</title>
+    <link href="https://zhj.forever305.cn/2020/03/08/fd-open-write/"/>
+    <id>https://zhj.forever305.cn/2020/03/08/fd-open-write/</id>
+    <published>2020-03-08T10:12:47.000Z</published>
+    <updated>2020-03-08T10:12:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>今天帮同学调bug的时候，遇到一个很神奇的问题</li><li>觉得特别有意思，在此记录下来</li></ul><blockquote><p>我们最近在学习Linux文件编程，需要用到open()函数、write()函数等等； 当fd、open()、write()这仨东西凑到一起，一不留神就会有神奇效果</p></blockquote><h2 id="预备知识">1 预备知识</h2><p>要想看懂这个奇妙的过程，你可能需要先了解一下下面这些函数</p><a id="more"></a><h3 id="文件描述符">1.1 文件描述符</h3><p>对于Linux而言，所有对设备和文件的操作都使用文件描述符来进行，文件描述符就相当于文件的身份证。文件描述符是一个非负的整数，表示为<code>int</code>类型的对象。它是一个索引值，指向内核中每个进程打开文件的记录表。当打开一个现存文件或创建的一个新文件时，内核就向进程返回一个文件描述符。当需要读写文件时，也需要把文件描述符传递给相应的函数。</p><p>文件描述表的前三项对于一般的进程而言是固定的且由系统自动打开。文件描述符<code>0</code>是标准输入文件，对于一般进程来说是键盘；文件描述符<code>1</code>是标准输出文件，一般是显示器；文件描述符<code>2</code>是标准错误输出文件，一般也是输出到屏幕。[1]</p><h3 id="open函数">1.2 open函数</h3><p>调用open函数可以打开或创建一个文件，open是进程存取文件数据时，必须首先完成的系统调用。[1]</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">open</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* pathname, <span class="keyword">int</span> flags, ...<span class="comment">/* mode_t mode */</span>)</span></span>;</span><br><span class="line"><span class="comment">// 返回值：成功时返回被打开文件的文件描述符 fd；失败时返回 -1</span></span><br></pre></td></tr></table></figure><p>表1.open函数的参数</p><table><thead><tr class="header"><th>参数</th><th>含义</th></tr></thead><tbody><tr class="odd"><td>pathname</td><td>表示要打开（或创建）的文件名或含路径的文件名</td></tr><tr class="even"><td>flags</td><td>表示打开文件的方式，具体方式见下表</td></tr><tr class="odd"><td>mode</td><td>当flags为O_CREAT时，该项表示创建文件的权限</td></tr></tbody></table><p>表2. flags参数的取值[2]</p><table><thead><tr class="header"><th>flags 参数</th><th>含义</th></tr></thead><tbody><tr class="odd"><td>O_RDONLY</td><td>只读模式</td></tr><tr class="even"><td>O_WRONLY</td><td>只写模式</td></tr><tr class="odd"><td>O_RDWR</td><td>可读可写</td></tr><tr class="even"><td>O_APPEND</td><td>表示追加，如果原来文件里面有内容，则这次写入会写在文件的最末尾</td></tr><tr class="odd"><td>O_CREAT</td><td>表示如果指定文件不存在，则创建这个文件</td></tr><tr class="even"><td>O_EXCL</td><td>表示如果要创建的文件已存在，则出错，同时返回 -1，并且修改 errno 的值</td></tr><tr class="odd"><td>O_TRUNC</td><td>表示截断，如果文件存在，并且以只写、读写方式打开，则将其长度截断为0</td></tr></tbody></table><p>表3. mode参数的取值[3]</p><table><thead><tr class="header"><th>mode参数</th><th>含义</th></tr></thead><tbody><tr class="odd"><td>S_IRWXU00700 权限</td><td>代表该文件所有者具有可读、可写及可执行的权限</td></tr><tr class="even"><td>S_IRUSR 或S_IREAD，00400权限</td><td>代表该文件所有者具有可读取的权限</td></tr><tr class="odd"><td>S_IWUSR 或S_IWRITE，00200 权限</td><td>代表该文件所有者具有可写入的权限</td></tr><tr class="even"><td>S_IXUSR 或S_IEXEC，00100 权限</td><td>代表该文件所有者具有可执行的权限</td></tr><tr class="odd"><td>S_IRWXG 00070权限</td><td>代表该文件用户组具有可读、可写及可执行的权限</td></tr><tr class="even"><td>S_IRGRP 00040 权限</td><td>代表该文件用户组具有可读的权限</td></tr><tr class="odd"><td>S_IWGRP 00020权限</td><td>代表该文件用户组具有可写入的权限</td></tr><tr class="even"><td>S_IXGRP 00010 权限</td><td>代表该文件用户组具有可执行的权限</td></tr><tr class="odd"><td>S_IRWXO 00007权限</td><td>代表其他用户具有可读、可写及可执行的权限</td></tr><tr class="even"><td>S_IROTH 00004 权限</td><td>代表其他用户具有可读的权限</td></tr><tr class="odd"><td>S_IWOTH 00002权限</td><td>代表其他用户具有可写入的权限</td></tr><tr class="even"><td>S_IXOTH 00001 权限</td><td>代表其他用户具有可执行的权限</td></tr></tbody></table><h3 id="write函数">1.3 write函数</h3><p>write函数是将内存中的数据写入文件中，其格式声明如下：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="keyword">ssize_t</span> <span class="built_in">write</span>(<span class="keyword">int</span> fd, <span class="keyword">const</span> <span class="keyword">void</span>* buf, <span class="keyword">size_t</span> count);</span><br><span class="line"><span class="comment">// 返回值：成功时返回写入的字节数（若为0表示没有数据写入）；失败时返回 -1</span></span><br></pre></td></tr></table></figure><p>它的功能是将buf所指内存中的count个字节写入文件描述符fd所指的文件中。具体参数含义如下表4：</p><p>表4. write函数的参数</p><table><thead><tr class="header"><th>参数</th><th>含义</th></tr></thead><tbody><tr class="odd"><td>fd</td><td>表示文件描述符</td></tr><tr class="even"><td>buf</td><td>表示输出缓冲区的地址指针</td></tr><tr class="odd"><td>count</td><td>表示要写入的字节数</td></tr></tbody></table><h2 id="奇妙的组合">2 奇妙的组合</h2><p>相信你已经了解这些基本知识了，下面来看看这个奇妙的组合。 这个奇妙的效果来自于一个程序，是这样的：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NAME <span class="meta-string">"save.c"</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fd;</span><br><span class="line">    <span class="keyword">char</span> buf[<span class="number">100</span>]=<span class="string">""</span>;</span><br><span class="line">    <span class="keyword">if</span>(fd=<span class="built_in">open</span>(NAME,O_CREAT|O_RDWR,<span class="number">0666</span>)==<span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"fail to open the file\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Please input the Letter\n"</span> );</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,buf);</span><br><span class="line">    <span class="built_in">write</span>(fd,buf,<span class="built_in">strlen</span>(buf));</span><br><span class="line">    <span class="built_in">close</span>(fd);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>上面的代码摘取自我同学的程序，程序的目的是：创建一个新文件，然后从键盘接收用户输入的字符串，将字符串写入该文件。</p><p>乍看上去没什么问题，但是测试时会出现以下情况：</p><figure><img data-src="https://img-blog.csdnimg.cn/20200307224438426.png" alt="测试过程" /><figcaption>测试过程</figcaption></figure><p>可以看到，在用户输入数据后，会有一次数据的屏幕回显现象，数据被输出到了屏幕上。</p><p>但是，在程序里我们确实没有写任何的输出语句啊。。。😂 <strong><em>怎么会回显到了屏幕上呢？</em></strong></p><p>而且，本来应该写入到文件中的数据，也没有被写入到文件中。。。</p><h2 id="问题解释">3 问题解释</h2><p>经过仔细的检查，发现了问题所在： 以下是见证奇迹时刻</p><p>我一直以为是<code>write()</code>函数出现了问题，没想到其实是if语句的问题 在<code>if</code>语句里，缺少了一个括号（可以仔细看一下）。这样的话，由于C语言赋值符号优先级较低，所以<code>open</code>函数会先与<code>==</code>号结合，导致文件描述符的错误赋值。</p><p>在正确打开文件的情况下，<code>if(fd=open(NAME,O_CREAT|O_RDWR,0666)==-1)</code>这句将<code>fd</code>赋值为<code>0</code></p><p>在打开文件失败的情况下，<code>if(fd=open(NAME,O_CREAT|O_RDWR,0666)==-1)</code>这句将<code>fd</code>赋值为<code>1</code></p><p>很巧的是，<code>0</code>和<code>1</code>在文件描述符中，分别表示标准输入流（<code>stdin</code>）和标准输出流（<code>stdout</code>）</p><table><thead><tr class="header"><th>文件</th><th>文件描述符</th></tr></thead><tbody><tr class="odd"><td>标准输入</td><td>0</td></tr><tr class="even"><td>标准输出</td><td>1</td></tr><tr class="odd"><td>标准错误</td><td>2</td></tr></tbody></table><p>因此，在正确打开文件的情况下，<code>fd</code>被赋值为<code>0</code>。之后调用<code>write</code>函数时，就把<code>buf</code>里的数据输入到了<code>stdin</code>，在输入缓冲区被刷新时，数据被输出到了屏幕，因此就会有数据的回显效果。</p><p>同理，在错误打开文件的情况下，<code>write</code>函数也会将数据错误地输出到<code>stdout</code>。</p><p>若想获得正确的结果，需要添加括号改变运算顺序，改为下面的语句即可：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>((fd=<span class="built_in">open</span>(NAME,O_CREAT|O_RDWR,<span class="number">0666</span>))==<span class="number">-1</span>)</span><br></pre></td></tr></table></figure><h2 id="总结">4 总结</h2><p>所以说，C语言的优先级和结合律也是非常重要的问题。编程时一定要注意细节，否则会出现意想不到的问题。 哈哈哈，挺好玩的。</p><h2 id="参考资料">5 参考资料</h2><ul><li>[1]. 《Linux C编程从入门到精通》第三章 Linux下的文件编程 - 刘学勇编著 - ISBN 978-7-121-17415-5</li><li>[2]. <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FyY2h5TGkvYXJ0aWNsZS9kZXRhaWxzLzc4OTM3OTM3" title="https://blog.csdn.net/ArchyLi/article/details/78937937">【Linux】open函数的参数和作用<i class="fa fa-external-link"></i></span> - ArchyLi - CSDN博客</li><li>[3]. <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaWJvMTIzMDEyMy9hcnRpY2xlL2RldGFpbHMvNzkwMzY2MTE=" title="https://blog.csdn.net/weibo1230123/article/details/79036611">Linux编程下open()函数的用法<i class="fa fa-external-link"></i></span> - 魏波- CSDN博客</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;今天帮同学调bug的时候，遇到一个很神奇的问题&lt;/li&gt;
+&lt;li&gt;觉得特别有意思，在此记录下来&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我们最近在学习Linux文件编程，需要用到open()函数、write()函数等等； 当fd、open()、write()这仨东西凑到一起，一不留神就会有神奇效果&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;预备知识&quot;&gt;1 预备知识&lt;/h2&gt;
+&lt;p&gt;要想看懂这个奇妙的过程，你可能需要先了解一下下面这些函数&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术笔记" scheme="https://zhj.forever305.cn/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Linux" scheme="https://zhj.forever305.cn/tags/Linux/"/>
+    
+      <category term="Ubuntu" scheme="https://zhj.forever305.cn/tags/Ubuntu/"/>
+    
+      <category term="文件操作" scheme="https://zhj.forever305.cn/tags/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>VMware 映射网络驱动器</title>
@@ -786,40 +821,6 @@
     
       <category term="日常随笔" scheme="https://zhj.forever305.cn/categories/%E6%97%A5%E5%B8%B8%E9%9A%8F%E7%AC%94/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Linux实训——搭建HTTP服务器</title>
-    <link href="https://zhj.forever305.cn/2019/06/20/Linux_HTTP_Server/"/>
-    <id>https://zhj.forever305.cn/2019/06/20/Linux_HTTP_Server/</id>
-    <published>2019-06-20T10:32:34.000Z</published>
-    <updated>2019-06-20T10:32:34.000Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li>内容说明：本篇文章是《嵌入式操作系统》实训报告的<strong>第二部分</strong>，实现了HTTP服务器的搭建</li><li><code>嵌入式操作系统</code>实训报告内容介绍：<ul><li>第一部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_Upgrade_Core/">编译升级系统Linux内核</a></li><li>第二部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_HTTP_Server/">搭建HTTP服务器</a></li><li>第三部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_MyWeb/">搭建动态网站</a></li><li><span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9TdHVkeS9MaW51eC9saW51eCVFNSVBRSU5RSVFOCVBRSVBRCUyMF8lRTUlQkMlQTAlRTUlOEUlOUElRTQlQkIlOEEucGRm" title="http://47.95.13.239/Study/Linux/linux%E5%AE%9E%E8%AE%AD%20_%E5%BC%A0%E5%8E%9A%E4%BB%8A.pdf">完整实验报告PDF文件<i class="fa fa-external-link"></i></span></li></ul></li></ul><a id="more"></a><h2 id="二构建http服务器">二、构建HTTP服务器</h2><h3 id="实验原理">2.1 实验原理</h3><p>HTTP服务器，又称为WWW服务器、Web服务器，其主要功能是提供给客户端以信息浏览的服务。在Linux平台下，主流的HTTP服务器有<code>Apache、Nginx、Tomcat</code>等，其中应用最广泛的是Apache。</p><p>Apache HTTP服务器，是免费开源的跨平台的 Web服务器软件，绝大多数Apache HTTP Server实例都在Linux发行版上运行。Apache的模块支持非常丰富，虽在速度、性能上不及其他轻量级Web服务器，但属于重量级产品，功能丰富。</p><h3 id="实验分析">2.2 实验分析</h3><p>本次实验要求构建一个HTTP服务器，而如果只是搭建HTTP服务器，仅仅需要安装Apache即可。因此，接下来我将安装Apache、编写简单的HTML网页并进行访问测试。</p><h3 id="实验过程记录">2.3 实验过程记录</h3><h4 id="安装apache">2.3.1 安装Apache</h4><p>首先使用<code>sudo apt-get update</code>命令，对软件包进行更新。之后，使用<code>sudo apt-get install apache2</code>安装apache软件。为了测试Apache是否安装成功，可以直接访问 <code>http://your_server_IP_address</code> 查看。使用<code>ifconfig</code>命令可以查看到主机的IP地址。</p><figure><img data-src="https://img-blog.csdnimg.cn/20190620182509566.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图 查看本地IP" /><figcaption>图 查看本地IP</figcaption></figure><p>后来想到这一步不是必要的，可以直接使用localhost进行测试。</p><p>可以看到，这里显示了<code>127.0.0.1</code>这个用于本地环回的IP。现在打开虚拟机中的Firefox，在地址栏输入<code>http://127.0.0.1</code>并访问，可以看到，apache服务已经搭建成功。</p><figure><img data-src="https://img-blog.csdnimg.cn/20190620182531743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图 apache访问测试" /><figcaption>图 apache访问测试</figcaption></figure><p>到目前为止，HTTP服务器已经可以算是搭建成功了，甚至现在已经可以上传静态网页到该服务器以提供访问服务了。</p><h4 id="编写网页测试">2.3.2 编写网页测试</h4><p>现在编写一个简单的HTTP静态网页，上传到虚拟机服务器，检测是否能进行访问。在用户目录下，编写一个test.html文件，然后进入到<code>/var/www/html</code>目录，将<code>test.html</code>文件复制到该目录下。</p><figure><img data-src="https://img-blog.csdnimg.cn/20190620182551451.png#pic_center" alt="图 文件转移" /><figcaption>图 文件转移</figcaption></figure><p>现在该目录下应该有两个html文件，一个是原来的默认索引文件<code>index.html</code>，另一个就是用于测试的<code>test.html</code>。现在再次打开<code>Firefox</code>，访问<code>http://127.0.0.1/test.html</code>。</p><figure><img data-src="https://img-blog.csdnimg.cn/20190620182616184.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图 静态网页测试" /><figcaption>图 静态网页测试</figcaption></figure><p>所以说，现在“制作静态网页并访问”是完全没有问题的。</p><p>其中，<code>test.html</code>文件内容如下：</p><figure><img data-src="https://img-blog.csdnimg.cn/20190620182625390.png#pic_center" alt="图 测试内容" /><figcaption>图 测试内容</figcaption></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;内容说明：本篇文章是《嵌入式操作系统》实训报告的&lt;strong&gt;第二部分&lt;/strong&gt;，实现了HTTP服务器的搭建&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;嵌入式操作系统&lt;/code&gt;实训报告内容介绍：
-&lt;ul&gt;
-&lt;li&gt;第一部分：&lt;a href=&quot;https://zhj.forever305.cn/2019/06/20/Linux_Upgrade_Core/&quot;&gt;编译升级系统Linux内核&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;第二部分：&lt;a href=&quot;https://zhj.forever305.cn/2019/06/20/Linux_HTTP_Server/&quot;&gt;搭建HTTP服务器&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;第三部分：&lt;a href=&quot;https://zhj.forever305.cn/2019/06/20/Linux_MyWeb/&quot;&gt;搭建动态网站&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://47.95.13.239/Study/Linux/linux%E5%AE%9E%E8%AE%AD%20_%E5%BC%A0%E5%8E%9A%E4%BB%8A.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;完整实验报告PDF文件&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="技术笔记" scheme="https://zhj.forever305.cn/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="教学实训" scheme="https://zhj.forever305.cn/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E6%95%99%E5%AD%A6%E5%AE%9E%E8%AE%AD/"/>
-    
-    
-      <category term="Linux" scheme="https://zhj.forever305.cn/tags/Linux/"/>
     
   </entry>
   

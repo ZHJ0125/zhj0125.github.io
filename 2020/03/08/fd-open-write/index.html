@@ -25,39 +25,24 @@
     var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":250,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":20},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="文章同步发布在我的CSDN博客   前几天做了一下VMware的共享文件夹，今天想用一下，发现之前共享的目录竟然没有挂载。 心想，如果每次都要先挂载一下，得多麻烦（当然，有一次性挂载的方法，我懒得查了😂）。 于是想换一种方式实现文件夹的共享。 以前见过有人用映射网络驱动器的方式实现了文件夹共享，于是这次就想试试这种方式。下面给大家分享一下过程。  1 我的环境">
+  <meta name="description" content="今天帮同学调bug的时候，遇到一个很神奇的问题 觉得特别有意思，在此记录下来   我们最近在学习Linux文件编程，需要用到open()函数、write()函数等等； 当fd、open()、write()这仨东西凑到一起，一不留神就会有神奇效果  1 预备知识 要想看懂这个奇妙的过程，你可能需要先了解一下下面这些函数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VMware 映射网络驱动器">
-<meta property="og:url" content="https://zhj.forever305.cn/2020/03/03/VMware-Map-Network-Drive/index.html">
+<meta property="og:title" content="fd_open_write 是一组奇妙的组合">
+<meta property="og:url" content="https://zhj.forever305.cn/2020/03/08/fd-open-write/index.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="文章同步发布在我的CSDN博客   前几天做了一下VMware的共享文件夹，今天想用一下，发现之前共享的目录竟然没有挂载。 心想，如果每次都要先挂载一下，得多麻烦（当然，有一次性挂载的方法，我懒得查了😂）。 于是想换一种方式实现文件夹的共享。 以前见过有人用映射网络驱动器的方式实现了文件夹共享，于是这次就想试试这种方式。下面给大家分享一下过程。  1 我的环境">
+<meta property="og:description" content="今天帮同学调bug的时候，遇到一个很神奇的问题 觉得特别有意思，在此记录下来   我们最近在学习Linux文件编程，需要用到open()函数、write()函数等等； 当fd、open()、write()这仨东西凑到一起，一不留神就会有神奇效果  1 预备知识 要想看懂这个奇妙的过程，你可能需要先了解一下下面这些函数">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303141024783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2020030313145516.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303131628284.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303131800549.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303131959500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303132207521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303132455325.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303132812288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303133222639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303133409193.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2020030313423782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303134040395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303144103327.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303141719725.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303135317573.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2020030313553485.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200303143049492.png">
-<meta property="article:published_time" content="2020-03-03T06:44:53.000Z">
-<meta property="article:modified_time" content="2020-03-03T06:44:53.000Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200307224438426.png">
+<meta property="article:published_time" content="2020-03-08T10:12:47.000Z">
+<meta property="article:modified_time" content="2020-03-08T10:12:47.000Z">
 <meta property="article:author" content="Zhang H.J.">
+<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Ubuntu">
-<meta property="article:tag" content="VMware">
+<meta property="article:tag" content="文件操作">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200303141024783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200307224438426.png">
 
-<link rel="canonical" href="https://zhj.forever305.cn/2020/03/03/VMware-Map-Network-Drive/">
+<link rel="canonical" href="https://zhj.forever305.cn/2020/03/08/fd-open-write/">
 
 
 <script id="page-configurations">
@@ -69,7 +54,7 @@
   };
 </script>
 
-  <title>VMware 映射网络驱动器 | 厚今的博客</title>
+  <title>fd_open_write 是一组奇妙的组合 | 厚今的博客</title>
   
 
 
@@ -248,7 +233,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zhj.forever305.cn/2020/03/03/VMware-Map-Network-Drive/">
+    <link itemprop="mainEntityOfPage" href="https://zhj.forever305.cn/2020/03/08/fd-open-write/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -261,7 +246,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          VMware 映射网络驱动器
+          fd_open_write 是一组奇妙的组合
         </h2>
 
         <div class="post-meta">
@@ -271,7 +256,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-03-03 14:44:53" itemprop="dateCreated datePublished" datetime="2020-03-03T14:44:53+08:00">2020-03-03</time>
+              <time title="创建时间：2020-03-08 18:12:47" itemprop="dateCreated datePublished" datetime="2020-03-08T18:12:47+08:00">2020-03-08</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -283,16 +268,10 @@
                     <span itemprop="name">技术笔记</span>
                   </a>
                 </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url" rel="index">
-                    <span itemprop="name">解决方案</span>
-                  </a>
-                </span>
             </span>
 
           
-            <span id="/2020/03/03/VMware-Map-Network-Drive/" class="post-meta-item leancloud_visitors" data-flag-title="VMware 映射网络驱动器" title="阅读次数">
+            <span id="/2020/03/08/fd-open-write/" class="post-meta-item leancloud_visitors" data-flag-title="fd_open_write 是一组奇妙的组合" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -307,8 +286,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/03/03/VMware-Map-Network-Drive/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/03/VMware-Map-Network-Drive/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/03/08/fd-open-write/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/08/fd-open-write/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -318,14 +297,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>3.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -337,124 +316,221 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote>
-<p>文章同步发布在我的<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzEwNDYzMDYyNw==" title="https://blog.csdn.net/ZHJ123CSDN/article/details/104630627">CSDN博客<i class="fa fa-external-link"></i></span></p>
-</blockquote>
-<ul>
-<li>前几天做了一下<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4vYXJ0aWNsZS9kZXRhaWxzLzEwNDUyNjg3MQ==" title="https://blog.csdn.net/ZHJ123CSDN/article/details/104526871">VMware的共享文件夹<i class="fa fa-external-link"></i></span>，今天想用一下，发现之前共享的目录竟然没有挂载。</li>
-<li>心想，如果每次都要先挂载一下，得多麻烦（当然，有一次性挂载的方法，我懒得查了😂）。</li>
-<li>于是想换一种方式实现文件夹的共享。</li>
-<li>以前见过有人用<code>映射网络驱动器</code>的方式实现了文件夹共享，于是这次就想试试这种方式。下面给大家分享一下过程。</li>
+        <ul>
+<li>今天帮同学调bug的时候，遇到一个很神奇的问题</li>
+<li>觉得特别有意思，在此记录下来</li>
 </ul>
-<h2 id="我的环境">1 我的环境</h2>
+<blockquote>
+<p>我们最近在学习Linux文件编程，需要用到open()函数、write()函数等等； 当fd、open()、write()这仨东西凑到一起，一不留神就会有神奇效果</p>
+</blockquote>
+<h2 id="预备知识">1 预备知识</h2>
+<p>要想看懂这个奇妙的过程，你可能需要先了解一下下面这些函数</p>
+<a id="more"></a>
+<h3 id="文件描述符">1.1 文件描述符</h3>
+<p>对于Linux而言，所有对设备和文件的操作都使用文件描述符来进行，文件描述符就相当于文件的身份证。文件描述符是一个非负的整数，表示为<code>int</code>类型的对象。它是一个索引值，指向内核中每个进程打开文件的记录表。当打开一个现存文件或创建的一个新文件时，内核就向进程返回一个文件描述符。当需要读写文件时，也需要把文件描述符传递给相应的函数。</p>
+<p>文件描述表的前三项对于一般的进程而言是固定的且由系统自动打开。文件描述符<code>0</code>是标准输入文件，对于一般进程来说是键盘；文件描述符<code>1</code>是标准输出文件，一般是显示器；文件描述符<code>2</code>是标准错误输出文件，一般也是输出到屏幕。[1]</p>
+<h3 id="open函数">1.2 open函数</h3>
+<p>调用open函数可以打开或创建一个文件，open是进程存取文件数据时，必须首先完成的系统调用。[1]</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">open</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* pathname, <span class="keyword">int</span> flags, ...<span class="comment">/* mode_t mode */</span>)</span></span>;</span><br><span class="line"><span class="comment">// 返回值：成功时返回被打开文件的文件描述符 fd；失败时返回 -1</span></span><br></pre></td></tr></table></figure>
+<p>表1.open函数的参数</p>
 <table>
+<thead>
+<tr class="header">
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td>Product</td>
-<td>VMware® Workstation 15 Player</td>
+<td>pathname</td>
+<td>表示要打开（或创建）的文件名或含路径的文件名</td>
 </tr>
 <tr class="even">
-<td>VMware Version</td>
-<td>15.5.0 build-14665864</td>
+<td>flags</td>
+<td>表示打开文件的方式，具体方式见下表</td>
 </tr>
 <tr class="odd">
-<td>Ubuntu Version</td>
-<td>Ubuntu 18.04.4 LTS</td>
-</tr>
-<tr class="even">
-<td>Windows Version</td>
-<td>Version 10 Education</td>
+<td>mode</td>
+<td>当flags为O_CREAT时，该项表示创建文件的权限</td>
 </tr>
 </tbody>
 </table>
-<h2 id="效果展示">2 效果展示</h2>
-<p>最终的效果就是这样的，可以在Windows10的资源管理器界面，查看VMware的共享文件夹内容。</p>
+<p>表2. flags参数的取值[2]</p>
+<table>
+<thead>
+<tr class="header">
+<th>flags 参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>O_RDONLY</td>
+<td>只读模式</td>
+</tr>
+<tr class="even">
+<td>O_WRONLY</td>
+<td>只写模式</td>
+</tr>
+<tr class="odd">
+<td>O_RDWR</td>
+<td>可读可写</td>
+</tr>
+<tr class="even">
+<td>O_APPEND</td>
+<td>表示追加，如果原来文件里面有内容，则这次写入会写在文件的最末尾</td>
+</tr>
+<tr class="odd">
+<td>O_CREAT</td>
+<td>表示如果指定文件不存在，则创建这个文件</td>
+</tr>
+<tr class="even">
+<td>O_EXCL</td>
+<td>表示如果要创建的文件已存在，则出错，同时返回 -1，并且修改 errno 的值</td>
+</tr>
+<tr class="odd">
+<td>O_TRUNC</td>
+<td>表示截断，如果文件存在，并且以只写、读写方式打开，则将其长度截断为0</td>
+</tr>
+</tbody>
+</table>
+<p>表3. mode参数的取值[3]</p>
+<table>
+<thead>
+<tr class="header">
+<th>mode参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>S_IRWXU00700 权限</td>
+<td>代表该文件所有者具有可读、可写及可执行的权限</td>
+</tr>
+<tr class="even">
+<td>S_IRUSR 或S_IREAD，00400权限</td>
+<td>代表该文件所有者具有可读取的权限</td>
+</tr>
+<tr class="odd">
+<td>S_IWUSR 或S_IWRITE，00200 权限</td>
+<td>代表该文件所有者具有可写入的权限</td>
+</tr>
+<tr class="even">
+<td>S_IXUSR 或S_IEXEC，00100 权限</td>
+<td>代表该文件所有者具有可执行的权限</td>
+</tr>
+<tr class="odd">
+<td>S_IRWXG 00070权限</td>
+<td>代表该文件用户组具有可读、可写及可执行的权限</td>
+</tr>
+<tr class="even">
+<td>S_IRGRP 00040 权限</td>
+<td>代表该文件用户组具有可读的权限</td>
+</tr>
+<tr class="odd">
+<td>S_IWGRP 00020权限</td>
+<td>代表该文件用户组具有可写入的权限</td>
+</tr>
+<tr class="even">
+<td>S_IXGRP 00010 权限</td>
+<td>代表该文件用户组具有可执行的权限</td>
+</tr>
+<tr class="odd">
+<td>S_IRWXO 00007权限</td>
+<td>代表其他用户具有可读、可写及可执行的权限</td>
+</tr>
+<tr class="even">
+<td>S_IROTH 00004 权限</td>
+<td>代表其他用户具有可读的权限</td>
+</tr>
+<tr class="odd">
+<td>S_IWOTH 00002权限</td>
+<td>代表其他用户具有可写入的权限</td>
+</tr>
+<tr class="even">
+<td>S_IXOTH 00001 权限</td>
+<td>代表其他用户具有可执行的权限</td>
+</tr>
+</tbody>
+</table>
+<h3 id="write函数">1.3 write函数</h3>
+<p>write函数是将内存中的数据写入文件中，其格式声明如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="keyword">ssize_t</span> <span class="built_in">write</span>(<span class="keyword">int</span> fd, <span class="keyword">const</span> <span class="keyword">void</span>* buf, <span class="keyword">size_t</span> count);</span><br><span class="line"><span class="comment">// 返回值：成功时返回写入的字节数（若为0表示没有数据写入）；失败时返回 -1</span></span><br></pre></td></tr></table></figure>
+<p>它的功能是将buf所指内存中的count个字节写入文件描述符fd所指的文件中。具体参数含义如下表4：</p>
+<p>表4. write函数的参数</p>
+<table>
+<thead>
+<tr class="header">
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>fd</td>
+<td>表示文件描述符</td>
+</tr>
+<tr class="even">
+<td>buf</td>
+<td>表示输出缓冲区的地址指针</td>
+</tr>
+<tr class="odd">
+<td>count</td>
+<td>表示要写入的字节数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="奇妙的组合">2 奇妙的组合</h2>
+<p>相信你已经了解这些基本知识了，下面来看看这个奇妙的组合。 这个奇妙的效果来自于一个程序，是这样的：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NAME <span class="meta-string">"save.c"</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fd;</span><br><span class="line">    <span class="keyword">char</span> buf[<span class="number">100</span>]=<span class="string">""</span>;</span><br><span class="line">    <span class="keyword">if</span>(fd=<span class="built_in">open</span>(NAME,O_CREAT|O_RDWR,<span class="number">0666</span>)==<span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"fail to open the file\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Please input the Letter\n"</span> );</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,buf);</span><br><span class="line">    <span class="built_in">write</span>(fd,buf,<span class="built_in">strlen</span>(buf));</span><br><span class="line">    <span class="built_in">close</span>(fd);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码摘取自我同学的程序，程序的目的是：创建一个新文件，然后从键盘接收用户输入的字符串，将字符串写入该文件。</p>
+<p>乍看上去没什么问题，但是测试时会出现以下情况：</p>
 <figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303141024783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="效果展示" /><figcaption>效果展示</figcaption>
+<img data-src="https://img-blog.csdnimg.cn/20200307224438426.png" alt="测试过程" /><figcaption>测试过程</figcaption>
 </figure>
-<a id="more"></a>
-<h2 id="实现过程">3 实现过程</h2>
-<p>假设我们想共享用户目录文件夹（<code>/home/usrename</code>），首先需要在Ubuntu里右键单击该目录，然后选择<code>Local Network Share</code>选项</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/2020030313145516.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="本地网络共享" /><figcaption>本地网络共享</figcaption>
-</figure>
-<p>点击<code>Share this folder</code>选项</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303131628284.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="共享此文件夹" /><figcaption>共享此文件夹</figcaption>
-</figure>
-<p>此时，如果你没有安装相关的共享服务软件，Ubuntu会提示您安装。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303131800549.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="安装共享软件" /><figcaption>安装共享软件</figcaption>
-</figure>
-<p>点击<code>Install service</code>即可进行安装</p>
-<p>Ubuntu默认会为您安装<code>Samba</code>软件，如果没有特殊要求，直接点击安装即可。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303131959500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="安装samba" /><figcaption>安装samba</figcaption>
-</figure>
-<p>输入用户密码，即可开始安装。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303132207521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="安装过程" /><figcaption>安装过程</figcaption>
-</figure>
-<p>安装完成后，可以对共享文件夹的属性进行设置</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303132455325.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="设置属性" /><figcaption>设置属性</figcaption>
-</figure>
-<p>点击创建共享按钮，会弹出一个提示。意思是需要为这个文件夹添加写权限，才能完成设置，它询问您是否为其添加写权限。我们点击自动添加即可。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303132812288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="添加权限" /><figcaption>添加权限</figcaption>
-</figure>
-<p>这时，出现了一个错误：</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303133222639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="错误提示" /><figcaption>错误提示</figcaption>
-</figure>
-<p>这个意思是说，不能用当前的用户名作为共享文件夹的文件夹名。所以我们只要将文件夹名称改一下就可以了。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303133409193.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="更改文件名" /><figcaption>更改文件名</figcaption>
-</figure>
-<p>重新为文件夹授予写权限，即可完成共享文件夹的创建。</p>
-<p>现在重启虚拟机，在终端里查看局域网IP地址。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/2020030313423782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="查询IP地址" /><figcaption>查询IP地址</figcaption>
-</figure>
-<p>然后到Windows的桌面，右键单击此电脑，选择<code>映射网络驱动器</code>选项。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303134040395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="映射网络驱动器" /><figcaption>映射网络驱动器</figcaption>
-</figure>
-<p>在下面打开的窗口中，按<code>\\server\share</code>的格式，填写您的共享文件夹地址。其中，server表示刚才查到的局域网IP，share是我们之前设置的文件夹名。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303144103327.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="网络驱动器" /><figcaption>网络驱动器</figcaption>
-</figure>
-<p>点击完成按钮，会弹出来密码提示框，这里输入我们虚拟机的用户名和密码，然后选择<code>记住我的凭据</code>选项，这样下次登陆就不需要密码了。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303141719725.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="记录凭证" /><figcaption>记录凭证</figcaption>
-</figure>
-<p>这样，我们就可以访问共享文件夹的内容了！</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303135317573.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="访问内容" /><figcaption>访问内容</figcaption>
-</figure>
-<p>因为我是设置的共享用户目录，也就是<code>/home/zhj/</code>目录下的内容，所以Windows文件夹下的内容就是Ubuntu家目录的内容。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/2020030313553485.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="Ubuntu用户目录" /><figcaption>Ubuntu用户目录</figcaption>
-</figure>
-<p>至此，VMware网络映射驱动器已经设置成功了。</p>
-<h2 id="功能测试">4 功能测试</h2>
+<p>可以看到，在用户输入数据后，会有一次数据的屏幕回显现象，数据被输出到了屏幕上。</p>
+<p>但是，在程序里我们确实没有写任何的输出语句啊。。。😂 <strong><em>怎么会回显到了屏幕上呢？</em></strong></p>
+<p>而且，本来应该写入到文件中的数据，也没有被写入到文件中。。。</p>
+<h2 id="问题解释">3 问题解释</h2>
+<p>经过仔细的检查，发现了问题所在： 以下是见证奇迹时刻</p>
+<p>我一直以为是<code>write()</code>函数出现了问题，没想到其实是if语句的问题 在<code>if</code>语句里，缺少了一个括号（可以仔细看一下）。这样的话，由于C语言赋值符号优先级较低，所以<code>open</code>函数会先与<code>==</code>号结合，导致文件描述符的错误赋值。</p>
+<p>在正确打开文件的情况下，<code>if(fd=open(NAME,O_CREAT|O_RDWR,0666)==-1)</code>这句将<code>fd</code>赋值为<code>0</code></p>
+<p>在打开文件失败的情况下，<code>if(fd=open(NAME,O_CREAT|O_RDWR,0666)==-1)</code>这句将<code>fd</code>赋值为<code>1</code></p>
+<p>很巧的是，<code>0</code>和<code>1</code>在文件描述符中，分别表示标准输入流（<code>stdin</code>）和标准输出流（<code>stdout</code>）</p>
+<table>
+<thead>
+<tr class="header">
+<th>文件</th>
+<th>文件描述符</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>标准输入</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>标准输出</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>标准错误</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>因此，在正确打开文件的情况下，<code>fd</code>被赋值为<code>0</code>。之后调用<code>write</code>函数时，就把<code>buf</code>里的数据输入到了<code>stdin</code>，在输入缓冲区被刷新时，数据被输出到了屏幕，因此就会有数据的回显效果。</p>
+<p>同理，在错误打开文件的情况下，<code>write</code>函数也会将数据错误地输出到<code>stdout</code>。</p>
+<p>若想获得正确的结果，需要添加括号改变运算顺序，改为下面的语句即可：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>((fd=<span class="built_in">open</span>(NAME,O_CREAT|O_RDWR,<span class="number">0666</span>))==<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="总结">4 总结</h2>
+<p>所以说，C语言的优先级和结合律也是非常重要的问题。编程时一定要注意细节，否则会出现意想不到的问题。 哈哈哈，挺好玩的。</p>
+<h2 id="参考资料">5 参考资料</h2>
 <ul>
-<li>Windows读数据</li>
+<li>[1]. 《Linux C编程从入门到精通》第三章 Linux下的文件编程 - 刘学勇编著 - ISBN 978-7-121-17415-5</li>
+<li>[2]. <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FyY2h5TGkvYXJ0aWNsZS9kZXRhaWxzLzc4OTM3OTM3" title="https://blog.csdn.net/ArchyLi/article/details/78937937">【Linux】open函数的参数和作用<i class="fa fa-external-link"></i></span> - ArchyLi - CSDN博客</li>
+<li>[3]. <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaWJvMTIzMDEyMy9hcnRpY2xlL2RldGFpbHMvNzkwMzY2MTE=" title="https://blog.csdn.net/weibo1230123/article/details/79036611">Linux编程下open()函数的用法<i class="fa fa-external-link"></i></span> - 魏波- CSDN博客</li>
 </ul>
-<p>这个直接在Windows打开相应的文件进行测试即可，能打开文件且不乱码说明Windows可以正常读取数据。</p>
-<ul>
-<li>Windows10写数据及VMware读数据</li>
-</ul>
-<p>我们先在Windows中创建一个文件，向里面写入数据，然后到VMware中尝试读取该文件。可以看到，VMware可以正常读数据；Windows也是可以正常写入数据的。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303143049492.png" alt="功能测试" /><figcaption>功能测试</figcaption>
-</figure>
-<ul>
-<li>VMware写数据</li>
-</ul>
-<p>这个，，，还用测试吗😂</p>
-<h2 id="总结">5 总结</h2>
-<p>一般来说，如果虚拟机的IP地址不变，这个磁盘映射就会一直有效，不用担心挂载的问题了。。。</p>
 
     </div>
 
@@ -465,19 +541,19 @@
   <div class="popular-posts-header">相关文章推荐</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\02\26\VMware-Share\" rel="bookmark">VMware 共享文件夹</a></div>
+      <div class="popular-posts-title"><a href="\2019\06\20\Linux_HTTP_Server\" rel="bookmark">Linux实训——搭建HTTP服务器</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\06\20\Linux_MyWeb\" rel="bookmark">Linux实训——搭建动态网站</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\06\20\Linux_Upgrade_Core\" rel="bookmark">Linux实训——编译升级Linux内核</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\2019\10\19\Ubuntu1804_OpenCV\" rel="bookmark">Ubuntu18.04 编译安装 OpenCV 遇到的问题</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\2019\06\26\Unable-to-lock-the-administration-directory-var-lib-dpkg\" rel="bookmark">Unable to lock the administration directory (/var/lib/dpkg/)解决办法</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\03\08\fd-open-write\" rel="bookmark">fd_open_write 是一组奇妙的组合</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\02\27\h5ai\" rel="bookmark">Ubuntu LAMP 环境下安装 H5AI</a></div>
     </li>
   </ul>
 
@@ -510,7 +586,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://zhj.forever305.cn/2020/03/03/VMware-Map-Network-Drive/" title="VMware 映射网络驱动器">https://zhj.forever305.cn/2020/03/03/VMware-Map-Network-Drive/</a>
+    <a href="https://zhj.forever305.cn/2020/03/08/fd-open-write/" title="fd_open_write 是一组奇妙的组合">https://zhj.forever305.cn/2020/03/08/fd-open-write/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -560,8 +636,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
               <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
-              <a href="/tags/VMware/" rel="tag"># VMware</a>
+              <a href="/tags/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" rel="tag"># 文件操作</a>
           </div>
 
         
@@ -570,13 +647,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/02/ThinkPad-E570/" rel="prev" title="ThinkPad_E570 拆机">
-      <i class="fa fa-chevron-left"></i> ThinkPad_E570 拆机
+    <a href="/2020/03/03/VMware-Map-Network-Drive/" rel="prev" title="VMware 映射网络驱动器">
+      <i class="fa fa-chevron-left"></i> VMware 映射网络驱动器
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/08/fd-open-write/" rel="next" title="fd_open_write 是一组奇妙的组合">
-      fd_open_write 是一组奇妙的组合 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -637,7 +711,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#我的环境"><span class="nav-text">1 我的环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果展示"><span class="nav-text">2 效果展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现过程"><span class="nav-text">3 实现过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能测试"><span class="nav-text">4 功能测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">5 总结</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#预备知识"><span class="nav-text">1 预备知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件描述符"><span class="nav-text">1.1 文件描述符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open函数"><span class="nav-text">1.2 open函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#write函数"><span class="nav-text">1.3 write函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#奇妙的组合"><span class="nav-text">2 奇妙的组合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题解释"><span class="nav-text">3 问题解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">4 总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-text">5 参考资料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -912,7 +986,7 @@
       quicklink({
         timeout: 3000,
         priority: true,
-        ignores: [uri => uri.includes('#'),uri => uri == 'https://zhj.forever305.cn/2020/03/03/VMware-Map-Network-Drive/',]
+        ignores: [uri => uri.includes('#'),uri => uri == 'https://zhj.forever305.cn/2020/03/08/fd-open-write/',]
       });
       });
   </script>
