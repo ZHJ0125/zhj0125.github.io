@@ -155,11 +155,6 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-网站状态">
-
-    <span class="exturl" data-url="aHR0cHM6Ly9zdGF0dXMuemhqLmZvcmV2ZXIzMDUuY24v"><i class="fa fa-fw fa-shield"></i>网站状态</span>
-
-  </li>
         <li class="menu-item menu-item-更新日志">
 
     <a href="/log/" rel="section"><i class="fa fa-fw fa-paper-plane"></i>更新日志</a>
@@ -293,7 +288,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.4k</span>
+              <span>5.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -328,9 +323,7 @@
 <p>重新执行<code>E:\AndroidStudio\SDK\tools\bin\sdkmanager --update</code></p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\ZHJ&gt; E:\AndroidStudio\SDK\tools\bin\sdkmanager -<span class="literal">-update</span></span><br><span class="line">Warning: File C:\Users\ZHJ\.android\repositories.cfg could not be loaded.</span><br><span class="line">License intel<span class="literal">-android</span><span class="literal">-extra</span><span class="literal">-license</span>:    ] <span class="number">10</span>% Computing updates...</span><br></pre></td></tr></table></figure>
 <p>之后接受他的安装许可</p>
-<figure>
-<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/FigureBed/flutter.png" alt="接受许可" /><figcaption>接受许可</figcaption>
-</figure>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/FigureBed/flutter.png" alt="接受许可" /></p>
 <p>检查目前状态</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\ZHJ&gt; flutter doctor</span><br><span class="line">Doctor summary (to see all details, run flutter doctor <span class="literal">-v</span>):</span><br><span class="line"><span class="function">[√] <span class="title">Flutter</span></span> (Channel stable, v1.<span class="number">0.0</span>, on Microsoft Windows [<span class="type">Version</span> <span class="number">10.0</span><span class="type">.19564.1000</span>], locale en<span class="literal">-US</span>)</span><br><span class="line">[!] Android toolchain - develop <span class="keyword">for</span> Android devices (Android SDK <span class="number">29.0</span>.<span class="number">2</span>)</span><br><span class="line">    ! Some Android licenses not accepted.  To resolve this, run: flutter doctor -<span class="literal">-android</span><span class="literal">-licenses</span></span><br><span class="line">[√] Android Studio (version <span class="number">3.2</span>)</span><br><span class="line">    X Flutter plugin not installed; this adds Flutter specific functionality.</span><br><span class="line">    X Dart plugin not installed; this adds Dart specific functionality.</span><br><span class="line">[!] Connected device</span><br><span class="line">    ! No devices available</span><br><span class="line"></span><br><span class="line">! Doctor found issues <span class="keyword">in</span> <span class="number">2</span> categories.</span><br></pre></td></tr></table></figure>
 <p>系统提示有一些证书还未被接受，按照提示重新执行<code>flutter doctor --android-licenses</code>，接受所有条款</p>
@@ -340,14 +333,10 @@
 <p>可以看到，Android toolchain 问题已经解决了</p>
 <h2 id="android-studio-flutter-plugin-not-installed">2. Android Studio Flutter plugin not installed</h2>
 <p>至于这个问题，直接在 Android Stuio 插件安装界面安装flutter插件即可</p>
-<figure>
-<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/FigureBed/flutter_plugin.png" alt="flutter插件安装" /><figcaption>flutter插件安装</figcaption>
-</figure>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/FigureBed/flutter_plugin.png" alt="flutter插件安装" /></p>
 <p>安装完成后，重启 Android Studio</p>
 <p>如果再启动界面看到 <code>Start a new Flutter project</code> 说明插件安装成功</p>
-<figure>
-<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/FigureBed/flutter_ok.png" alt="插件安装成功" /><figcaption>插件安装成功</figcaption>
-</figure>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/FigureBed/flutter_ok.png" alt="插件安装成功" /></p>
 <p>运行自检程序查看环境状态</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\ZHJ&gt; flutter doctor <span class="literal">-v</span></span><br><span class="line"><span class="function">[√] <span class="title">Flutter</span></span> (Channel stable, v1.<span class="number">0.0</span>, on Microsoft Windows [<span class="type">Version</span> <span class="number">10.0</span><span class="type">.19564.1000</span>], locale en<span class="literal">-US</span>)</span><br><span class="line">    • Flutter version <span class="number">1.0</span>.<span class="number">0</span> at E:\Flutter\flutter</span><br><span class="line">    • Framework revision <span class="number">5391447</span>fae (<span class="number">1</span> year, <span class="number">3</span> months ago), <span class="number">2018</span><span class="literal">-11</span><span class="literal">-29</span> <span class="number">19</span>:<span class="number">41</span>:<span class="number">26</span> <span class="literal">-0800</span></span><br><span class="line">    • Engine revision <span class="number">7375</span>a0f414</span><br><span class="line">    • Dart version <span class="number">2.1</span>.<span class="number">0</span> (build <span class="number">2.1</span>.<span class="number">0</span><span class="literal">-dev</span>.<span class="number">9.4</span> f9ebf21297)</span><br><span class="line"></span><br><span class="line">[√] Android toolchain - develop <span class="keyword">for</span> Android devices (Android SDK <span class="number">29.0</span>.<span class="number">2</span>)</span><br><span class="line">    • Android SDK at E:\AndroidStudio\SDK</span><br><span class="line">    • Android NDK location not configured (optional; useful <span class="keyword">for</span> native profiling support)</span><br><span class="line">    • Platform android<span class="literal">-29</span>, build<span class="literal">-tools</span> <span class="number">29.0</span>.<span class="number">2</span></span><br><span class="line">    • ANDROID_HOME = E:\AndroidStudio\SDK</span><br><span class="line">    • Java binary at: E:\AndroidStudio\install\jre\bin\java</span><br><span class="line">    • Java version OpenJDK Runtime Environment (build <span class="number">1.8</span>.<span class="number">0</span>_152<span class="literal">-release</span><span class="literal">-1136</span><span class="literal">-b06</span>)</span><br><span class="line">    • All Android licenses accepted.</span><br><span class="line"></span><br><span class="line">[√] Android Studio (version <span class="number">3.2</span>)</span><br><span class="line">    • Android Studio at E:\AndroidStudio\install</span><br><span class="line">    • Flutter plugin version <span class="number">31.3</span>.<span class="number">1</span></span><br><span class="line">    • Dart plugin version <span class="number">181.5656</span></span><br><span class="line">    • Java version OpenJDK Runtime Environment (build <span class="number">1.8</span>.<span class="number">0</span>_152<span class="literal">-release</span><span class="literal">-1136</span><span class="literal">-b06</span>)</span><br><span class="line"></span><br><span class="line">[!] Connected device</span><br><span class="line">    ! No devices available</span><br><span class="line"></span><br><span class="line">! Doctor found issues <span class="keyword">in</span> <span class="number">1</span> category.</span><br></pre></td></tr></table></figure>
 <p>OK，现在flutter已经安装完成了</p>
@@ -630,12 +619,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">164k</span>
+    <span title="站点总字数">160k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:33</span>
+    <span title="站点阅读时长">4:27</span>
 </div>
 
 <!--

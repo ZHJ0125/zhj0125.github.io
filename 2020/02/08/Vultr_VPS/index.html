@@ -165,11 +165,6 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-网站状态">
-
-    <span class="exturl" data-url="aHR0cHM6Ly9zdGF0dXMuemhqLmZvcmV2ZXIzMDUuY24v"><i class="fa fa-fw fa-shield"></i>网站状态</span>
-
-  </li>
         <li class="menu-item menu-item-更新日志">
 
     <a href="/log/" rel="section"><i class="fa fa-fw fa-paper-plane"></i>更新日志</a>
@@ -309,7 +304,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -337,35 +332,25 @@
 <h2 id="一优惠购买vultr">一、优惠购买vultr</h2>
 <p>在查阅一些资料后，觉得 <span class="exturl" data-url="aHR0cHM6Ly93d3cudnVsdHIuY29tLw==" title="https://www.vultr.com/">Vultr<i class="fa fa-external-link"></i></span> 比较合适SS服务器的搭建，所以首先去购买一台VPS服务器资源</p>
 <p>注册账户之后，选择需要的服务器类型，可以参考图1我的配置自行选择</p>
-<figure>
-<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/vultr_purchase.png" alt="vultr_purchase" /><figcaption>vultr_purchase</figcaption>
-</figure>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/vultr_purchase.png" alt="vultr_purchase" /></p>
 <blockquote>
 <p>注意：日本的IP很可能被封，所以不建议使用日本的服务器，建议使用新加坡的服务器</p>
 </blockquote>
 <p>点击右下角 <code>Deploy Now</code> 进行购买，进入充值界面</p>
-<figure>
-<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Alipay.png" alt="图2 充值页面" /><figcaption>图2 充值页面</figcaption>
-</figure>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Alipay.png" alt="图2 充值页面" /></p>
 <p>目前 <span class="exturl" data-url="aHR0cHM6Ly93d3cudnVsdHIuY29tLw==" title="https://www.vultr.com/">Vultr 官网<i class="fa fa-external-link"></i></span> 的活动是：充值10美元，赠送100美元 最低充值额度是10美元，可以使用支付宝支付 另外，通过此链接注册支付，还会额外赠送25美元（给自己打个广告😜）</p>
-<figure>
-<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Affiliate.png" alt="图3 活动详情" /><figcaption>图3 活动详情</figcaption>
-</figure>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Affiliate.png" alt="图3 活动详情" /></p>
 <blockquote>
 <p>注册链接: <span class="exturl" data-url="aHR0cHM6Ly93d3cudnVsdHIuY29tLz9yZWY9ODQyNjA0Mi02Rw==" title="https://www.vultr.com/?ref=8426042-6G">https://www.vultr.com/?ref=8426042-6G<i class="fa fa-external-link"></i></span></p>
 </blockquote>
 <p>当你购买完成，等待一段时间让服务器完成镜像安装，就可以进行 Shadowrocks 配置了</p>
 <h2 id="二配置shadowrocks">二、配置Shadowrocks</h2>
 <p>如图4进入服务器详情，查看你的 VPS 服务器 IP 地址，使用 SSH 工具连接服务器</p>
-<figure>
-<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Server_info.png" alt="图4 服务器信息" /><figcaption>图4 服务器信息</figcaption>
-</figure>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Server_info.png" alt="图4 服务器信息" /></p>
 <p>SSH工具我推荐使用国产软件 <span class="exturl" data-url="aHR0cDovL3d3dy5ob3N0YnVmLmNvbS90Lzk4OC5odG1s" title="http://www.hostbuf.com/t/988.html">Finalshell<i class="fa fa-external-link"></i></span>，当然，<span class="exturl" data-url="aHR0cHM6Ly93d3cucHV0dHkub3JnLw==" title="https://www.putty.org/">Putty<i class="fa fa-external-link"></i></span> 或 <span class="exturl" data-url="aHR0cHM6Ly93d3cubmV0c2FyYW5nLmNvbS9lbi94c2hlbGwtZG93bmxvYWQv" title="https://www.netsarang.com/en/xshell-download/">Xshell<i class="fa fa-external-link"></i></span> 也是可以的。</p>
 <blockquote>
 <p>注意：使用 SSH 连不上 VPS 服务器是比较常见的问题，有可能是服务器的 IP 地址被封锁了。此时，最简便的解决方式是销毁当前的服务器（如图5），重新创建一台 VPS</p>
-<figure>
-<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Destory.png" alt="图5 销毁服务器" /><figcaption>图5 销毁服务器</figcaption>
-</figure>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Destory.png" alt="图5 销毁服务器" /></p>
 </blockquote>
 <p>如果成功连接了服务器，下面就开始搭建 Shadowrocks 服务吧</p>
 <ol type="1">
@@ -386,25 +371,15 @@
 <p>首先执行 bash 脚本</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log</span><br></pre></td></tr></table></figure>
 <p>设置密码</p>
-<figure>
-<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_set_password.png" alt="图6 设置密码" /><figcaption>图6 设置密码</figcaption>
-</figure>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_set_password.png" alt="图6 设置密码" /></p>
 <p>设置开放端口</p>
-<figure>
-<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Set_Port.png" alt="图7 设置端口" /><figcaption>图7 设置端口</figcaption>
-</figure>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Set_Port.png" alt="图7 设置端口" /></p>
 <p>设置加密方式，这里建议使用<code>方式7</code> <code>aes-256-cfb</code> 方式</p>
-<figure>
-<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Set_Cipher.png" alt="图8 设置加密方式" /><figcaption>图8 设置加密方式</figcaption>
-</figure>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Set_Cipher.png" alt="图8 设置加密方式" /></p>
 <p>点击任意键确认配置，等待安装完成即可</p>
-<figure>
-<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Set_Finish.png" alt="图9 任意键继续" /><figcaption>图9 任意键继续</figcaption>
-</figure>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Set_Finish.png" alt="图9 任意键继续" /></p>
 <p>配置完成后，可以看到以下配置信息</p>
-<figure>
-<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Server_info2.png" alt="图10 服务配置信息" /><figcaption>图10 服务配置信息</figcaption>
-</figure>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Server_info2.png" alt="图10 服务配置信息" /></p>
 <p>使用这些信息即可连接 SSR 客户端</p>
 <p>OK，现在服务端已经基本完事了</p>
 <h2 id="三bbr网络加速">三、BBR网络加速</h2>
@@ -441,13 +416,9 @@
 <p>推荐 <span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOTo4ODg4L2V4dGVybmFsTGlua3NDb250cm9sbGVyL2Rvd25sb2FkRmlsZUJ5S2V5L3Nzci13aW4uN3o/ZGtleT1hYmMxNjFhZS1hYTk4LTRkNWYtYThjMy1iZGNlZDg5NThhYTA=" title="http://47.95.13.239:8888/externalLinksController/downloadFileByKey/ssr-win.7z?dkey=abc161ae-aa98-4d5f-a8c3-bdced8958aa0">SSR<i class="fa fa-external-link"></i></span> 和 <span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOTo4ODg4L2V4dGVybmFsTGlua3NDb250cm9sbGVyL2Rvd25sb2FkRmlsZUJ5S2V5L1NTVGFwLjd6P2RrZXk9NGEzZTk5YjctM2Q4OS00NDZmLTk1NzQtZmJkMmVjYjlhMTNh" title="http://47.95.13.239:8888/externalLinksController/downloadFileByKey/SSTap.7z?dkey=4a3e99b7-3d89-446f-9574-fbd2ecb9a13a">SSTap<i class="fa fa-external-link"></i></span>（新手推荐） 软件</p>
 <p>以我的iPhone为例，打开Shadowsocks软件，新建一个新节点</p>
 <p>分别填写图11 红框中服务器IP、端口、密码、加密方式等信息，即可创建新节点</p>
-<figure>
-<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_iPhone.png" alt="图11 iPhone 配置" /><figcaption>图11 iPhone 配置</figcaption>
-</figure>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_iPhone.png" alt="图11 iPhone 配置" /></p>
 <p>配置完成后，如图12，使用配置模式，点击连接该节点即可</p>
-<figure>
-<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_iPhone2.png" alt="图12 iPhone 节点连接" /><figcaption>图12 iPhone 节点连接</figcaption>
-</figure>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_iPhone2.png" alt="图12 iPhone 节点连接" /></p>
 <p>连接之后就可以访问 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20v" title="https://www.youtube.com/">YouTube<i class="fa fa-external-link"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8=" title="https://www.google.com/">Google<i class="fa fa-external-link"></i></span> 等网站了</p>
 
     </div>
@@ -459,10 +430,10 @@
   <div class="popular-posts-header">相关文章推荐</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\01\25\My_Bookmarks\" rel="bookmark">My_Bookmarks</a></div>
+      <div class="popular-posts-title"><a href="\2020\01\20\MyLink\" rel="bookmark">技术资源链接</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\01\20\MyLink\" rel="bookmark">技术资源链接</a></div>
+      <div class="popular-posts-title"><a href="\2020\01\25\My_Bookmarks\" rel="bookmark">My_Bookmarks</a></div>
     </li>
   </ul>
 
@@ -726,12 +697,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">164k</span>
+    <span title="站点总字数">160k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:33</span>
+    <span title="站点阅读时长">4:27</span>
 </div>
 
 <!--

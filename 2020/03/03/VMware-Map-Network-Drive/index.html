@@ -169,11 +169,6 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-网站状态">
-
-    <span class="exturl" data-url="aHR0cHM6Ly9zdGF0dXMuemhqLmZvcmV2ZXIzMDUuY24v"><i class="fa fa-fw fa-shield"></i>网站状态</span>
-
-  </li>
         <li class="menu-item menu-item-更新日志">
 
     <a href="/log/" rel="section"><i class="fa fa-fw fa-paper-plane"></i>更新日志</a>
@@ -313,7 +308,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -364,73 +359,41 @@
 </table>
 <h2 id="效果展示">2 效果展示</h2>
 <p>最终的效果就是这样的，可以在Windows10的资源管理器界面，查看VMware的共享文件夹内容。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303141024783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="效果展示" /><figcaption>效果展示</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303141024783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="效果展示" /></p>
 <a id="more"></a>
 <h2 id="实现过程">3 实现过程</h2>
 <p>假设我们想共享用户目录文件夹（<code>/home/usrename</code>），首先需要在Ubuntu里右键单击该目录，然后选择<code>Local Network Share</code>选项</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/2020030313145516.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="本地网络共享" /><figcaption>本地网络共享</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/2020030313145516.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="本地网络共享" /></p>
 <p>点击<code>Share this folder</code>选项</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303131628284.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="共享此文件夹" /><figcaption>共享此文件夹</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303131628284.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="共享此文件夹" /></p>
 <p>此时，如果你没有安装相关的共享服务软件，Ubuntu会提示您安装。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303131800549.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="安装共享软件" /><figcaption>安装共享软件</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303131800549.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="安装共享软件" /></p>
 <p>点击<code>Install service</code>即可进行安装</p>
 <p>Ubuntu默认会为您安装<code>Samba</code>软件，如果没有特殊要求，直接点击安装即可。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303131959500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="安装samba" /><figcaption>安装samba</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303131959500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="安装samba" /></p>
 <p>输入用户密码，即可开始安装。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303132207521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="安装过程" /><figcaption>安装过程</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303132207521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="安装过程" /></p>
 <p>安装完成后，可以对共享文件夹的属性进行设置</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303132455325.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="设置属性" /><figcaption>设置属性</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303132455325.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="设置属性" /></p>
 <p>点击创建共享按钮，会弹出一个提示。意思是需要为这个文件夹添加写权限，才能完成设置，它询问您是否为其添加写权限。我们点击自动添加即可。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303132812288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="添加权限" /><figcaption>添加权限</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303132812288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="添加权限" /></p>
 <p>这时，出现了一个错误：</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303133222639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="错误提示" /><figcaption>错误提示</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303133222639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="错误提示" /></p>
 <p>这个意思是说，不能用当前的用户名作为共享文件夹的文件夹名。所以我们只要将文件夹名称改一下就可以了。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303133409193.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="更改文件名" /><figcaption>更改文件名</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303133409193.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="更改文件名" /></p>
 <p>重新为文件夹授予写权限，即可完成共享文件夹的创建。</p>
 <p>现在重启虚拟机，在终端里查看局域网IP地址。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/2020030313423782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="查询IP地址" /><figcaption>查询IP地址</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/2020030313423782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="查询IP地址" /></p>
 <p>然后到Windows的桌面，右键单击此电脑，选择<code>映射网络驱动器</code>选项。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303134040395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="映射网络驱动器" /><figcaption>映射网络驱动器</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303134040395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="映射网络驱动器" /></p>
 <p>在下面打开的窗口中，按<code>\\server\share</code>的格式，填写您的共享文件夹地址。其中，server表示刚才查到的局域网IP，share是我们之前设置的文件夹名。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303144103327.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="网络驱动器" /><figcaption>网络驱动器</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303144103327.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="网络驱动器" /></p>
 <p>点击完成按钮，会弹出来密码提示框，这里输入我们虚拟机的用户名和密码，然后选择<code>记住我的凭据</code>选项，这样下次登陆就不需要密码了。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303141719725.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="记录凭证" /><figcaption>记录凭证</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303141719725.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="记录凭证" /></p>
 <p>这样，我们就可以访问共享文件夹的内容了！</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303135317573.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="访问内容" /><figcaption>访问内容</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303135317573.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="访问内容" /></p>
 <p>因为我是设置的共享用户目录，也就是<code>/home/zhj/</code>目录下的内容，所以Windows文件夹下的内容就是Ubuntu家目录的内容。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/2020030313553485.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="Ubuntu用户目录" /><figcaption>Ubuntu用户目录</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/2020030313553485.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="Ubuntu用户目录" /></p>
 <p>至此，VMware网络映射驱动器已经设置成功了。</p>
 <h2 id="功能测试">4 功能测试</h2>
 <ul>
@@ -441,9 +404,7 @@
 <li>Windows10写数据及VMware读数据</li>
 </ul>
 <p>我们先在Windows中创建一个文件，向里面写入数据，然后到VMware中尝试读取该文件。可以看到，VMware可以正常读数据；Windows也是可以正常写入数据的。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200303143049492.png" alt="功能测试" /><figcaption>功能测试</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303143049492.png" alt="功能测试" /></p>
 <ul>
 <li>VMware写数据</li>
 </ul>
@@ -735,12 +696,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">164k</span>
+    <span title="站点总字数">160k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:33</span>
+    <span title="站点阅读时长">4:27</span>
 </div>
 
 <!--

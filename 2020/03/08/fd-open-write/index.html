@@ -154,11 +154,6 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-网站状态">
-
-    <span class="exturl" data-url="aHR0cHM6Ly9zdGF0dXMuemhqLmZvcmV2ZXIzMDUuY24v"><i class="fa fa-fw fa-shield"></i>网站状态</span>
-
-  </li>
         <li class="menu-item menu-item-更新日志">
 
     <a href="/log/" rel="section"><i class="fa fa-fw fa-paper-plane"></i>更新日志</a>
@@ -480,9 +475,7 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NAME <span class="meta-string">"save.c"</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fd;</span><br><span class="line">    <span class="keyword">char</span> buf[<span class="number">100</span>]=<span class="string">""</span>;</span><br><span class="line">    <span class="keyword">if</span>(fd=<span class="built_in">open</span>(NAME,O_CREAT|O_RDWR,<span class="number">0666</span>)==<span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"fail to open the file\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Please input the Letter\n"</span> );</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,buf);</span><br><span class="line">    <span class="built_in">write</span>(fd,buf,<span class="built_in">strlen</span>(buf));</span><br><span class="line">    <span class="built_in">close</span>(fd);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上面的代码摘取自我同学的程序，程序的目的是：创建一个新文件，然后从键盘接收用户输入的字符串，将字符串写入该文件。</p>
 <p>乍看上去没什么问题，但是测试时会出现以下情况：</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20200307224438426.png" alt="测试过程" /><figcaption>测试过程</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20200307224438426.png" alt="测试过程" /></p>
 <p>可以看到，在用户输入数据后，会有一次数据的屏幕回显现象，数据被输出到了屏幕上。</p>
 <p>但是，在程序里我们确实没有写任何的输出语句啊。。。😂 <strong><em>怎么会回显到了屏幕上呢？</em></strong></p>
 <p>而且，本来应该写入到文件中的数据，也没有被写入到文件中。。。</p>
@@ -809,12 +802,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">164k</span>
+    <span title="站点总字数">160k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:33</span>
+    <span title="站点阅读时长">4:27</span>
 </div>
 
 <!--

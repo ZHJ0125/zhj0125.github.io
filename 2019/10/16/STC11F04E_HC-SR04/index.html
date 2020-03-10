@@ -156,11 +156,6 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-网站状态">
-
-    <span class="exturl" data-url="aHR0cHM6Ly9zdGF0dXMuemhqLmZvcmV2ZXIzMDUuY24v"><i class="fa fa-fw fa-shield"></i>网站状态</span>
-
-  </li>
         <li class="menu-item menu-item-更新日志">
 
     <a href="/log/" rel="section"><i class="fa fa-fw fa-paper-plane"></i>更新日志</a>
@@ -300,7 +295,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.5k</span>
+              <span>3.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -379,9 +374,7 @@
 </tbody>
 </table>
 <h3 id="时序图">1.3 时序图</h3>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20191010212059345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x250" alt="图1 HC-SR04时序图" /><figcaption>图1 HC-SR04时序图</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20191010212059345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=500x250" alt="图1 HC-SR04时序图" /></p>
 <p>通过阅读时序图可以看出HCSR04的工作原理：</p>
 <blockquote>
 <ol type="1">
@@ -429,13 +422,9 @@
 <p>  通过数码管显示函数，格式化控制该函数返回的浮点数值，即可实现测距的结果显示。</p>
 <h2 id="三程序测试">三、程序测试</h2>
 <p>  因为超声波模块需要一个比较稳定的测试环境，所以我做了一个超声波模块测距装置。利用游标卡尺得到正确的距离数值(实际值)，与单片机数码管显示的数值(测试值)进行比较，可以得出超声波测距装置是否准确。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20191016201730216.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=1000x700" alt="图2 超声波测距装置" /><figcaption>图2 超声波测距装置</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20191016201730216.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=1000x700" alt="图2 超声波测距装置" /></p>
 <p>上图中，可以看出游标卡尺的数值大概是15cm左右，单片机显示的数值也在15.0附近（单位：cm）。现在使用示波器，测量一下Echo回响信号的高电平时间，如下图3所示。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20191016203435654.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图3 示波器测量回响信号时间" /><figcaption>图3 示波器测量回响信号时间</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20191016203435654.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图3 示波器测量回响信号时间" /></p>
 <p>  可以看到。高电平时间 <span class="math inline">\(\Delta x\)</span> 为872.0us，这样按照公式算一下距离： &gt; 距离 = 回响信号时间(us) * 0.034(cm/us) ÷ 2 &gt;    = 872(us) * 0.017(cm/us) &gt;    = 14.824(cm) &gt;   手动计算的数值与单片机上的数值接近，但并不是完全相等，原因是：这一次上升沿的时间也许并不是我们此次单片机显示的时间对应的高电平。。有点绕嘴。因为示波器上的这一段高电平，是我在好几个周期的高电平中，随便挑的一个高电平，与单片机显示的数值就近就是正常的了。应该说清楚了吧?</p>
 <p><span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9TdHVkeS9NaWNyb2NvbXB1dGVyL1NUQzExRjA0RS9WaWRlby9TaG93X3ZpZGVvLzA3X0hDLVNSMDQuTVA0" title="http://47.95.13.239/Study/Microcomputer/STC11F04E/Video/Show_video/07_HC-SR04.MP4">点击此处<i class="fa fa-external-link"></i></span>查看演示视频</p>
 <h2 id="四改进">四、改进</h2>
@@ -714,12 +703,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">164k</span>
+    <span title="站点总字数">160k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:33</span>
+    <span title="站点阅读时长">4:27</span>
 </div>
 
 <!--

@@ -156,11 +156,6 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-网站状态">
-
-    <span class="exturl" data-url="aHR0cHM6Ly9zdGF0dXMuemhqLmZvcmV2ZXIzMDUuY24v"><i class="fa fa-fw fa-shield"></i>网站状态</span>
-
-  </li>
         <li class="menu-item menu-item-更新日志">
 
     <a href="/log/" rel="section"><i class="fa fa-fw fa-paper-plane"></i>更新日志</a>
@@ -318,9 +313,7 @@
 <p>h5ai is a modern file indexer for HTTP web servers with focus on your files. Directories are displayed in a appealing way and browsing them is enhanced by different views, a breadcrumb and a tree overview. —— 摘自<span class="exturl" data-url="aHR0cHM6Ly9sYXJzanVuZy5kZS9oNWFpLw==" title="https://larsjung.de/h5ai/">h5ai官网<i class="fa fa-external-link"></i></span></p>
 </blockquote>
 <p>H5AI 是一个 php 文件目录列表程序，由德国开发者 @<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xyc2puZw==" title="https://github.com/lrsjng">Lars Jung<i class="fa fa-external-link"></i></span> 主导开发，它提供多种文件目录列表呈现方式，支持多种主流 Web 服务器。这是一个开源项目，<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xyc2puZy9oNWFp" title="https://github.com/lrsjng/h5ai">项目地址在这<i class="fa fa-external-link"></i></span>。感谢开源社区和项目开发者的无私贡献。</p>
-<figure>
-<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/h5ai/Show_MyWeb.png" alt="Show_MyWeb" /><figcaption>Show_MyWeb</figcaption>
-</figure>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/h5ai/Show_MyWeb.png" alt="Show_MyWeb" /></p>
 <p>安装H5AI是因为它能够很好的管理服务器上的文件，并以列表的形式显示在前端，正好适合我的需要。下面，我将安装及配置过程记录下来，与大家分享。</p>
 <a id="more"></a>
 <h2 id="安装前的准备">1 安装前的准备</h2>
@@ -383,9 +376,7 @@
 <p>按照上面的提示，找到相应的文件修改配置即可。比如，如果您使用centos+Apache的环境，就可以进入<code>/etc/httpd/conf/httpd.conf</code>文件进行配置。</p>
 <p>我这里的LAMP因为是用Ubuntu搭建的，所以配置过程有点不一样。Ubuntu环境下没有<code>httpd.conf</code>文件，取而代之的是<code>dir.conf</code>文件，默认是在<code>/etc/apache2/mods-enabled/</code>目录下，如果没有的话，可以使用<code>find / -name dir.conf</code>查找一下文件位置。</p>
 <p>打开<code>/etc/apache2/mods-enabled/dir.conf</code>文件，添加新的默认索引名<code>/_h5ai/public/index.php</code>，注意不要丢掉开头的<code>/</code>。修改完成后，大概是这样的：</p>
-<figure>
-<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/h5ai/Add_Search.png" alt="Add_Search" /><figcaption>Add_Search</figcaption>
-</figure>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/h5ai/Add_Search.png" alt="Add_Search" /></p>
 <ul>
 <li>文件夹权限</li>
 </ul>
@@ -395,9 +386,7 @@
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@Aliyun:/var/www/html/_h5ai<span class="comment"># ls -l</span></span><br><span class="line">total <span class="number">32</span></span><br><span class="line"><span class="literal">-rw</span><span class="literal">-r</span>-<span class="literal">-r</span>-- <span class="number">1</span> root root <span class="number">18943</span> Feb <span class="number">27</span> <span class="number">13</span>:<span class="number">05</span> CHANGELOG.md</span><br><span class="line">drwxr<span class="literal">-xr</span><span class="literal">-x</span> <span class="number">5</span> root root  <span class="number">4096</span> Feb <span class="number">27</span> <span class="number">13</span>:<span class="number">05</span> private</span><br><span class="line">drwxr<span class="literal">-xr</span><span class="literal">-x</span> <span class="number">7</span> root root  <span class="number">4096</span> Feb <span class="number">27</span> <span class="number">13</span>:<span class="number">06</span> public</span><br><span class="line"><span class="literal">-rw</span><span class="literal">-r</span>-<span class="literal">-r</span>-- <span class="number">1</span> root root  <span class="number">2755</span> Feb <span class="number">27</span> <span class="number">13</span>:<span class="number">06</span> README.md</span><br></pre></td></tr></table></figure>
 <p>现在，你可以登录_h5ai的后台，检查相关软件是否安装成功。 在浏览器中输入<code>http://YOUR-DOMAIN/_h5ai/public/index.php</code>(将<code>YOUR-DOMAIN</code>换成自己的域名)即可。</p>
 <p>进入网页之后，需要你填写密码。默认密码是空的，直接点击登录即可。后面会提到如何修改密码。</p>
-<figure>
-<img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/h5ai/h5ai_show.png" alt="h5ai_show" /><figcaption>h5ai_show</figcaption>
-</figure>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/h5ai/h5ai_show.png" alt="h5ai_show" /></p>
 <p>如果显示这样的配置情况，说明软件已经可以使用了</p>
 <p>现在在浏览器中输入你自己的域名或者IP， <strong><em>就可以使用h5ai了!</em></strong></p>
 <h2 id="修改配置文件">3 修改配置文件</h2>
@@ -722,12 +711,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">164k</span>
+    <span title="站点总字数">160k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:33</span>
+    <span title="站点阅读时长">4:27</span>
 </div>
 
 <!--

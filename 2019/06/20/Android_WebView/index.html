@@ -180,11 +180,6 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-网站状态">
-
-    <span class="exturl" data-url="aHR0cHM6Ly9zdGF0dXMuemhqLmZvcmV2ZXIzMDUuY24v"><i class="fa fa-fw fa-shield"></i>网站状态</span>
-
-  </li>
         <li class="menu-item menu-item-更新日志">
 
     <a href="/log/" rel="section"><i class="fa fa-fw fa-paper-plane"></i>更新日志</a>
@@ -324,14 +319,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>15k</span>
+              <span>14k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>25 分钟</span>
+              <span>24 分钟</span>
             </span>
 
         </div>
@@ -362,27 +357,19 @@
 <h3 id="实验过程记录">1.2实验过程记录</h3>
 <h4 id="布局文件">1.2.1布局文件</h4>
 <p>为实现基本的相机程序效果，使用最简单的线性布局，通过组件的嵌套生成需要的布局。首先指定最外层的线性布局对齐方式为垂直布局，在其中嵌套一个LinearLayout布局，之后再编写EditText组件用来输入网站网址，加入一个button组件用于点击确定。之后在外层的线性布局中加入WebView组件用来展示需要显示的网页，如图1.1所示。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601192720213.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图1.1布局文件" /><figcaption>图1.1布局文件</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601192720213.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图1.1布局文件" /></p>
 <h4 id="控制文件">1.2.2控制文件</h4>
 <h5 id="实例化对象">1.2.2.1实例化对象</h5>
 <p>在MainActivity.java文件中修改文件，以实现对程序的控制。首先如下图1.2所示实例化所需的对象。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601192734385.png#pic_center" alt="图1.2实例化对象" /><figcaption>图1.2实例化对象</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601192734385.png#pic_center" alt="图1.2实例化对象" /></p>
 <p>在上图1.2中，分别实例化了用于网页浏览的“WebView”类的“webView”对象、用于点击确定的“Button”类的“openWebBtn”对象、用于编辑输入网址的“EditText”类的“editText”。</p>
 <h5 id="重载构造函数">1.2.2.2重载构造函数</h5>
 <p>对构造函数进行修改，使其实现“关联布局文件和控制文件，设置按钮监听事件”的功能。如图1.3所示。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601192744339.png#pic_center" alt="图1.3重载构造函数" /><figcaption>图1.3重载构造函数</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601192744339.png#pic_center" alt="图1.3重载构造函数" /></p>
 <p>通过findViewById方法关联图1.1中的相关组件，并为“openWeb”设置监听事件，以实现在鼠标之后，显示网页界面的功能。</p>
 <h5 id="编写mclick函数">1.2.2.3编写mClick函数</h5>
 <p>为按钮的监听事件编写 mClick 类，以实现拍照和退出功能。如图1.4所示：</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/2019060119275334.png#pic_center" alt="图1.4 mClick类" /><figcaption>图1.4 mClick类</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/2019060119275334.png#pic_center" alt="图1.4 mClick类" /></p>
 <p>上图中，构造了一个继承于OnClickListener的mClick类。首先定义一个url字符串，在点击按钮之后，通过getText().toString()方法获取文本框中的字符串，将其赋值给url。通过findViewById方法将webView对象与布局文件中的组件相关联，通过loadUrl方法设置网页的网址，从而显示网页。</p>
 <h4 id="添加权限">1.2.3添加权限</h4>
 <p>由于程序中需要实现访问网页的功能，所以需要在程序中添加允许程序网络访问的权限。如下图1.5所示，在 AndroidManifest.xml 文件中添加下列信息，以申请权限。 <img data-src="https://img-blog.csdnimg.cn/20190601192801883.png#pic_center" alt="图1.5添加权限" /></p>
@@ -391,29 +378,19 @@
 <h3 id="实验过程中存在的问题及解决方案">1.3实验过程中存在的问题及解决方案</h3>
 <h4 id="调用系统自带的浏览器">1.3.1调用系统自带的浏览器</h4>
 <p>在之前的程序中，使用了webView.loadUrl () 方法去加载网页的内容。在安卓7.1.1系统的手机模拟器下，运行结果如图1.6所示：</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601192823210.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=300x600" alt="图1.6 调用系统浏览器" /><figcaption>图1.6 调用系统浏览器</figcaption>
-</figure>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601192837440.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=300x600" alt="图1.7 原始效果" /><figcaption>图1.7 原始效果</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601192823210.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=300x600" alt="图1.6 调用系统浏览器" /></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601192837440.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=300x600" alt="图1.7 原始效果" /></p>
 <p>在输入URL之后，点击“打开网页”按钮，会出现上图1.6所示的系统提示。该提示意思是，询问用户是以WebView Browser浏览器打开，还是以Chrome浏览器打开网页。</p>
 <p>点击选择WebView Browser浏览器打开网页，则会显示如图1.7所示的效果。这样的话，系统会在程序之外调用WebView Browser浏览器来显示网页。</p>
 <p>也就是说，用这种方式打开的网页资源是依赖于系统自带的浏览器，而不是WebView组件，若想用自身WebView组件去实现，需要去调用setWebViewClient()方法来实现。现在将代码修改，添加上setWebViewClient()方法。代码如下图1.8所示：</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601192852238.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图1.8 添加setWebViewClient()方法" /><figcaption>图1.8 添加setWebViewClient()方法</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601192852238.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图1.8 添加setWebViewClient()方法" /></p>
 <p>在setWebViewClient()方法中重载shouldOverrideUrlLoading，返回值若为true将用webview，false则是系统自身浏览器，现在将返回值改为true，使程序调用webview。 重新运行安卓模拟器，显示的效果如下图1.9所示：</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601192902627.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=300x600" alt="图1.9 改进webview效果" /><figcaption>图1.9 改进webview效果</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601192902627.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=300x600" alt="图1.9 改进webview效果" /></p>
 <p>现在可以看到，在手机界面的上半部分，是EditText和button组件，下半部分是webview组件。程序没有调用系统自带的浏览器，而是使用了内嵌的webview来浏览网页的。</p>
 <h4 id="返回键问题">1.3.2 返回键问题</h4>
 <p>现在已经可以实现不依靠系统自带浏览器打开我们的url资源，但这里会出现一个问题，只要我们一点手机上的返回键，整个程序就直接退出了。我们想要的应该是和浏览器一样的效果，即按下返回键应该还是向后退一步，回到之前浏览的网页，而不是直接退出程序。</p>
 <p>解决方法，是去监听物理返回键并做出对应的相应事件，即重载onKeyDown函数，如图1.10所示：</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601192916147.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图1.10 重载onKeyDown方法" /><figcaption>图1.10 重载onKeyDown方法</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601192916147.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图1.10 重载onKeyDown方法" /></p>
 <p>上图中，重载了onKeyDown方法，具体含义为：keyCode代表按键的数字标识符，通过该标识符判断是否为返回键。如果是返回键，则判断目前的网页是否可以返回，如果可以返回，则调用goBack方法，返回网页前一页面；如果不能返回，则退出该程序。</p>
 <h4 id="动态权限问题">1.3.3动态权限问题</h4>
 <p>Android 6.0 之前我们申请权限直接在配置文件中配置一下即可，但是6.0之后，谷歌官方将权限分为普通权限和危险权限。对于危险权限来说，我们就需要进行动态设置。经过查阅资料，发现访问互联网的权限并不属于危险权限，所以暂时不考虑动态申请了。</p>
@@ -425,21 +402,15 @@
 <h3 id="实验过程记录-1">2.2实验过程记录</h3>
 <h4 id="布局文件-1">2.2.1布局文件</h4>
 <p>本次布局使用相对布局，需要添加的组件仅仅是一个WebView组件，如图2.1所示。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601192956802.png#pic_center" alt="图2.1 布局文件" /><figcaption>图2.1 布局文件</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601192956802.png#pic_center" alt="图2.1 布局文件" /></p>
 <h4 id="控制文件-1">2.2.2控制文件</h4>
 <h5 id="实例化对象-1">2.2.2.1实例化对象</h5>
 <p>在MainActivity.java文件中修改文件，以实现对程序的控制。首先如下图1.2所示实例化所需的对象。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601193008807.png#pic_center" alt="图2.2实例化对象" /><figcaption>图2.2实例化对象</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601193008807.png#pic_center" alt="图2.2实例化对象" /></p>
 <p>在上图2.2中，分别实例化了用于网页浏览的“WebView”类的“webView”对象、用于线程间通信的“Handler”类的“handler”对象、用于处理JavaScript的alert对话框的“MWebChromeClient”类的“WebChromeClient”对象。</p>
 <h5 id="重载构造函数-1">2.2.2.2重载构造函数</h5>
 <p>对构造函数进行修改，使其实现“关联布局文件和控制文件，设置WebView属性、加载本地HTML资源”的功能。如图2.3所示。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601193016890.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图2.3重载构造函数" /><figcaption>图2.3重载构造函数</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601193016890.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图2.3重载构造函数" /></p>
 <p>通过findViewById方法关联图2.1中的相关组件，通过WebSettings类设置WebView的相关属性。属性设置的相关含义见表2.1。</p>
 <p>表2.1WebSettings类的方法</p>
 <table>
@@ -471,65 +442,39 @@
 <p>之后通过addJavascriptInterface方法，设置JavaScript接口，实现Android与JavaScript的通信。通过loadUrl方法设置需要打开的HTML文件。</p>
 <h5 id="编写mobiect类">2.2.2.3编写MObiect类</h5>
 <p>下面编写MObiect类，用来调用JavaScript，代码如下图2.4所示：</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601193034368.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图2.4编写MObiect类" /><figcaption>图2.4编写MObiect类</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601193034368.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图2.4编写MObiect类" /></p>
 <p>这里让我奇怪的是，android_show()这个函数没有被调用过，估计程序会出现问题。</p>
 <h5 id="编写mwebchromeclient类">2.2.2.4编写MWebChromeClient类</h5>
 <p>编写MWebChromeClient类，用以在Android中响应JavaScript的调用，如图2.5所示：</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601193057483.png#pic_center" alt="图2.5 编写MWebChromeClient类" /><figcaption>图2.5 编写MWebChromeClient类</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601193057483.png#pic_center" alt="图2.5 编写MWebChromeClient类" /></p>
 <h5 id="编写本地html资源文件">2.2.2.5编写本地HTML资源文件</h5>
 <p>为了实现该程序“调用本地HTML网页文件中的JavaScript”的功能，需要新建一个HTML文件，如图2.15所示，创建asset文件夹。之后在asset文件夹下，创建test.html网页文件。并在文件中写入相关代码，如图2.16所示。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601193225743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图2.16 HTML文件" /><figcaption>图2.16 HTML文件</figcaption>
-</figure>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601193234425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图2.15创建asset文件夹" /><figcaption>图2.15创建asset文件夹</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601193225743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图2.16 HTML文件" /></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601193234425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图2.15创建asset文件夹" /></p>
 <h4 id="模拟器测试-1">2.2.3模拟器测试</h4>
 <p>编写代码完成，启动安卓模拟器进行测试。程序运行不正常，只显示了空白的页面，如图2.6所示：</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601193246124.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=300x600" alt="图2.6空白界面" /><figcaption>图2.6空白界面</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601193246124.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=300x600" alt="图2.6空白界面" /></p>
 <h3 id="实验过程中存在的问题及解决方案-1">2.3实验过程中存在的问题及解决方案</h3>
 <p>首次启动模拟器运行时，正如上图2.6所示，程序不能正常运行，显示界面为空白。仔细阅读代码可以看到，在onCreate方法中，我已经使用了loadUrl方法来设置本地的HTML资源路径，如图2.7红框中的部分所示。为了确定是不是本地的HTML文本资源有问题，我修改了HTML文件，添加了如图2.8红框中的部分。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601193306591.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图2.7控制文件" /><figcaption>图2.7控制文件</figcaption>
-</figure>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601193324689.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图2.8 添加测试语句" /><figcaption>图2.8 添加测试语句</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601193306591.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图2.7控制文件" /></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601193324689.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图2.8 添加测试语句" /></p>
 <p>在HTML文件中添加该语句之后，如果程序能够正常访问本地HTML资源，应该会在手机界面显示hello段落，如果不能显示“hello”的话，说明本地HTML资源有问题。 下面运行模拟器进行测试，测试结果如下图2.9所示：</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601193333899.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=300x600" alt="图2.9测试" /><figcaption>图2.9测试</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601193333899.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=300x600" alt="图2.9测试" /></p>
 <p>可以看到界面中显示了hello，说明程序确实已经访问到了本地的HTML文件。出现刚才的不显示现象，是因为Script脚本这方面出现了某些问题。</p>
 <p>之后我注意到了之前看到的android_show()这个函数，如图2.10红框所示。它在整个程序中是没有被调用过的，我怀疑是这里出现了问题，于是阅读这段代码。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601193342882.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图2.10未调用的函数" /><figcaption>图2.10未调用的函数</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601193342882.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图2.10未调用的函数" /></p>
 <p>可以看到这段代码中，应该是用handler在Android和js之间传递了信息，通过loadUrl()方法，调用JavaScript中的show_alert()函数，以实现某些功能。但是再回到test.html文件中，发现根本就没有写show_alert () 函数，只写了一个名为addAll的function。我以为是程序错了，就将test.html文件中的addAll函数改名成了show_alert () 。运行程序发现，依然不显示文字。</p>
 <p>最后通过与同学的交流，发现问题出现在test.html文件中，如图2.11红框中所示。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601193349471.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图2.11 错误定位" /><figcaption>图2.11 错误定位</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601193349471.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图2.11 错误定位" /></p>
 问题出现在红色箭头所指的位置。通过查阅资料发现，document.write是JavaScript中对document.open所开启的文档流操作的API方法，它能够直接在文档流中写入字符串，在本程序中，使用了带格式的文本字符串，也就可以将HTML格式的文本写入到文档流中。之前的错误在于，没有将</b>
 </html>
 <p>作为字符串输入文档流，破坏了HTML文本标记语言的格式，导致文本不能正常显示。</p>
 <p>现在运行程序，可以看到如下图2.12所示的界面。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601193409108.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=300x600" alt="图2.12 显示界面" /><figcaption>图2.12 显示界面</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601193409108.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=300x600" alt="图2.12 显示界面" /></p>
 <p>虽然现在看来程序算是运行正常，但是回到编译器中看看代码，发现刚才的android_show()依然未被调用过。我怀疑android_show()函数并不没有起到调用JavaScript的功能，于是将该函数中的内容删除，只保留函数名，改成如下图2.13所示的内容。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601193439250.png#pic_center" alt="图2.13 修改文件" /><figcaption>图2.13 修改文件</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601193439250.png#pic_center" alt="图2.13 修改文件" /></p>
 <p>重新在模拟器运行程序，结果程序正常显示，效果与图2.12一致。这说明android_show()函数确实没有起作用。经过查阅资料得知，该程序在JS调用Android的过程中，采用的是addJavascriptInterface()方法，通过该方法将 Java 对象和 JS 对象进行映射。程序中定义的MObject类，也就是一个JavaScript接口函数，其中最重要的就是写上“<span class="citation" data-cites="JavascriptInterface">@JavascriptInterface</span>”来表明它是一个JavaScript接口，同时加上这个也是因为安全问题。其他内容在本次程序中暂时没有用到。程序中如图2.14所示的代码，将MObjcet类的对象映射到js的test对象，再通过document.write方法将文本流输出到手机界面。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601193448829.png#pic_center" alt="图2.14 对象映射" /><figcaption>图2.14 对象映射</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601193448829.png#pic_center" alt="图2.14 对象映射" /></p>
 <h3 id="实验结果-1">2.4实验结果</h3>
 <p>现在已经实现了实验所要求的功能，在Android7.1.1版本的模拟器中运行，运行过程<span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9TdHVkeS9BbmRyb2lkL3Nob3cvZXg2XzIubXA0" title="http://47.95.13.239/Study/Android/show/ex6_2.mp4">录制的视频如下<i class="fa fa-external-link"></i></span></p>
 <h2 id="三用android程序操纵javascript对话框">三、用Android程序操纵JavaScript对话框</h2>
@@ -539,15 +484,11 @@
 <p>由于例题6_3与例题6_2大段代码相似，其中“布局文件”和“控制文件”的代码与例题6_3相同，下面不再重复记录这两部分。</p>
 <h4 id="编写html文件">3.2.1编写HTML文件</h4>
 <p>下面对HTML文件进行编写，如图3.1所示：</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601193511371.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图3.1HTML文件" /><figcaption>图3.1HTML文件</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601193511371.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图3.1HTML文件" /></p>
 <p>上图3.1中，同样是编写了一个<code>&lt;script&gt;</code>标签，用来描述脚本的功能。之后在网页的主体<code>&lt;body&gt;</code>部分，添加了一个用于创建html表单的<code>&lt;form&gt;</code>标签，并在其中添加了两个<code>&lt;input&gt;</code>标签，分别用来表示页面中的文本输入框和提交按钮。其中“onclick=&quot;window.test.android_show()&quot;”表示调用被程序标记为test的实例对象的函数。</p>
 <h4 id="模拟器测试-2">3.2.2模拟器测试</h4>
 <p>将编写完成的程序在安卓模拟器上运行，查看运行结果，如图3.2所示。</p>
-<figure>
-<img data-src="https://img-blog.csdnimg.cn/20190601193518142.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=300x600" alt="图3.2运行截图" /><figcaption>图3.2运行截图</figcaption>
-</figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20190601193518142.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center=300x600" alt="图3.2运行截图" /></p>
 <p>在界面的顶部输入测试字符串“zhanghoujin”，点击顶部右侧的“call Android”按钮进行提交，此时会在页面的底部出现一个Toast提示框，输出“Hello zhanghoujin”字样。</p>
 <h3 id="实验过程中存在的问题及解决方案-2">3.3实验过程中存在的问题及解决方案</h3>
 <p>因为有了例题6_2的经验，在此次例题6_3中未出现明显的问题。</p>
@@ -876,12 +817,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">164k</span>
+    <span title="站点总字数">160k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:33</span>
+    <span title="站点阅读时长">4:27</span>
 </div>
 
 <!--
