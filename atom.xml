@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhj.forever305.cn/"/>
-  <updated>2020-03-08T10:12:47.000Z</updated>
+  <updated>2020-03-26T06:07:04.000Z</updated>
   <id>https://zhj.forever305.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DeepFaceLab</title>
+    <link href="https://zhj.forever305.cn/2020/03/26/DeepFaceLab/"/>
+    <id>https://zhj.forever305.cn/2020/03/26/DeepFaceLab/</id>
+    <published>2020-03-26T06:07:04.000Z</published>
+    <updated>2020-03-26T06:07:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>昨天用DeepFaceLab做了一下视频换脸</li><li>模型训练就耗费了24小时，但是效果还不太好</li></ul><iframe src="//player.bilibili.com/player.html?aid=99066383&amp;bvid=BV1T7411m7Bd&amp;cid=169112736&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe><hr /><ul><li>视频内容：利用DeepFaceLab替换视频中的人脸</li><li>视频说明：第一次DeepFace换脸测试，参数调得不好，模型训练时间也不长，导致最终效果不太好 😂<ul><li>result：最终合成的视频</li><li>data_dst：目标视频（视频中的该脸将被替换）</li><li>data_src：源视频（视频被替换为该脸）</li></ul></li><li>训练模型：H64</li><li>训练时间：24小时</li><li>参考教程：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGZha2VyLnh5ei8=" title="https://www.deepfaker.xyz/">https://www.deepfaker.xyz/<i class="fa fa-external-link"></i></span></li><li>调试记录：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvZmFjZXN3YXAvYmxvYi9tYXN0ZXIvWkhKX1BDL1Bvd2VyU2hlbGxMb2cubWQ=" title="https://github.com/ZHJ0125/faceswap/blob/master/ZHJ_PC/PowerShellLog.md">https://github.com/ZHJ0125/faceswap/blob/master/ZHJ_PC/PowerShellLog.md<i class="fa fa-external-link"></i></span></li></ul><hr />]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;昨天用DeepFaceLab做了一下视频换脸&lt;/li&gt;
+&lt;li&gt;模型训练就耗费了24小时，但是效果还不太好&lt;/li&gt;
+&lt;/ul&gt;
+&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=99066383&amp;am
+      
+    
+    </summary>
+    
+    
+      <category term="日常随笔" scheme="https://zhj.forever305.cn/categories/%E6%97%A5%E5%B8%B8%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="DeepFace" scheme="https://zhj.forever305.cn/tags/DeepFace/"/>
+    
+  </entry>
   
   <entry>
     <title>fd_open_write 是一组奇妙的组合</title>
@@ -792,27 +822,6 @@
     
     
       <category term="Linux" scheme="https://zhj.forever305.cn/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://zhj.forever305.cn/2019/06/20/Hello_World/"/>
-    <id>https://zhj.forever305.cn/2019/06/20/Hello_World/</id>
-    <published>2019-06-20T11:30:21.000Z</published>
-    <updated>2019-06-20T11:30:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==" title="https://hexo.io/">Hexo<i class="fa fa-external-link"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv" title="https://hexo.io/docs/">documentation<i class="fa fa-external-link"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=" title="https://hexo.io/docs/troubleshooting.html">troubleshooting<i class="fa fa-external-link"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==" title="https://github.com/hexojs/hexo/issues">GitHub<i class="fa fa-external-link"></i></span>.</p><a id="more"></a><h2 id="quick-start">Quick Start</h2><h3 id="create-a-new-post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s" title="https://hexo.io/docs/writing.html">Writing<i class="fa fa-external-link"></i></span></p><h3 id="run-server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=" title="https://hexo.io/docs/server.html">Server<i class="fa fa-external-link"></i></span></p><h3 id="generate-static-files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s" title="https://hexo.io/docs/generating.html">Generating<i class="fa fa-external-link"></i></span></p><h3 id="deploy-to-remote-sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s" title="https://hexo.io/docs/one-command-deployment.html">Deployment<i class="fa fa-external-link"></i></span></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="日常随笔" scheme="https://zhj.forever305.cn/categories/%E6%97%A5%E5%B8%B8%E9%9A%8F%E7%AC%94/"/>
-    
     
   </entry>
   

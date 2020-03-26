@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>DeepFaceLab</title>
+    <url>/2020/03/26/DeepFaceLab/</url>
+    <content><![CDATA[<ul>
+<li>昨天用DeepFaceLab做了一下视频换脸</li>
+<li>模型训练就耗费了24小时，但是效果还不太好</li>
+</ul>
+<iframe src="//player.bilibili.com/player.html?aid=99066383&amp;bvid=BV1T7411m7Bd&amp;cid=169112736&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+</iframe>
+<hr />
+<ul>
+<li>视频内容：利用DeepFaceLab替换视频中的人脸</li>
+<li>视频说明：第一次DeepFace换脸测试，参数调得不好，模型训练时间也不长，导致最终效果不太好 😂
+<ul>
+<li>result：最终合成的视频</li>
+<li>data_dst：目标视频（视频中的该脸将被替换）</li>
+<li>data_src：源视频（视频被替换为该脸）</li>
+</ul></li>
+<li>训练模型：H64</li>
+<li>训练时间：24小时</li>
+<li>参考教程：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGZha2VyLnh5ei8=" title="https://www.deepfaker.xyz/">https://www.deepfaker.xyz/<i class="fa fa-external-link"></i></span></li>
+<li>调试记录：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvZmFjZXN3YXAvYmxvYi9tYXN0ZXIvWkhKX1BDL1Bvd2VyU2hlbGxMb2cubWQ=" title="https://github.com/ZHJ0125/faceswap/blob/master/ZHJ_PC/PowerShellLog.md">https://github.com/ZHJ0125/faceswap/blob/master/ZHJ_PC/PowerShellLog.md<i class="fa fa-external-link"></i></span></li>
+</ul>
+<hr />
+]]></content>
+      <categories>
+        <category>日常随笔</category>
+      </categories>
+      <tags>
+        <tag>DeepFace</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>fd_open_write 是一组奇妙的组合</title>
     <url>/2020/03/08/fd-open-write/</url>
     <content><![CDATA[<ul>
