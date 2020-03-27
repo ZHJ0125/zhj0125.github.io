@@ -25,12 +25,12 @@
     var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":250,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":20},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="文章同步发布在我的CSDN博客   前几天做了一下VMware的共享文件夹，今天想用一下，发现之前共享的目录竟然没有挂载。 心想，如果每次都要先挂载一下，得多麻烦（当然，有一次性挂载的方法，我懒得查了😂）。 于是想换一种方式实现文件夹的共享。 以前见过有人用映射网络驱动器的方式实现了文件夹共享，于是这次就想试试这种方式。下面给大家分享一下过程。  ¶1 我的环境          Produc">
+  <meta name="description" content="文章同步发布在我的CSDN博客   前几天做了一下VMware的共享文件夹，今天想用一下，发现之前共享的目录竟然没有挂载。 心想，如果每次都要先挂载一下，得多麻烦（当然，有一次性挂载的方法，我懒得查了😂）。 于是想换一种方式实现文件夹的共享。 以前见过有人用映射网络驱动器的方式实现了文件夹共享，于是这次就想试试这种方式。下面给大家分享一下过程。  1 我的环境">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VMware 映射网络驱动器">
 <meta property="og:url" content="https://zhj.forever305.cn/2020/03/03/VMware-Map-Network-Drive/index.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="文章同步发布在我的CSDN博客   前几天做了一下VMware的共享文件夹，今天想用一下，发现之前共享的目录竟然没有挂载。 心想，如果每次都要先挂载一下，得多麻烦（当然，有一次性挂载的方法，我懒得查了😂）。 于是想换一种方式实现文件夹的共享。 以前见过有人用映射网络驱动器的方式实现了文件夹共享，于是这次就想试试这种方式。下面给大家分享一下过程。  ¶1 我的环境          Produc">
+<meta property="og:description" content="文章同步发布在我的CSDN博客   前几天做了一下VMware的共享文件夹，今天想用一下，发现之前共享的目录竟然没有挂载。 心想，如果每次都要先挂载一下，得多麻烦（当然，有一次性挂载的方法，我懒得查了😂）。 于是想换一种方式实现文件夹的共享。 以前见过有人用映射网络驱动器的方式实现了文件夹共享，于是这次就想试试这种方式。下面给大家分享一下过程。  1 我的环境">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200303141024783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2020030313145516.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
@@ -341,72 +341,66 @@
 <li>于是想换一种方式实现文件夹的共享。</li>
 <li>以前见过有人用<code>映射网络驱动器</code>的方式实现了文件夹共享，于是这次就想试试这种方式。下面给大家分享一下过程。</li>
 </ul>
-<h2 id="1-我的环境"><a class="header-anchor" href="#1-我的环境">¶</a>1 我的环境</h2>
+<h2 id="我的环境">1 我的环境</h2>
 <table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Product</td>
 <td>VMware® Workstation 15 Player</td>
 </tr>
-<tr>
+<tr class="even">
 <td>VMware Version</td>
 <td>15.5.0 build-14665864</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Ubuntu Version</td>
 <td>Ubuntu 18.04.4 LTS</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Windows Version</td>
 <td>Version 10 Education</td>
 </tr>
 </tbody>
 </table>
-<h2 id="2-效果展示"><a class="header-anchor" href="#2-效果展示">¶</a>2 效果展示</h2>
+<h2 id="效果展示">2 效果展示</h2>
 <p>最终的效果就是这样的，可以在Windows10的资源管理器界面，查看VMware的共享文件夹内容。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20200303141024783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="效果展示"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303141024783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="效果展示" /></p>
 <a id="more"></a>
-<h2 id="3-实现过程"><a class="header-anchor" href="#3-实现过程">¶</a>3 实现过程</h2>
+<h2 id="实现过程">3 实现过程</h2>
 <p>假设我们想共享用户目录文件夹（<code>/home/usrename</code>），首先需要在Ubuntu里右键单击该目录，然后选择<code>Local Network Share</code>选项</p>
-<p><img data-src="https://img-blog.csdnimg.cn/2020030313145516.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="本地网络共享"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/2020030313145516.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="本地网络共享" /></p>
 <p>点击<code>Share this folder</code>选项</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20200303131628284.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="共享此文件夹"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303131628284.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="共享此文件夹" /></p>
 <p>此时，如果你没有安装相关的共享服务软件，Ubuntu会提示您安装。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20200303131800549.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="安装共享软件"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303131800549.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="安装共享软件" /></p>
 <p>点击<code>Install service</code>即可进行安装</p>
 <p>Ubuntu默认会为您安装<code>Samba</code>软件，如果没有特殊要求，直接点击安装即可。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20200303131959500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="安装samba"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303131959500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="安装samba" /></p>
 <p>输入用户密码，即可开始安装。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20200303132207521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="安装过程"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303132207521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="安装过程" /></p>
 <p>安装完成后，可以对共享文件夹的属性进行设置</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20200303132455325.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="设置属性"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303132455325.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="设置属性" /></p>
 <p>点击创建共享按钮，会弹出一个提示。意思是需要为这个文件夹添加写权限，才能完成设置，它询问您是否为其添加写权限。我们点击自动添加即可。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20200303132812288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="添加权限"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303132812288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="添加权限" /></p>
 <p>这时，出现了一个错误：</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20200303133222639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="错误提示"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303133222639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="错误提示" /></p>
 <p>这个意思是说，不能用当前的用户名作为共享文件夹的文件夹名。所以我们只要将文件夹名称改一下就可以了。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20200303133409193.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="更改文件名"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303133409193.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="更改文件名" /></p>
 <p>重新为文件夹授予写权限，即可完成共享文件夹的创建。</p>
 <p>现在重启虚拟机，在终端里查看局域网IP地址。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/2020030313423782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="查询IP地址"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/2020030313423782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="查询IP地址" /></p>
 <p>然后到Windows的桌面，右键单击此电脑，选择<code>映射网络驱动器</code>选项。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20200303134040395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="映射网络驱动器"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303134040395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="映射网络驱动器" /></p>
 <p>在下面打开的窗口中，按<code>\\server\share</code>的格式，填写您的共享文件夹地址。其中，server表示刚才查到的局域网IP，share是我们之前设置的文件夹名。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20200303144103327.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="网络驱动器"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303144103327.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="网络驱动器" /></p>
 <p>点击完成按钮，会弹出来密码提示框，这里输入我们虚拟机的用户名和密码，然后选择<code>记住我的凭据</code>选项，这样下次登陆就不需要密码了。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20200303141719725.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="记录凭证"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303141719725.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="记录凭证" /></p>
 <p>这样，我们就可以访问共享文件夹的内容了！</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20200303135317573.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="访问内容"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303135317573.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="访问内容" /></p>
 <p>因为我是设置的共享用户目录，也就是<code>/home/zhj/</code>目录下的内容，所以Windows文件夹下的内容就是Ubuntu家目录的内容。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/2020030313553485.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="Ubuntu用户目录"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/2020030313553485.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="Ubuntu用户目录" /></p>
 <p>至此，VMware网络映射驱动器已经设置成功了。</p>
-<h2 id="4-功能测试"><a class="header-anchor" href="#4-功能测试">¶</a>4 功能测试</h2>
+<h2 id="功能测试">4 功能测试</h2>
 <ul>
 <li>Windows读数据</li>
 </ul>
@@ -415,12 +409,12 @@
 <li>Windows10写数据及VMware读数据</li>
 </ul>
 <p>我们先在Windows中创建一个文件，向里面写入数据，然后到VMware中尝试读取该文件。可以看到，VMware可以正常读数据；Windows也是可以正常写入数据的。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20200303143049492.png" alt="功能测试"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20200303143049492.png" alt="功能测试" /></p>
 <ul>
 <li>VMware写数据</li>
 </ul>
 <p>这个，，，还用测试吗😂</p>
-<h2 id="5-总结"><a class="header-anchor" href="#5-总结">¶</a>5 总结</h2>
+<h2 id="总结">5 总结</h2>
 <p>一般来说，如果虚拟机的IP地址不变，这个磁盘映射就会一直有效，不用担心挂载的问题了。。。</p>
 
     </div>
@@ -604,7 +598,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-我的环境"><span class="nav-text">¶1 我的环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-效果展示"><span class="nav-text">¶2 效果展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-实现过程"><span class="nav-text">¶3 实现过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-功能测试"><span class="nav-text">¶4 功能测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-总结"><span class="nav-text">¶5 总结</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#我的环境"><span class="nav-text">1 我的环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果展示"><span class="nav-text">2 效果展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现过程"><span class="nav-text">3 实现过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能测试"><span class="nav-text">4 功能测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">5 总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -710,12 +704,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">161k</span>
+    <span title="站点总字数">160k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:28</span>
+    <span title="站点阅读时长">4:27</span>
 </div>
 
 <!--

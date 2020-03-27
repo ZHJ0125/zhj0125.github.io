@@ -25,12 +25,12 @@
     var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":250,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":20},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="本篇文章，我将使用Vultr服务商提供的VPS服务器，搭建 Shadowrocks 并开启 BBR 加速上网功能 特别说明：本次博客中提到的软件均已进行备份，如原链接失效，可查看 备份页面  之前一直使用 谷歌访问助手 翻墙，虽然比较稳定，但是它限制访问 YouTube 等网站； 我还尝试过使用像 顺风云、加多宝 这样的节点订阅，但这样的节点不太稳定，访问速度也不太快； 尝试使用过 lncn.o">
+  <meta name="description" content="本篇文章，我将使用Vultr服务商提供的VPS服务器，搭建 Shadowrocks 并开启 BBR 加速上网功能 特别说明：本次博客中提到的软件均已进行备份，如原链接失效，可查看 备份页面  之前一直使用 谷歌访问助手 翻墙，虽然比较稳定，但是它限制访问 YouTube 等网站； 我还尝试过使用像 顺风云、加多宝 这样的节点订阅，但这样的节点不太稳定，访问速度也不太快； 尝试使用过 ln">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Vultr搭建SS服务器翻墙">
 <meta property="og:url" content="https://zhj.forever305.cn/2020/02/08/Vultr_VPS/index.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="本篇文章，我将使用Vultr服务商提供的VPS服务器，搭建 Shadowrocks 并开启 BBR 加速上网功能 特别说明：本次博客中提到的软件均已进行备份，如原链接失效，可查看 备份页面  之前一直使用 谷歌访问助手 翻墙，虽然比较稳定，但是它限制访问 YouTube 等网站； 我还尝试过使用像 顺风云、加多宝 这样的节点订阅，但这样的节点不太稳定，访问速度也不太快； 尝试使用过 lncn.o">
+<meta property="og:description" content="本篇文章，我将使用Vultr服务商提供的VPS服务器，搭建 Shadowrocks 并开启 BBR 加速上网功能 特别说明：本次博客中提到的软件均已进行备份，如原链接失效，可查看 备份页面  之前一直使用 谷歌访问助手 翻墙，虽然比较稳定，但是它限制访问 YouTube 等网站； 我还尝试过使用像 顺风云、加多宝 这样的节点订阅，但这样的节点不太稳定，访问速度也不太快； 尝试使用过 ln">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/vultr_purchase.png">
 <meta property="og:image" content="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Alipay.png">
@@ -332,67 +332,62 @@
 <li>本篇文章，我将使用Vultr服务商提供的VPS服务器，搭建 Shadowrocks 并开启 BBR 加速上网功能</li>
 <li>特别说明：本次博客中提到的软件均已进行备份，如原链接失效，可查看 <span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9kYXRhL0Jsb2cvVnVsdHJfVlBOLw==" title="http://47.95.13.239/data/Blog/Vultr_VPN/">备份页面<i class="fa fa-external-link"></i></span></li>
 </ul>
-<p>之前一直使用 <span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOTo4ODg4L2V4dGVybmFsTGlua3NDb250cm9sbGVyL2Rvd25sb2FkRmlsZUJ5S2V5LyVFOCVCMCVCNyVFNiVBRCU4QyVFOCVBRSVCRiVFOSU5NyVBRSVFNSU4QSVBOSVFNiU4OSU4Ql92Mi4zLnppcD9ka2V5PTNlNDZhM2EzLTYxZjUtNDk0Ny05MzA4LTlhYjQ1MGRlZTRkNg==" title="http://47.95.13.239:8888/externalLinksController/downloadFileByKey/%E8%B0%B7%E6%AD%8C%E8%AE%BF%E9%97%AE%E5%8A%A9%E6%89%8B_v2.3.zip?dkey=3e46a3a3-61f5-4947-9308-9ab450dee4d6">谷歌访问助手<i class="fa fa-external-link"></i></span> 翻墙，虽然比较稳定，但是它限制访问 YouTube 等网站；<br>
-我还尝试过使用像 <span class="exturl" data-url="aHR0cDovL3NmY2xvdWQucHcvdXNlcg==" title="http://sfcloud.pw/user">顺风云<i class="fa fa-external-link"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly93d3cuamRiMDIueHl6L3VzZXI=" title="https://www.jdb02.xyz/user">加多宝<i class="fa fa-external-link"></i></span> 这样的节点订阅，但这样的节点不太稳定，访问速度也不太快；<br>
-尝试使用过 <span class="exturl" data-url="aHR0cHM6Ly9sbmNuLm9yZy8=" title="https://lncn.org/">lncn.org<i class="fa fa-external-link"></i></span> 这样的节点网站，虽然利用无法订阅的特点减少了阻塞情况，但几乎每次使用都需要去网站更新节点，很不方便；<br>
-因此，本次我将尝试使用<strong>自建的VPS服务器</strong>，搭建 <span class="exturl" data-url="aHR0cHM6Ly9zaGFkb3dzb2Nrc2hlbHAuZ2l0aHViLmlvL1NoYWRvd3NvY2tzLw==" title="https://shadowsockshelp.github.io/Shadowsocks/">Shadowrocks<i class="fa fa-external-link"></i></span> 服务，通过BBR实现网络加速功能</p>
+<p>之前一直使用 <span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOTo4ODg4L2V4dGVybmFsTGlua3NDb250cm9sbGVyL2Rvd25sb2FkRmlsZUJ5S2V5LyVFOCVCMCVCNyVFNiVBRCU4QyVFOCVBRSVCRiVFOSU5NyVBRSVFNSU4QSVBOSVFNiU4OSU4Ql92Mi4zLnppcD9ka2V5PTNlNDZhM2EzLTYxZjUtNDk0Ny05MzA4LTlhYjQ1MGRlZTRkNg==" title="http://47.95.13.239:8888/externalLinksController/downloadFileByKey/%E8%B0%B7%E6%AD%8C%E8%AE%BF%E9%97%AE%E5%8A%A9%E6%89%8B_v2.3.zip?dkey=3e46a3a3-61f5-4947-9308-9ab450dee4d6">谷歌访问助手<i class="fa fa-external-link"></i></span> 翻墙，虽然比较稳定，但是它限制访问 YouTube 等网站； 我还尝试过使用像 <span class="exturl" data-url="aHR0cDovL3NmY2xvdWQucHcvdXNlcg==" title="http://sfcloud.pw/user">顺风云<i class="fa fa-external-link"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly93d3cuamRiMDIueHl6L3VzZXI=" title="https://www.jdb02.xyz/user">加多宝<i class="fa fa-external-link"></i></span> 这样的节点订阅，但这样的节点不太稳定，访问速度也不太快； 尝试使用过 <span class="exturl" data-url="aHR0cHM6Ly9sbmNuLm9yZy8=" title="https://lncn.org/">lncn.org<i class="fa fa-external-link"></i></span> 这样的节点网站，虽然利用无法订阅的特点减少了阻塞情况，但几乎每次使用都需要去网站更新节点，很不方便； 因此，本次我将尝试使用<strong>自建的VPS服务器</strong>，搭建 <span class="exturl" data-url="aHR0cHM6Ly9zaGFkb3dzb2Nrc2hlbHAuZ2l0aHViLmlvL1NoYWRvd3NvY2tzLw==" title="https://shadowsockshelp.github.io/Shadowsocks/">Shadowrocks<i class="fa fa-external-link"></i></span> 服务，通过BBR实现网络加速功能</p>
 <a id="more"></a>
-<h2 id="一、优惠购买vultr"><a class="header-anchor" href="#一、优惠购买vultr">¶</a>一、优惠购买vultr</h2>
+<h2 id="一优惠购买vultr">一、优惠购买vultr</h2>
 <p>在查阅一些资料后，觉得 <span class="exturl" data-url="aHR0cHM6Ly93d3cudnVsdHIuY29tLw==" title="https://www.vultr.com/">Vultr<i class="fa fa-external-link"></i></span> 比较合适SS服务器的搭建，所以首先去购买一台VPS服务器资源</p>
 <p>注册账户之后，选择需要的服务器类型，可以参考图1我的配置自行选择</p>
-<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/vultr_purchase.png" alt="vultr_purchase"></p>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/vultr_purchase.png" alt="vultr_purchase" /></p>
 <blockquote>
 <p>注意：日本的IP很可能被封，所以不建议使用日本的服务器，建议使用新加坡的服务器</p>
 </blockquote>
 <p>点击右下角 <code>Deploy Now</code> 进行购买，进入充值界面</p>
-<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Alipay.png" alt="图2 充值页面"></p>
-<p>目前 <span class="exturl" data-url="aHR0cHM6Ly93d3cudnVsdHIuY29tLw==" title="https://www.vultr.com/">Vultr 官网<i class="fa fa-external-link"></i></span> 的活动是：充值10美元，赠送100美元<br>
-最低充值额度是10美元，可以使用支付宝支付<br>
-另外，通过此链接注册支付，还会额外赠送25美元（给自己打个广告😜）</p>
-<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Affiliate.png" alt="图3 活动详情"></p>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Alipay.png" alt="图2 充值页面" /></p>
+<p>目前 <span class="exturl" data-url="aHR0cHM6Ly93d3cudnVsdHIuY29tLw==" title="https://www.vultr.com/">Vultr 官网<i class="fa fa-external-link"></i></span> 的活动是：充值10美元，赠送100美元 最低充值额度是10美元，可以使用支付宝支付 另外，通过此链接注册支付，还会额外赠送25美元（给自己打个广告😜）</p>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Affiliate.png" alt="图3 活动详情" /></p>
 <blockquote>
 <p>注册链接: <span class="exturl" data-url="aHR0cHM6Ly93d3cudnVsdHIuY29tLz9yZWY9ODQyNjA0Mi02Rw==" title="https://www.vultr.com/?ref=8426042-6G">https://www.vultr.com/?ref=8426042-6G<i class="fa fa-external-link"></i></span></p>
 </blockquote>
 <p>当你购买完成，等待一段时间让服务器完成镜像安装，就可以进行 Shadowrocks 配置了</p>
-<h2 id="二、配置Shadowrocks"><a class="header-anchor" href="#二、配置Shadowrocks">¶</a>二、配置Shadowrocks</h2>
+<h2 id="二配置shadowrocks">二、配置Shadowrocks</h2>
 <p>如图4进入服务器详情，查看你的 VPS 服务器 IP 地址，使用 SSH 工具连接服务器</p>
-<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Server_info.png" alt="图4 服务器信息"></p>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Server_info.png" alt="图4 服务器信息" /></p>
 <p>SSH工具我推荐使用国产软件 <span class="exturl" data-url="aHR0cDovL3d3dy5ob3N0YnVmLmNvbS90Lzk4OC5odG1s" title="http://www.hostbuf.com/t/988.html">Finalshell<i class="fa fa-external-link"></i></span>，当然，<span class="exturl" data-url="aHR0cHM6Ly93d3cucHV0dHkub3JnLw==" title="https://www.putty.org/">Putty<i class="fa fa-external-link"></i></span> 或 <span class="exturl" data-url="aHR0cHM6Ly93d3cubmV0c2FyYW5nLmNvbS9lbi94c2hlbGwtZG93bmxvYWQv" title="https://www.netsarang.com/en/xshell-download/">Xshell<i class="fa fa-external-link"></i></span> 也是可以的。</p>
 <blockquote>
 <p>注意：使用 SSH 连不上 VPS 服务器是比较常见的问题，有可能是服务器的 IP 地址被封锁了。此时，最简便的解决方式是销毁当前的服务器（如图5），重新创建一台 VPS</p>
-<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Destory.png" alt="图5 销毁服务器"></p>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Destory.png" alt="图5 销毁服务器" /></p>
 </blockquote>
 <p>如果成功连接了服务器，下面就开始搭建 Shadowrocks 服务吧</p>
-<ol>
+<ol type="1">
 <li>安装 wget</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install wget</span><br></pre></td></tr></table></figure>
-<ol start="2">
+<ol start="2" type="1">
 <li>安装 Shadowrocks 软件</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget –no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh</span><br></pre></td></tr></table></figure>
-<ol start="3">
+<ol start="3" type="1">
 <li>获取脚本执行权限</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x shadowsocks.sh</span><br></pre></td></tr></table></figure>
-<ol start="4">
+<ol start="4" type="1">
 <li>配置 Shadowrocks</li>
 </ol>
 <p>首先执行 bash 脚本</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log</span><br></pre></td></tr></table></figure>
 <p>设置密码</p>
-<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_set_password.png" alt="图6 设置密码"></p>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_set_password.png" alt="图6 设置密码" /></p>
 <p>设置开放端口</p>
-<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Set_Port.png" alt="图7 设置端口"></p>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Set_Port.png" alt="图7 设置端口" /></p>
 <p>设置加密方式，这里建议使用<code>方式7</code> <code>aes-256-cfb</code> 方式</p>
-<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Set_Cipher.png" alt="图8 设置加密方式"></p>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Set_Cipher.png" alt="图8 设置加密方式" /></p>
 <p>点击任意键确认配置，等待安装完成即可</p>
-<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Set_Finish.png" alt="图9 任意键继续"></p>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Set_Finish.png" alt="图9 任意键继续" /></p>
 <p>配置完成后，可以看到以下配置信息</p>
-<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Server_info2.png" alt="图10 服务配置信息"></p>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_Server_info2.png" alt="图10 服务配置信息" /></p>
 <p>使用这些信息即可连接 SSR 客户端</p>
 <p>OK，现在服务端已经基本完事了</p>
-<h2 id="三、BBR网络加速"><a class="header-anchor" href="#三、BBR网络加速">¶</a>三、BBR网络加速</h2>
+<h2 id="三bbr网络加速">三、BBR网络加速</h2>
 <p>为了加快访问速度，可以安装 BBR 网络加速服务</p>
 <p>首先安装 BBR 脚本</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</span><br></pre></td></tr></table></figure>
@@ -402,7 +397,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
 <p>如果能看到 <code>tcp_bbr</code> 服务，就说明服务已经开启了</p>
 <p>OK，现在服务端已经准备完毕了，接下来配置 SSR 客户端</p>
-<h2 id="四、配置SSR客户端"><a class="header-anchor" href="#四、配置SSR客户端">¶</a>四、配置SSR客户端</h2>
+<h2 id="四配置ssr客户端">四、配置SSR客户端</h2>
 <ul>
 <li>iOS 用户</li>
 </ul>
@@ -426,9 +421,9 @@
 <p>推荐 <span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOTo4ODg4L2V4dGVybmFsTGlua3NDb250cm9sbGVyL2Rvd25sb2FkRmlsZUJ5S2V5L3Nzci13aW4uN3o/ZGtleT1hYmMxNjFhZS1hYTk4LTRkNWYtYThjMy1iZGNlZDg5NThhYTA=" title="http://47.95.13.239:8888/externalLinksController/downloadFileByKey/ssr-win.7z?dkey=abc161ae-aa98-4d5f-a8c3-bdced8958aa0">SSR<i class="fa fa-external-link"></i></span> 和 <span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOTo4ODg4L2V4dGVybmFsTGlua3NDb250cm9sbGVyL2Rvd25sb2FkRmlsZUJ5S2V5L1NTVGFwLjd6P2RrZXk9NGEzZTk5YjctM2Q4OS00NDZmLTk1NzQtZmJkMmVjYjlhMTNh" title="http://47.95.13.239:8888/externalLinksController/downloadFileByKey/SSTap.7z?dkey=4a3e99b7-3d89-446f-9574-fbd2ecb9a13a">SSTap<i class="fa fa-external-link"></i></span>（新手推荐） 软件</p>
 <p>以我的iPhone为例，打开Shadowsocks软件，新建一个新节点</p>
 <p>分别填写图11 红框中服务器IP、端口、密码、加密方式等信息，即可创建新节点</p>
-<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_iPhone.png" alt="图11 iPhone 配置"></p>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_iPhone.png" alt="图11 iPhone 配置" /></p>
 <p>配置完成后，如图12，使用配置模式，点击连接该节点即可</p>
-<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_iPhone2.png" alt="图12 iPhone 节点连接"></p>
+<p><img data-src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Vultr_VPS/Vultr_iPhone2.png" alt="图12 iPhone 节点连接" /></p>
 <p>连接之后就可以访问 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20v" title="https://www.youtube.com/">YouTube<i class="fa fa-external-link"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8=" title="https://www.google.com/">Google<i class="fa fa-external-link"></i></span> 等网站了</p>
 
     </div>
@@ -604,7 +599,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、优惠购买vultr"><span class="nav-text">¶一、优惠购买vultr</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、配置Shadowrocks"><span class="nav-text">¶二、配置Shadowrocks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、BBR网络加速"><span class="nav-text">¶三、BBR网络加速</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、配置SSR客户端"><span class="nav-text">¶四、配置SSR客户端</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一优惠购买vultr"><span class="nav-text">一、优惠购买vultr</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二配置shadowrocks"><span class="nav-text">二、配置Shadowrocks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三bbr网络加速"><span class="nav-text">三、BBR网络加速</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四配置ssr客户端"><span class="nav-text">四、配置SSR客户端</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -710,12 +705,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">161k</span>
+    <span title="站点总字数">160k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:28</span>
+    <span title="站点阅读时长">4:27</span>
 </div>
 
 <!--
