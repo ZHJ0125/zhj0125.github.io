@@ -150,9 +150,14 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-更新日志">
+        <li class="menu-item menu-item-来吐槽">
 
-    <a href="/log/" rel="section"><i class="fa fa-fw fa-paper-plane"></i>更新日志</a>
+    <a href="/mylog" rel="section"><i class="fa fa-fw fa-calendar"></i>来吐槽</a>
+
+  </li>
+        <li class="menu-item menu-item-更新记录">
+
+    <a href="/log/" rel="section"><i class="fa fa-fw fa-paper-plane"></i>更新记录</a>
 
   </li>
         <li class="menu-item menu-item-个人网盘">
@@ -283,7 +288,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>82</span>
+              <span>84</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -306,13 +311,13 @@
 <p>下面是主要的技术资源网站，记录下来以便查找</p>
 </blockquote>
 <a id="more"></a>
-<h3 id="博客">博客</h3>
+<h3 id="博客"><a class="header-anchor" href="#博客">¶</a>博客</h3>
 <ul>
 <li><a href="https://zhj.forever305.cn/">厚今的博客</a></li>
 <li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=" title="https://blog.csdn.net/ZHJ123CSDN">CSDN<i class="fa fa-external-link"></i></span></li>
 <li><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vWkhKMDEyNS8=" title="https://www.cnblogs.com/ZHJ0125/">博客园<i class="fa fa-external-link"></i></span></li>
 </ul>
-<h3 id="空间">空间</h3>
+<h3 id="空间"><a class="header-anchor" href="#空间">¶</a>空间</h3>
 <ul>
 <li><span class="exturl" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS96aGFuZy1oYW8tcmVuLTI3LTY2" title="https://www.zhihu.com/people/zhang-hao-ren-27-66">知乎<i class="fa fa-external-link"></i></span></li>
 <li><span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vdS9kZDYyMDFhNmFlMGI=" title="https://www.jianshu.com/u/dd6201a6ae0b">简书<i class="fa fa-external-link"></i></span></li>
@@ -495,7 +500,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#博客"><span class="nav-text">博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空间"><span class="nav-text">空间</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#博客"><span class="nav-text">¶博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空间"><span class="nav-text">¶空间</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -571,7 +576,10 @@
         </li>
     </ul>
   </div>
-
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
       </div>
 
     </div>
@@ -598,12 +606,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">160k</span>
+    <span title="站点总字数">161k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:27</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <!--
@@ -780,6 +788,23 @@
       });
       });
   </script>
+<!-- calendar widget -->
+
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/calendar.min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/languages.min.js"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('zh-CN',
+            $.extend(
+                '', {
+                    single:true,
+                    root:'/calendar/'
+                }
+            )
+        );
+    });
+    </script>
+
 
 
 <script>

@@ -153,9 +153,14 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-更新日志">
+        <li class="menu-item menu-item-来吐槽">
 
-    <a href="/log/" rel="section"><i class="fa fa-fw fa-paper-plane"></i>更新日志</a>
+    <a href="/mylog" rel="section"><i class="fa fa-fw fa-calendar"></i>来吐槽</a>
+
+  </li>
+        <li class="menu-item menu-item-更新记录">
+
+    <a href="/log/" rel="section"><i class="fa fa-fw fa-paper-plane"></i>更新记录</a>
 
   </li>
         <li class="menu-item menu-item-个人网盘">
@@ -409,7 +414,10 @@
         </li>
     </ul>
   </div>
-
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
       </div>
 
     </div>
@@ -436,12 +444,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">160k</span>
+    <span title="站点总字数">161k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:27</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <!--
@@ -618,6 +626,23 @@
       });
       });
   </script>
+<!-- calendar widget -->
+
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/calendar.min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/languages.min.js"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('zh-CN',
+            $.extend(
+                '', {
+                    single:true,
+                    root:'/calendar/'
+                }
+            )
+        );
+    });
+    </script>
+
 
 
 <script>

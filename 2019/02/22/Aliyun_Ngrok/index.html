@@ -25,12 +25,12 @@
     var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":250,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":20},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前段时间在玩3D打印机，需要用ngrok把octoprint映射到公网上，经过不懈努力终于实现了目标，在此我将主要过程写下来与大家分享。     服务器类型 阿里云轻量应用服务器     服务器系统 Ubuntu16.04   树莓派类型 树莓派3B+">
+  <meta name="description" content="前段时间在玩3D打印机，需要用ngrok把octoprint映射到公网上，经过不懈努力终于实现了目标，在此我将主要过程写下来与大家分享。     服务器类型 阿里云轻量应用服务器     服务器系统 Ubuntu16.04   树莓派类型 树莓派3B+">
 <meta property="og:type" content="article">
 <meta property="og:title" content="阿里云部署ngrok服务端">
 <meta property="og:url" content="https://zhj.forever305.cn/2019/02/22/Aliyun_Ngrok/index.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="前段时间在玩3D打印机，需要用ngrok把octoprint映射到公网上，经过不懈努力终于实现了目标，在此我将主要过程写下来与大家分享。     服务器类型 阿里云轻量应用服务器     服务器系统 Ubuntu16.04   树莓派类型 树莓派3B+">
+<meta property="og:description" content="前段时间在玩3D打印机，需要用ngrok把octoprint映射到公网上，经过不懈努力终于实现了目标，在此我将主要过程写下来与大家分享。     服务器类型 阿里云轻量应用服务器     服务器系统 Ubuntu16.04   树莓派类型 树莓派3B+">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2019022221375848.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190222214038694.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
@@ -158,9 +158,14 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-更新日志">
+        <li class="menu-item menu-item-来吐槽">
 
-    <a href="/log/" rel="section"><i class="fa fa-fw fa-paper-plane"></i>更新日志</a>
+    <a href="/mylog" rel="section"><i class="fa fa-fw fa-calendar"></i>来吐槽</a>
+
+  </li>
+        <li class="menu-item menu-item-更新记录">
+
+    <a href="/log/" rel="section"><i class="fa fa-fw fa-paper-plane"></i>更新记录</a>
 
   </li>
         <li class="menu-item menu-item-个人网盘">
@@ -315,61 +320,61 @@
 </blockquote>
 <table>
 <thead>
-<tr class="header">
-<th style="text-align: center;">服务器类型</th>
-<th style="text-align: center;">阿里云轻量应用服务器</th>
+<tr>
+<th style="text-align:center">服务器类型</th>
+<th style="text-align:center">阿里云轻量应用服务器</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;">服务器系统</td>
-<td style="text-align: center;">Ubuntu16.04</td>
+<tr>
+<td style="text-align:center">服务器系统</td>
+<td style="text-align:center">Ubuntu16.04</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">树莓派类型</td>
-<td style="text-align: center;">树莓派3B+</td>
+<tr>
+<td style="text-align:center">树莓派类型</td>
+<td style="text-align:center">树莓派3B+</td>
 </tr>
 </tbody>
 </table>
 <a id="more"></a>
-<h2 id="安装go编译器和git">1.安装go编译器和git</h2>
+<h2 id="1-安装go编译器和git"><a class="header-anchor" href="#1-安装go编译器和git">¶</a>1.安装go编译器和git</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt install golang</span><br><span class="line">apt install git</span><br></pre></td></tr></table></figure>
-<h2 id="下载ngrok源码">2.下载ngrok源码</h2>
+<h2 id="2-下载ngrok源码"><a class="header-anchor" href="#2-下载ngrok源码">¶</a>2.下载ngrok源码</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/inconshreveable/ngrok.git</span><br></pre></td></tr></table></figure>
-<h2 id="生成签名">3.生成签名</h2>
+<h2 id="3-生成签名"><a class="header-anchor" href="#3-生成签名">¶</a>3.生成签名</h2>
 <p>将ngrok文件夹放到<code>/usr/local</code>目录下，进入ngrok目录生成签名</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">NGROK_DOMAIN="forever305.cn"</span><br><span class="line">openssl genrsa -out base.key 2048</span><br><span class="line">openssl req -new -x509 -nodes -key base.key -days 10000 -subj "/CN=$NGROK_DOMAIN" -out base.pem</span><br><span class="line">openssl genrsa -out server.key 2048</span><br><span class="line">openssl req -new -key server.key -subj "/CN=$NGROK_DOMAIN" -out server.csr</span><br><span class="line">openssl x509 -req -in server.csr -CA base.pem -CAkey base.key -CAcreateserial -days 10000 -out server.crt</span><br></pre></td></tr></table></figure>
 <p>注意：这里我把<code>NGROK_DOMAIN</code>定义成了自己阿里云的域名<code>forever305.cn</code></p>
-<h2 id="拷贝签名证书">4.拷贝签名证书</h2>
+<h2 id="4-拷贝签名证书"><a class="header-anchor" href="#4-拷贝签名证书">¶</a>4.拷贝签名证书</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp base.pem assets/client/tls/ngrokroot.crt</span><br><span class="line">cp server.crt assets/server/tls/snakeoil.crt</span><br><span class="line">cp server.key assets/server/tls/snakeoil.key</span><br></pre></td></tr></table></figure>
-<h2 id="编译服务端">5.编译服务端</h2>
+<h2 id="5-编译服务端"><a class="header-anchor" href="#5-编译服务端">¶</a>5.编译服务端</h2>
 <p>服务器安装的系统版本是<code>Ubuntu 16.04.5 LTS (GNU/Linux 4.4.0-141-generic x86_64)</code>，我在网上搜了搜，最后使用下面的命令编译生成了ngrok服务器端。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GOOS=linux GOARCH=386 make release-server</span><br></pre></td></tr></table></figure>
-<h2 id="编译客户端">6.编译客户端</h2>
+<h2 id="6-编译客户端"><a class="header-anchor" href="#6-编译客户端">¶</a>6.编译客户端</h2>
 <p>编译树莓派客户端使用了如下命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export GOARCH=arm</span><br><span class="line">make release-client</span><br></pre></td></tr></table></figure>
-<h2 id="拷贝文件">7.拷贝文件</h2>
+<h2 id="7-拷贝文件"><a class="header-anchor" href="#7-拷贝文件">¶</a>7.拷贝文件</h2>
 <p>在<code>/usr/local/ngrok/bin</code>目录下，就会在linux_386和linux_arm目录分别生成服务端ngrokd和客户端ngrok，再把ngrok客户端拷贝到树莓派。</p>
-<h2 id="服务端测试">8.服务端测试</h2>
+<h2 id="8-服务端测试"><a class="header-anchor" href="#8-服务端测试">¶</a>8.服务端测试</h2>
 <p>先在阿里云防火墙添加一些需要的端口</p>
-<p><img data-src="https://img-blog.csdnimg.cn/2019022221375848.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图1 防火墙端口设置" /></p>
+<p><img data-src="https://img-blog.csdnimg.cn/2019022221375848.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图1 防火墙端口设置"></p>
 <p>然后在域名的解析界面中，添加<code>*.forever305.cn</code>这条记录</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20190222214038694.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图2 域名解析设置" /></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20190222214038694.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图2 域名解析设置"></p>
 <p>在cmd里面用<code>ping</code>命令测试网络</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20190222214236251.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图3 测试网络" /></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20190222214236251.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图3 测试网络"></p>
 <p>这样域名已经解析成功了，而且输入任意的二级域名都可以指向服务器公网IP。然后运行服务器端的ngrokd进行测试</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/ngrok/bin/linux_386/ngrokd -domain="forever305.cn" -httpAddr=":8080" -httpsAddr=":4433" -tunnelAddr=":4443"</span><br></pre></td></tr></table></figure>
-<p>在地址栏输入<code>http://47.95.13.239:8080/</code>，网页中出现<code>&quot;Tunnel 47.95.13.239:8080 not found&quot;</code>，这样说明服务端应该是没有问题了，出现这一行内容是因为现在服务器的8080端口还没有内容。<img data-src="https://img-blog.csdnimg.cn/2019022221434769.png#pic_center" alt="图4 服务端测试" /></p>
-<h2 id="客户端测试">9.客户端测试</h2>
+<p>在地址栏输入<code>http://47.95.13.239:8080/</code>，网页中出现<code>&quot;Tunnel 47.95.13.239:8080 not found&quot;</code>，这样说明服务端应该是没有问题了，出现这一行内容是因为现在服务器的8080端口还没有内容。<img data-src="https://img-blog.csdnimg.cn/2019022221434769.png#pic_center" alt="图4 服务端测试"></p>
+<h2 id="9-客户端测试"><a class="header-anchor" href="#9-客户端测试">¶</a>9.客户端测试</h2>
 <p>刚才已经把编译生成的客户端拷贝到了树莓派的<code>/home/pi/ngrok/aliyun</code>目录下，然后写一个<code>ngrok.cfg</code>文件，其内容如下</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server_addr: "forever305.cn:4443"  /**一定要注意这里的空格**/</span><br><span class="line">trust_host_root_certs: false       /**我就是因为没加空格卡住了***(⊙﹏⊙)*****/</span><br></pre></td></tr></table></figure>
 <p>在树莓派<code>~/ngrok/aliyun</code>目录下，执行如下命令测试客户端：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ngrok -subdomain pi -config=ngrok.cfg 80</span><br></pre></td></tr></table></figure>
 <p>执行上面的命令之后，在树莓派端既可以看到如下界面</p>
-<p><img data-src="https://img-blog.csdnimg.cn/2019022221455134.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图5 客户端测试" /></p>
+<p><img data-src="https://img-blog.csdnimg.cn/2019022221455134.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图5 客户端测试"></p>
 <p>可以看到，现在它映射了<code>127.0.0.1:80</code>到<code>http://pi.forever305.cn:8080</code>，所以已经可以把octoprint放到公网上去了。在浏览器地址栏输入<code>http://pi.forever305.cn:8080</code>即可实现公网访问。</p>
 <p>在实现的过程中，我也参考了很多资料，在此也列出来供大家参考。</p>
-<ol type="1">
+<ol>
 <li><span class="exturl" data-url="aHR0cHM6Ly9uZ3Jvay5jb20vZG9jcw==" title="https://ngrok.com/docs">Ngrok-Documentation<i class="fa fa-external-link"></i></span></li>
 <li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA0NDQxMDYvYXJ0aWNsZS9kZXRhaWxzLzgwNDU3OTg1" title="https://blog.csdn.net/u010444106/article/details/80457985">阿里云搭建自己的ngrok服务-实现内网穿透<i class="fa fa-external-link"></i></span></li>
 <li><span class="exturl" data-url="aHR0cDovL3d3dy52dWxuLmNuLzg2MzQ=" title="http://www.vuln.cn/8634">树莓派使用ngrok内网转发搭建教程【各种问题终极解决方案】<i class="fa fa-external-link"></i></span></li>
@@ -548,7 +553,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装go编译器和git"><span class="nav-text">1.安装go编译器和git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载ngrok源码"><span class="nav-text">2.下载ngrok源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成签名"><span class="nav-text">3.生成签名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拷贝签名证书"><span class="nav-text">4.拷贝签名证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译服务端"><span class="nav-text">5.编译服务端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译客户端"><span class="nav-text">6.编译客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拷贝文件"><span class="nav-text">7.拷贝文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务端测试"><span class="nav-text">8.服务端测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端测试"><span class="nav-text">9.客户端测试</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装go编译器和git"><span class="nav-text">¶1.安装go编译器和git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-下载ngrok源码"><span class="nav-text">¶2.下载ngrok源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-生成签名"><span class="nav-text">¶3.生成签名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-拷贝签名证书"><span class="nav-text">¶4.拷贝签名证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-编译服务端"><span class="nav-text">¶5.编译服务端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-编译客户端"><span class="nav-text">¶6.编译客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-拷贝文件"><span class="nav-text">¶7.拷贝文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-服务端测试"><span class="nav-text">¶8.服务端测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-客户端测试"><span class="nav-text">¶9.客户端测试</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -624,7 +629,10 @@
         </li>
     </ul>
   </div>
-
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
       </div>
 
     </div>
@@ -651,12 +659,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">160k</span>
+    <span title="站点总字数">161k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:27</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <!--
@@ -833,6 +841,23 @@
       });
       });
   </script>
+<!-- calendar widget -->
+
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/calendar.min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/languages.min.js"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('zh-CN',
+            $.extend(
+                '', {
+                    single:true,
+                    root:'/calendar/'
+                }
+            )
+        );
+    });
+    </script>
+
 
 
 <script>
