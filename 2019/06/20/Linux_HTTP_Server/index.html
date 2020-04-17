@@ -25,12 +25,12 @@
     var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":250,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":20},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="内容说明：本篇文章是《嵌入式操作系统》实训报告的第二部分，实现了HTTP服务器的搭建 嵌入式操作系统实训报告内容介绍：  第一部分：编译升级系统Linux内核 第二部分：搭建HTTP服务器 第三部分：搭建动态网站 完整实验报告PDF文件">
+  <meta name="description" content="内容说明：本篇文章是《嵌入式操作系统》实训报告的第二部分，实现了HTTP服务器的搭建 嵌入式操作系统实训报告内容介绍：  第一部分：编译升级系统Linux内核 第二部分：搭建HTTP服务器 第三部分：搭建动态网站 完整实验报告PDF文件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux实训——搭建HTTP服务器">
 <meta property="og:url" content="https://zhj.forever305.cn/2019/06/20/Linux_HTTP_Server/index.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="内容说明：本篇文章是《嵌入式操作系统》实训报告的第二部分，实现了HTTP服务器的搭建 嵌入式操作系统实训报告内容介绍：  第一部分：编译升级系统Linux内核 第二部分：搭建HTTP服务器 第三部分：搭建动态网站 完整实验报告PDF文件">
+<meta property="og:description" content="内容说明：本篇文章是《嵌入式操作系统》实训报告的第二部分，实现了HTTP服务器的搭建 嵌入式操作系统实训报告内容介绍：  第一部分：编译升级系统Linux内核 第二部分：搭建HTTP服务器 第三部分：搭建动态网站 完整实验报告PDF文件">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190620182509566.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190620182531743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center">
@@ -327,31 +327,32 @@
 <li>第二部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_HTTP_Server/">搭建HTTP服务器</a></li>
 <li>第三部分：<a href="https://zhj.forever305.cn/2019/06/20/Linux_MyWeb/">搭建动态网站</a></li>
 <li><span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9TdHVkeS9MaW51eC9saW51eCVFNSVBRSU5RSVFOCVBRSVBRCUyMF8lRTUlQkMlQTAlRTUlOEUlOUElRTQlQkIlOEEucGRm" title="http://47.95.13.239/Study/Linux/linux%E5%AE%9E%E8%AE%AD%20_%E5%BC%A0%E5%8E%9A%E4%BB%8A.pdf">完整实验报告PDF文件<i class="fa fa-external-link"></i></span></li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <a id="more"></a>
-<h2 id="二构建http服务器">二、构建HTTP服务器</h2>
-<h3 id="实验原理">2.1 实验原理</h3>
+<h2 id="二、构建HTTP服务器"><a class="header-anchor" href="#二、构建HTTP服务器">¶</a>二、构建HTTP服务器</h2>
+<h3 id="2-1-实验原理"><a class="header-anchor" href="#2-1-实验原理">¶</a>2.1 实验原理</h3>
 <p>HTTP服务器，又称为WWW服务器、Web服务器，其主要功能是提供给客户端以信息浏览的服务。在Linux平台下，主流的HTTP服务器有<code>Apache、Nginx、Tomcat</code>等，其中应用最广泛的是Apache。</p>
 <p>Apache HTTP服务器，是免费开源的跨平台的 Web服务器软件，绝大多数Apache HTTP Server实例都在Linux发行版上运行。Apache的模块支持非常丰富，虽在速度、性能上不及其他轻量级Web服务器，但属于重量级产品，功能丰富。</p>
-<h3 id="实验分析">2.2 实验分析</h3>
+<h3 id="2-2-实验分析"><a class="header-anchor" href="#2-2-实验分析">¶</a>2.2 实验分析</h3>
 <p>本次实验要求构建一个HTTP服务器，而如果只是搭建HTTP服务器，仅仅需要安装Apache即可。因此，接下来我将安装Apache、编写简单的HTML网页并进行访问测试。</p>
-<h3 id="实验过程记录">2.3 实验过程记录</h3>
-<h4 id="安装apache">2.3.1 安装Apache</h4>
+<h3 id="2-3-实验过程记录"><a class="header-anchor" href="#2-3-实验过程记录">¶</a>2.3 实验过程记录</h3>
+<h4 id="2-3-1-安装Apache"><a class="header-anchor" href="#2-3-1-安装Apache">¶</a>2.3.1 安装Apache</h4>
 <p>首先使用<code>sudo apt-get update</code>命令，对软件包进行更新。之后，使用<code>sudo apt-get install apache2</code>安装apache软件。为了测试Apache是否安装成功，可以直接访问 <code>http://your_server_IP_address</code> 查看。使用<code>ifconfig</code>命令可以查看到主机的IP地址。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20190620182509566.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图 查看本地IP" /></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20190620182509566.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图 查看本地IP"></p>
 <p>后来想到这一步不是必要的，可以直接使用localhost进行测试。</p>
 <p>可以看到，这里显示了<code>127.0.0.1</code>这个用于本地环回的IP。现在打开虚拟机中的Firefox，在地址栏输入<code>http://127.0.0.1</code>并访问，可以看到，apache服务已经搭建成功。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20190620182531743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图 apache访问测试" /></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20190620182531743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图 apache访问测试"></p>
 <p>到目前为止，HTTP服务器已经可以算是搭建成功了，甚至现在已经可以上传静态网页到该服务器以提供访问服务了。</p>
-<h4 id="编写网页测试">2.3.2 编写网页测试</h4>
+<h4 id="2-3-2-编写网页测试"><a class="header-anchor" href="#2-3-2-编写网页测试">¶</a>2.3.2 编写网页测试</h4>
 <p>现在编写一个简单的HTTP静态网页，上传到虚拟机服务器，检测是否能进行访问。在用户目录下，编写一个test.html文件，然后进入到<code>/var/www/html</code>目录，将<code>test.html</code>文件复制到该目录下。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20190620182551451.png#pic_center" alt="图 文件转移" /></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20190620182551451.png#pic_center" alt="图 文件转移"></p>
 <p>现在该目录下应该有两个html文件，一个是原来的默认索引文件<code>index.html</code>，另一个就是用于测试的<code>test.html</code>。现在再次打开<code>Firefox</code>，访问<code>http://127.0.0.1/test.html</code>。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20190620182616184.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图 静态网页测试" /></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20190620182616184.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70#pic_center" alt="图 静态网页测试"></p>
 <p>所以说，现在“制作静态网页并访问”是完全没有问题的。</p>
 <p>其中，<code>test.html</code>文件内容如下：</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20190620182625390.png#pic_center" alt="图 测试内容" /></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20190620182625390.png#pic_center" alt="图 测试内容"></p>
 
     </div>
 
@@ -362,13 +363,13 @@
   <div class="popular-posts-header">相关文章推荐</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2019\06\20\Linux_MyWeb\" rel="bookmark">Linux实训——搭建动态网站</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\2019\06\20\Linux_Upgrade_Core\" rel="bookmark">Linux实训——编译升级Linux内核</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\2020\03\08\fd-open-write\" rel="bookmark">fd_open_write 是一组奇妙的组合</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\06\20\Linux_MyWeb\" rel="bookmark">Linux实训——搭建动态网站</a></div>
     </li>
   </ul>
 
@@ -527,7 +528,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二构建http服务器"><span class="nav-text">二、构建HTTP服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实验原理"><span class="nav-text">2.1 实验原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验分析"><span class="nav-text">2.2 实验分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验过程记录"><span class="nav-text">2.3 实验过程记录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装apache"><span class="nav-text">2.3.1 安装Apache</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编写网页测试"><span class="nav-text">2.3.2 编写网页测试</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二、构建HTTP服务器"><span class="nav-text">¶二、构建HTTP服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-实验原理"><span class="nav-text">¶2.1 实验原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-实验分析"><span class="nav-text">¶2.2 实验分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-实验过程记录"><span class="nav-text">¶2.3 实验过程记录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-安装Apache"><span class="nav-text">¶2.3.1 安装Apache</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-编写网页测试"><span class="nav-text">¶2.3.2 编写网页测试</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -633,12 +634,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">160k</span>
+    <span title="站点总字数">161k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:27</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <!--
