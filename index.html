@@ -163,11 +163,6 @@
     <a href="/log/" rel="section"><i class="fa fa-fw fa-paper-plane"></i>更新记录</a>
 
   </li>
-        <li class="menu-item menu-item-个人网盘">
-
-    <span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOTo4ODg4"><i class="fa fa-fw fa-jsfiddle"></i>个人网盘</span>
-
-  </li>
         <li class="menu-item menu-item-commonweal">
 
     <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
@@ -315,8 +310,9 @@
 <li>昨天用DeepFaceLab做了一下视频换脸</li>
 <li>模型训练就耗费了24小时，但是效果还不太好</li>
 </ul>
-<iframe src="//player.bilibili.com/player.html?aid=99066383&bvid=BV1T7411m7Bd&cid=169112736&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-<hr>
+<iframe src="//player.bilibili.com/player.html?aid=99066383&amp;bvid=BV1T7411m7Bd&amp;cid=169112736&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+</iframe>
+<hr />
 <ul>
 <li>视频内容：利用DeepFaceLab替换视频中的人脸</li>
 <li>视频说明：第一次DeepFace换脸测试，参数调得不好，模型训练时间也不长，导致最终效果不太好 😂
@@ -324,14 +320,13 @@
 <li>result：最终合成的视频</li>
 <li>data_dst：目标视频（视频中的该脸将被替换）</li>
 <li>data_src：源视频（视频被替换为该脸）</li>
-</ul>
-</li>
+</ul></li>
 <li>训练模型：H64</li>
 <li>训练时间：24小时</li>
 <li>参考教程：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGZha2VyLnh5ei8=" title="https://www.deepfaker.xyz/">https://www.deepfaker.xyz/<i class="fa fa-external-link"></i></span></li>
 <li>调试记录：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1pISjAxMjUvZmFjZXN3YXAvYmxvYi9tYXN0ZXIvWkhKX1BDL1Bvd2VyU2hlbGxMb2cubWQ=" title="https://github.com/ZHJ0125/faceswap/blob/master/ZHJ_PC/PowerShellLog.md">https://github.com/ZHJ0125/faceswap/blob/master/ZHJ_PC/PowerShellLog.md<i class="fa fa-external-link"></i></span></li>
 </ul>
-<hr>
+<hr />
 
       
     </div>
@@ -440,10 +435,9 @@
 <li>觉得特别有意思，在此记录下来</li>
 </ul>
 <blockquote>
-<p>我们最近在学习Linux文件编程，需要用到open()函数、write()函数等等；<br>
-当fd、open()、write()这仨东西凑到一起，一不留神就会有神奇效果</p>
+<p>我们最近在学习Linux文件编程，需要用到open()函数、write()函数等等； 当fd、open()、write()这仨东西凑到一起，一不留神就会有神奇效果</p>
 </blockquote>
-<h2 id="1-预备知识"><a class="header-anchor" href="#1-预备知识">¶</a>1 预备知识</h2>
+<h2 id="预备知识">1 预备知识</h2>
 <p>要想看懂这个奇妙的过程，你可能需要先了解一下下面这些函数</p>
           <!--noindex-->
             <div class="post-button">
@@ -570,36 +564,30 @@
 <li>于是想换一种方式实现文件夹的共享。</li>
 <li>以前见过有人用<code>映射网络驱动器</code>的方式实现了文件夹共享，于是这次就想试试这种方式。下面给大家分享一下过程。</li>
 </ul>
-<h2 id="1-我的环境"><a class="header-anchor" href="#1-我的环境">¶</a>1 我的环境</h2>
+<h2 id="我的环境">1 我的环境</h2>
 <table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Product</td>
 <td>VMware® Workstation 15 Player</td>
 </tr>
-<tr>
+<tr class="even">
 <td>VMware Version</td>
 <td>15.5.0 build-14665864</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Ubuntu Version</td>
 <td>Ubuntu 18.04.4 LTS</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Windows Version</td>
 <td>Version 10 Education</td>
 </tr>
 </tbody>
 </table>
-<h2 id="2-效果展示"><a class="header-anchor" href="#2-效果展示">¶</a>2 效果展示</h2>
+<h2 id="效果展示">2 效果展示</h2>
 <p>最终的效果就是这样的，可以在Windows10的资源管理器界面，查看VMware的共享文件夹内容。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200303141024783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="效果展示"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200303141024783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="效果展示" /></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/03/03/VMware-Map-Network-Drive/#more" rel="contents">
@@ -714,37 +702,37 @@
 <li>周末又闲着没事，就把笔记本拆开看了看。</li>
 <li>主要是想清清灰，其次是想看看里面的结构</li>
 </ul>
-<h2 id="1-笔记本配置"><a class="header-anchor" href="#1-笔记本配置">¶</a>1 笔记本配置</h2>
+<h2 id="笔记本配置">1 笔记本配置</h2>
 <p>这个笔记本是2017年购买的，经过我的多次升级，现配置如下：</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>参数</th>
 <th>说明</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>处理器</td>
 <td>Intel Core i5 7200U</td>
 </tr>
-<tr>
+<tr class="even">
 <td>主板</td>
 <td>Lenovo 20H5A01RCD</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>内存</td>
 <td>DDR4 16GBytes</td>
 </tr>
-<tr>
+<tr class="even">
 <td>独显</td>
 <td>NVIDIA GeForce GTX 950M</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>集显</td>
-<td>Intel® HD Graphics 620</td>
+<td>Intel(R) HD Graphics 620</td>
 </tr>
-<tr>
+<tr class="even">
 <td>硬盘</td>
 <td>SanDisk X400 128G + WD10JPVX 1TB</td>
 </tr>
@@ -864,7 +852,7 @@
 <li>昨天尝试了一下C4D建模，做了一个简单的模型</li>
 <li>离百万建模师又近了一步</li>
 </ul>
-<p><img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/C4D/first.png" alt="效果图"></p>
+<p><img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/C4D/first.png" alt="效果图" /></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/03/02/C4D/#more" rel="contents">
@@ -975,12 +963,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="H5AI-介绍"><a class="header-anchor" href="#H5AI-介绍">¶</a>H5AI 介绍</h2>
+          <h2 id="h5ai-介绍">H5AI 介绍</h2>
 <blockquote>
-<p>h5ai is a modern file indexer for HTTP web servers with focus on your files. Directories are displayed in a appealing way and browsing them is enhanced by different views, a breadcrumb and a tree overview.  ——  摘自<a href="https://larsjung.de/h5ai/" target="_blank" rel="noopener">h5ai官网</a></p>
+<p>h5ai is a modern file indexer for HTTP web servers with focus on your files. Directories are displayed in a appealing way and browsing them is enhanced by different views, a breadcrumb and a tree overview. —— 摘自<a href="https://larsjung.de/h5ai/" target="_blank" rel="noopener">h5ai官网</a></p>
 </blockquote>
 <p>H5AI 是一个 php 文件目录列表程序，由德国开发者 @<a href="https://github.com/lrsjng" target="_blank" rel="noopener">Lars Jung</a> 主导开发，它提供多种文件目录列表呈现方式，支持多种主流 Web 服务器。这是一个开源项目，<a href="https://github.com/lrsjng/h5ai" target="_blank" rel="noopener">项目地址在这</a>。感谢开源社区和项目开发者的无私贡献。</p>
-<p><img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/h5ai/Show_MyWeb.png" alt="Show_MyWeb"></p>
+<p><img src="https://zhj0125.oss-cn-shanghai.aliyuncs.com/Hexo/h5ai/Show_MyWeb.png" alt="Show_MyWeb" /></p>
 <p>安装H5AI是因为它能够很好的管理服务器上的文件，并以列表的形式显示在前端，正好适合我的需要。下面，我将安装及配置过程记录下来，与大家分享。</p>
           <!--noindex-->
             <div class="post-button">
@@ -1079,7 +1067,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>920</span>
+              <span>913</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1102,24 +1090,18 @@
 <li>今天上课，老师建议我们试试用<code>共享文件夹</code>实现文件传输</li>
 <li>闲着也没事，就写篇博客记录一下实现过程</li>
 </ul>
-<h2 id="1-我的虚拟机配置"><a class="header-anchor" href="#1-我的虚拟机配置">¶</a>1. 我的虚拟机配置</h2>
+<h2 id="我的虚拟机配置">1. 我的虚拟机配置</h2>
 <table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Product</td>
 <td>VMware® Workstation 15 Player</td>
 </tr>
-<tr>
+<tr class="even">
 <td>VMware Version</td>
 <td>15.5.0 build-14665864</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Ubuntu Version</td>
 <td>Ubuntu 18.04.4 LTS</td>
 </tr>
@@ -1241,12 +1223,12 @@
           <ul>
 <li>最近忽然想玩玩Flutter，安装的时候遇到了一些问题，在这里记录一下</li>
 </ul>
-<h2 id="1-Android-license-status-unknown"><a class="header-anchor" href="#1-Android-license-status-unknown">¶</a>1. Android license status unknown</h2>
+<h2 id="android-license-status-unknown">1. Android license status unknown</h2>
 <p>下载Flutter SDK，配置环境变量之后，在命令行输入<code>flutter doctor</code>诊断当前环境</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\ZHJ&gt; flutter doctor</span><br><span class="line">Doctor summary (to see all details, run flutter doctor <span class="literal">-v</span>):</span><br><span class="line"><span class="function">[√] <span class="title">Flutter</span></span> (Channel stable, v1.<span class="number">0.0</span>, on Microsoft Windows [<span class="type">Version</span> <span class="number">10.0</span><span class="type">.19564.1000</span>], locale en<span class="literal">-US</span>)</span><br><span class="line">[!] Android toolchain - develop <span class="keyword">for</span> Android devices (Android SDK <span class="number">29.0</span>.<span class="number">2</span>)</span><br><span class="line">    X Android license status unknown.</span><br><span class="line">[√] Android Studio (version <span class="number">3.2</span>)</span><br><span class="line">    X Flutter plugin not installed; this adds Flutter specific functionality.</span><br><span class="line">    X Dart plugin not installed; this adds Dart specific functionality.</span><br><span class="line">[!] Connected device</span><br><span class="line">    ! No devices available</span><br><span class="line"></span><br><span class="line">! Doctor found issues <span class="keyword">in</span> <span class="number">2</span> categories.</span><br></pre></td></tr></table></figure>
 <p>使用以下命令诊断安卓证书 <code>flutter doctor --android-licenses</code></p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\ZHJ&gt; flutter doctor -<span class="literal">-android</span><span class="literal">-licenses</span></span><br><span class="line">A newer version of the Android SDK is required. To update, run:</span><br><span class="line">E:\AndroidStudio\SDK\tools\bin\sdkmanager -<span class="literal">-update</span></span><br></pre></td></tr></table></figure>
-<p>按照提示，输入相应命令<code>E:\AndroidStudio\SDK\tools\bin\sdkmanager --update</code>，然而…</p>
+<p>按照提示，输入相应命令<code>E:\AndroidStudio\SDK\tools\bin\sdkmanager --update</code>，然而....</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/24/Flutter-Start/#more" rel="contents">
@@ -1458,7 +1440,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>320</span>
+              <span>318</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1482,30 +1464,30 @@
 <li>问题描述：</li>
 <li>VLC 添加外挂字幕乱码</li>
 </ul>
-<h2 id="软件环境"><a class="header-anchor" href="#软件环境">¶</a>软件环境</h2>
+<h2 id="软件环境">软件环境</h2>
 <table>
 <thead>
-<tr>
-<th style="text-align:left">描述</th>
-<th style="text-align:left">说明</th>
-<th style="text-align:left">下载地址</th>
+<tr class="header">
+<th style="text-align: left;">描述</th>
+<th style="text-align: left;">说明</th>
+<th style="text-align: left;">下载地址</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left">VLC 版本</td>
-<td style="text-align:left">3.0.8</td>
-<td style="text-align:left"><a href="https://get.videolan.org/vlc/3.0.8/win64/vlc-3.0.8-win64.exe" target="_blank" rel="noopener">VLC 3.0.8</a></td>
+<tr class="odd">
+<td style="text-align: left;">VLC 版本</td>
+<td style="text-align: left;">3.0.8</td>
+<td style="text-align: left;"><a href="https://get.videolan.org/vlc/3.0.8/win64/vlc-3.0.8-win64.exe" target="_blank" rel="noopener">VLC 3.0.8</a></td>
 </tr>
-<tr>
-<td style="text-align:left">字母格式</td>
-<td style="text-align:left">ASS/SRT</td>
-<td style="text-align:left"><a href="http://www.zimuku.la/" target="_blank" rel="noopener">字幕库</a></td>
+<tr class="even">
+<td style="text-align: left;">字母格式</td>
+<td style="text-align: left;">ASS/SRT</td>
+<td style="text-align: left;"><a href="http://www.zimuku.la/" target="_blank" rel="noopener">字幕库</a></td>
 </tr>
 </tbody>
 </table>
-<h2 id="解决方案"><a class="header-anchor" href="#解决方案">¶</a>解决方案</h2>
-<ol>
+<h2 id="解决方案">解决方案</h2>
+<ol type="1">
 <li>启动VLC播放器;</li>
 <li>依次点击左上标题栏 <code>工具--&gt;设置</code> (<code>Tools --&gt; Preferences</code>) 进入配置页面;</li>
 <li>在配置页面上方的导航栏，选择 <code>字符/OSD</code> (<code>Subtitles/OSD</code>) 栏目;</li>
@@ -1702,7 +1684,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:25</span>
+    <span title="站点阅读时长">4:24</span>
 </div>
 
 <!--

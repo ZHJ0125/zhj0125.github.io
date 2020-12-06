@@ -25,12 +25,12 @@
     var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":250,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":20},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="本博客的内容是：在 BlackWalnut Labs 完成车牌标志识别实验的学习笔记 其中主要的部分是 BlackWalnut Labs 的实验过程介绍，少部分自己实验过程中的心得，所以就作为转载自 BlackWalnut 的一篇博文吧">
+  <meta name="description" content="本博客的内容是：在 BlackWalnut Labs 完成车牌标志识别实验的学习笔记 其中主要的部分是 BlackWalnut Labs 的实验过程介绍，少部分自己实验过程中的心得，所以就作为转载自 BlackWalnut 的一篇博文吧">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow学习笔记——车牌标志识别分类">
 <meta property="og:url" content="https://zhj.forever305.cn/2019/04/16/TensorFlow_Vehicle/index.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="本博客的内容是：在 BlackWalnut Labs 完成车牌标志识别实验的学习笔记 其中主要的部分是 BlackWalnut Labs 的实验过程介绍，少部分自己实验过程中的心得，所以就作为转载自 BlackWalnut 的一篇博文吧">
+<meta property="og:description" content="本博客的内容是：在 BlackWalnut Labs 完成车牌标志识别实验的学习笔记 其中主要的部分是 BlackWalnut Labs 的实验过程介绍，少部分自己实验过程中的心得，所以就作为转载自 BlackWalnut 的一篇博文吧">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190416155306491.png#pic_center?">
 <meta property="article:published_time" content="2019-04-16T10:03:40.000Z">
@@ -162,11 +162,6 @@
         <li class="menu-item menu-item-更新记录">
 
     <a href="/log/" rel="section"><i class="fa fa-fw fa-paper-plane"></i>更新记录</a>
-
-  </li>
-        <li class="menu-item menu-item-个人网盘">
-
-    <span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOTo4ODg4"><i class="fa fa-fw fa-jsfiddle"></i>个人网盘</span>
 
   </li>
         <li class="menu-item menu-item-commonweal">
@@ -316,41 +311,35 @@
 <li>其中主要的部分是 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2NvZGVsYWJzX2RldGFpbD9pZD01Y2FhMzY3YTU2ZWRmYzAwMTljNWM5NjE=" title="https://blackwalnut.tech/codelabs_detail?id=5caa367a56edfc0019c5c961">BlackWalnut Labs 的实验过程介绍<i class="fa fa-external-link"></i></span>，少部分自己实验过程中的心得，所以就作为转载自 <span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2NvZGVsYWJzX2RldGFpbD9pZD01Y2FhMzY3YTU2ZWRmYzAwMTljNWM5NjE=" title="https://blackwalnut.tech/codelabs_detail?id=5caa367a56edfc0019c5c961">BlackWalnut<i class="fa fa-external-link"></i></span> 的一篇博文吧</li>
 </ul>
 <a id="more"></a>
-<h2 id="一、什么是车标识别"><a class="header-anchor" href="#一、什么是车标识别">¶</a>一、什么是车标识别</h2>
+<h2 id="一什么是车标识别">一、什么是车标识别</h2>
 <p>这次车标识别实验，主要内容是通过机器学习，构建模型，区分不同车牌标志。本次“车标图像分类”项目，基于TensorFlow框架和MobileNet模型，将其应用于分类不同车标的图片，可以说是基于<span class="exturl" data-url="aHR0cHM6Ly9jb2RlbGFicy5kZXZlbG9wZXJzLmdvb2dsZS5jb20v" title="https://codelabs.developers.google.com/">Google Codelabs<i class="fa fa-external-link"></i></span>项目 ——<span class="exturl" data-url="aHR0cHM6Ly9jb2RlbGFicy5kZXZlbG9wZXJzLmdvb2dsZS5jb20vY29kZWxhYnMvdGVuc29yZmxvdy1mb3ItcG9ldHMv" title="https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/">tensorflow-for-poets<i class="fa fa-external-link"></i></span> 的衍生。</p>
-<h2 id="二、我们会创造什么"><a class="header-anchor" href="#二、我们会创造什么">¶</a>二、我们会创造什么</h2>
+<h2 id="二我们会创造什么">二、我们会创造什么</h2>
 <p>本次实验中，我们将要使用 5 种车标图像训练一个 MobileNet模型，并将其应用于不同车标图片的识别分类。在实验中，我们将学到以下内容：</p>
 <blockquote>
-<p>1.收集并分类车标图像<br>
-2.简单使用 MobileNet_v1_128 模型<br>
-3.尝试训练模型并测试效果<br>
-4.分别测试 Learning Rate 为 0.1、0.001、0.0001、0.00001 时的训练效果<br>
-5.测试将预训练模型替换为 MobileNet_v1_224 后的训练效果<br>
-6.学习如何选择最好的训练超参数，执行预测</p>
+<p>1.收集并分类车标图像 2.简单使用 MobileNet_v1_128 模型 3.尝试训练模型并测试效果 4.分别测试 Learning Rate 为 0.1、0.001、0.0001、0.00001 时的训练效果 5.测试将预训练模型替换为 MobileNet_v1_224 后的训练效果 6.学习如何选择最好的训练超参数，执行预测</p>
 </blockquote>
-<h2 id="三、我们需要什么"><a class="header-anchor" href="#三、我们需要什么">¶</a>三、我们需要什么</h2>
-<ol>
+<h2 id="三我们需要什么">三、我们需要什么</h2>
+<ol type="1">
 <li>对Linux和python命令基本了解</li>
 <li>已经配置好tensorflow的Linux的开发环境</li>
 <li>由于实验过程需要相关数据和开发环境，建议在<span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span>注册账户，并使用该实验室提供的环境进行相关实验。==注意：以下实验均在<span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span>所提供的环境下进行。==</li>
 <li>如果想在自己的环境中进行本次试验，其图片数据建议在<span class="exturl" data-url="aHR0cDovL2ltYWdlLW5ldC5vcmcvaW5kZXg=" title="http://image-net.org/index">image_net<i class="fa fa-external-link"></i></span>网站自己下载。或者直接做<span class="exturl" data-url="aHR0cHM6Ly9jb2RlbGFicy5kZXZlbG9wZXJzLmdvb2dsZS5jb20vY29kZWxhYnMvdGVuc29yZmxvdy1mb3ItcG9ldHMv" title="https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/">tensorflow-for-poets<i class="fa fa-external-link"></i></span>这个项目。</li>
 </ol>
-<h2 id="四、Just-do-it"><a class="header-anchor" href="#四、Just-do-it">¶</a>四、Just do it</h2>
+<h2 id="四just-do-it">四、Just do it</h2>
 <p>首先，我们需要收集大量相关车牌的图片，并对图片数据进行分类标识。之后，通过这些图片数据集，对MobileNet模型进行训练，使之能够对新的数据进行预测和判断。最后，可以通过使用新的图片数据，对该模型进行准确性检验。</p>
-<h3 id="4-1-导入图片数据集"><a class="header-anchor" href="#4-1-导入图片数据集">¶</a>4.1 导入图片数据集</h3>
+<h3 id="导入图片数据集">4.1 导入图片数据集</h3>
 <p>在用户目录下，新建名为<code>Codelab</code>的空目录，并在该目录下，新建名为<code>data</code>的子目录。在<code>Codelab</code>目录下，使用终端导入训练数据：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r ../Tools/datasets/* data</span><br></pre></td></tr></table></figure>
-<h3 id="4-2建立数据标签"><a class="header-anchor" href="#4-2建立数据标签">¶</a>4.2建立数据标签</h3>
-<p>在图像分类模型的训练过程中，模型需要知道训练的标签以及每个标签对应的图片，因此还需要图片按照车标种类分类。<br>
-在<code>data</code>目录下，新建标签文件夹，分别命名为：<code>BUICK</code>、<code>CHANGAN</code>、<code>BMW</code>、<code>NISSAN</code>、<code>GM</code>，之后将图片数据按照内容，分别移动到对应的文件夹下，执行以下命令：</p>
+<h3 id="建立数据标签">4.2建立数据标签</h3>
+<p>在图像分类模型的训练过程中，模型需要知道训练的标签以及每个标签对应的图片，因此还需要图片按照车标种类分类。 在<code>data</code>目录下，新建标签文件夹，分别命名为：<code>BUICK</code>、<code>CHANGAN</code>、<code>BMW</code>、<code>NISSAN</code>、<code>GM</code>，之后将图片数据按照内容，分别移动到对应的文件夹下，执行以下命令：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Codelab/data</span><br><span class="line">mv <span class="number">1521121</span>* BUICK</span><br><span class="line">mv <span class="number">1521171</span>* CHANGAN</span><br><span class="line">mv <span class="number">1521187</span>* BMW</span><br><span class="line">mv <span class="number">1521189</span>* NISSAN</span><br><span class="line">mv <span class="number">1521257</span>* GM</span><br></pre></td></tr></table></figure>
-<h3 id="4-3-MobileNet-模型的使用"><a class="header-anchor" href="#4-3-MobileNet-模型的使用">¶</a>4.3 MobileNet 模型的使用</h3>
+<h3 id="mobilenet-模型的使用">4.3 MobileNet 模型的使用</h3>
 <p>MobileNet V1 模型目前支持 2 种分辨率的图像，分别为 128<em>128 和 224</em>224，其提供的训练程序会自动将传入的图片转换成指定的分辨率。下面使用MobileNet_v1_128模型，即分辨率为128*128的MobileNet_v1模型进行训练。</p>
-<h4 id="4-3-1环境变量"><a class="header-anchor" href="#4-3-1环境变量">¶</a>4.3.1环境变量</h4>
+<h4 id="环境变量">4.3.1环境变量</h4>
 <p>首先需要声明环境变量，即训练时所要用到的模型以及图像参数。在终端输入以下内容：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">IMAGE_SIZE=<span class="number">128</span></span><br><span class="line">ARCHITECTURE=<span class="string">"MobileNet_1.0_$&#123;IMAGE_SIZE&#125;"</span></span><br></pre></td></tr></table></figure>
 <p>其中，<code>IMAGE_SIZE</code>表示输入图像的分辨率，<code>ARCHITECTURE</code>定义了模型的相对大小。</p>
-<h4 id="4-3-2训练模型"><a class="header-anchor" href="#4-3-2训练模型">¶</a>4.3.2训练模型</h4>
+<h4 id="训练模型">4.3.2训练模型</h4>
 <p>车标识别的训练基于 Google 提供的 tensorflow-for-poets 项目，切换到终端界面，在 Codelab 目录下新建名为<code>scripts</code> 的目录，进入<code>Codelab</code>目录，将 <code>Tools/project</code>目录下提供的程序复制到该目录下。使用以下命令：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/ Codelab</span><br><span class="line">cp -r ../Tools/project/* .</span><br></pre></td></tr></table></figure>
 <p>该项目在训练时会自动把数据集分类成三种数据集，一种是训练集，一种是测试集，一种是验证集，在默认情况下，这三种数据集的比例分别为 80%、10%、10%。下面开始训练模型，参照下面的做法执行训练，使用以下命令：</p>
@@ -358,56 +347,56 @@
 <p>其中的 参数含义如下：</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>参数</th>
 <th>解释</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>bottleneck_dir</td>
 <td>表示训练集转换后的文件存放的目录</td>
 </tr>
-<tr>
+<tr class="even">
 <td>how_many_training_steps</td>
 <td>表示总训练的步数</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>model_dir</td>
 <td>表示模型文件存放的目录，如果目录下不存在模型则会自动下载</td>
 </tr>
-<tr>
+<tr class="even">
 <td>summaries_dir</td>
 <td>表示训练的中间结果存放的目录</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>output_graph 和 output_labels</td>
 <td>表示训练结果输出的目录</td>
 </tr>
-<tr>
+<tr class="even">
 <td>architecture</td>
 <td>设置的训练参数</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>image_dir</td>
 <td>数据集存放的目录。</td>
 </tr>
-<tr>
+<tr class="even">
 <td>testing_percentage</td>
 <td>测试集的比例，默认值为 10</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>validation_percentage</td>
 <td>验证集的比例，默认为 10</td>
 </tr>
-<tr>
+<tr class="even">
 <td>learning_rate</td>
 <td>作为模型训练的超参数</td>
 </tr>
 </tbody>
 </table>
 <p>在执行训练后，程序会自动下载模型文件并进行训练，并且训练结束后在<code>output</code>目录下生成 <code>retrained_graph_128_0_01.pb</code> 文件和<code>retrained_labels_128_0_01.txt</code> 文件。</p>
-<h4 id="4-3-3模型评估（可选）"><a class="header-anchor" href="#4-3-3模型评估（可选）">¶</a>4.3.3模型评估（可选）</h4>
+<h4 id="模型评估可选">4.3.3模型评估（可选）</h4>
 <p>模型训练结束之后，可以对模型进行评估，以查看模型识别的准确率。</p>
 <p>模型评估有两种方式：一种是通过 Tensorboard 查看训练过程中各个参数的值，另一种是执行评估程序直接查看识别准确率。</p>
 <p>①通过 Tensorboard查看训练参数</p>
@@ -419,18 +408,22 @@
 <p>②通过执行评估程序查看识别准确率</p>
 <p>可以通过刚刚训练生成的<code>retrained_graph_128_0_01.pb</code> 文件和<code>retrained_labels_128_0_01.txt</code> 文件进行模型评估。</p>
 <table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>文件</th>
 <th>含义</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>retrained_graph_128_0_01.pb</td>
 <td>which contains a version of the selected network with a final layer retrained on your categories.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>retrained_labels_128_0_01.txt</td>
 <td>which is a text file containing labels.</td>
 </tr>
@@ -438,22 +431,26 @@
 </table>
 <p>下面将使用<code>evaluate</code>脚本查看识别的准确率，该脚本文件在<code>Codelab/scripts</code>目录下，在该文件中，需要注意以下内容：</p>
 <table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>文件内容</th>
 <th>注意事项</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>with load_graph(graph_file_name).as_default() as graph:ground_truth_input = tf.placeholder(tf.float32, [None, 5], name=‘GroundTruthInput’)</td>
+<tr class="odd">
+<td>with load_graph(graph_file_name).as_default() as graph:ground_truth_input = tf.placeholder(tf.float32, [None, 5], name='GroundTruthInput')</td>
 <td>其中的数字“5“标志训练模型中标签的数量，也就是模型的种类</td>
 </tr>
-<tr>
-<td>image_dir = ‘tf_files/flower_photos’ image_dir</td>
+<tr class="even">
+<td>image_dir = 'tf_files/flower_photos' image_dir</td>
 <td>定义了图片数据集的目录，这里应改为data</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>with tf.Session(graph=graph) as sess:for filename, ground_truth in zip(filenames, ground_truths):image = Image.open(filename).resize((224,224),Image.ANTIALIAS)</td>
 <td>数字“224“表示图片的分辨率,这里应改为128</td>
 </tr>
@@ -462,7 +459,7 @@
 <p>进入终端界面，输入以下命令：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m scripts.evaluate output/retrained_graph_128_0_01.pb</span><br></pre></td></tr></table></figure>
 <p>执行评估程序。输出值中 <code>Accuracy</code> 即为训练的准确率。</p>
-<h4 id="4-3-4尝试其他超参数（可选）"><a class="header-anchor" href="#4-3-4尝试其他超参数（可选）">¶</a>4.3.4尝试其他超参数（可选）</h4>
+<h4 id="尝试其他超参数可选">4.3.4尝试其他超参数（可选）</h4>
 <p>决定最终识别率的因素有三种，一种是训练的模型，一种是数据集的完整性和干净性，另一种是训练的超参数的合理性。</p>
 <p>超参数即不会在训练过程中随着训练的进行而发生变化的训练参数，在本次练习中，选择 <code>learning_rate</code> 为超参数并将其调整为 0.1、0.001、0.0001、0.00001 再次训练。</p>
 <p>使用retrain脚本可以对模型进行重新训练，以learning_rate为0.1为例，执行命令为：</p>
@@ -470,13 +467,12 @@
 <p>其中参数的含义在上文中已经介绍。如果想要改变超参数<code>learning_rate</code>，需要修改的参数有<code>learning_rate</code>“、<code>output_graph</code>和<code>output_labels</code>，其中注意训练不同超参数的模型时，<code>output_graph</code>和<code>output_labels</code>的要改为不同的文件名。</p>
 <p>注意：</p>
 <blockquote>
-<p>该<code>--learning_rate</code>参数控制训练期间最终层的更新幅度。目前，<code>tensorflow-for-poets</code>项目已将其删除，因此程序使用默认<code>learning_rate</code> 的值为0.01。如果指定一个小的<code>learning_rate</code>，比如0.005，训练需要更长时间，但整体精度可能会增加。值越高的<code>learning_rate</code>，比如1.0，可以训练速度更快，但通常会降低精度，甚至使培训不稳定。<br>
-可以根据自己的需要，尝试改变<code>--learning_rate</code>参数进行多次训练。之后再通过<code>evaluate</code>脚本，对训练的模型进行评估。其命令举例如下：</p>
+<p>该<code>--learning_rate</code>参数控制训练期间最终层的更新幅度。目前，<code>tensorflow-for-poets</code>项目已将其删除，因此程序使用默认<code>learning_rate</code> 的值为0.01。如果指定一个小的<code>learning_rate</code>，比如0.005，训练需要更长时间，但整体精度可能会增加。值越高的<code>learning_rate</code>，比如1.0，可以训练速度更快，但通常会降低精度，甚至使培训不稳定。 可以根据自己的需要，尝试改变<code>--learning_rate</code>参数进行多次训练。之后再通过<code>evaluate</code>脚本，对训练的模型进行评估。其命令举例如下：</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m scripts.evaluate output/retrained_graph_128_0_001.pb</span><br></pre></td></tr></table></figure>
 <p>调整训练分辨率：</p>
 <p>当然，训练时所使用的图像分辨率也是训练的超参数之一，不同的分辨率同样会影响模型的训练结果。我们同样可以对图像分辨率进行修改，再进行多次训练，对再训练的模型进行评估。其中需要注意的就是要更新环境变量<code>IMAGE_SIZE</code>的值为224，还要修改<code>evaluate.py</code>脚本中<code>IMAGE_SIZE</code>相关的参数，这里就不再赘述了。</p>
-<h4 id="4-3-5使用再培训模型进行测试"><a class="header-anchor" href="#4-3-5使用再培训模型进行测试">¶</a>4.3.5使用再培训模型进行测试</h4>
+<h4 id="使用再培训模型进行测试">4.3.5使用再培训模型进行测试</h4>
 <p>其实，当我们在“4.3.2模型训练“这一步结束之后，就可以直接通过训练生成的模型，进行图片识别测试了，” 4.3.3模型评估（可选）“和”4.3.4尝试其他超参数（可选）“这两节是为了让我们了解一下如何评估模型以及如何通过改变超参数，影响模型训练的精度。</p>
 <p>Nice，现在我们得到了训练之后的模型，就可以对新的图片进行预测识别了。</p>
 <p>我们现在<code>~/Codelab</code>目录下，新建一个<code>test</code>文件夹，以放置我们想要预测的图片，之后利用<code>label_image</code>脚本，对这个图片进行预测，命令如下：</p>
@@ -484,42 +480,42 @@
 <p>其中参数的含义如下：</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>参数</th>
 <th>含义</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>–graph</td>
+<tr class="odd">
+<td>--graph</td>
 <td>训练生成模型的.pb文件的路径</td>
 </tr>
-<tr>
-<td>–labels</td>
+<tr class="even">
+<td>--labels</td>
 <td>训练生成模型的.txt文件的路径</td>
 </tr>
-<tr>
-<td>–input_height</td>
+<tr class="odd">
+<td>--input_height</td>
 <td>设置图片的高度，注意要与训训练模型一致</td>
 </tr>
-<tr>
-<td>–input_width</td>
+<tr class="even">
+<td>--input_width</td>
 <td>设置图片的宽度，注意要与训训练模型一致</td>
 </tr>
-<tr>
-<td>–image=test/image.jpg</td>
+<tr class="odd">
+<td>--image=test/image.jpg</td>
 <td>想要测试的图片的路径，注意图片的文件名</td>
 </tr>
 </tbody>
 </table>
 <p>执行向上面的测试命令，如果你使用了BMW车标的图片，你可能会看到以下结果：</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20190416155306491.png#pic_center?" alt="图1 模型预测结果"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20190416155306491.png#pic_center?" alt="图1 模型预测结果" /></p>
 <p>表示车牌的标签和该标签预测所得的分数，wow，bmw对应的得分最高，说明该模型预测，此图片为BMW标签的概率比较大，跟实际一样哦！</p>
 <p>如果想进一步验证模型的准确性，需要对这五种标签的图片都进行测试。如果五种标签全部预测成功，才能更好的说明模型的准确性。</p>
-<h2 id="五、实验总结"><a class="header-anchor" href="#五、实验总结">¶</a>五、实验总结</h2>
-<h3 id="5-1-开发环境"><a class="header-anchor" href="#5-1-开发环境">¶</a>5.1 开发环境</h3>
+<h2 id="五实验总结">五、实验总结</h2>
+<h3 id="开发环境">5.1 开发环境</h3>
 <p><span class="exturl" data-url="aHR0cHM6Ly9ibGFja3dhbG51dC50ZWNoL2luZGV4" title="https://blackwalnut.tech/index">BlackWalnut Labs<i class="fa fa-external-link"></i></span>提供的线上开发环境，解决了开发环境配置的一些问题，对初学者非常友好。</p>
-<h3 id="5-2-实验流程"><a class="header-anchor" href="#5-2-实验流程">¶</a>5.2 实验流程</h3>
+<h3 id="实验流程">5.2 实验流程</h3>
 <p>虽然说按照实验导引可以完成整个实验，但是课后还是得自学一下tensorflow的基础内容，认真总结一下才能理解更加深入。</p>
 
     </div>
@@ -692,7 +688,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、什么是车标识别"><span class="nav-text">¶一、什么是车标识别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、我们会创造什么"><span class="nav-text">¶二、我们会创造什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、我们需要什么"><span class="nav-text">¶三、我们需要什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、Just-do-it"><span class="nav-text">¶四、Just do it</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-导入图片数据集"><span class="nav-text">¶4.1 导入图片数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2建立数据标签"><span class="nav-text">¶4.2建立数据标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-MobileNet-模型的使用"><span class="nav-text">¶4.3 MobileNet 模型的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-1环境变量"><span class="nav-text">¶4.3.1环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-2训练模型"><span class="nav-text">¶4.3.2训练模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-3模型评估（可选）"><span class="nav-text">¶4.3.3模型评估（可选）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-4尝试其他超参数（可选）"><span class="nav-text">¶4.3.4尝试其他超参数（可选）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-5使用再培训模型进行测试"><span class="nav-text">¶4.3.5使用再培训模型进行测试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、实验总结"><span class="nav-text">¶五、实验总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-开发环境"><span class="nav-text">¶5.1 开发环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-实验流程"><span class="nav-text">¶5.2 实验流程</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一什么是车标识别"><span class="nav-text">一、什么是车标识别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二我们会创造什么"><span class="nav-text">二、我们会创造什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三我们需要什么"><span class="nav-text">三、我们需要什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四just-do-it"><span class="nav-text">四、Just do it</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导入图片数据集"><span class="nav-text">4.1 导入图片数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立数据标签"><span class="nav-text">4.2建立数据标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mobilenet-模型的使用"><span class="nav-text">4.3 MobileNet 模型的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#环境变量"><span class="nav-text">4.3.1环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#训练模型"><span class="nav-text">4.3.2训练模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模型评估可选"><span class="nav-text">4.3.3模型评估（可选）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#尝试其他超参数可选"><span class="nav-text">4.3.4尝试其他超参数（可选）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用再培训模型进行测试"><span class="nav-text">4.3.5使用再培训模型进行测试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五实验总结"><span class="nav-text">五、实验总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开发环境"><span class="nav-text">5.1 开发环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验流程"><span class="nav-text">5.2 实验流程</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -803,7 +799,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:25</span>
+    <span title="站点阅读时长">4:24</span>
 </div>
 
 <!--

@@ -25,12 +25,12 @@
     var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":250,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":20},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="上一篇文章已经介绍了如何将ngrok服务端部署到阿里云服务器，并且在树莓派部署了ngrok客户端。但是每次启动ngrok服务，都需要运行start.sh脚本，很不方便。于是就需要让树莓派ngrok客户端开机启动。 这篇文章要实现的效果是：在阿里云服务端运行的前提下，树莓派开机后，会自动运行ngrok客户端脚本，实现公网访问。">
+  <meta name="description" content="上一篇文章已经介绍了如何将ngrok服务端部署到阿里云服务器，并且在树莓派部署了ngrok客户端。但是每次启动ngrok服务，都需要运行start.sh脚本，很不方便。于是就需要让树莓派ngrok客户端开机启动。 这篇文章要实现的效果是：在阿里云服务端运行的前提下，树莓派开机后，会自动运行ngrok客户端脚本，实现公网访问。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树莓派ngrok客户端开机自启">
 <meta property="og:url" content="https://zhj.forever305.cn/2019/03/09/Raspberry_Ngrok/index.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="上一篇文章已经介绍了如何将ngrok服务端部署到阿里云服务器，并且在树莓派部署了ngrok客户端。但是每次启动ngrok服务，都需要运行start.sh脚本，很不方便。于是就需要让树莓派ngrok客户端开机启动。 这篇文章要实现的效果是：在阿里云服务端运行的前提下，树莓派开机后，会自动运行ngrok客户端脚本，实现公网访问。">
+<meta property="og:description" content="上一篇文章已经介绍了如何将ngrok服务端部署到阿里云服务器，并且在树莓派部署了ngrok客户端。但是每次启动ngrok服务，都需要运行start.sh脚本，很不方便。于是就需要让树莓派ngrok客户端开机启动。 这篇文章要实现的效果是：在阿里云服务端运行的前提下，树莓派开机后，会自动运行ngrok客户端脚本，实现公网访问。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190309161753602.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2019-03-09T08:41:22.000Z">
@@ -162,11 +162,6 @@
         <li class="menu-item menu-item-更新记录">
 
     <a href="/log/" rel="section"><i class="fa fa-fw fa-paper-plane"></i>更新记录</a>
-
-  </li>
-        <li class="menu-item menu-item-个人网盘">
-
-    <span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOTo4ODg4"><i class="fa fa-fw fa-jsfiddle"></i>个人网盘</span>
 
   </li>
         <li class="menu-item menu-item-commonweal">
@@ -316,48 +311,48 @@
 <li>这篇文章要实现的效果是：在阿里云服务端运行的前提下，树莓派开机后，会自动运行ngrok客户端脚本，实现公网访问。</li>
 </ul>
 <a id="more"></a>
-<h2 id="一、阿里云服务端"><a class="header-anchor" href="#一、阿里云服务端">¶</a>一、阿里云服务端</h2>
+<h2 id="一阿里云服务端">一、阿里云服务端</h2>
 <p>阿里云服务器主要负责”运行服务端”和”储存客户端脚本”。为了让服务端在阿里云上保持运行状态，执行如下命令:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash /usr/local/ngrok/bin/linux_386/start.sh</span><br></pre></td></tr></table></figure>
 <p>该命令的作用是执行启动服务端的脚本文件&quot;<code>start.sh</code>&quot;，使ngrok服务端启动。</p>
-<h2 id="二、拷贝客户端文件"><a class="header-anchor" href="#二、拷贝客户端文件">¶</a>二、拷贝客户端文件</h2>
+<h2 id="二拷贝客户端文件">二、拷贝客户端文件</h2>
 <p>将运行树莓派服务端所需要的脚本等文件，保存在阿里云的<code>/usr/local/ngrok/bin/linux_arm/</code>目录下，便于树莓派下载使用。使用以下命令下载有关文件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo scp root@47.95.13.239: /usr/local/ngrok/bin/linux_arm/ngrok /usr/local/ngrok</span><br><span class="line">sudo scp root@47.95.13.239: /usr/local/ngrok/bin/linux_arm/ngrok.cfg /usr/local/ngrok</span><br><span class="line">sudo scp root@47.95.13.239: /usr/local/ngrok/bin/linux_arm/start.sh /usr/local/ngrok</span><br></pre></td></tr></table></figure>
 <p>这三条语句是分别从阿里云服务器上，下载<code>ngrok</code>、<code>ngrok.cfg</code>、<code>start.sh</code>到树莓派的<code>/usr/local/ngrok</code>目录下。</p>
 <p>表1 阿里云储存的文件及其作用</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>文件</th>
 <th>作用</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>ngrok</td>
 <td>Ngrok客户端文件</td>
 </tr>
-<tr>
+<tr class="even">
 <td>ngrok.cfg</td>
 <td>Ngrok的配置文件</td>
 </tr>
-<tr>
-<td><span class="exturl" data-url="aHR0cDovL3N0YXJ0LnNo" title="http://start.sh">start.sh<i class="fa fa-external-link"></i></span></td>
+<tr class="odd">
+<td>start.sh</td>
 <td>启动ngrok客户端的脚本文件</td>
 </tr>
 </tbody>
 </table>
-<h2 id="三、设置脚本开机运行"><a class="header-anchor" href="#三、设置脚本开机运行">¶</a>三、设置脚本开机运行</h2>
-<h3 id="1-首先将start-sh文件拷贝到树莓派的-usr目录下"><a class="header-anchor" href="#1-首先将start-sh文件拷贝到树莓派的-usr目录下">¶</a>1.首先将start.sh文件拷贝到树莓派的/usr目录下</h3>
+<h2 id="三设置脚本开机运行">三、设置脚本开机运行</h2>
+<h3 id="首先将start.sh文件拷贝到树莓派的usr目录下">1.首先将start.sh文件拷贝到树莓派的/usr目录下</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /usr/local/ngrok/start.sh /usr</span><br></pre></td></tr></table></figure>
-<h3 id="2-编辑-etc-rc-local文件，设置开机启动"><a class="header-anchor" href="#2-编辑-etc-rc-local文件，设置开机启动">¶</a>2.编辑/etc/rc.local文件，设置开机启动</h3>
-<p>打开该文件，然后在文件最后一行添加要执行程序的全路径，即在&quot;<code>exit 0</code>“前面，添加”<code>/usr/./start.sh</code>&quot;</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20190309161753602.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图1 设置开机运行"></p>
+<h3 id="编辑etcrc.local文件设置开机启动">2.编辑/etc/rc.local文件，设置开机启动</h3>
+<p>打开该文件，然后在文件最后一行添加要执行程序的全路径，即在&quot;<code>exit 0</code>&quot;前面，添加&quot;<code>/usr/./start.sh</code>&quot;</p>
+<p><img data-src="https://img-blog.csdnimg.cn/20190309161753602.png#pic_center?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="图1 设置开机运行" /></p>
 <p>使用<code>sudo reboot</code>重启树莓派，就可以直接登录公网ip进行访问了。</p>
-<h2 id="四、附录"><a class="header-anchor" href="#四、附录">¶</a>四、附录</h2>
-<h3 id="4-1-ngrok-cfg"><a class="header-anchor" href="#4-1-ngrok-cfg">¶</a>4.1 ngrok.cfg</h3>
+<h2 id="四附录">四、附录</h2>
+<h3 id="ngrok.cfg">4.1 ngrok.cfg</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server_addr: "forever305.cn:4443"</span><br><span class="line">trust_host_root_certs: false</span><br></pre></td></tr></table></figure>
-<h4 id="4-2-start-sh"><a class="header-anchor" href="#4-2-start-sh">¶</a>4.2 <span class="exturl" data-url="aHR0cDovL3N0YXJ0LnNo" title="http://start.sh">start.sh<i class="fa fa-external-link"></i></span></h4>
+<h4 id="start.sh">4.2 start.sh</h4>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">/usr/local/ngrok/ngrok -config=/usr/local/ngrok/ngrok.cfg -subdomain pi 80</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -530,7 +525,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、阿里云服务端"><span class="nav-text">¶一、阿里云服务端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、拷贝客户端文件"><span class="nav-text">¶二、拷贝客户端文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、设置脚本开机运行"><span class="nav-text">¶三、设置脚本开机运行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-首先将start-sh文件拷贝到树莓派的-usr目录下"><span class="nav-text">¶1.首先将start.sh文件拷贝到树莓派的&#x2F;usr目录下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-编辑-etc-rc-local文件，设置开机启动"><span class="nav-text">¶2.编辑&#x2F;etc&#x2F;rc.local文件，设置开机启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、附录"><span class="nav-text">¶四、附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-ngrok-cfg"><span class="nav-text">¶4.1 ngrok.cfg</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-start-sh"><span class="nav-text">¶4.2 start.sh</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一阿里云服务端"><span class="nav-text">一、阿里云服务端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二拷贝客户端文件"><span class="nav-text">二、拷贝客户端文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三设置脚本开机运行"><span class="nav-text">三、设置脚本开机运行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先将start.sh文件拷贝到树莓派的usr目录下"><span class="nav-text">1.首先将start.sh文件拷贝到树莓派的&#x2F;usr目录下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑etcrc.local文件设置开机启动"><span class="nav-text">2.编辑&#x2F;etc&#x2F;rc.local文件，设置开机启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四附录"><span class="nav-text">四、附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ngrok.cfg"><span class="nav-text">4.1 ngrok.cfg</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#start.sh"><span class="nav-text">4.2 start.sh</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -641,7 +636,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:25</span>
+    <span title="站点阅读时长">4:24</span>
 </div>
 
 <!--

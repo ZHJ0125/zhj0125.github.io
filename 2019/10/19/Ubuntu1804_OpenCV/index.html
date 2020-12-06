@@ -25,12 +25,12 @@
     var CONFIG = {"hostname":"zhj.forever305.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","width":250,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":20},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="记录 Ubuntu18.04 编译安装 OpenCV 过程中遇到的问题 参考的安装教程：Ubuntu 18.04: How to install OpenCV by Adrian Rosebrock on May 28, 2018 in OpenCV, Tutorials  ¶报错1： fatal error: boostdesc_bgm.i: No such file or directory">
+  <meta name="description" content="记录 Ubuntu18.04 编译安装 OpenCV 过程中遇到的问题 参考的安装教程：Ubuntu 18.04: How to install OpenCV by Adrian Rosebrock on May 28, 2018 in OpenCV, Tutorials  报错1： fatal error: boostdesc_bgm.i: No such file or direct">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu18.04 编译安装 OpenCV 遇到的问题">
 <meta property="og:url" content="https://zhj.forever305.cn/2019/10/19/Ubuntu1804_OpenCV/index.html">
 <meta property="og:site_name" content="厚今的博客">
-<meta property="og:description" content="记录 Ubuntu18.04 编译安装 OpenCV 过程中遇到的问题 参考的安装教程：Ubuntu 18.04: How to install OpenCV by Adrian Rosebrock on May 28, 2018 in OpenCV, Tutorials  ¶报错1： fatal error: boostdesc_bgm.i: No such file or directory">
+<meta property="og:description" content="记录 Ubuntu18.04 编译安装 OpenCV 过程中遇到的问题 参考的安装教程：Ubuntu 18.04: How to install OpenCV by Adrian Rosebrock on May 28, 2018 in OpenCV, Tutorials  报错1： fatal error: boostdesc_bgm.i: No such file or direct">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191029181732561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191029181854240.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70">
@@ -167,11 +167,6 @@
     <a href="/log/" rel="section"><i class="fa fa-fw fa-paper-plane"></i>更新记录</a>
 
   </li>
-        <li class="menu-item menu-item-个人网盘">
-
-    <span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOTo4ODg4"><i class="fa fa-fw fa-jsfiddle"></i>个人网盘</span>
-
-  </li>
         <li class="menu-item menu-item-commonweal">
 
     <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
@@ -301,7 +296,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>769</span>
+              <span>766</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -324,42 +319,30 @@
 <li>记录 Ubuntu18.04 编译安装 OpenCV 过程中遇到的问题</li>
 <li>参考的安装教程：<span class="exturl" data-url="aHR0cHM6Ly93d3cucHlpbWFnZXNlYXJjaC5jb20vMjAxOC8wNS8yOC91YnVudHUtMTgtMDQtaG93LXRvLWluc3RhbGwtb3BlbmN2Lw==" title="https://www.pyimagesearch.com/2018/05/28/ubuntu-18-04-how-to-install-opencv/">Ubuntu 18.04: How to install OpenCV by Adrian Rosebrock on May 28, 2018 in OpenCV, Tutorials<i class="fa fa-external-link"></i></span></li>
 </ul>
-<h2 id="报错1：-fatal-error-boostdesc-bgm-i-No-such-file-or-directory"><a class="header-anchor" href="#报错1：-fatal-error-boostdesc-bgm-i-No-such-file-or-directory">¶</a>报错1： fatal error: boostdesc_bgm.i: No such file or directory</h2>
-<p>报错截图：<br>
-<img data-src="https://img-blog.csdnimg.cn/20191029181732561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="fatal error"></p>
+<h2 id="报错1-fatal-error-boostdesc_bgm.i-no-such-file-or-directory">报错1： fatal error: boostdesc_bgm.i: No such file or directory</h2>
+<p>报错截图： <img data-src="https://img-blog.csdnimg.cn/20191029181732561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="fatal error" /></p>
 <ul>
 <li>报错原因：在编译CMake的时候 <strong>boostdesc_bgm.i</strong> 这个文件就没有下载成功，导致make编译的时候找不到该文件。</li>
 <li>解决方案：手动下载相关文件。总共需要下载11个文件，我已经将它们上传到了服务器上，<span class="exturl" data-url="aHR0cDovLzQ3Ljk1LjEzLjIzOS9wbGF5L09wZW5DVi9mYXRhbF9lcnJvci8=" title="http://47.95.13.239/play/OpenCV/fatal_error/">点击此处可以下载<i class="fa fa-external-link"></i></span>。下载完成后，将他们复制到 <strong>opencv_contrib/modules/xfeatures2d/src/</strong> 文件夹中，重新编译即可。</li>
 </ul>
 <a id="more"></a>
-<h2 id="报错2：fatal-error-opencv2-xfeatures2d-cuda-hpp-No-such-file-or-directory"><a class="header-anchor" href="#报错2：fatal-error-opencv2-xfeatures2d-cuda-hpp-No-such-file-or-directory">¶</a>报错2：fatal error: opencv2/xfeatures2d/cuda.hpp: No such file or directory</h2>
-<p>报错截图：<br>
-<img data-src="https://img-blog.csdnimg.cn/20191029181854240.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="No such file or directory"></p>
+<h2 id="报错2fatal-error-opencv2xfeatures2dcuda.hpp-no-such-file-or-directory">报错2：fatal error: opencv2/xfeatures2d/cuda.hpp: No such file or directory</h2>
+<p>报错截图： <img data-src="https://img-blog.csdnimg.cn/20191029181854240.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="No such file or directory" /></p>
 <ul>
 <li>错误原因：CMake 默认不支持 https，导致文件下载失败</li>
 <li>解决方案：在工程目录下查询cuda.hpp文件，将其复制到指定位置。使用find语句进行查询</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ~ -name "cuda.hpp"</span><br></pre></td></tr></table></figure>
-<p>类似的，对于以下报错，都可以通过查找文件解决。<br>
-<img data-src="https://img-blog.csdnimg.cn/20191029182255278.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
-对于上图的报错，可以通过查找 <strong>nonfree.hpp</strong> ，并将其复制到 <strong>opencv2/xfeatures2d/</strong> 文件夹中即可解决。</p>
+<p>类似的，对于以下报错，都可以通过查找文件解决。 <img data-src="https://img-blog.csdnimg.cn/20191029182255278.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pISjEyM0NTRE4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /> 对于上图的报错，可以通过查找 <strong>nonfree.hpp</strong> ，并将其复制到 <strong>opencv2/xfeatures2d/</strong> 文件夹中即可解决。</p>
 <p>最终安装成功</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20191029183719470.png" alt="图.编译完成"></p>
-<p><img data-src="https://img-blog.csdnimg.cn/20191029183734823.png" alt="图.cv模块导入"></p>
-<h2 id="其他参考资料"><a class="header-anchor" href="#其他参考资料">¶</a>其他参考资料</h2>
-<ol>
-<li>
-<p><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8zODczODk3Ng==" title="https://zhuanlan.zhihu.com/p/38738976">Install Opencv3.4.1 on Ubuntu 16.04 喝Caffe第一包<i class="fa fa-external-link"></i></span></p>
-</li>
-<li>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cudHdibG9ncy5uZXQvYS81YzMzNTNhNGJkOWVlZTM1YjNhNTIwMDIvemgtY24=" title="https://www.twblogs.net/a/5c3353a4bd9eee35b3a52002/zh-cn">编译OpenCV以及openc_contrib提示缺少boostdesc_bgm.i文件出错的解决<i class="fa fa-external-link"></i></span></p>
-</li>
-<li>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29wZW5jdi9vcGVuY3ZfY29udHJpYi9pc3N1ZXMvMTMwMQ==" title="https://github.com/opencv/opencv_contrib/issues/1301">fatal error: boostdesc_bgm.i: No such file or directory #1301<i class="fa fa-external-link"></i></span></p>
-</li>
-<li>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vdGhteC9wLzg1NjU1MzAuaHRtbA==" title="https://www.cnblogs.com/thmx/p/8565530.html">安装opencv3.4.0报错<i class="fa fa-external-link"></i></span></p>
-</li>
+<p><img data-src="https://img-blog.csdnimg.cn/20191029183719470.png" alt="图.编译完成" /></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20191029183734823.png" alt="图.cv模块导入" /></p>
+<h2 id="其他参考资料">其他参考资料</h2>
+<ol type="1">
+<li><p><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8zODczODk3Ng==" title="https://zhuanlan.zhihu.com/p/38738976">Install Opencv3.4.1 on Ubuntu 16.04 喝Caffe第一包<i class="fa fa-external-link"></i></span></p></li>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly93d3cudHdibG9ncy5uZXQvYS81YzMzNTNhNGJkOWVlZTM1YjNhNTIwMDIvemgtY24=" title="https://www.twblogs.net/a/5c3353a4bd9eee35b3a52002/zh-cn">编译OpenCV以及openc_contrib提示缺少boostdesc_bgm.i文件出错的解决<i class="fa fa-external-link"></i></span></p></li>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29wZW5jdi9vcGVuY3ZfY29udHJpYi9pc3N1ZXMvMTMwMQ==" title="https://github.com/opencv/opencv_contrib/issues/1301">fatal error: boostdesc_bgm.i: No such file or directory #1301<i class="fa fa-external-link"></i></span></p></li>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vdGhteC9wLzg1NjU1MzAuaHRtbA==" title="https://www.cnblogs.com/thmx/p/8565530.html">安装opencv3.4.0报错<i class="fa fa-external-link"></i></span></p></li>
 </ol>
 
     </div>
@@ -371,19 +354,19 @@
   <div class="popular-posts-header">相关文章推荐</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2019\06\26\Unable-to-lock-the-administration-directory-var-lib-dpkg\" rel="bookmark">Unable to lock the administration directory (/var/lib/dpkg/)解决办法</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\2020\03\03\VMware-Map-Network-Drive\" rel="bookmark">VMware 映射网络驱动器</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\03\08\fd-open-write\" rel="bookmark">fd_open_write 是一组奇妙的组合</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\2020\02\26\VMware-Share\" rel="bookmark">VMware 共享文件夹</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\03\08\fd-open-write\" rel="bookmark">fd_open_write 是一组奇妙的组合</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\2020\02\27\h5ai\" rel="bookmark">Ubuntu LAMP 环境下安装 H5AI</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\06\26\Unable-to-lock-the-administration-directory-var-lib-dpkg\" rel="bookmark">Unable to lock the administration directory (/var/lib/dpkg/)解决办法</a></div>
     </li>
   </ul>
 
@@ -543,7 +526,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#报错1：-fatal-error-boostdesc-bgm-i-No-such-file-or-directory"><span class="nav-text">¶报错1： fatal error: boostdesc_bgm.i: No such file or directory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报错2：fatal-error-opencv2-xfeatures2d-cuda-hpp-No-such-file-or-directory"><span class="nav-text">¶报错2：fatal error: opencv2&#x2F;xfeatures2d&#x2F;cuda.hpp: No such file or directory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他参考资料"><span class="nav-text">¶其他参考资料</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#报错1-fatal-error-boostdesc_bgm.i-no-such-file-or-directory"><span class="nav-text">报错1： fatal error: boostdesc_bgm.i: No such file or directory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报错2fatal-error-opencv2xfeatures2dcuda.hpp-no-such-file-or-directory"><span class="nav-text">报错2：fatal error: opencv2&#x2F;xfeatures2d&#x2F;cuda.hpp: No such file or directory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他参考资料"><span class="nav-text">其他参考资料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -654,7 +637,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:25</span>
+    <span title="站点阅读时长">4:24</span>
 </div>
 
 <!--
